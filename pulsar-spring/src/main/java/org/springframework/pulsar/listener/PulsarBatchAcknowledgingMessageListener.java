@@ -16,8 +16,10 @@
 
 package org.springframework.pulsar.listener;
 
+import java.util.List;
+
 import org.apache.pulsar.client.api.Consumer;
-import org.apache.pulsar.client.api.Messages;
+import org.apache.pulsar.client.api.Message;
 
 /**
  * Batch message listener that allows manual acknowledgment.
@@ -27,10 +29,10 @@ import org.apache.pulsar.client.api.Messages;
  */
 public interface PulsarBatchAcknowledgingMessageListener<T> extends PulsarBatchMessageListener<T> {
 
-	default void received(Consumer<T> consumer, Messages<T> msg) {
+	default void received(Consumer<T> consumer, List<Message<T>> msg) {
 		throw new UnsupportedOperationException("Not Supported.");
 	}
 
-	void received(Consumer<T> consumer, Messages<T> msg, Acknowledgement acknowledgement);
+	void received(Consumer<T> consumer, List<Message<T>> msg, Acknowledgement acknowledgement);
 
 }
