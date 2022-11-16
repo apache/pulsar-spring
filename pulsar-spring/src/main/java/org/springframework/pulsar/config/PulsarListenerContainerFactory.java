@@ -21,13 +21,10 @@ import org.springframework.pulsar.listener.PulsarMessageListenerContainer;
 /**
  * Factory for Pulsar message listener containers.
  *
- * @param <C> message listener container type.
  * @author Soby Chacko
+ * @author Christophe Bornet
  */
-public interface PulsarListenerContainerFactory<C extends PulsarMessageListenerContainer> {
-
-	C createListenerContainer(PulsarListenerEndpoint endpoint);
-
-	C createContainer(String... topics);
+public interface PulsarListenerContainerFactory
+		extends ListenerContainerFactory<PulsarMessageListenerContainer, PulsarListenerEndpoint> {
 
 }

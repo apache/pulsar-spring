@@ -34,11 +34,11 @@ import org.springframework.pulsar.listener.AckMode;
  * Annotation that marks a method to be the target of a Pulsar message listener on the
  * specified topics.
  *
- * The {@link #containerFactory()} identifies the
- * {@link org.springframework.pulsar.config.PulsarListenerContainerFactory} to use to
- * build the Pulsar listener container. If not set, a <em>default</em> container factory
- * is assumed to be available with a bean name of {@code pulsarListenerContainerFactory}
- * unless an explicit default has been provided through configuration.
+ * The {@link #containerFactory()} identifies the {@link PulsarListenerContainerFactory}
+ * to use to build the Pulsar listener container. If not set, a <em>default</em> container
+ * factory is assumed to be available with a bean name of
+ * {@code pulsarListenerContainerFactory} unless an explicit default has been provided
+ * through configuration.
  *
  * <p>
  * Processing of {@code @PulsarListener} annotations is performed by registering a
@@ -79,6 +79,10 @@ public @interface PulsarListener {
 	 */
 	SubscriptionType subscriptionType() default SubscriptionType.Exclusive;
 
+	/**
+	 * Pulsar schema type for this listener.
+	 * @return the {@code schemaType} for this listener
+	 */
 	SchemaType schemaType() default SchemaType.NONE;
 
 	/**
