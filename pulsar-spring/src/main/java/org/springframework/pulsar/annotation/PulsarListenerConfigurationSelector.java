@@ -22,19 +22,16 @@ import org.springframework.core.type.AnnotationMetadata;
 
 /**
  * A {@link DeferredImportSelector} implementation with the lowest order to import
- * {@link PulsarBootstrapConfiguration} and {@link ReactivePulsarBootstrapConfiguration}
- * as late as possible.
+ * {@link PulsarBootstrapConfiguration} as late as possible.
  *
  * @author Soby Chacko
- *
  */
 @Order
 public class PulsarListenerConfigurationSelector implements DeferredImportSelector {
 
 	@Override
 	public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-		return new String[] { PulsarBootstrapConfiguration.class.getName(),
-				ReactivePulsarBootstrapConfiguration.class.getName() };
+		return new String[] { PulsarBootstrapConfiguration.class.getName() };
 	}
 
 }
