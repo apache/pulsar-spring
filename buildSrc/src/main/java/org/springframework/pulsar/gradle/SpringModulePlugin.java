@@ -19,8 +19,6 @@ package org.springframework.pulsar.gradle;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.PluginManager;
 
-import org.springframework.pulsar.gradle.publish.PublishAllJavaComponentsPlugin;
-
 /**
  * @author Chris Bono
  */
@@ -30,7 +28,6 @@ public class SpringModulePlugin extends SpringDocsModulePlugin {
 	public void apply(final Project project) {
 		super.apply(project);
 		PluginManager pluginManager = project.getPluginManager();
-		pluginManager.apply(PublishAllJavaComponentsPlugin.class);
 		pluginManager.apply(JacocoConventionsPlugin.class);
 	}
 }
