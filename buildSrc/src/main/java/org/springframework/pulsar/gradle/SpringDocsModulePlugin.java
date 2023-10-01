@@ -19,7 +19,7 @@ package org.springframework.pulsar.gradle;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.PluginManager;
 
-import org.springframework.pulsar.gradle.docs.AsciidoctorConventionsPlugin;
+import org.springframework.pulsar.gradle.publish.SpringMavenPlugin;
 
 /**
  * @author Chris Bono
@@ -28,5 +28,7 @@ public class SpringDocsModulePlugin extends AbstractSpringModulePlugin {
 
 	@Override
 	protected void additionalPlugins(Project project) {
+		PluginManager pluginManager = project.getPluginManager();
+		pluginManager.apply(SpringMavenPlugin.class);
 	}
 }
