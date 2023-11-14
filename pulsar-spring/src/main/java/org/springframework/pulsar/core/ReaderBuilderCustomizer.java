@@ -19,7 +19,16 @@ package org.springframework.pulsar.core;
 import org.apache.pulsar.client.api.ReaderBuilder;
 
 /**
- * The interface to customize a {@link ReaderBuilder}.
+ * Callback interface that can be implemented to customize the {@link ReaderBuilder} that
+ * is used by the {@link PulsarReaderFactory} to create readers.
+ * <p>
+ * When using Spring Boot autoconfiguration, any beans implementing this interface will be
+ * used as default configuration by the {@link DefaultPulsarReaderFactory} and as such
+ * will apply to all created readers.
+ * <p>
+ * The reader factory also supports passing in a specific instance of this callback when
+ * {@link PulsarReaderFactory#createReader creating a reader} and as such the passed in
+ * customizer only applies to the single created reader.
  *
  * @param <T> The message payload type
  * @author Soby Chacko
