@@ -25,8 +25,7 @@ public abstract class UpdateToSnapshotVersionTask extends UpdateProjectVersionTa
 		String currentVersion = getProject().getVersion().toString();
 		String nextSnapshotVersion = calculateNextSnapshotVersion(currentVersion);
 		updateVersionInGradleProperties(VERSION_PROPERTY, nextSnapshotVersion);
-		updateVersionInGradleProperties(VERSION_FOR_SAMPLES_PROPERTY, nextSnapshotVersion);
-		updateVersionInTomlVersions(SPRING_BOOT_VERSION_FOR_DOCS_PROPERTY, this::calculateNextSnapshotVersion);
+		updateVersionInGradleProperties(VERSION_FOR_SAMPLES_PROPERTY, currentVersion);
 	}
 
 	private String calculateNextSnapshotVersion(String version) {
