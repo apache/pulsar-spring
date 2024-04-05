@@ -17,7 +17,6 @@
 package org.springframework.pulsar.listener;
 
 import org.apache.pulsar.client.api.PulsarClient;
-import org.apache.pulsar.client.api.PulsarClientException;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,7 +66,7 @@ abstract class PulsarListenerTestsBase implements PulsarTestContainerSupport {
 		}
 
 		@Bean
-		PulsarClient pulsarClient() throws PulsarClientException {
+		PulsarClient pulsarClient() {
 			return new DefaultPulsarClientFactory(PulsarTestContainerSupport.getPulsarBrokerUrl()).createClient();
 		}
 
