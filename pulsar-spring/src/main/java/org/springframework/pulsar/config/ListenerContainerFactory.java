@@ -1,5 +1,5 @@
 /*
- * Copyright 2022-2023 the original author or authors.
+ * Copyright 2022-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 
 package org.springframework.pulsar.config;
 
-import org.springframework.pulsar.annotation.PulsarListener;
 import org.springframework.pulsar.listener.MessageListenerContainer;
 
 /**
@@ -26,24 +25,22 @@ import org.springframework.pulsar.listener.MessageListenerContainer;
  * @param <E> listener endpoint type.
  * @author Soby Chacko
  * @author Christophe Bornet
+ * @author Chris Bono
  */
-public interface ListenerContainerFactory<C extends MessageListenerContainer, E extends ListenerEndpoint<C>> {
+public interface ListenerContainerFactory<C extends MessageListenerContainer, E extends ListenerEndpoint<C>>
+		extends PulsarContainerFactory<C, E> {
 
 	/**
 	 * Create a {@link MessageListenerContainer} for the given {@link ListenerEndpoint}.
 	 * Containers created using this method are added to the listener endpoint registry.
 	 * @param endpoint the endpoint to configure
 	 * @return the created container
+	 * @deprecated since 1.2.0 for removal in 1.4.0 in favor of
+	 * {@link PulsarContainerFactory#createRegisteredContainer}
 	 */
-	C createListenerContainer(E endpoint);
-
-	/**
-	 * Create and configure a container without a listener; used to create containers that
-	 * are not used for {@link PulsarListener} annotations. Containers created using this
-	 * method are not added to the listener endpoint registry.
-	 * @param topics the topics.
-	 * @return the container.
-	 */
-	C createContainer(String... topics);
+	@Deprecated(since = "1.2.0", forRemoval = true)
+	default C createListenerContainer(E endpoint) {
+		return createRegisteredContainer(endpoint);
+	}
 
 }
