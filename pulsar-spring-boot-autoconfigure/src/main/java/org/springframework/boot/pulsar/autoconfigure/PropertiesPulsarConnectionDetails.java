@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;
 
 /**
  * Adapts {@link PulsarProperties} to {@link PulsarConnectionDetails}.

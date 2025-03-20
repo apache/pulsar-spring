@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;
 
 import org.springframework.boot.autoconfigure.service.connection.ConnectionDetails;
 
@@ -22,7 +22,7 @@ import org.springframework.boot.autoconfigure.service.connection.ConnectionDetai
  * Details required to establish a connection to a Pulsar service.
  *
  * @author Chris Bono
- * @since 3.2.0
+ * @since 4.0.0
  */
 public interface PulsarConnectionDetails extends ConnectionDetails {
 

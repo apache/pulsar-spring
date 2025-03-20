@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -65,7 +65,7 @@ import org.springframework.pulsar.reactive.listener.ReactivePulsarContainerPrope
  *
  * @author Chris Bono
  * @author Christophe Bornet
- * @since 3.2.0
+ * @since 4.0.0
  */
 @AutoConfiguration(after = PulsarAutoConfiguration.class)
 @ConditionalOnClass({ PulsarClient.class, ReactivePulsarClient.class, ReactivePulsarTemplate.class })

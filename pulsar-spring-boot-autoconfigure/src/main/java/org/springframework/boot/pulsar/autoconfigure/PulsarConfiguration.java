@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +30,9 @@ import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBooleanProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.pulsar.PulsarProperties.Defaults.SchemaInfo;
-import org.springframework.boot.autoconfigure.pulsar.PulsarProperties.Defaults.TypeMapping;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.pulsar.autoconfigure.PulsarProperties.Defaults.SchemaInfo;
+import org.springframework.boot.pulsar.autoconfigure.PulsarProperties.Defaults.TypeMapping;
 import org.springframework.boot.util.LambdaSafe;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

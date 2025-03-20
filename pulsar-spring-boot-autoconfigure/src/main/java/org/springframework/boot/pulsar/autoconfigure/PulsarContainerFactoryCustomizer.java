@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;
 
 import org.springframework.pulsar.config.PulsarContainerFactory;
 
@@ -25,7 +25,7 @@ import org.springframework.pulsar.config.PulsarContainerFactory;
  *
  * @param <T> the type of the {@link PulsarContainerFactory}
  * @author Chris Bono
- * @since 3.4.0
+ * @since 4.0.0
  */
 @FunctionalInterface
 public interface PulsarContainerFactoryCustomizer<T extends PulsarContainerFactory<?, ?>> {

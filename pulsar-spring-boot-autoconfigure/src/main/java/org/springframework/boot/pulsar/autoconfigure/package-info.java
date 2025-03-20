@@ -17,4 +17,4 @@
 /**
  * Auto-configuration for Spring for Apache Pulsar.
  */
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;

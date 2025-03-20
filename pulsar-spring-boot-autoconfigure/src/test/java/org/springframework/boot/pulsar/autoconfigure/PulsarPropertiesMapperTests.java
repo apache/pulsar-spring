@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;
 
 import java.time.Duration;
 import java.util.List;
@@ -39,8 +39,8 @@ import org.apache.pulsar.client.impl.AutoClusterFailover;
 import org.apache.pulsar.common.schema.SchemaType;
 import org.junit.jupiter.api.Test;
 
-import org.springframework.boot.autoconfigure.pulsar.PulsarProperties.Consumer;
-import org.springframework.boot.autoconfigure.pulsar.PulsarProperties.Failover.BackupCluster;
+import org.springframework.boot.pulsar.autoconfigure.PulsarProperties.Consumer;
+import org.springframework.boot.pulsar.autoconfigure.PulsarProperties.Failover.BackupCluster;
 import org.springframework.pulsar.core.PulsarProducerFactory;
 import org.springframework.pulsar.core.PulsarTemplate;
 import org.springframework.pulsar.listener.PulsarContainerProperties;
@@ -134,8 +134,7 @@ class PulsarPropertiesMapperTests {
 		BackupCluster backupCluster1 = new BackupCluster();
 		backupCluster1.setServiceUrl("backup-cluster-1");
 		Map<String, String> params = Map.of("param", "name");
-		backupCluster1.getAuthentication()
-			.setPluginClassName("org.springframework.boot.autoconfigure.pulsar.MockAuthentication");
+		backupCluster1.getAuthentication().setPluginClassName(MockAuthentication.class.getName());
 		backupCluster1.getAuthentication().setParam(params);
 		BackupCluster backupCluster2 = new BackupCluster();
 		backupCluster2.setServiceUrl("backup-cluster-2");

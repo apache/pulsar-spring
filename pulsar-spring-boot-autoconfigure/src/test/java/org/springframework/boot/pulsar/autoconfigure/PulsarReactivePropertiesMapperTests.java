@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;
 
 import java.time.Duration;
 import java.util.List;
@@ -35,8 +35,8 @@ import org.apache.pulsar.reactive.client.api.ReactiveMessageReaderBuilder;
 import org.apache.pulsar.reactive.client.api.ReactiveMessageSenderBuilder;
 import org.junit.jupiter.api.Test;
 
-import org.springframework.boot.autoconfigure.pulsar.PulsarProperties.Consumer;
-import org.springframework.boot.autoconfigure.pulsar.PulsarProperties.Consumer.Subscription;
+import org.springframework.boot.pulsar.autoconfigure.PulsarProperties.Consumer;
+import org.springframework.boot.pulsar.autoconfigure.PulsarProperties.Consumer.Subscription;
 import org.springframework.pulsar.reactive.listener.ReactivePulsarContainerProperties;
 
 import static org.assertj.core.api.Assertions.assertThat;

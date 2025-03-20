@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ import org.springframework.util.Assert;
  * @author Phillip Webb
  * @author Swamy Mavuri
  * @author Vedran Pavic
- * @since 3.2.0
+ * @since 4.0.0
  */
 @ConfigurationProperties("spring.pulsar")
 public class PulsarProperties {

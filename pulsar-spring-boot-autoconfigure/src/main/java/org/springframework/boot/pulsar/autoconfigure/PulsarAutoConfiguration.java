@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +69,7 @@ import org.springframework.pulsar.transaction.PulsarTransactionManager;
  * @author Alexander Preuß
  * @author Phillip Webb
  * @author Jonas Geiregat
- * @since 3.2.0
+ * @since 4.0.0
  */
 @AutoConfiguration
 @ConditionalOnClass({ PulsarClient.class, PulsarTemplate.class })

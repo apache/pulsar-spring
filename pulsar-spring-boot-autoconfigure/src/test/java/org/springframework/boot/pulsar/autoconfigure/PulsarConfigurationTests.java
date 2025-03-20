@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.pulsar;
+package org.springframework.boot.pulsar.autoconfigure;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -139,7 +139,8 @@ class PulsarConfigurationTests {
 						"spring.pulsar.client.failover.switch-back-delay=30s",
 						"spring.pulsar.client.failover.check-interval=5s",
 						"spring.pulsar.client.failover.backup-clusters[1].service-url=backup-cluster-2",
-						"spring.pulsar.client.failover.backup-clusters[1].authentication.plugin-class-name=org.springframework.boot.autoconfigure.pulsar.MockAuthentication",
+						"spring.pulsar.client.failover.backup-clusters[1].authentication.plugin-class-name="
+								+ MockAuthentication.class.getName(),
 						"spring.pulsar.client.failover.backup-clusters[1].authentication.param.token=1234")
 				.run((context) -> {
 					DefaultPulsarClientFactory clientFactory = context.getBean(DefaultPulsarClientFactory.class);
