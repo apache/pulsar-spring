@@ -1,5 +1,6 @@
 * xref:index.adoc[Overview]
 * xref:whats-new.adoc[]
+* xref:migration.adoc[]
 * xref:intro.adoc[]
 ** xref:intro/system-requirements.adoc[]
 ** xref:intro/building.adoc[]

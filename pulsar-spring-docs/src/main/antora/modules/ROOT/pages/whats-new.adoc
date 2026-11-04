@@ -8,62 +8,10 @@ This section covers the changes made from version 2.0 to version 3.0.
 
 === Migration to the Apache Pulsar project
 Apache Pulsar support for Spring is the successor to Spring for Apache Pulsar, and further development happens under the Apache Pulsar project in the https://github.com/apache/pulsar-spring[apache/pulsar-spring] repository.
+The version has been bumped to `3.0.0-M1` to indicate this.
 
-The project brings together code that was previously maintained in three repositories:
-
-* https://github.com/spring-projects/spring-pulsar[spring-projects/spring-pulsar]: the core library, cache providers and test utilities
-* https://github.com/spring-projects/spring-boot[spring-projects/spring-boot]: the xref:spring-boot.adoc[Spring Boot auto-configuration] and starters
-* https://github.com/spring-cloud/spring-cloud-stream[spring-cloud/spring-cloud-stream]: the xref:cloud-stream-binder.adoc[Spring Cloud Stream binder]
-
-The version has been bumped to `3.0.0-M1` to indicate that this project is the successor to Spring for Apache Pulsar `2.0.x`.
-
-=== Updating your application
-The Maven coordinates and Java packages have changed:
-
-[cols="1,1",options="header"]
-|===
-| Previous | New
-
-| `org.springframework.pulsar:spring-pulsar`
-| `org.apache.pulsar:pulsar-spring`
-
-| `org.springframework.pulsar:spring-pulsar-bom`
-| `org.apache.pulsar:pulsar-spring-bom`
-
-| `org.springframework.pulsar:spring-pulsar-cache-provider`
-| `org.apache.pulsar:pulsar-spring-cache-provider`
-
-| `org.springframework.pulsar:spring-pulsar-cache-provider-caffeine`
-| `org.apache.pulsar:pulsar-spring-cache-provider-caffeine`
-
-| `org.springframework.pulsar:spring-pulsar-test`
-| `org.apache.pulsar:pulsar-spring-test`
-
-| `org.springframework.boot:spring-boot-pulsar`
-| `org.apache.pulsar:pulsar-spring-boot-autoconfigure`
-
-| `org.springframework.boot:spring-boot-starter-pulsar`
-| `org.apache.pulsar:pulsar-spring-boot-starter`
-
-| `org.springframework.boot:spring-boot-starter-pulsar-test`
-| `org.apache.pulsar:pulsar-spring-boot-starter-test`
-
-| `org.springframework.cloud:spring-cloud-stream-binder-pulsar`
-| `org.apache.pulsar:pulsar-spring-cloud-stream-binder`
-
-| Package `org.springframework.pulsar`
-| Package `org.apache.pulsar.spring`
-
-| Package `org.springframework.boot.pulsar`
-| Package `org.apache.pulsar.spring.boot`
-
-| Package `org.springframework.cloud.stream.binder.pulsar`
-| Package `org.apache.pulsar.spring.cloud.stream.binder`
-|===
-
-Spring Boot does not manage the version of these artifacts, so you need to declare it, either on each dependency or by importing `pulsar-spring-bom`.
-
-The `+spring.pulsar.*+` and `+spring.cloud.stream.pulsar.*+` configuration properties have not changed.
+The Maven coordinates and Java packages have changed.
+See xref:migration.adoc[] for the background and the changes to make in your application.
 
 [[what-s-new-in-2-0-since-1-2]]
 == What's New in 2.0 Since 1.2

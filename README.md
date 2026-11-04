@@ -20,7 +20,7 @@ This project is the successor to Spring for Apache Pulsar. It brings together co
 
 The version has been bumped to `3.0.0-M1` to indicate that it's the successor to Spring for Apache Pulsar `2.0.x`. Further development happens under the Apache Pulsar project in this repository.
 
-The Maven coordinates and Java packages have changed. See [What's New in 3.0](https://pulsar.apache.org/pulsar-spring/reference/whats-new.html#what-s-new-in-3-0-since-2-0) for the migration information.
+The Maven coordinates and Java packages have changed. See [Migration from Spring's Pulsar support](https://pulsar.apache.org/pulsar-spring/reference/migration.html) for the changes to make in your application.
 
 ## Modules
 
