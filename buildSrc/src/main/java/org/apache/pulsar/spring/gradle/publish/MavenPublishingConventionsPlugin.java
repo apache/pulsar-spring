@@ -154,8 +154,8 @@ public class MavenPublishingConventionsPlugin implements Plugin<Project> {
 
 
 	private void customizeOrganization(MavenPomOrganization organization) {
-		organization.getName().set("Pivotal Software, Inc.");
-		organization.getUrl().set("https://spring.io");
+		organization.getName().set("The Apache Software Foundation");
+		organization.getUrl().set("https://www.apache.org/");
 	}
 
 	private void customizeLicences(MavenPomLicenseSpec licences) {
@@ -167,14 +167,9 @@ public class MavenPublishingConventionsPlugin implements Plugin<Project> {
 
 	private void customizeDevelopers(MavenPomDeveloperSpec developers) {
 		developers.developer((developer) -> {
-			developer.getId().set("schacko");
-			developer.getName().set("Soby Chacko");
-			developer.getEmail().set("chackos@vmware.com");
-		});
-		developers.developer((developer) -> {
-			developer.getId().set("onobc");
-			developer.getName().set("Chris Bono");
-			developer.getEmail().set("cbono@vmware.com");
+			developer.getName().set("Apache Pulsar Developers");
+			developer.getEmail().set("dev@pulsar.apache.org");
+			developer.getUrl().set("https://pulsar.apache.org/");
 		});
 	}
 
