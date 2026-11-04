@@ -8,7 +8,17 @@ antora {
 tasks.named("generateAntoraYml") {
 	asciidocAttributes = project.provider( { generateAttributes() } )
 	baseAntoraYmlFile = file('src/main/antora/antora.yml')
-	version = project.version.toString().replaceAll(/-INTERNAL/, '')
+	def projectVersion = project.version.toString().replaceAll(/-INTERNAL/, '')
+	// The plugin only splits plain X.Y.Z-SNAPSHOT versions, and the Spring Antora extensions
+	// cannot parse X.Y.Z-M1-SNAPSHOT, so use X.Y.Z-M1 with a -SNAPSHOT prerelease.
+	def milestoneSnapshot = projectVersion ==~ /.*-(M|RC)\d+-SNAPSHOT/
+	version = milestoneSnapshot ? projectVersion - '-SNAPSHOT' : projectVersion
+	if (milestoneSnapshot) {
+		doLast {
+			def antoraYml = outputFile.get().asFile
+			antoraYml.text = antoraYml.text.replaceFirst(/(?m)^prerelease: .*$/, "prerelease: -SNAPSHOT")
+		}
+	}
 }
 
 tasks.create(name: 'createAntoraPartials', type: Sync) {
