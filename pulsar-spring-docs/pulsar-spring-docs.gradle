@@ -93,7 +93,7 @@ task aggregatedJavadoc(type: Javadoc) {
 			author = true
 			docTitle = "Apache Pulsar support for Spring ${project.version} API"
 			windowTitle = "Apache Pulsar support for Spring ${project.version} API"
-			overview = 'src/api/overview.html'
+			overview = rootProject.file('src/api/overview.html').path
 			memberLevel = JavadocMemberLevel.PROTECTED
 			outputLevel = JavadocOutputLevel.QUIET
 			splitIndex = true

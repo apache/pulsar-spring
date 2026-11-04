@@ -5,7 +5,7 @@ include::partial$attributes.adoc[]
 [[pulsar-admin-client]]
 == Pulsar Admin Client
 On the Pulsar administration side, Spring Boot auto-configuration provides a `PulsarAdministration` to manage Pulsar clusters.
-The administration implements an interface called `PulsarAdminOperations` and provides {javadocs}/org/apache/pulsar/spring/core/PulsarAdminOperations.html[a `createOrModify` method] to handle topic administration through its contract.
+The administration implements an interface called `PulsarAdministrationOperations` and provides {javadocs}/org/apache/pulsar/spring/core/PulsarAdministrationOperations.html[a `createOrModify` method] to handle topic administration through its contract.
 
 When you use the Pulsar Spring Boot starter, you get the `PulsarAdministration` auto-configured.
 
