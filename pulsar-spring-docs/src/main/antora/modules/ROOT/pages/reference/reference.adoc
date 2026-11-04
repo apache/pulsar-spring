@@ -1,4 +1,0 @@
-[[reference]]
-= Reference
-
-This part of the reference documentation details the various components that comprise Apache Pulsar support for Spring.

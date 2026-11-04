@@ -29,6 +29,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Duration;
+import java.util.Set;
 
 import org.apache.pulsar.spring.boot.autoconfigure.PulsarConnectionDetails;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
@@ -39,6 +41,8 @@ import org.testcontainers.DockerClientFactory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.docker.compose.core.DockerCompose;
+import org.springframework.boot.docker.compose.core.DockerComposeFile;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -63,11 +67,17 @@ class PulsarDockerComposeConnectionDetailsFactoryIntegrationTests {
 		Path composeFile = writeComposeFile();
 		SpringApplication application = new SpringApplication(TestConfiguration.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
+		// The default shutdown runs at JVM exit, after the temporary compose file is gone
+		DockerCompose dockerCompose = DockerCompose.get(DockerComposeFile.of(composeFile.toFile()), null, Set.of());
 		try (ConfigurableApplicationContext context = application.run("--spring.docker.compose.skip.in-tests=false",
-				"--spring.docker.compose.file=" + composeFile, "--spring.docker.compose.stop.command=down")) {
+				"--spring.docker.compose.file=" + composeFile,
+				"--spring.docker.compose.lifecycle-management=start-only")) {
 			PulsarConnectionDetails connectionDetails = context.getBean(PulsarConnectionDetails.class);
 			assertThat(connectionDetails.getBrokerUrl()).matches("^pulsar://\\S+:\\d+");
 			assertThat(connectionDetails.getAdminUrl()).matches("^http://\\S+:\\d+");
+		}
+		finally {
+			dockerCompose.down(Duration.ofSeconds(10));
 		}
 	}
 
