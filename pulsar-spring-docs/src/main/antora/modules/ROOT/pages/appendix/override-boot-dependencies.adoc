@@ -6,7 +6,7 @@ If you wish to use a different version of `pulsar-client-all` you need to overri
 
 Spring Boot does not manage the version of Apache Pulsar support for Spring, so you always declare it on the `pulsar-spring-boot-starter` dependency.
 
-The following example uses a snapshot version of the Pulsar clients:
+The following example sets the Pulsar client version:
 
 [tabs]
 ======
@@ -14,7 +14,7 @@ Gradle::
 +
 [source, groovy, subs="+attributes", role="secondary"]
 ----
-ext['pulsar.version'] = '4.4.2-SNAPSHOT'
+ext['pulsar.version'] = '{pulsar-client-version}'
 
 dependencies {
     implementation 'org.apache.pulsar:pulsar-spring-boot-starter:{pulsar-spring-version}'
@@ -26,7 +26,7 @@ Maven::
 [source, xml, subs="+attributes", role="primary"]
 ----
 <properties>
-    <pulsar.version>4.4.2-SNAPSHOT</pulsar.version>
+    <pulsar.version>{pulsar-client-version}</pulsar.version>
 </properties>
 
 <dependency>
