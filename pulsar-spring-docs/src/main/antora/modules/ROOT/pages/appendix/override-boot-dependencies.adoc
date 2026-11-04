@@ -2,37 +2,37 @@
 = Override Spring Boot Dependencies
 
 When using Spring for Apache Pulsar in a Spring Boot application, the Apache Pulsar dependency versions are determined by Spring Boot's dependency management.
-If you wish to use a different version of `pulsar-client-all` you need to override their version used by Spring Boot dependency management; set the `pulsar.version` property.
+If you wish to use a different version of `pulsar-client-all` you need to override the version used by Spring Boot dependency management; set the `pulsar.version` property.
 
-Or, to use a different Spring for Apache Pulsar version with a supported Spring Boot version, set the `pulsar-spring.version` property.
+Spring Boot does not manage the version of Spring for Apache Pulsar, so you always declare it on the `pulsar-spring-boot-starter` dependency.
 
-In the following example, snapshot version of the Pulsar clients and Spring for Apache Pulsar are being used.
-
-[source, groovy, subs="+attributes", role="secondary"]
-.Gradle
-----
-ext['pulsar.version'] = '4.4.2-SNAPSHOT'
-ext['pulsar-spring.version'] = '2.0.1-SNAPSHOT'
-
-dependencies {
-    implementation 'org.springframework.boot:pulsar-spring-boot-starter'
-}
-----
+The following example uses a snapshot version of the Pulsar clients:
 
 [tabs]
 ======
+Gradle::
++
+[source, groovy, subs="+attributes", role="secondary"]
+----
+ext['pulsar.version'] = '4.4.2-SNAPSHOT'
+
+dependencies {
+    implementation 'org.apache.pulsar:pulsar-spring-boot-starter:{pulsar-spring-version}'
+}
+----
+
 Maven::
 +
 [source, xml, subs="+attributes", role="primary"]
 ----
 <properties>
     <pulsar.version>4.4.2-SNAPSHOT</pulsar.version>
-    <pulsar-spring.version>2.0.1-SNAPSHOT</pulsar-spring.version>
 </properties>
 
 <dependency>
-    <groupId>org.springframework.boot</groupId>
+    <groupId>org.apache.pulsar</groupId>
     <artifactId>pulsar-spring-boot-starter</artifactId>
+    <version>{pulsar-spring-version}</version>
 </dependency>
 ----
 ======

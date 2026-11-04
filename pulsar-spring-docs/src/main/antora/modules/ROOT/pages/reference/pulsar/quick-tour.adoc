@@ -16,9 +16,9 @@ Maven::
 ----
 <dependencies>
     <dependency>
-        <groupId>org.springframework.boot</groupId>
+        <groupId>org.apache.pulsar</groupId>
         <artifactId>pulsar-spring-boot-starter</artifactId>
-        <version>{spring-boot-version}</version>
+        <version>{pulsar-spring-version}</version>
     </dependency>
 </dependencies>
 ----
@@ -28,7 +28,7 @@ Gradle::
 [source,groovy,indent=0,subs="verbatim,attributes",role="secondary"]
 ----
 dependencies {
-    implementation 'org.springframework.boot:pulsar-spring-boot-starter:{spring-boot-version}'
+    implementation 'org.apache.pulsar:pulsar-spring-boot-starter:{pulsar-spring-version}'
 }
 ----
 ======

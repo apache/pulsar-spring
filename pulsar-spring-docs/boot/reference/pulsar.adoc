@@ -3,7 +3,7 @@
 
 https://pulsar.apache.org/[Apache Pulsar] is supported by providing auto-configuration of the {url-pulsar-spring-site}[Spring for Apache Pulsar] project.
 
-Spring Boot will auto-configure and register the Spring for Apache Pulsar components when `org.apache.pulsar.spring:pulsar-spring` is on the classpath.
+Spring Boot will auto-configure and register the Spring for Apache Pulsar components when `org.apache.pulsar:pulsar-spring` is on the classpath.
 
 There is the `pulsar-spring-boot-starter` starter for conveniently collecting the dependencies for use.
 
