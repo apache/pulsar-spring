@@ -19,7 +19,7 @@ apply from: 'gradle/java-conventions.gradle'
 apply from: 'gradle/nullability-conventions.gradle'
 
 allprojects {
-	group = 'org.apache.pulsar.spring'
+	group = 'org.apache.pulsar'
 	configurations.all {
 		resolutionStrategy {
 			cacheChangingModulesFor 0, "seconds"
