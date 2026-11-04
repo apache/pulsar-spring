@@ -97,7 +97,7 @@ task generateObservabilityDocs(type: JavaExec) {
 task docsZip(type: Zip, dependsOn: [':pulsar-spring-docs:antora']) {
 	group = 'Distribution'
 	archiveClassifier = 'docs'
-	description = "Builds docs archive containing api and reference for deployment at static.spring.io/pulsar-spring/docs."
+	description = "Builds docs archive containing api and reference for deployment at pulsar.apache.org/pulsar-spring."
 	duplicatesStrategy "fail"
 	from(aggregatedJavadoc) {
 		into "api"

@@ -5,7 +5,7 @@ include::../attributes/attributes-variables.adoc[]
 
 If you have cloned the project locally, follow these steps to build the project from the source code.
 
-NOTE: Gradle `8.x (8.3 or above)` is required to build.
+NOTE: The build uses the included Gradle wrapper and a Java 25 toolchain. Docker is required to run the tests.
 
 Run the following command to do a full build of the project:
 [indent=0]
@@ -22,4 +22,4 @@ You can build the reference documentation using this command:
 ----
 ./gradlew :pulsar-spring-docs:antora
 ----
-You can view the generated HTML in `_docs/build/site_` directory.
+You can view the generated HTML in the `pulsar-spring-docs/build/site` directory.

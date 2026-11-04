@@ -14,8 +14,6 @@ content:
       worktrees: true
 asciidoc:
   attributes:
-    page-stackoverflow-url: https://stackoverflow.com/tags/pulsar-spring
-    page-related-doc-projects: framework,cloud,cloud-stream
     hide-uri-scheme: '@'
     tabs-sync-option: '@'
     chomp: 'all'

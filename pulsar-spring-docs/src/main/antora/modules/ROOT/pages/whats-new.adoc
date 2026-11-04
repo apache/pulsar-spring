@@ -142,4 +142,4 @@ If you were actually handling the exception then you will need to replace `Pulsa
 
 === Testing support
 The `pulsar-spring-test` module is now available to help test your Apache Pulsar support for Spring applications.
-See xref:./testing-applications.adoc#testing-applications[Testing Applications] for more details.
+See xref:./testing-applications.adoc[Testing Applications] for more details.

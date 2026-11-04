@@ -32,7 +32,7 @@ Gradle::
 [source,groovy,indent=0,subs="verbatim,attributes",role="secondary"]
 ----
 plugins {
-	id "io.spring.dependency-management" version "1.1.4"
+	id "io.spring.dependency-management" version "1.1.7"
 }
 
 dependencyManagement {
@@ -74,7 +74,7 @@ dependencies {
 
 If you use additional features you need to also include the appropriate dependencies.
 
-Apache Pulsar support for Spring builds against Spring Framework {spring-framework-version} but should generally work with any newer version of Spring Framework 6.x.
+Apache Pulsar support for Spring builds against Spring Framework {spring-framework-version} but should generally work with any newer version of Spring Framework 7.x.
 Many users are likely to run afoul of the fact that Apache Pulsar support for Spring's transitive dependencies resolve Spring Framework {spring-framework-version}, which can cause strange classpath problems.
 The easiest way to resolve this is to use the `spring-framework-bom` within your `dependencyManagement` section as follows:
 
@@ -105,7 +105,7 @@ Gradle::
 [source,groovy,indent=0,subs="verbatim,attributes",role="secondary"]
 ----
 plugins {
-	id "io.spring.dependency-management" version "1.1.4"
+	id "io.spring.dependency-management" version "1.1.7"
 }
 
 dependencyManagement {
