@@ -40,8 +40,6 @@ project.afterEvaluate {
 								'Implementation-Version': archiveVersion,
 								'Created-By': "JDK ${System.properties['java.version']} (${System.properties['java.specification.vendor']})",
 								'Implementation-Title': subproject.name,
-								'Implementation-Vendor-Id': subproject.group,
-								'Implementation-Vendor': 'Broadcom Inc.',
 								'Implementation-URL': linkHomepage(),
 								'Automatic-Module-Name': subproject.name.replace('-', '.')  // for Jigsaw
 						)
