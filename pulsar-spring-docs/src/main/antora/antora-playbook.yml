@@ -11,6 +11,7 @@ antora:
     - require: '@springio/antora-extensions/root-component-extension'
       root_component_name: 'pulsar'
     - '@springio/antora-extensions/root-attachments-extension'
+    - '@antora/lunr-extension'
 site:
   title: Apache Pulsar support for Spring
   url: https://pulsar.apache.org/pulsar-spring/reference/

@@ -18,6 +18,11 @@
         <a class="navbar-item pulsar-download" href="https://pulsar.apache.org/download/">Download</a>
       </div>
     </div>
+    {{#if (eq env.SITE_SEARCH_PROVIDER 'lunr')}}
+    <div class="pulsar-search">
+      <input id="search-input" type="search" placeholder="Search" aria-label="Search the documentation" autocomplete="off" />
+    </div>
+    {{/if}}
     <label class="theme-toggler">
       <input
         type="checkbox"
