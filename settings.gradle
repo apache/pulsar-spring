@@ -8,12 +8,6 @@ pluginManagement {
 	}
 }
 
-plugins {
-	id "io.spring.develocity.conventions" version "0.0.27"
-}
-
-startParameter.noBuildScan = startParameter.taskNames.contains('format')
-
 include 'pulsar-spring'
 include 'pulsar-spring-bom'
 include 'pulsar-spring-boot-autoconfigure'
