@@ -20,6 +20,11 @@ tasks.named('compileKotlin') {
 	javaSources.from = []
 }
 
+// Antora reads the content from the git repository, which a source release does not have
+tasks.named('antora') {
+	onlyIf('the project is a git repository') { new File(rootDir, '.git').exists() }
+}
+
 node {
 	version = "24.15.0"
 }

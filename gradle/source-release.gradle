@@ -1,0 +1,61 @@
+// Creates the source release for an ASF release vote: an archive of the committed tree (HEAD),
+// with a SHA-512 checksum and, when signing is configured, a detached signature, in
+// build/source-release.
+
+import java.security.MessageDigest
+
+import org.apache.pulsar.spring.gradle.publish.SpringSigningPlugin
+
+apply plugin: SpringSigningPlugin
+
+def snapshot = version.toString().endsWith('-SNAPSHOT')
+def archiveName = "apache-pulsar-spring-${version}-src"
+def outputDir = layout.buildDirectory.dir('source-release')
+def archiveFile = outputDir.map { it.file("${archiveName}.tar.gz") }
+
+def createSourceArchive = tasks.register('createSourceArchive', Exec) {
+	description = 'Creates the source archive from the committed tree.'
+	workingDir = rootDir
+	outputs.upToDateWhen { false }
+	doFirst {
+		def run = { String... command -> providers.exec { commandLine(command) }.standardOutput.asText.get() }
+		if (!snapshot) {
+			if (!run('git', 'status', '--porcelain').isBlank()) {
+				throw new GradleException('Refusing to create a source release with uncommitted changes')
+			}
+			if (!run('git', 'show', 'HEAD:gradle.properties').contains("version=${version}\n")) {
+				throw new GradleException("The committed gradle.properties does not have version ${version}")
+			}
+			if (!SpringSigningPlugin.isSigningConfigured(project)) {
+				throw new GradleException('Refusing to create a source release without signing. '
+						+ 'Set -PuseGpgCmd=true, signing.keyId or signingKey')
+			}
+		}
+		delete outputDir
+		outputDir.get().asFile.mkdirs()
+	}
+	commandLine 'git', 'archive', '--format=tar.gz', "--output=${archiveFile.get().asFile}", "--prefix=${archiveName}/", 'HEAD'
+}
+
+def checksumSourceArchive = tasks.register('checksumSourceArchive') {
+	description = 'Creates the SHA-512 checksum of the source archive.'
+	dependsOn createSourceArchive
+	doLast {
+		def file = archiveFile.get().asFile
+		def hash = MessageDigest.getInstance('SHA-512').digest(file.bytes).encodeHex().toString()
+		new File(file.parentFile, "${file.name}.sha512").text = "${hash}  ${file.name}\n"
+	}
+}
+
+def signSourceArchive = tasks.register('signSourceArchive', Sign) {
+	description = 'Creates the detached signature of the source archive.'
+	dependsOn createSourceArchive
+	onlyIf { SpringSigningPlugin.isSigningConfigured(project) }
+	sign(archiveFile.get().asFile)
+}
+
+tasks.register('sourceRelease') {
+	group = 'Publishing'
+	description = 'Creates the source release archive with its checksum and signature.'
+	dependsOn checksumSourceArchive, signSourceArchive
+}

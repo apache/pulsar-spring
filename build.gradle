@@ -17,6 +17,7 @@ description = 'Apache Pulsar support for Spring'
 apply from: 'gradle/version-catalog-update.gradle'
 apply from: 'gradle/java-conventions.gradle'
 apply from: 'gradle/nullability-conventions.gradle'
+apply from: 'gradle/source-release.gradle'
 
 allprojects {
 	group = 'org.apache.pulsar'

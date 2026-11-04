@@ -75,6 +75,16 @@ Pass your ASF credentials as environment variables so that they aren't stored in
 
 Set `-PapacheSnapshotsRepoUrl` and `-PapacheReleasesRepoUrl` to `file://` URLs to test the publication without uploading anything.
 
+## Source release
+
+`sourceRelease` creates the source release for an ASF release vote in `build/source-release`: an archive of the committed tree, with a SHA-512 checksum and a detached signature.
+
+```shell
+./gradlew sourceRelease -PuseGpgCmd=true
+```
+
+For a non-snapshot version, it fails if there are uncommitted changes, if the committed `gradle.properties` has a different version, or if signing isn't configured. The reference documentation is skipped when building from the archive because Antora needs a git repository, so build the site from a clone.
+
 ## License
 
 Licensed under the [Apache License, Version 2.0](LICENSE).

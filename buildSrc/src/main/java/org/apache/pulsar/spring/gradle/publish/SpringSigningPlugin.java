@@ -31,7 +31,7 @@ public class SpringSigningPlugin implements Plugin<Project> {
 	 * @param project the project
 	 * @return whether artifacts will be signed
 	 */
-	static boolean isSigningConfigured(Project project) {
+	public static boolean isSigningConfigured(Project project) {
 		return useGpgCmd(project) || project.hasProperty("signing.keyId") || project.hasProperty("signingKey");
 	}
 
