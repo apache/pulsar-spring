@@ -1,3 +1,20 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
 [versions]
 # product
 caffeine = "3.2.4"
@@ -33,6 +50,7 @@ antora-yml = "0.0.1"
 download = "5.6.0"
 grgit = "5.2.2"
 nohttp = "0.0.11"
+rat = "0.11.0"
 shadow = "9.2.2"
 versions = "0.52.0"
 version-catalog-update = "0.8.5"
@@ -86,3 +104,4 @@ spring-dep-mgmt = { id = "io.spring.dependency-management", version.ref = "sprin
 versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }
 version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "version-catalog-update" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }
+rat = { id = "org.nosphere.apache.rat", version.ref = "rat" }

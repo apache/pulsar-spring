@@ -20,8 +20,11 @@ This project is licensed under the Apache License 2.0, and all contributions mus
   unclear licensing), and don't use a tool whose terms restrict the output inconsistently with open
   source. Reimplement from specifications or Apache-compatible sources, and follow the
   [ASF 3rd Party Licensing Policy](https://www.apache.org/legal/resolved.html).
-- **Every new source file needs a license header.** Copy the form from an existing file in the same
-  module; Checkstyle enforces the expected header in most modules.
+- **Every new source file needs the ASF license header.** Copy the form from a `package-info.java` file,
+  and keep existing notices in imported code. `./gradlew rat` checks this, with exclusions in `.ratignore`.
+- **Don't commit modified copies of MPL-licensed files,** such as those of the Spring Antora UI bundle.
+  It is downloaded during the build, and is customized in `pulsar-spring-docs/src/main/antora/ui` with
+  this project's own files.
 - **Consider attributing AI assistance.** When AI tooling assisted on a change, consider adding an
   `Assisted-by: <tool/version>` commit trailer (the default, since a human still does the final
   review); `Generated-by: <tool/version>` is for minimally-modified generated output.
