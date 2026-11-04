@@ -1,7 +1,16 @@
 antora:
+  # The extensions of @springio/antora-extensions, in the same order, without
+  # static-page and set-algolia-env, which are specific to Spring's documentation.
   extensions:
-    - require: '@springio/antora-extensions'
+    - '@springio/antora-extensions/override-navigation-builder-extension'
+    - '@springio/antora-extensions/partial-build-extension'
+    - '@antora/atlas-extension'
+    - '@springio/antora-extensions/latest-version-extension'
+    - '@springio/antora-extensions/inject-collector-cache-config-extension'
+    - '@antora/collector-extension'
+    - require: '@springio/antora-extensions/root-component-extension'
       root_component_name: 'pulsar'
+    - '@springio/antora-extensions/root-attachments-extension'
 site:
   title: Apache Pulsar support for Spring
   url: https://pulsar.apache.org/pulsar-spring/reference/
