@@ -21,7 +21,7 @@
  * Copyright 2012-present the original author or authors.
  */
 
-package org.apache.pulsar.spring.boot.docs.sending
+package org.apache.pulsar.spring.docs.boot.sending
 
 import org.apache.pulsar.client.api.PulsarClientException
 import org.apache.pulsar.spring.core.PulsarTemplate

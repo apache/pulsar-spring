@@ -12,6 +12,8 @@ ext:
       dir: pulsar-spring-docs/build/generated-antora-resources
 asciidoc:
   attributes:
+    include-java: example$java/org/apache/pulsar/spring/docs
+    include-kotlin: example$kotlin/org/apache/pulsar/spring/docs
     listener-class: PulsarListener@
     template-class: PulsarTemplate@
     container-class: ConcurrentPulsarListenerContainerFactory@

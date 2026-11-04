@@ -1,7 +1,8 @@
-[[messaging.pulsar]]
-= Apache Pulsar Support
+[[boot]]
+= Spring Boot Auto-configuration
+include::../attributes/attributes.adoc[]
 
-https://pulsar.apache.org/[Apache Pulsar] is supported by providing auto-configuration of the {url-pulsar-spring-site}[Apache Pulsar support for Spring] project.
+The `pulsar-spring-boot-autoconfigure` module provides Spring Boot auto-configuration for Apache Pulsar support for Spring.
 
 Spring Boot will auto-configure and register the Apache Pulsar support for Spring components when `org.apache.pulsar:pulsar-spring` is on the classpath.
 
@@ -9,7 +10,7 @@ There is the `pulsar-spring-boot-starter` starter for conveniently collecting th
 
 
 
-[[messaging.pulsar.connecting]]
+[[boot.connecting]]
 == Connecting to Pulsar
 
 When you use the Pulsar starter, Spring Boot will auto-configure and register a javadoc:org.apache.pulsar.client.api.PulsarClient[] bean.
@@ -25,7 +26,7 @@ If you need more control over the configuration, consider registering one or mor
 
 
 
-[[messaging.pulsar.connecting.auth]]
+[[boot.connecting.auth]]
 === Authentication
 
 To connect to a Pulsar cluster that requires authentication, you need to specify which authentication plugin to use by setting the `pluginClassName` and any parameters required by the plugin.
@@ -54,22 +55,22 @@ For example, if you want to configure the issuer url for the `AuthenticationOAut
 If you use other forms, such as `issuerurl` or `issuer-url`, the setting will not be applied to the plugin.
 
 This lack of relaxed binding also makes using environment variables for authentication parameters problematic because the case sensitivity is lost during translation.
-If you use environment variables for the parameters then you will need to follow {url-pulsar-spring-docs}/reference/pulsar/pulsar-client.html#client-authentication-env-vars[these steps] in the Apache Pulsar support for Spring reference documentation for it to work properly.
+If you use environment variables for the parameters then you will need to follow xref:reference/pulsar/pulsar-client.adoc#client-authentication-env-vars[these steps] for it to work properly.
 ====
 
 
 
-[[messaging.pulsar.connecting.ssl]]
+[[boot.connecting.ssl]]
 === SSL
 
 By default, Pulsar clients communicate with Pulsar services in plain text.
-You can follow {url-pulsar-spring-docs}/reference/pulsar/pulsar-client.html#tls-encryption[these steps] in the Apache Pulsar support for Spring reference documentation to enable TLS encryption.
+You can follow xref:reference/pulsar/pulsar-client.adoc#tls-encryption[these steps] to enable TLS encryption.
 
-For complete details on the client and authentication see the Apache Pulsar support for Spring {url-pulsar-spring-docs}/reference/pulsar/pulsar-client.html[reference documentation].
+For complete details on the client and authentication see xref:reference/pulsar/pulsar-client.adoc[Pulsar Client].
 
 
 
-[[messaging.pulsar.admin]]
+[[boot.admin]]
 == Connecting to Pulsar Administration
 
 Apache Pulsar support for Spring's javadoc:org.apache.pulsar.spring.core.PulsarAdministration[] client is also auto-configured.
@@ -81,18 +82,18 @@ If you need more control over the configuration, consider registering one or mor
 
 
 
-[[messaging.pulsar.admin.auth]]
+[[boot.admin.auth]]
 === Authentication
 
 When accessing a Pulsar cluster that requires authentication, the admin client requires the same security configuration as the regular Pulsar client.
-You can use the aforementioned xref:messaging/pulsar.adoc#messaging.pulsar.connecting.auth[authentication configuration] by replacing `spring.pulsar.client.authentication` with `spring.pulsar.admin.authentication`.
+You can use the aforementioned <<boot.connecting.auth,authentication configuration>> by replacing `spring.pulsar.client.authentication` with `spring.pulsar.admin.authentication`.
 
 TIP: To create a topic on startup, add a bean of type javadoc:org.apache.pulsar.spring.core.PulsarTopic[].
 If the topic already exists, the bean is ignored.
 
 
 
-[[messaging.pulsar.sending]]
+[[boot.sending]]
 == Sending a Message
 
 Spring's javadoc:org.apache.pulsar.spring.core.PulsarTemplate[] is auto-configured, and you can use it to send messages, as shown in the following example:
@@ -111,7 +112,7 @@ If you need more control over the message being sent, you can pass in a javadoc:
 
 
 
-[[messaging.pulsar.receiving]]
+[[boot.receiving]]
 == Receiving a Message
 
 When the Apache Pulsar infrastructure is present, any bean can be annotated with javadoc:org.apache.pulsar.spring.annotation.PulsarListener[format=annotation] to create a listener endpoint.
@@ -130,7 +131,7 @@ If you need more control over the actual container factory configuration, consid
 
 
 
-[[messaging.pulsar.reading]]
+[[boot.reading]]
 == Reading a Message
 
 The Pulsar reader interface enables applications to manually manage cursors.
@@ -150,11 +151,11 @@ You can also customize a single listener by setting the `readerCustomizer` attri
 
 If you need more control over the actual container factory configuration, consider registering one or more `PulsarContainerFactoryCustomizer<DefaultPulsarReaderContainerFactory<?>>` beans.
 
-TIP: For more details on any of the above components and to discover other available features, see the Apache Pulsar support for Spring {url-pulsar-spring-docs}[reference documentation].
+TIP: For more details on any of the above components and to discover other available features, see the xref:reference/reference.adoc[reference documentation].
 
 
 
-[[messaging.pulsar.transactions]]
+[[boot.transactions]]
 == Transaction Support
 
 Apache Pulsar support for Spring provides transaction support when using javadoc:org.apache.pulsar.spring.core.PulsarTemplate[] and javadoc:org.apache.pulsar.spring.annotation.PulsarListener[format=annotation].
@@ -172,10 +173,10 @@ You can also define a javadoc:org.apache.pulsar.spring.transaction.PulsarAwareTr
 
 
 
-[[messaging.pulsar.additional-properties]]
+[[boot.additional-properties]]
 == Additional Pulsar Properties
 
-The properties supported by auto-configuration are shown in the xref:appendix:application-properties/index.adoc#appendix.application-properties.integration[Integration Properties] section of the Appendix.
+The properties supported by auto-configuration are shown in the xref:appendix/configuration-properties.adoc[Configuration Properties] appendix.
 Note that, for the most part, these properties (hyphenated or camelCase) map directly to the Apache Pulsar configuration properties.
 See the Apache Pulsar documentation for details.
 

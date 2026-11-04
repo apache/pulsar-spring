@@ -8,9 +8,11 @@
 
 :github: https://github.com/apache/pulsar-spring
 :javadocs: https://docs.spring.io/pulsar-spring/docs/{pulsar-spring-version}/api
+:javadoc-location: {javadocs}
+:javadoc-location-org-apache-pulsar-client: https://pulsar.apache.org/api/client/{pulsar-client-version-family}
 :spring-framework-docs: https://spring.io/projects/spring-framework#learn
 :spring-boot-docs: https://docs.spring.io/spring-boot/{spring-boot-version}
-:pulsar-spring-boot-autoconfigure-config-props: {spring-boot-docs}/appendix/application-properties/index.html#appendix.application-properties.integration
+:pulsar-spring-boot-autoconfigure-config-props: xref:appendix/configuration-properties.adoc
 :spring-cloud-stream-docs: https://docs.spring.io/spring-cloud-stream/docs/{spring-cloud-stream-version}/reference/html/
 :spring-cloud-function: https://spring.io/projects/spring-cloud-function
 

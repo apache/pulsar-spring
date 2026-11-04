@@ -21,9 +21,10 @@
  * Copyright 2012-present the original author or authors.
  */
 
-package org.apache.pulsar.spring.boot.docs.reading;
+package org.apache.pulsar.spring.docs.boot.reading;
 
 import org.apache.pulsar.spring.annotation.PulsarReader;
+
 import org.springframework.stereotype.Component;
 
 @Component

@@ -4,9 +4,21 @@ plugins {
 	id 'org.apache.pulsar.spring.spring-docs-module'
 	alias(libs.plugins.antora)
 	alias(libs.plugins.antora.yml)
+	alias(libs.plugins.kotlin.jvm)
 }
 
 apply from: "${rootDir}/gradle/antora-docs.gradle"
+
+kotlin {
+	compilerOptions {
+		jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+	}
+}
+
+// The Java and Kotlin snippets declare the same classes
+tasks.named('compileKotlin') {
+	javaSources.from = []
+}
 
 node {
 	version = "24.15.0"

@@ -21,13 +21,54 @@ tasks.named("generateAntoraYml") {
 	}
 }
 
+def configurationPropertiesMetadata = rootProject.file('pulsar-spring-boot-autoconfigure/build/classes/java/main/META-INF/spring-configuration-metadata.json')
+def configurationPropertiesOutputDir = layout.buildDirectory.dir('docs/generated/configuration-properties')
+
+tasks.register('generateConfigurationPropertiesDocs') {
+	dependsOn ':pulsar-spring-boot-autoconfigure:compileJava'
+	inputs.file(configurationPropertiesMetadata)
+	outputs.dir(configurationPropertiesOutputDir)
+	doLast {
+		def escape = { value -> value.toString().replace('|', '\\|') }
+		def properties = new groovy.json.JsonSlurper().parse(configurationPropertiesMetadata).properties
+				.sort { it.name }
+		def rows = properties.collect { property ->
+			def defaultValue = property.defaultValue != null ? "`+${escape(property.defaultValue)}+`" : ''
+			"| `+${property.name}+`\n| ${escape(property.description ?: '')}\n| ${defaultValue}\n"
+		}
+		def outputDir = configurationPropertiesOutputDir.get().asFile
+		outputDir.mkdirs()
+		new File(outputDir, 'configuration-properties.adoc').text =
+				'[cols="4,5,2",options="header"]\n|===\n| Name | Description | Default\n\n' + rows.join('\n') + '|===\n'
+	}
+}
+
 tasks.create(name: 'createAntoraPartials', type: Sync) {
 	from { project(":pulsar-spring-docs").tasks.generateObservabilityDocs.outputs }
+	from(tasks.named('generateConfigurationPropertiesDocs'))
+	from(configurationPropertiesMetadata)
 	into layout.buildDirectory.dir('generated-antora-resources/modules/ROOT/partials')
+}
+
+['java', 'kotlin'].each { language ->
+	tasks.register("createAntora${language.capitalize()}Examples", Sync) {
+		from("src/main/${language}")
+		// Pages show the code without the license headers
+		eachFile { details ->
+			def inHeader = true
+			details.filter { line ->
+				inHeader = inHeader && !line.startsWith('package ')
+				inHeader ? null : line
+			}
+		}
+		into layout.buildDirectory.dir("generated-antora-resources/modules/ROOT/examples/${language}")
+	}
 }
 
 tasks.create('generateAntoraResources') {
 	dependsOn 'createAntoraPartials'
+	dependsOn 'createAntoraJavaExamples'
+	dependsOn 'createAntoraKotlinExamples'
 	dependsOn 'generateAntoraYml'
 }
 

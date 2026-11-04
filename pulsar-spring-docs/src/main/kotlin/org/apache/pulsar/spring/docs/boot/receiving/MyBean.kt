@@ -21,7 +21,7 @@
  * Copyright 2012-present the original author or authors.
  */
 
-package org.apache.pulsar.spring.boot.docs.receiving
+package org.apache.pulsar.spring.docs.boot.receiving
 
 import org.apache.pulsar.spring.annotation.PulsarListener
 import org.springframework.stereotype.Component

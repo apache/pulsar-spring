@@ -13,6 +13,7 @@
 *** xref:reference/pulsar/publishing-consuming-partitioned-topics.adoc[]
 *** xref:reference/pulsar/transactions.adoc[]
 *** xref:reference/tombstones.adoc[]
+** xref:reference/spring-boot.adoc[]
 ** xref:reference/topic-resolution.adoc[]
 ** xref:reference/default-tenant-namespace.adoc[]
 ** xref:reference/custom-object-mapper.adoc[]
@@ -22,6 +23,7 @@
 ** xref:reference/cloud-stream-binder.adoc[]
 * xref:other-resources.adoc[]
 * Appendices
+** xref:appendix/configuration-properties.adoc[]
 ** xref:appendix/version-compatibility.adoc[]
 ** xref:appendix/override-boot-dependencies.adoc[]
 ** xref:appendix/getting-dependencies-without-boot.adoc[]

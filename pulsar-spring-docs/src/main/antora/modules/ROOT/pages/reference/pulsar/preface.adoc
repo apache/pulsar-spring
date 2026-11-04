@@ -4,6 +4,7 @@ include::../../attributes/attributes.adoc[]
 
 NOTE: We recommend using a Spring-Boot-First approach for applications based on Apache Pulsar support for Spring, as that simplifies things tremendously.
 To do so, you can add the `pulsar-spring-boot-starter` module as a dependency.
+See xref:reference/spring-boot.adoc[Spring Boot Auto-configuration] for details.
 
 NOTE: The majority of this reference expects the reader to be using the starter and gives most directions for configuration with that in mind.
 However, an effort is made to call out when instructions are specific to the Spring Boot starter usage.

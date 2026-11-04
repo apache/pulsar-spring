@@ -1,0 +1,7 @@
+[[configuration-properties]]
+= Configuration Properties
+include::../attributes/attributes.adoc[]
+
+The following application properties are supported by the xref:reference/spring-boot.adoc[Spring Boot auto-configuration].
+
+include::partial$configuration-properties.adoc[]
