@@ -278,7 +278,8 @@ public class JsonPulsarHeaderMapper extends AbstractPulsarHeaderMapper<ToPulsarH
 	 * A type is trusted when any of the following is true:
 	 * <ul>
 	 * <li>It is {@link NonTrustedHeaderType} itself (always needed for propagation).</li>
-	 * <li>It is one of the primitive-array short-forms in {@link #TRUSTED_ARRAY_TYPES}.</li>
+	 * <li>It is one of the primitive-array short-forms in
+	 * {@link #TRUSTED_ARRAY_TYPES}.</li>
 	 * <li>The set of trusted packages is empty — which only occurs when the caller has
 	 * explicitly passed {@code "*"} via the builder — meaning all types are trusted.</li>
 	 * <li>The type's package name <em>exactly</em> matches one of the trusted package
@@ -376,8 +377,8 @@ public class JsonPulsarHeaderMapper extends AbstractPulsarHeaderMapper<ToPulsarH
 		 * <p>
 		 * The specified packages are added to
 		 * {@link JsonPulsarHeaderMapper#DEFAULT_TRUSTED_PACKAGES}, which are always
-		 * included. Pass {@code "*"} as the sole entry to trust all packages instead
-		 * (not recommended when consuming from untrusted sources).
+		 * included. Pass {@code "*"} as the sole entry to trust all packages instead (not
+		 * recommended when consuming from untrusted sources).
 		 * <p>
 		 * If a class for a non-trusted package is encountered, the header is returned to
 		 * the application with value of type {@link NonTrustedHeaderType}.

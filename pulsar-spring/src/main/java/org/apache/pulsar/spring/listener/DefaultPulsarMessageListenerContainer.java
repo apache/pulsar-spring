@@ -555,8 +555,7 @@ public class DefaultPulsarMessageListenerContainer<T> extends AbstractPulsarMess
 		}
 
 		private boolean transactional() {
-			return this.transactionTemplate != null
-					&& this.transactionManager != null
+			return this.transactionTemplate != null && this.transactionManager != null
 					&& this.containerProperties.transactions().isEnabled();
 		}
 
@@ -773,8 +772,8 @@ public class DefaultPulsarMessageListenerContainer<T> extends AbstractPulsarMess
 			if (!(exception instanceof PulsarBatchListenerFailedException)) {
 				exception = exception.getCause();
 				if (!(exception instanceof PulsarBatchListenerFailedException)) {
-					DefaultPulsarMessageListenerContainer.this.logger.warn(() ->
-							"Batch listener should throw PulsarBatchListenerFailedException - nacking entire batch.");
+					DefaultPulsarMessageListenerContainer.this.logger.warn(
+							() -> "Batch listener should throw PulsarBatchListenerFailedException - nacking entire batch.");
 					messageList.forEach(this.consumer::negativeAcknowledge);
 					return Collections.emptyList();
 				}
@@ -795,8 +794,8 @@ public class DefaultPulsarMessageListenerContainer<T> extends AbstractPulsarMess
 			// instead gets recovered).
 			int indexOfFailedMessage = messageList.indexOf(pulsarMessage);
 			if (indexOfFailedMessage < 0) {
-				DefaultPulsarMessageListenerContainer.this.logger.warn(() ->
-						"Failed message not found in current batch - nacking entire batch.");
+				DefaultPulsarMessageListenerContainer.this.logger
+					.warn(() -> "Failed message not found in current batch - nacking entire batch.");
 				messageList.forEach(this.consumer::negativeAcknowledge);
 				return Collections.emptyList();
 			}

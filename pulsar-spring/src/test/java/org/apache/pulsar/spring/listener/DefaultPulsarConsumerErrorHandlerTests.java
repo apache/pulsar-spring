@@ -467,7 +467,8 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 			}
 			await().atMost(Duration.ofSeconds(10)).until(() -> callCount.get() >= 1);
 			assertThat(container.isRunning()).isTrue();
-			// A second batch proves the listener thread survived the plain RuntimeException
+			// A second batch proves the listener thread survived the plain
+			// RuntimeException
 			for (int i = 6; i <= 10; i++) {
 				pulsarTemplate.sendAsync(i);
 			}

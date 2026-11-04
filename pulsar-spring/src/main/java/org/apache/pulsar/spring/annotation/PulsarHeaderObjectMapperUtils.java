@@ -26,8 +26,8 @@ import org.springframework.util.Assert;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * Resolves header mapper configuration beans (object mapper and trusted packages) for
- * use during JSON header deserialization.
+ * Resolves header mapper configuration beans (object mapper and trusted packages) for use
+ * during JSON header deserialization.
  *
  * @author Chris Bono
  * @since 1.2.0
@@ -66,8 +66,8 @@ public final class PulsarHeaderObjectMapperUtils {
 	 * Gets the optional trusted packages to use when deserializing JSON header values.
 	 * The bean is expected to be a {@code String[]} registered with the name
 	 * {@code 'pulsarHeaderTrustedPackages'}. Trust is by exact package match;
-	 * sub-packages must be listed explicitly. Pass {@code "*"} as the sole entry to
-	 * trust all packages.
+	 * sub-packages must be listed explicitly. Pass {@code "*"} as the sole entry to trust
+	 * all packages.
 	 * @param beanFactory the bean factory that may contain the trusted packages bean
 	 * @return optional trusted packages or empty if bean not registered under the
 	 * expected name

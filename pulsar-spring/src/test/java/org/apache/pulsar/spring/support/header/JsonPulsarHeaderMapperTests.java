@@ -92,7 +92,8 @@ class JsonPulsarHeaderMapperTests extends AbstractPulsarHeaderMapperTests {
 
 			@Test
 			void innerTypeIsDecodedIfTrustedByThisConsumer() throws JsonProcessingException {
-				// java.util.UUID is in DEFAULT_TRUSTED_PACKAGES so the wrapper is unwrapped.
+				// java.util.UUID is in DEFAULT_TRUSTED_PACKAGES so the wrapper is
+				// unwrapped.
 				var mapper = JsonPulsarHeaderMapper.builder().build();
 				var uuid = UUID.randomUUID();
 				var serializedUuid = "\"%s\"".formatted(uuid.toString());
@@ -108,7 +109,8 @@ class JsonPulsarHeaderMapperTests extends AbstractPulsarHeaderMapperTests {
 
 			@Test
 			void innerTypeRemainsWrappedIfUntrustedByThisConsumer() throws JsonProcessingException {
-				// com.example.CustomType is not in defaults so the wrapper is passed through.
+				// com.example.CustomType is not in defaults so the wrapper is passed
+				// through.
 				var mapper = JsonPulsarHeaderMapper.builder().build();
 				var headerValue = "\"some-value\"";
 				var untrustedType = "com.example.CustomType";

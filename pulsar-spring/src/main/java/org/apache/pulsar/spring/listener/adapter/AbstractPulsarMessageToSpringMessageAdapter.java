@@ -127,7 +127,8 @@ public abstract class AbstractPulsarMessageToSpringMessageAdapter<V> {
 	 * {@link JsonPulsarHeaderMapper#DEFAULT_TRUSTED_PACKAGES}, which are always included.
 	 * Pass {@code "*"} as the sole entry to trust all packages (not recommended when
 	 * consuming from untrusted sources).
-	 * @param trustedPackages packages to add to the trusted list for header deserialization
+	 * @param trustedPackages packages to add to the trusted list for header
+	 * deserialization
 	 */
 	public void setTrustedPackages(String... trustedPackages) {
 		Assert.isTrue(!this.customConverterSet,

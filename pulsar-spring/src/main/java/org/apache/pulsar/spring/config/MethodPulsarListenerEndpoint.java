@@ -136,7 +136,8 @@ public class MethodPulsarListenerEndpoint<V> extends AbstractPulsarListenerEndpo
 	 * {@link org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper#DEFAULT_TRUSTED_PACKAGES},
 	 * which are always included. Pass {@code "*"} as the sole entry to trust all packages
 	 * (not recommended for untrusted message sources).
-	 * @param trustedPackages packages to add to the trusted list for header deserialization
+	 * @param trustedPackages packages to add to the trusted list for header
+	 * deserialization
 	 */
 	public void setTrustedPackages(String... trustedPackages) {
 		this.trustedPackages = List.of(trustedPackages);
