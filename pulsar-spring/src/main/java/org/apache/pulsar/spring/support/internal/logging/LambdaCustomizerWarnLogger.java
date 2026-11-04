@@ -37,7 +37,7 @@ public class LambdaCustomizerWarnLogger {
 	private static final String CUSTOMIZER_LAMBDA_MSG = """
 			Producer customizer [%s] is implemented as a Lambda. If you are experiencing write performance degradation
 			it may be related to cache misses if the lambda is not following the rules outlined in
-			https://pulsar.apache.org/pulsar-spring/reference/reference/pulsar/message-production.html#producer-caching-lambdas""";
+			https://pulsar.apache.org/pulsar-spring/reference/pulsar/message-production.html#producer-caching-lambdas""";
 
 	private final LogAccessor logger;
 
