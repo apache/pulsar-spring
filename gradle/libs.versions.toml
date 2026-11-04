@@ -48,7 +48,6 @@ kotlin = "2.4.21"
 antora = "1.0.0"
 antora-yml = "0.0.1"
 download = "5.6.0"
-grgit = "5.2.2"
 nohttp = "0.0.11"
 rat = "0.11.0"
 shadow = "9.2.2"
@@ -97,7 +96,6 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 antora = { id = "org.antora", version.ref = "antora" }
 antora-yml = { id = "io.spring.antora.generate-antora-yml", version.ref = "antora-yml" }
 download = { id = "de.undercouch.download", version.ref = "download" }
-grgit = { id = "org.ajoberstar.grgit", version.ref = "grgit" }
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dep-mgmt = { id = "io.spring.dependency-management", version.ref = "spring-dep-mgmt" }

@@ -25,7 +25,6 @@ plugins {
 	id 'io.spring.nohttp'
 	id 'org.apache.pulsar.spring.root-project'
 	id 'org.apache.pulsar.spring.update-version'
-	alias(libs.plugins.grgit) apply false
 	alias(libs.plugins.rat)
 	alias(libs.plugins.versions)
 	alias(libs.plugins.version.catalog.update)

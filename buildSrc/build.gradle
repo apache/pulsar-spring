@@ -44,7 +44,6 @@ configurations {
 
 dependencies {
 	implementation localGroovy()
-	implementation buildLibs.asciidoc.gradle.jvm
 	implementation buildLibs.commons.codec
 	implementation buildLibs.commons.compress
 	implementation buildLibs.groovy.all
@@ -54,11 +53,9 @@ dependencies {
 	// Newer than the version that the Antora plugin depends on, for Gradle compatibility
 	implementation buildLibs.node.gradle
 	implementation buildLibs.nohttp.gradle
-	implementation buildLibs.sonarqube.gradle
 	implementation(platform(buildLibs.spring.bom))
 	implementation buildLibs.spring.core
 	implementation buildLibs.spring.web
-	implementation buildLibs.test.retry.gradle
 }
 
 gradlePlugin {
@@ -90,10 +87,6 @@ gradlePlugin {
 		springUnpublishedModulePlugin {
 			id = "org.apache.pulsar.spring.spring-unpublished-module"
 			implementationClass = "org.apache.pulsar.spring.gradle.SpringUnpublishedModulePlugin"
-		}
-		sonarQubeConventionsPlugin {
-			id = "org.apache.pulsar.spring.sonarqube"
-			implementationClass = "org.apache.pulsar.spring.gradle.check.SonarQubeConventionsPlugin"
 		}
 		updateProjectVersion {
 			id = "org.apache.pulsar.spring.update-version"

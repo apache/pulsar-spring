@@ -16,7 +16,6 @@
 
 package org.apache.pulsar.spring.gradle;
 
-import org.apache.pulsar.spring.gradle.check.SonarQubeConventionsPlugin;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.BasePlugin;
@@ -32,7 +31,6 @@ public class RootProjectPlugin implements Plugin<Project> {
 	public void apply(final Project project) {
 		PluginManager pluginManager = project.getPluginManager();
 		pluginManager.apply(BasePlugin.class);
-		pluginManager.apply(SonarQubeConventionsPlugin.class);
 		project.getRepositories().mavenCentral();
 	}
 

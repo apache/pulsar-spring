@@ -16,7 +16,6 @@
 # under the License.
 
 [versions]
-asciidoc-gradle = "3.3.2"
 commons-codec = "1.18.0"
 commons-compress = "1.26.2"
 groovy = "4.0.27"
@@ -25,14 +24,11 @@ javaformat = "0.0.47"
 maven = "3.6.3"
 node-gradle = "7.1.0"
 nohttp = "0.0.11"
-sonarqube = "2.7.1"
 spring = "7.0.10"
-test-retry = "1.4.0"
 versions = "0.50.0"
 version-catalog-update = "0.8.1"
 
 [libraries]
-asciidoc-gradle-jvm = { module = "org.asciidoctor:asciidoctor-gradle-jvm", version.ref = "asciidoc-gradle" }
 commons-codec = { module = "commons-codec:commons-codec", version.ref = "commons-codec" }
 commons-compress = { module = "org.apache.commons:commons-compress", version.ref = "commons-compress" }
 groovy-all = { module = "org.codehaus.groovy:groovy-all", version.ref = "groovy" }
@@ -43,8 +39,6 @@ javaformat-gradle = { module = "io.spring.javaformat:spring-javaformat-gradle-pl
 maven-embedder = { module = "org.apache.maven:maven-embedder", version.ref = "maven" }
 node-gradle = { module = "com.github.node-gradle:gradle-node-plugin", version.ref = "node-gradle" }
 nohttp-gradle = { module = "io.spring.nohttp:nohttp-gradle", version.ref = "nohttp" }
-sonarqube-gradle = { module = "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin", version.ref = "sonarqube" }
 spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring" }
 spring-core = { module = "org.springframework:spring-core", version.ref = "spring" }
 spring-web = { module = "org.springframework:spring-web", version.ref = "spring" }
-test-retry-gradle = { module = "org.gradle:test-retry-gradle-plugin", version.ref = "test-retry" }
