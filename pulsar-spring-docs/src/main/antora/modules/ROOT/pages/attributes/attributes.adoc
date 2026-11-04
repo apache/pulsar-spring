@@ -1,0 +1,9 @@
+:toc: left
+:toclevels: 6
+:numbered:
+:icons: font
+:hide-uri-scheme:
+:sectnums:
+:sectnumlevels: 3
+
+include::attributes-variables.adoc[]

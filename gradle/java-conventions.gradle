@@ -1,0 +1,62 @@
+def toolchainVersion() {
+	if (project.hasProperty('testToolchain')) {
+		return project.property('testToolchain').toString().toInteger()
+	}
+	return 25
+}
+
+def linkHomepage() {
+	return 'https://github.com/spring-projects/spring-pulsar'
+}
+
+project.afterEvaluate {
+	subprojects { subproject ->
+		afterEvaluate {
+			if (subproject.plugins.hasPlugin(JavaPlugin.class)) {
+				java {
+					toolchain {
+						languageVersion = JavaLanguageVersion.of(toolchainVersion())
+					}
+				}
+				tasks.withType(JavaCompile.class)
+						.matching(compileTask -> compileTask.getName().startsWith(JavaPlugin.COMPILE_JAVA_TASK_NAME)).configureEach {
+					options.encoding = "UTF-8"
+					options.compilerArgs.addAll([
+							"-parameters", "-Xlint:unchecked", "-Xlint:rawtypes", "-Xlint:varargs", "-Xlint:deprecation",
+							"-Werror"])
+					options.release.set(17)
+				}
+				tasks.withType(JavaCompile.class)
+						.matching(compileTask -> compileTask.getName().startsWith(JavaPlugin.COMPILE_TEST_JAVA_TASK_NAME)
+								|| compileTask.getName().equals("compileTestFixturesJava")).configureEach {
+					options.encoding = "UTF-8"
+					options.compilerArgs.addAll([
+							"-parameters", "-Xlint:unchecked", "-Xlint:rawtypes", "-Xlint:varargs", "-Xlint:deprecation"])
+					options.release.set(17)
+				}
+				jar {
+					manifest {
+						attributes(
+								'Implementation-Version': archiveVersion,
+								'Created-By': "JDK ${System.properties['java.version']} (${System.properties['java.specification.vendor']})",
+								'Implementation-Title': subproject.name,
+								'Implementation-Vendor-Id': subproject.group,
+								'Implementation-Vendor': 'Broadcom Inc.',
+								'Implementation-URL': linkHomepage(),
+								'Automatic-Module-Name': subproject.name.replace('-', '.')  // for Jigsaw
+						)
+					}
+					from("${rootProject.projectDir}/src/dist") {
+						include 'notice.txt'
+						into 'META-INF'
+						expand(version: project.version)
+					}
+					from("${rootProject.projectDir}") {
+						include 'LICENSE.txt'
+						into 'META-INF'
+					}
+				}
+			}
+		}
+	}
+}

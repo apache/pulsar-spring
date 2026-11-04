@@ -1,0 +1,31 @@
+plugins {
+	id 'java-platform'
+	id 'io.spring.convention.repository'
+}
+
+javaPlatform {
+	allowDependencies()
+}
+
+dependencies {
+	api platform(libs.jackson.bom)
+	api platform(libs.micrometer.bom)
+	api platform(libs.micrometer.tracing.bom)
+	api platform(libs.assertj.bom)
+	api platform(libs.awaitility)
+	api platform(libs.junit.bom)
+	api platform(libs.mockito.bom)
+	api platform(libs.spring.bom)
+	api platform(libs.testcontainers.bom)
+
+	constraints {
+		api libs.logback.classic
+		api libs.caffeine
+		api libs.jspecify
+		api libs.protobuf.java
+		api libs.json.path
+		api libs.micrometer.docs.gen
+		api libs.pulsar.client.all
+		api libs.system.lambda
+	}
+}

@@ -1,0 +1,40 @@
+= Spring Pulsar Sample Applications
+
+Sample applications that can be used to demonstrate and manually verify Spring Pulsar functionality.
+
+
+[[build-apps]]
+== Building
+To build the applications simply execute the following command from the `spring-pulsar-sample-apps` directory:
+[source,bash]
+----
+../gradlew clean build
+----
+
+[[run-apps]]
+== Running
+
+=== Pre-requisites
+****
+* The components have all been built by following the <<build-apps>> steps.
+* Apache Pulsar standalone cluster  available at `pulsar://localhost:6650`
+
+TIP: Some samples (those w/ a `compose.yaml` file) include Docker Compose support and will automatically start the Pulsar cluster. For the other sample apps the included link:../tools/pulsar/docker/README.adoc#_start_pulsar[Pulsar tools] can be used to easily start a standalone cluster locally on the required coordinates.
+****
+
+=== Steps
+
+Make sure the above pre-requisites are satisfied.
+
+===== IDE
+To run the app in your IDE just choose `Run/Debug` on the desired sample application class.
+
+===== Command Line
+To run the app on the command line open a terminal and navigate to the desired sample application directory (underneath `spring-pulsar-sample-apps`) and execute the following command:
+
+[source,bash]
+----
+../../gradlew bootRun
+----
+
+TIP: When running on the command line the `add-opens` JVM args are automatically configured which prevents annoying exceptions at runtime.

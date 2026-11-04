@@ -1,0 +1,53 @@
+plugins {
+	id 'java'
+	alias(libs.plugins.spring.boot)
+	alias(libs.plugins.spring.dep.mgmt)
+}
+
+description = 'Spring Cloud Stream Binder for Pulsar Sample Application'
+
+repositories { 
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
+def pulsarVersion = project.properties['pulsarVersion'] ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
+def springCloudStreamVersion = versionCatalog.findVersion("spring-cloud-stream").orElseThrow().displayName
+
+ext['spring-pulsar.version'] = "${project.property('version.samples')}"
+ext['pulsar.version'] = "${pulsarVersion}"
+
+dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-pulsar"
+	implementation "org.springframework.cloud:spring-cloud-stream-binder-pulsar:${springCloudStreamVersion}"
+	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+
+	testImplementation project(':spring-pulsar-test')
+	testRuntimeOnly 'ch.qos.logback:logback-classic'
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+	testImplementation "org.springframework.boot:spring-boot-testcontainers"
+	testImplementation 'org.testcontainers:testcontainers-junit-jupiter'
+	testImplementation 'org.testcontainers:testcontainers-pulsar'
+
+}
+
+test {
+	onlyIf {
+		project.hasProperty("sampleTests")
+	}
+	useJUnitPlatform()
+	testLogging.showStandardStreams = true
+	outputs.upToDateWhen { false }
+}
+
+bootRun {
+	jvmArgs = [
+			"--add-opens", "java.base/java.lang=ALL-UNNAMED",
+			"--add-opens", "java.base/java.util=ALL-UNNAMED",
+			"--add-opens", "java.base/sun.net=ALL-UNNAMED"
+	]
+	// when run from command line, path must be set relative to module dir
+	systemProperty 'spring.docker.compose.file', 'compose.yaml'
+}

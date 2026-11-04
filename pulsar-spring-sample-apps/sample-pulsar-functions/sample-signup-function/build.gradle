@@ -1,0 +1,39 @@
+plugins {
+	id 'java'
+}
+
+group = 'org.springframework.pulsar.sample'
+description = 'Sample Signup Pulsar Function'
+
+repositories {
+	mavenCentral()
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
+def pulsarVersion = project.properties['pulsarVersion'] ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
+
+dependencies {
+	implementation "org.apache.pulsar:pulsar-client-all:${pulsarVersion}"
+	implementation "org.apache.pulsar:pulsar-functions-api:${pulsarVersion}"
+	implementation libs.jspecify
+	compileOnly 'org.projectlombok:lombok:1.18.48'
+	annotationProcessor 'org.projectlombok:lombok:1.18.48'
+}
+
+// Customization of jar to make a simple Uber function jar
+jar {
+	manifest {
+		attributes 'Main-Class': 'org.springframework.pulsar.sample.signup.SignupFunction'
+	}
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	from sourceSets.main.output
+	dependsOn configurations.runtimeClasspath
+	from(configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }) {
+		exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+	}
+}

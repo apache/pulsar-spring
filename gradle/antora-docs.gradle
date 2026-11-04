@@ -1,0 +1,38 @@
+//file:noinspection GroovyUnusedAssignment
+
+antora {
+	playbook = file('src/main/antora/antora-playbook.yml')
+	options = ['to-dir' : project.layout.buildDirectory.dir('site').get().toString(), clean: true, fetch: !project.gradle.startParameter.offline, stacktrace: true]
+}
+
+tasks.named("generateAntoraYml") {
+	asciidocAttributes = project.provider( { generateAttributes() } )
+	baseAntoraYmlFile = file('src/main/antora/antora.yml')
+	version = project.version.toString().replaceAll(/-INTERNAL/, '')
+}
+
+tasks.create(name: 'createAntoraPartials', type: Sync) {
+	from { project(":spring-pulsar-docs").tasks.generateObservabilityDocs.outputs }
+	into layout.buildDirectory.dir('generated-antora-resources/modules/ROOT/partials')
+}
+
+tasks.create('generateAntoraResources') {
+	dependsOn 'createAntoraPartials'
+	dependsOn 'generateAntoraYml'
+}
+
+def generateAttributes() {
+	def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
+	def springBootVersionForDocs = versionCatalog.findVersion("spring-boot-for-docs").orElseThrow().displayName
+	def springFrameworkVersion = versionCatalog.findVersion("spring").orElseThrow().displayName
+	def springCloudStreamVersion = versionCatalog.findVersion("spring-cloud-stream").orElseThrow().displayName
+	def pulsarClientVersion = versionCatalog.findVersion("pulsar").orElseThrow().displayName
+	def pulsarClientVersionFamily = pulsarClientVersion.tokenize(".")[0] + "." + pulsarClientVersion.tokenize(".")[1] + ".x"
+	return ['is-snapshot-version': project.version.endsWith("-SNAPSHOT"),
+			'pulsar-client-version': pulsarClientVersion ?: 'current',
+			'pulsar-client-version-family': pulsarClientVersionFamily ?: 'current',
+			'spring-boot-version': springBootVersionForDocs ?: 'current',
+			'spring-cloud-stream-version': springCloudStreamVersion ?: 'current',
+			'spring-framework-version': springFrameworkVersion ?: 'current',
+			'spring-pulsar-version': project.version]
+}

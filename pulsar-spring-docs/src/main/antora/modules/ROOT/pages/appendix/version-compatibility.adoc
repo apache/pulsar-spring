@@ -1,0 +1,45 @@
+[[version-compatibility]]
+= Pulsar Clients and Spring Boot Compatibility
+
+include::../attributes/attributes.adoc[]
+
+The following is the compatibility matrix:
+|===
+| Spring for Apache Pulsar | Pulsar Client | Spring Boot | Java
+
+| 2.0.x
+| 4.1.x / 4.0.x / 3.3.x
+| 4.0.x
+| 17+
+
+| 1.2.x
+| 3.3.x / 4.0.x^**(*)**^
+| 3.4.x / 3.5.x
+| 17+
+
+| 1.1.x
+| 3.2.x
+| 3.3.x
+| 17+
+
+| 1.0.x
+| 3.0.x / 3.1.x
+| 3.2.x
+| 17+
+
+|===
+
+[NOTE]
+====
+^**(*)**^ The `3.3.x` Pulsar client is the default version specified by Spring for Apache Pulsar `1.2.x` and Spring Boot `3.4.x`.
+However, the `4.0.x` Pulsar client is compatible.
+
+You can follow xref:appendix/override-boot-dependencies.adoc#override-boot-deps[these steps] to override the Pulsar client version.
+====
+
+[NOTE]
+====
+If you are currently using Pulsar `2.11.x` you may notice that it is not present in the above matrix.
+We do not currently test nor officially support running against Pulsar `2.11.x`.
+However, Pulsar is currently compatible across versions and it is likely to work for you.
+====

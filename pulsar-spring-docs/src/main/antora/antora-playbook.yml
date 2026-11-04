@@ -1,0 +1,37 @@
+antora:
+  extensions:
+    - require: '@springio/antora-extensions'
+      root_component_name: 'pulsar'
+site:
+  title: Spring Pulsar
+  url: https://docs.spring.io/spring-pulsar/reference/
+  robots: allow
+content:
+  sources:
+    - url: ./../../../../
+      branches: HEAD
+      start_path: spring-pulsar-docs/src/main/antora
+      worktrees: true
+asciidoc:
+  attributes:
+    page-stackoverflow-url: https://stackoverflow.com/tags/spring-pulsar
+    page-related-doc-projects: framework,cloud,cloud-stream
+    hide-uri-scheme: '@'
+    tabs-sync-option: '@'
+    chomp: 'all'
+  extensions:
+    - '@asciidoctor/tabs'
+    - '@springio/asciidoctor-extensions'
+  sourcemap: true
+urls:
+  latest_version_segment_strategy: redirect:to
+  latest_version_segment: ''
+  redirect_facility: httpd
+ui:
+  bundle:
+    url: https://github.com/spring-io/antora-ui-spring/releases/download/v0.4.18/ui-bundle.zip
+    snapshot: true
+runtime:
+  log:
+    failure_level: warn
+    format: pretty

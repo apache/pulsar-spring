@@ -1,0 +1,78 @@
+[versions]
+# product
+caffeine = "3.2.4"
+commons-compress = "1.26.2"
+jackson = "2.21.7"
+jspecify = "1.0.1"
+jsr305 = "3.0.2"
+logback = "1.5.38"
+micrometer = "1.16.8"
+micrometer-docs-gen = "1.0.4"
+micrometer-tracing = "1.6.8"
+protobuf = "3.25.9"
+pulsar = "4.2.5"
+spring = "7.0.10"
+# tests
+assertj = "3.27.7"
+awaitility = "4.3.0"
+jacoco = "0.8.9"
+json-path = "2.9.0"
+junit = "6.0.3"
+hamcrest = "3.0"
+mockito = "5.20.0"
+spring-dep-mgmt = "1.1.7"
+spring-boot = "4.0.8"
+spring-boot-for-docs = "4.0.6"
+spring-cloud-stream = "5.0.0"
+system-lambda = "1.2.1"
+testcontainers = "2.0.5"
+# plugins
+antora = "1.0.0"
+antora-yml = "0.0.1"
+download = "5.6.0"
+grgit = "5.2.2"
+nohttp = "0.0.11"
+shadow = "9.2.2"
+versions = "0.52.0"
+version-catalog-update = "0.8.5"
+protobuf-plugin = "0.9.6"
+
+[libraries]
+# Product libs
+caffeine = { module = "com.github.ben-manes.caffeine:caffeine", version.ref = "caffeine" }
+jackson-bom = { module = "com.fasterxml.jackson:jackson-bom", version.ref = "jackson" }
+jspecify = { module = "org.jspecify:jspecify", version.ref = "jspecify" }
+jsr305 = { module = "com.google.code.findbugs:jsr305", version.ref = "jsr305" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+micrometer-bom = { module = "io.micrometer:micrometer-bom", version.ref = "micrometer" }
+micrometer-docs-gen = { module = "io.micrometer:micrometer-docs-generator", version.ref = "micrometer-docs-gen" }
+micrometer-tracing-bom = { module = "io.micrometer:micrometer-tracing-bom", version.ref = "micrometer-tracing" }
+protobuf-java = { module = "com.google.protobuf:protobuf-java", version.ref = "protobuf" }
+protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protobuf" }
+pulsar-client-all = { module = "org.apache.pulsar:pulsar-client-all", version.ref = "pulsar" }
+spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring" }
+# Testing libs
+assertj-bom = { module = "org.assertj:assertj-bom", version.ref = "assertj" }
+awaitility = { module = "org.awaitility:awaitility", version.ref = "awaitility" }
+commons-compress = { module = "org.apache.commons:commons-compress", version.ref = "commons-compress" }
+json-path = { module = "com.jayway.jsonpath:json-path", version.ref = "json-path" }
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+mockito-bom = { module = "org.mockito:mockito-bom", version.ref = "mockito" }
+spring-boot-starter-amqp = { module = "org.springframework.boot:spring-boot-starter-amqp", version.ref = "spring-boot" }
+spring-boot-starter-pulsar = { module = "org.springframework.boot:spring-boot-starter-pulsar", version.ref = "spring-boot" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
+spring-boot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "spring-boot" }
+system-lambda = { module = "com.github.stefanbirkner:system-lambda", version.ref = "system-lambda" }
+testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
+
+[plugins]
+antora = { id = "org.antora", version.ref = "antora" }
+antora-yml = { id = "io.spring.antora.generate-antora-yml", version.ref = "antora-yml" }
+download = { id = "de.undercouch.download", version.ref = "download" }
+grgit = { id = "org.ajoberstar.grgit", version.ref = "grgit" }
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dep-mgmt = { id = "io.spring.dependency-management", version.ref = "spring-dep-mgmt" }
+versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }
+version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "version-catalog-update" }
+protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }

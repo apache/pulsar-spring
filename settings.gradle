@@ -1,0 +1,35 @@
+pluginManagement {
+	repositories {
+		mavenCentral()
+		gradlePluginPortal()
+		maven { url "https://repo.spring.io/release" }
+		maven { url "https://repo.spring.io/milestone" }
+		maven { url "https://repo.spring.io/snapshot" }
+	}
+}
+
+plugins {
+	id "io.spring.develocity.conventions" version "0.0.27"
+}
+
+startParameter.noBuildScan = startParameter.taskNames.contains('format')
+
+include 'spring-pulsar'
+include 'spring-pulsar-bom'
+include 'spring-pulsar-cache-provider'
+include 'spring-pulsar-cache-provider-caffeine'
+include 'spring-pulsar-dependencies'
+include 'spring-pulsar-sample-apps:sample-imperative-produce-consume'
+include 'spring-pulsar-sample-apps:sample-failover-custom-router'
+include 'spring-pulsar-sample-apps:sample-pulsar-functions:sample-signup-app'
+include 'spring-pulsar-sample-apps:sample-pulsar-functions:sample-signup-function'
+include 'spring-pulsar-sample-apps:sample-pulsar-binder'
+include 'spring-pulsar-sample-apps:sample-pulsar-reader'
+include 'spring-pulsar-docs'
+include 'spring-pulsar-test'
+include 'integration-tests'
+
+rootProject.name = "spring-pulsar-dist"
+
+rootProject.children.findAll { !it.name.startsWith('sample-') }
+		.each {project -> project.buildFileName = "${project.name}.gradle" }

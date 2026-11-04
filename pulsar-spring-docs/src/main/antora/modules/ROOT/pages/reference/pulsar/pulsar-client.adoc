@@ -1,0 +1,56 @@
+[[pulsar-client]]
+= Pulsar Client
+include::../../attributes/attributes.adoc[]
+
+When you use the Pulsar Spring Boot Starter, you get the `PulsarClient` auto-configured.
+
+By default, the application tries to connect to a local Pulsar instance at `pulsar://localhost:6650`.
+This can be adjusted by setting the `spring.pulsar.client.service-url` property to a different value.
+
+TIP: The value must be a valid {apache-pulsar-docs}/client-libraries-java/#connection-urls[Pulsar Protocol] URL
+
+You can further configure the client by specifying any of the {spring-boot-pulsar-config-props}[`spring.pulsar.client.*`] application properties.
+
+NOTE: If you are not using the starter, you will need to configure and register the `PulsarClient` yourself.
+There is a `DefaultPulsarClientFactory` that accepts a builder customizer that can be used to help with this.
+
+[[tls-encryption]]
+== TLS Encryption (SSL)
+include::tls-encryption.adoc[]
+
+[[client-authentication]]
+== Authentication
+include::authentication.adoc[]
+
+[[auto-cluster-failover]]
+== Automatic Cluster-Level Failover
+
+The Pulsar Spring Boot Starter also auto-configures the `PulsarClient` for {apache-pulsar-docs}/concepts-cluster-level-failover/[automatic cluster-level failover].
+
+You can use the {spring-boot-pulsar-config-props}[`spring.pulsar.client.failover.*`] application properties to configure cluster-level failover.
+
+The following example configures the client with a primary and two backup clusters.
+
+.application.yml
+[source,yaml,subs="attributes,verbatim"]
+----
+spring:
+  pulsar:
+    client:
+      service-url: "pulsar://my.primary.server:6650"
+      failover:
+        delay: 30s
+        switch-back-delay: 15s
+        check-interval: 1s
+        backup-clusters:
+          - service-url: "pulsar://my.second.server:6650"
+            authentication:
+              plugin-class-name: org.apache.pulsar.client.impl.auth.AuthenticationToken
+              param:
+                token: "my-token"
+          - service-url: "pulsar://my.third.server:6650"
+----
+
+IMPORTANT: In addition to the client configuration, there a {apache-pulsar-docs}/client-libraries-cluster-level-failover/#prerequisites[few prerequisites] on the broker that must be satisfied in order to use this feature.
+
+When not using Spring Boot auto-configuration, you can provide a client customizer that configures the client for cluster-level failover.

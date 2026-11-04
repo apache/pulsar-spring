@@ -1,0 +1,64 @@
+plugins {
+	id 'org.springframework.pulsar.spring-unpublished-module'
+	id 'spring-pulsar.integration-test-conventions'
+	alias(libs.plugins.download)
+}
+
+description = 'Spring Pulsar Integration Tests'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	intTestImplementation project(':spring-pulsar')
+	intTestImplementation project(':spring-pulsar-test')
+	intTestImplementation 'org.awaitility:awaitility'
+	intTestImplementation 'org.testcontainers:testcontainers-junit-jupiter'
+	intTestImplementation 'org.testcontainers:testcontainers-pulsar'
+	intTestImplementation 'org.testcontainers:testcontainers-rabbitmq'
+	intTestImplementation libs.spring.boot.starter.test
+	intTestImplementation libs.spring.boot.starter.amqp
+	// Exclude spring-pulsar from boot in order to use current changes in project
+	intTestImplementation(libs.spring.boot.starter.pulsar) {
+		exclude group: "org.springframework.pulsar", module: "spring-pulsar"
+	}
+	intTestImplementation libs.spring.boot.testcontainers
+	intTestRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	intTestRuntimeOnly libs.logback.classic
+}
+
+test {
+	testLogging.showStandardStreams = true
+}
+
+integrationTest {
+	maxHeapSize '2048m'
+}
+
+def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
+def pulsarVersion = versionCatalog.findVersion("pulsar").orElseThrow().displayName
+
+task downloadRabbitConnector {
+	onlyIf {
+		System.getProperty("downloadRabbitConnector") == "true"
+	}
+	doLast {
+		try {
+			download.run {
+				println "Downloading Rabbit connector to 'src/intTest/resources/connectors/' (one time only if not already downloaded)..."
+				src "https://archive.apache.org/dist/pulsar/pulsar-${pulsarVersion}/connectors/pulsar-io-rabbitmq-${pulsarVersion}.nar"
+				dest "$buildDir/../src/intTest/resources/connectors/pulsar-io-rabbitmq-${pulsarVersion}.nar"
+				overwrite false
+			}
+		} catch (Exception ex) {
+			println "Failed to download rabbit connector: $ex"
+		}
+	}
+}
+
+project.afterEvaluate {
+	integrationTest.dependsOn downloadRabbitConnector
+}

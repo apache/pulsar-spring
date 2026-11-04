@@ -1,0 +1,120 @@
+import org.springframework.pulsar.gradle.ProjectUtils
+
+plugins {
+	id 'org.springframework.pulsar.spring-docs-module'
+	alias(libs.plugins.antora)
+	alias(libs.plugins.antora.yml)
+}
+
+apply from: "${rootDir}/gradle/antora-docs.gradle"
+
+node {
+	version = "24.15.0"
+}
+
+description = 'Spring for Apache Pulsar Docs'
+
+configurations {
+	observationDocs
+}
+
+dependencies {
+	api project (':spring-pulsar')
+	observationDocs libs.micrometer.docs.gen
+}
+
+jar {
+	enabled = false
+}
+
+javadoc {
+	enabled = false
+}
+
+javadocJar {
+	enabled = false
+}
+
+sourcesJar {
+	enabled = false
+}
+
+task aggregatedJavadoc(type: Javadoc) {
+	group = 'Documentation'
+	description = 'Generates aggregated Javadoc API documentation.'
+	title = "${rootProject.description} ${version} API"
+
+	project.rootProject.gradle.projectsEvaluated {
+		Set<Project> publishedProjects = rootProject.subprojects.findAll { it != project}
+			.findAll { it.plugins.hasPlugin(JavaPlugin) && it.plugins.hasPlugin(MavenPublishPlugin) }
+			.findAll { !it.name.startsWith('sample-') && !it.name.equals('spring-pulsar-test') }
+		dependsOn publishedProjects.javadoc
+		source publishedProjects.javadoc.source
+		classpath = project.files(publishedProjects.javadoc.classpath)
+		destinationDir = project.file "${buildDir}/api"
+		options {
+			encoding = "UTF-8"
+			author = true
+			docTitle = "Spring for Apache Pulsar ${project.version} API"
+			windowTitle = "Spring for Apache Pulsar ${project.version} API"
+			overview = 'src/api/overview.html'
+			memberLevel = JavadocMemberLevel.PROTECTED
+			outputLevel = JavadocOutputLevel.QUIET
+			splitIndex = true
+			use = true
+			addBooleanOption('Xdoclint:syntax', true) // only check syntax with doclint
+			links = [
+				"https://docs.oracle.com/en/java/javase/17/docs/api/",
+				"https://docs.spring.io/spring-framework/docs/current/javadoc-api/"
+			]
+		}
+	}
+}
+
+def observationsInputDir = file("${rootDir}/spring-pulsar/src/main/java/org/springframework/pulsar/observation").absolutePath
+def observationsOutputDir = file("${buildDir}/docs/generated/observation/").absolutePath
+
+task generateObservabilityDocs(type: JavaExec) {
+	mainClass = 'io.micrometer.docs.DocsGeneratorCommand'
+	inputs.dir(observationsInputDir)
+	outputs.dir(observationsOutputDir)
+	classpath configurations.observationDocs
+	args observationsInputDir, /.+/, observationsOutputDir
+}
+
+task docsZip(type: Zip, dependsOn: [':spring-pulsar-docs:antora']) {
+	group = 'Distribution'
+	archiveClassifier = 'docs'
+	description = "Builds docs archive containing api and reference for deployment at static.spring.io/spring-pulsar/docs."
+	duplicatesStrategy "fail"
+	from(aggregatedJavadoc) {
+		into "api"
+	}
+	from ('build/site') {
+		into 'reference/'
+	}
+}
+
+artifacts {
+	archives docsZip
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifact docsZip
+		}
+	}
+}
+
+artifactoryPublish {
+	publications(publishing.publications.mavenJava)
+}
+
+tasks.withType(PublishToMavenRepository).configureEach {
+	enabled = ProjectUtils.isSnapshot(project) || project.hasProperty('forceLocalPublish')
+}
+
+tasks.withType(PublishToMavenLocal).configureEach {
+	enabled = ProjectUtils.isSnapshot(project) || project.hasProperty('forceLocalPublish')
+}
