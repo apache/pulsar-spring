@@ -2,7 +2,7 @@ spring:
   pulsar:
     defaults:
       type-mappings:
-        - message-type: com.example.ImperativeProduceAndConsumeApp$Bar
+        - message-type: org.apache.pulsar.spring.sample.imperative.ImperativeProduceAndConsumeApp$Bar
           topic-name: bar-topic
           schema-info:
             schema-type: JSON

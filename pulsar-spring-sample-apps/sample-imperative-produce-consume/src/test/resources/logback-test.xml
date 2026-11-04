@@ -7,7 +7,7 @@
     <root level="WARN">
         <appender-ref ref="STDOUT"/>
     </root>
-    <logger name="com.example" level="INFO"/>
+    <logger name="org.apache.pulsar.spring.sample.imperative" level="INFO"/>
     <logger name="com.github.dockerjava" level="ERROR"/>
     <logger name="org.apache.pulsar.common.util.netty" level="ERROR" />
     <logger name="org.testcontainers" level="ERROR"/>
