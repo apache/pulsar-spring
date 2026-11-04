@@ -39,6 +39,7 @@ content:
       branches: HEAD
       start_path: pulsar-spring-docs/src/main/antora
       worktrees: true
+      edit_url: https://github.com/apache/pulsar-spring/edit/main/{path}
 asciidoc:
   attributes:
     hide-uri-scheme: '@'

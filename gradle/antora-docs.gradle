@@ -20,6 +20,8 @@
 //file:noinspection GroovyUnusedAssignment
 
 antora {
+	// Without CI, the UI links "Edit this Page" to the local file instead of edit_url
+	environment = [CI: 'true']
 	playbook = file('src/main/antora/antora-playbook.yml')
 	options = ['to-dir' : project.layout.buildDirectory.dir('site').get().toString(), clean: true, fetch: !project.gradle.startParameter.offline, stacktrace: true]
 }
