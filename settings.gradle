@@ -16,6 +16,9 @@ startParameter.noBuildScan = startParameter.taskNames.contains('format')
 
 include 'pulsar-spring'
 include 'pulsar-spring-bom'
+include 'pulsar-spring-boot-autoconfigure'
+include 'pulsar-spring-boot-starter'
+include 'pulsar-spring-boot-starter-test'
 include 'pulsar-spring-cache-provider'
 include 'pulsar-spring-cache-provider-caffeine'
 include 'pulsar-spring-dependencies'

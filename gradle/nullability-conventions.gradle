@@ -1,4 +1,5 @@
 def javaProjects = [ 'pulsar-spring',
+					 'pulsar-spring-boot-autoconfigure',
 					 'pulsar-spring-cache-provider',
 					 'pulsar-spring-cache-provider-caffeine',
 					 'pulsar-spring-test' ]

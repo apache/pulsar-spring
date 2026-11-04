@@ -15,12 +15,11 @@ repositories {
 def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
 def pulsarVersion = project.properties['pulsarVersion'] ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
 
-ext['pulsar-spring.version'] = "${project.property('version.samples')}"
 ext['pulsar.version'] = "${pulsarVersion}"
 
 
 dependencies {
-	implementation 'org.springframework.boot:pulsar-spring-boot-starter'
+	implementation project(':pulsar-spring-boot-starter')
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 	testImplementation project(':pulsar-spring-test')
 	testRuntimeOnly 'ch.qos.logback:logback-classic'

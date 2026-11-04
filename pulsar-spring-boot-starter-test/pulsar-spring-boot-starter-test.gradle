@@ -1,0 +1,10 @@
+plugins {
+	id 'org.apache.pulsar.spring.spring-module'
+}
+
+description = 'Starter for testing Apache Pulsar support for Spring'
+
+dependencies {
+	api project(':pulsar-spring-boot-starter')
+	api libs.spring.boot.starter.test
+}

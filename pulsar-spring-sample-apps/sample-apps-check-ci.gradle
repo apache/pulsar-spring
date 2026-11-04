@@ -19,10 +19,10 @@ settingsEvaluated { settings ->
 allprojects {
 	configurations.all {
 		resolutionStrategy {
-			force "org.apache.pulsar:pulsar-spring:$springPulsarVersion"
-			force "org.apache.pulsar:pulsar-spring-cache-provider:$springPulsarVersion"
-			force "org.apache.pulsar:pulsar-spring-cache-provider-caffeine:$springPulsarVersion"
-			force "org.apache.pulsar:pulsar-spring-dependencies:$springPulsarVersion"
+			force "org.apache.pulsar.spring:pulsar-spring:$springPulsarVersion"
+			force "org.apache.pulsar.spring:pulsar-spring-cache-provider:$springPulsarVersion"
+			force "org.apache.pulsar.spring:pulsar-spring-cache-provider-caffeine:$springPulsarVersion"
+			force "org.apache.pulsar.spring:pulsar-spring-dependencies:$springPulsarVersion"
 		}
 	}
 	repositories {

@@ -21,10 +21,7 @@ dependencies {
 	intTestImplementation 'org.testcontainers:testcontainers-rabbitmq'
 	intTestImplementation libs.spring.boot.starter.test
 	intTestImplementation libs.spring.boot.starter.amqp
-	// Exclude pulsar-spring from boot in order to use current changes in project
-	intTestImplementation(libs.spring.boot.starter.pulsar) {
-		exclude group: 'org.apache.pulsar', module: "pulsar-spring"
-	}
+	intTestImplementation project(':pulsar-spring-boot-starter')
 	intTestImplementation libs.spring.boot.testcontainers
 	intTestRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	intTestRuntimeOnly libs.logback.classic

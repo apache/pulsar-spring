@@ -47,7 +47,7 @@ task aggregatedJavadoc(type: Javadoc) {
 	project.rootProject.gradle.projectsEvaluated {
 		Set<Project> publishedProjects = rootProject.subprojects.findAll { it != project}
 			.findAll { it.plugins.hasPlugin(JavaPlugin) && it.plugins.hasPlugin(MavenPublishPlugin) }
-			.findAll { !it.name.startsWith('sample-') && !it.name.equals('pulsar-spring-test') }
+			.findAll { !it.name.startsWith('sample-') && !it.name.equals('pulsar-spring-test') && !it.name.contains('-starter') }
 		dependsOn publishedProjects.javadoc
 		source publishedProjects.javadoc.source
 		classpath = project.files(publishedProjects.javadoc.classpath)

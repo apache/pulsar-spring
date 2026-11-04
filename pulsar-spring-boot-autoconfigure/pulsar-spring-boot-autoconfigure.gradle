@@ -1,0 +1,61 @@
+plugins {
+	id 'org.apache.pulsar.spring.spring-module'
+}
+
+description = 'Spring Boot auto-configuration for Apache Pulsar'
+
+sourceSets {
+	dockerTest {
+		compileClasspath += sourceSets.main.output
+		runtimeClasspath += sourceSets.main.output
+	}
+}
+
+configurations {
+	dockerTestImplementation {
+		extendsFrom testImplementation
+	}
+	dockerTestRuntimeOnly {
+		extendsFrom testRuntimeOnly
+	}
+}
+
+dependencies {
+	annotationProcessor libs.spring.boot.autoconfigure.processor
+	annotationProcessor libs.spring.boot.configuration.processor
+
+	api libs.jspecify
+	api libs.spring.boot.transaction
+	api project(':pulsar-spring')
+
+	optional libs.spring.boot.autoconfigure
+	optional libs.spring.boot.docker.compose
+	optional libs.spring.boot.testcontainers
+	optional 'org.testcontainers:testcontainers-pulsar'
+
+	dockerTestImplementation project(':pulsar-spring-test')
+	dockerTestImplementation 'org.testcontainers:testcontainers-junit-jupiter'
+
+	testImplementation project(path: ':pulsar-spring-cache-provider-caffeine', configuration: 'shadow')
+	testImplementation libs.caffeine
+	testImplementation libs.spring.boot.test
+	testImplementation 'org.assertj:assertj-core'
+	testImplementation 'org.awaitility:awaitility'
+	testImplementation 'org.junit.jupiter:junit-jupiter'
+	testImplementation 'org.mockito:mockito-junit-jupiter'
+	testImplementation 'org.springframework:spring-test'
+
+	testRuntimeOnly libs.logback.classic
+}
+
+tasks.register('dockerTest', Test) {
+	description = 'Runs the tests that require Docker.'
+	group = 'verification'
+	testClassesDirs = sourceSets.dockerTest.output.classesDirs
+	classpath = sourceSets.dockerTest.runtimeClasspath
+	shouldRunAfter test
+}
+
+tasks.named('check') {
+	dependsOn 'dockerTest'
+}
