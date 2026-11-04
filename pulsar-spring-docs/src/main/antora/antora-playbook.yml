@@ -4,7 +4,7 @@ antora:
       root_component_name: 'pulsar'
 site:
   title: Apache Pulsar support for Spring
-  url: https://docs.spring.io/pulsar-spring/reference/
+  url: https://pulsar.apache.org/pulsar-spring/reference/
   robots: allow
 content:
   sources:
