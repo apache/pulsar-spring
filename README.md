@@ -85,6 +85,10 @@ Set `-PapacheSnapshotsRepoUrl` and `-PapacheReleasesRepoUrl` to `file://` URLs t
 
 For a non-snapshot version, it fails if there are uncommitted changes, if the committed `gradle.properties` has a different version, or if signing isn't configured. The reference documentation is skipped when building from the archive because Antora needs a git repository, so build the site from a clone.
 
+## Security
+
+Don't report vulnerabilities in public issues. See [SECURITY.md](SECURITY.md) for how to report them.
+
 ## License
 
 Licensed under the [Apache License, Version 2.0](LICENSE).

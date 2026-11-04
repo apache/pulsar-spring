@@ -81,7 +81,7 @@ so it can also reformat unrelated files there: review the diff and keep those ch
 1. **Don't break backward compatibility** in public APIs or configuration properties without calling it
    out, and record user-facing changes in the What's New page.
 2. **Security:** never disclose a vulnerability — or the security nature of a change — in a public issue,
-   PR, or commit. Follow the [ASF security process](https://www.apache.org/security/).
+   PR, or commit. Follow [`SECURITY.md`](SECURITY.md).
 3. **Large changes:** discuss large refactorings on `dev@pulsar.apache.org` first.
 
 ## Where to ask
