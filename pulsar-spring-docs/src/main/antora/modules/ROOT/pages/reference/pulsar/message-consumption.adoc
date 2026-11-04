@@ -229,13 +229,13 @@ Once data is received, it is handed over to the selected message listener implem
 
 The following message listener types are available when you use Spring for Apache Pulsar.
 
-* link:{github}/blob/8e33ac0b122bc0e75df299919c956cacabcc9809/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarRecordMessageListener.java#L29[PulsarRecordMessageListener]
+* link:{github}/blob/main/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarRecordMessageListener.java[PulsarRecordMessageListener]
 
-* link:{github}/blob/ade2c74482d8ac1407ffe4840fa058475c07bcfc/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarAcknowledgingMessageListener.java#L28[PulsarAcknowledgingMessageListener]
+* link:{github}/blob/main/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarAcknowledgingMessageListener.java[PulsarAcknowledgingMessageListener]
 
-* link:{github}/blob/ade2c74482d8ac1407ffe4840fa058475c07bcfc/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarBatchMessageListener.java#L36[PulsarBatchMessageListener]
+* link:{github}/blob/main/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarBatchMessageListener.java[PulsarBatchMessageListener]
 
-* link:{github}/blob/ade2c74482d8ac1407ffe4840fa058475c07bcfc/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarBatchAcknowledgingMessageListener.java#L28[PulsarBatchAcknowledgingMessageListener]
+* link:{github}/blob/main/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarBatchAcknowledgingMessageListener.java[PulsarBatchAcknowledgingMessageListener]
 
 We see the details about these various message listeners in the following sections.
 

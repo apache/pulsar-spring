@@ -95,7 +95,7 @@ If you want to apply a customizer to just a single producer, you can use the Flu
 Each underlying Pulsar producer consumes resources.
 To improve performance and avoid continual creation of producers, the producer factory caches the producers that it creates.
 They are cached in an LRU fashion and evicted when they have not been used within a configured time period.
-The link:{github}/blob/8e33ac0b122bc0e75df299919c956cacabcc9809/pulsar-spring/src/main/java/org/apache/pulsar/spring/core/CachingPulsarProducerFactory.java#L159[cache key] is composed of just enough information to ensure that callers are returned the same producer on subsequent creation requests.
+The link:{github}/blob/main/pulsar-spring/src/main/java/org/apache/pulsar/spring/core/CachingPulsarProducerFactory.java[cache key] is composed of just enough information to ensure that callers are returned the same producer on subsequent creation requests.
 
 Additionally, you can configure the cache settings by specifying any of the {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.producer.cache.*`] application properties.
 
