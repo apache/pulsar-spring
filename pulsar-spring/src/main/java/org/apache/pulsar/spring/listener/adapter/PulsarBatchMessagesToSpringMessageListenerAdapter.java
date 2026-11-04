@@ -25,12 +25,12 @@ import java.util.Map;
 
 import org.apache.pulsar.client.api.Consumer;
 import org.apache.pulsar.client.api.Messages;
+import org.apache.pulsar.spring.listener.Acknowledgement;
+import org.apache.pulsar.spring.listener.PulsarBatchAcknowledgingMessageListener;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
-import org.apache.pulsar.spring.listener.Acknowledgement;
-import org.apache.pulsar.spring.listener.PulsarBatchAcknowledgingMessageListener;
 
 /**
  * A {@link org.apache.pulsar.client.api.MessageListener MessageListener} adapter that

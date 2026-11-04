@@ -20,13 +20,13 @@ import java.lang.reflect.Type;
 
 import org.apache.pulsar.client.api.Consumer;
 import org.apache.pulsar.client.api.Reader;
+import org.apache.pulsar.spring.support.PulsarNull;
+import org.apache.pulsar.spring.support.header.PulsarHeaderMapper;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.messaging.Message;
 import org.springframework.messaging.converter.SmartMessageConverter;
 import org.springframework.messaging.support.MessageBuilder;
-import org.apache.pulsar.spring.support.PulsarNull;
-import org.apache.pulsar.spring.support.header.PulsarHeaderMapper;
 
 /**
  *

@@ -24,15 +24,15 @@ import org.apache.pulsar.client.api.MessageId;
 import org.apache.pulsar.client.api.Reader;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.common.schema.SchemaType;
+import org.apache.pulsar.spring.config.StartupFailurePolicy;
+import org.apache.pulsar.spring.core.DefaultSchemaResolver;
+import org.apache.pulsar.spring.core.SchemaResolver;
 import org.jspecify.annotations.NullUnmarked;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.core.retry.RetryPolicy;
 import org.springframework.core.retry.RetryTemplate;
 import org.springframework.core.task.AsyncTaskExecutor;
-import org.apache.pulsar.spring.config.StartupFailurePolicy;
-import org.apache.pulsar.spring.core.DefaultSchemaResolver;
-import org.apache.pulsar.spring.core.SchemaResolver;
 import org.springframework.util.Assert;
 import org.springframework.util.backoff.FixedBackOff;
 

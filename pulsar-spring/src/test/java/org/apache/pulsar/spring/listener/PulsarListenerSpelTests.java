@@ -31,13 +31,6 @@ import java.util.Objects;
 import org.apache.pulsar.client.api.DeadLetterPolicy;
 import org.apache.pulsar.client.api.RedeliveryBackoff;
 import org.apache.pulsar.client.api.SubscriptionType;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.apache.pulsar.spring.annotation.EnablePulsar;
 import org.apache.pulsar.spring.annotation.PulsarListener;
 import org.apache.pulsar.spring.annotation.PulsarListenerConsumerBuilderCustomizer;
@@ -56,6 +49,13 @@ import org.apache.pulsar.spring.listener.PulsarListenerSpelTests.NackRedeliveryB
 import org.apache.pulsar.spring.listener.PulsarListenerSpelTests.PropertiesAttribute.PropertiesAttributeConfig;
 import org.apache.pulsar.spring.listener.PulsarListenerSpelTests.SubscriptionNameAttribute.SubscriptionNameAttributeConfig;
 import org.apache.pulsar.spring.listener.PulsarListenerSpelTests.TopicsAttribute.TopicsAttributeConfig;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.util.ReflectionTestUtils;

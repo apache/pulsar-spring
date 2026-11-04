@@ -37,16 +37,16 @@ import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.MessageId;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.Schema;
-import org.junit.jupiter.api.Test;
-import org.mockito.stubbing.Answer;
-
-import org.springframework.core.log.LogAccessor;
 import org.apache.pulsar.spring.core.DefaultPulsarConsumerFactory;
 import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
 import org.apache.pulsar.spring.core.PulsarOperations;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.core.TypedMessageBuilderCustomizer;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.junit.jupiter.api.Test;
+import org.mockito.stubbing.Answer;
+
+import org.springframework.core.log.LogAccessor;
 import org.springframework.util.backoff.FixedBackOff;
 
 /**

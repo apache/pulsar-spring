@@ -45,6 +45,10 @@ import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.SchemaSerializationException;
 import org.apache.pulsar.client.api.interceptor.ProducerInterceptor;
+import org.apache.pulsar.spring.annotation.EnablePulsar;
+import org.apache.pulsar.spring.test.model.UserRecord;
+import org.apache.pulsar.spring.test.model.json.UserRecordObjectMapper;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -58,10 +62,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
-import org.apache.pulsar.spring.annotation.EnablePulsar;
-import org.apache.pulsar.spring.test.model.UserRecord;
-import org.apache.pulsar.spring.test.model.json.UserRecordObjectMapper;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.springframework.util.function.ThrowingConsumer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

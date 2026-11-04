@@ -19,9 +19,10 @@ package org.apache.pulsar.spring.core;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.apache.pulsar.spring.annotation.PulsarMessage;
+
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.annotation.PulsarMessage;
 import org.springframework.util.Assert;
 
 /**

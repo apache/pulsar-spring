@@ -36,14 +36,14 @@ import org.apache.pulsar.client.api.RedeliveryBackoff;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.client.impl.MultiplierRedeliveryBackoff;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.context.support.GenericApplicationContext;
 import org.apache.pulsar.spring.config.ConcurrentPulsarListenerContainerFactory;
 import org.apache.pulsar.spring.config.PulsarListenerEndpoint;
 import org.apache.pulsar.spring.core.PulsarConsumerFactory;
 import org.apache.pulsar.spring.observation.PulsarListenerObservationConvention;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.util.backoff.BackOff;
 
 import io.micrometer.observation.ObservationRegistry;

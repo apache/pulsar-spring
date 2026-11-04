@@ -26,6 +26,8 @@ import static org.mockito.Mockito.verify;
 import java.util.stream.Stream;
 
 import org.apache.pulsar.common.schema.SchemaType;
+import org.apache.pulsar.spring.annotation.PulsarMessage;
+import org.apache.pulsar.spring.core.DefaultTopicResolverTests.TopicByAnnotatedMessageType.WithTopicExpression.WithTopicExpressionConfig;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,8 +40,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.apache.pulsar.spring.annotation.PulsarMessage;
-import org.apache.pulsar.spring.core.DefaultTopicResolverTests.TopicByAnnotatedMessageType.WithTopicExpression.WithTopicExpressionConfig;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;

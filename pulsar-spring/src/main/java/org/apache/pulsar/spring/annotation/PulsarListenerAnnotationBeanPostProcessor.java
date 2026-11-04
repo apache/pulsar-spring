@@ -31,6 +31,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.pulsar.client.api.DeadLetterPolicy;
 import org.apache.pulsar.client.api.RedeliveryBackoff;
+import org.apache.pulsar.spring.config.MethodPulsarListenerEndpoint;
+import org.apache.pulsar.spring.config.PulsarAnnotationSupportBeanNames;
+import org.apache.pulsar.spring.config.PulsarListenerContainerFactory;
+import org.apache.pulsar.spring.config.PulsarListenerEndpoint;
+import org.apache.pulsar.spring.config.PulsarListenerEndpointRegistrar;
+import org.apache.pulsar.spring.config.PulsarListenerEndpointRegistry;
+import org.apache.pulsar.spring.listener.PulsarConsumerErrorHandler;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.aop.support.AopUtils;
@@ -46,13 +53,6 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.GenericConverter;
 import org.springframework.format.Formatter;
 import org.springframework.format.FormatterRegistry;
-import org.apache.pulsar.spring.config.MethodPulsarListenerEndpoint;
-import org.apache.pulsar.spring.config.PulsarAnnotationSupportBeanNames;
-import org.apache.pulsar.spring.config.PulsarListenerContainerFactory;
-import org.apache.pulsar.spring.config.PulsarListenerEndpoint;
-import org.apache.pulsar.spring.config.PulsarListenerEndpointRegistrar;
-import org.apache.pulsar.spring.config.PulsarListenerEndpointRegistry;
-import org.apache.pulsar.spring.listener.PulsarConsumerErrorHandler;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 

@@ -16,10 +16,10 @@
 
 package org.apache.pulsar.spring.test.support;
 
+import static org.apache.pulsar.spring.test.support.ConsumedMessagesConditions.desiredMessageCount;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
-import static org.apache.pulsar.spring.test.support.ConsumedMessagesConditions.desiredMessageCount;
 
 import java.time.Duration;
 import java.util.List;
@@ -29,18 +29,17 @@ import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
+import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.core.DefaultPulsarConsumerFactory;
+import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
+import org.apache.pulsar.spring.core.PulsarConsumerFactory;
+import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
-
-import org.apache.pulsar.spring.PulsarException;
-import org.apache.pulsar.spring.core.DefaultPulsarConsumerFactory;
-import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
-import org.apache.pulsar.spring.core.PulsarConsumerFactory;
-import org.apache.pulsar.spring.core.PulsarTemplate;
 
 /**
  * Tests for {@link PulsarConsumerTestUtil}.

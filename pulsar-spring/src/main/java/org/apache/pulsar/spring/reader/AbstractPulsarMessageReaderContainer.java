@@ -19,11 +19,11 @@ package org.apache.pulsar.spring.reader;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.pulsar.client.api.ReaderListener;
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.core.AbstractPulsarMessageContainer;
 import org.apache.pulsar.spring.core.PulsarReaderFactory;
 import org.apache.pulsar.spring.core.ReaderBuilderCustomizer;
+import org.jspecify.annotations.Nullable;
+
 import org.springframework.util.Assert;
 
 /**

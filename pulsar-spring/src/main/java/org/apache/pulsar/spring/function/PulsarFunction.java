@@ -20,9 +20,8 @@ import org.apache.pulsar.client.admin.PulsarAdmin;
 import org.apache.pulsar.client.admin.PulsarAdminException;
 import org.apache.pulsar.common.functions.FunctionConfig;
 import org.apache.pulsar.common.functions.UpdateOptions;
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.PulsarException;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Represents a user-defined Pulsar Function backed by a {@link FunctionConfig}.

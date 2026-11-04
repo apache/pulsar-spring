@@ -21,10 +21,10 @@ import static org.mockito.Mockito.mock;
 
 import java.util.Collections;
 
+import org.apache.pulsar.spring.observation.PulsarTemplateObservationConvention;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.context.support.GenericApplicationContext;
-import org.apache.pulsar.spring.observation.PulsarTemplateObservationConvention;
 
 import io.micrometer.observation.ObservationRegistry;
 

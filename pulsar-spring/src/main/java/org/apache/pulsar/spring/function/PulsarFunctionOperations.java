@@ -24,9 +24,9 @@ import org.apache.pulsar.client.admin.PulsarAdminException.NotFoundException;
 import org.apache.pulsar.common.functions.FunctionConfig;
 import org.apache.pulsar.common.io.SinkConfig;
 import org.apache.pulsar.common.io.SourceConfig;
+import org.apache.pulsar.spring.PulsarException;
 
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.PulsarException;
 
 /**
  * Provides operations for a particular function type.

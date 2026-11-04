@@ -23,9 +23,9 @@
 
 package org.apache.pulsar.spring.boot.testcontainers;
 
+import org.apache.pulsar.spring.boot.autoconfigure.PulsarConnectionDetails;
 import org.testcontainers.pulsar.PulsarContainer;
 
-import org.apache.pulsar.spring.boot.autoconfigure.PulsarConnectionDetails;
 import org.springframework.boot.testcontainers.service.connection.ContainerConnectionDetailsFactory;
 import org.springframework.boot.testcontainers.service.connection.ContainerConnectionSource;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;

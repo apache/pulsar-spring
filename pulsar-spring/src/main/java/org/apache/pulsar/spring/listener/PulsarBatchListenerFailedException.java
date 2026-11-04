@@ -17,7 +17,6 @@
 package org.apache.pulsar.spring.listener;
 
 import org.apache.pulsar.client.api.Message;
-
 import org.apache.pulsar.spring.PulsarException;
 
 /**

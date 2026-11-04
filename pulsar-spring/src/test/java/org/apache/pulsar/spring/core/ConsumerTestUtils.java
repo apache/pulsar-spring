@@ -29,9 +29,9 @@ import java.util.concurrent.TimeoutException;
 
 import org.apache.pulsar.client.api.Consumer;
 import org.apache.pulsar.client.api.PulsarClientException;
+import org.apache.pulsar.spring.listener.DefaultPulsarMessageListenerContainer;
 
 import org.springframework.beans.DirectFieldAccessor;
-import org.apache.pulsar.spring.listener.DefaultPulsarMessageListenerContainer;
 import org.springframework.util.Assert;
 
 public final class ConsumerTestUtils {

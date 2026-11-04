@@ -35,14 +35,13 @@ import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Reader;
 import org.apache.pulsar.client.api.ReaderBuilder;
 import org.apache.pulsar.client.api.Schema;
+import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
-
-import org.apache.pulsar.spring.PulsarException;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 
 /**
  * Testing {@link DefaultPulsarReaderFactory}.

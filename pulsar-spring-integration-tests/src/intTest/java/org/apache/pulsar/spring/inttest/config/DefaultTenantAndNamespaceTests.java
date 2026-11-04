@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 
+import org.apache.pulsar.spring.core.PulsarAdministration;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -36,8 +38,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.system.CapturedOutput;
 import org.springframework.boot.test.system.OutputCaptureExtension;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
-import org.apache.pulsar.spring.core.PulsarAdministration;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.springframework.test.context.ActiveProfiles;
 
 @Testcontainers(disabledWithoutDocker = true)

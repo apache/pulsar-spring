@@ -21,10 +21,9 @@ import java.util.Collections;
 
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.common.schema.SchemaType;
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.listener.MessageListenerContainer;
 import org.apache.pulsar.spring.support.MessageConverter;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Model for a Pulsar listener endpoint. Can be used against a

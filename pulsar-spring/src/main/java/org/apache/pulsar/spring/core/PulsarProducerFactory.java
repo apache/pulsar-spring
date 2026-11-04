@@ -23,9 +23,8 @@ import org.apache.pulsar.client.api.Producer;
 import org.apache.pulsar.client.api.ProducerBuilder;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.Schema;
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.PulsarException;
+import org.jspecify.annotations.Nullable;
 
 /**
  * The strategy to create a {@link Producer} instance(s).

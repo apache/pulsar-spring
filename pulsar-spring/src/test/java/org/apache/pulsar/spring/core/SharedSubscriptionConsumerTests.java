@@ -27,15 +27,15 @@ import java.util.concurrent.TimeUnit;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.SubscriptionType;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.core.log.LogAccessor;
 import org.apache.pulsar.spring.listener.DefaultPulsarMessageListenerContainer;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties;
 import org.apache.pulsar.spring.listener.PulsarMessageListenerContainer;
 import org.apache.pulsar.spring.listener.PulsarRecordMessageListener;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.core.log.LogAccessor;
 
 /**
  * Tests for shared subscription types in Pulsar consumer.

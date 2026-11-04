@@ -37,9 +37,6 @@ import org.apache.pulsar.client.impl.schema.generic.GenericJsonRecord;
 import org.apache.pulsar.common.schema.KeyValue;
 import org.apache.pulsar.common.schema.KeyValueEncodingType;
 import org.apache.pulsar.common.schema.SchemaType;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.context.annotation.Configuration;
 import org.apache.pulsar.spring.annotation.EnablePulsar;
 import org.apache.pulsar.spring.annotation.PulsarListener;
 import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
@@ -47,6 +44,9 @@ import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.listener.PulsarListenerAutoConsumeSchemaTests.PulsarListenerAutoConsumeSchemaTestsConfig;
 import org.apache.pulsar.spring.test.model.UserPojo;
 import org.apache.pulsar.spring.test.model.UserRecord;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 
 /**

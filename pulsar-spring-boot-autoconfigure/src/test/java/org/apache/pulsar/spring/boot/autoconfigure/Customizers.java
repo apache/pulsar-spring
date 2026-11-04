@@ -23,6 +23,10 @@
 
 package org.apache.pulsar.spring.boot.autoconfigure;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.mock;
+
 import java.util.List;
 import java.util.function.BiConsumer;
 
@@ -30,10 +34,6 @@ import org.assertj.core.api.AssertDelegateTarget;
 import org.mockito.InOrder;
 
 import org.springframework.test.util.ReflectionTestUtils;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.mock;
 
 /**
  * Test utility used to check customizers are called correctly.

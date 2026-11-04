@@ -23,6 +23,9 @@ import java.util.List;
 
 import org.apache.pulsar.client.api.MessageId;
 import org.apache.pulsar.common.schema.SchemaType;
+import org.apache.pulsar.spring.listener.adapter.AbstractPulsarMessageToSpringMessageAdapter;
+import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
+import org.apache.pulsar.spring.support.MessageConverter;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.beans.BeansException;
@@ -34,9 +37,6 @@ import org.springframework.beans.factory.config.BeanExpressionResolver;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.expression.BeanFactoryResolver;
 import org.springframework.expression.BeanResolver;
-import org.apache.pulsar.spring.listener.adapter.AbstractPulsarMessageToSpringMessageAdapter;
-import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
-import org.apache.pulsar.spring.support.MessageConverter;
 import org.springframework.util.Assert;
 
 /**

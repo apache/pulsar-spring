@@ -18,10 +18,9 @@ package org.apache.pulsar.spring.inttest.app;
 
 import java.time.Duration;
 
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.testcontainers.pulsar.PulsarContainer;
 import org.testcontainers.utility.MountableFile;
-
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 
 /**
  * A {@link PulsarContainer} with TLS (SSL) configuration.

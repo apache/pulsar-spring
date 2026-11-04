@@ -20,10 +20,10 @@ import java.util.function.BiFunction;
 
 import org.apache.pulsar.client.api.Consumer;
 import org.apache.pulsar.client.api.Message;
-
-import org.springframework.core.log.LogAccessor;
 import org.apache.pulsar.spring.PulsarException;
 import org.apache.pulsar.spring.core.PulsarOperations;
+
+import org.springframework.core.log.LogAccessor;
 
 /**
  * {@link PulsarMessageRecoverer} implementation that is capable of recovering the message

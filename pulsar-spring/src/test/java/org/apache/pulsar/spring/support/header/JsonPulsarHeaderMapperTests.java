@@ -16,10 +16,10 @@
 
 package org.apache.pulsar.spring.support.header;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper.JSON_TYPES;
 import static org.apache.pulsar.spring.support.header.PulsarHeaderMapperTestUtil.assertSpringHeadersHavePulsarMetadata;
 import static org.apache.pulsar.spring.support.header.PulsarHeaderMapperTestUtil.mockPulsarMessage;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Base64;
 import java.util.Collections;
@@ -27,12 +27,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper.NonTrustedHeaderType;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.messaging.MessageHeaders;
-import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper.NonTrustedHeaderType;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 

@@ -27,12 +27,6 @@ import java.util.function.Function;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.common.schema.SchemaType;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.context.annotation.Configuration;
-import org.springframework.messaging.Message;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.apache.pulsar.spring.annotation.PulsarReader;
 import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
 import org.apache.pulsar.spring.core.PulsarTemplate;
@@ -41,6 +35,12 @@ import org.apache.pulsar.spring.reader.PulsarReaderBasicTests.SingleComplexPaylo
 import org.apache.pulsar.spring.reader.PulsarReaderBasicTests.SinglePrimitivePayload.SinglePrimitivePayloadConfig;
 import org.apache.pulsar.spring.reader.PulsarReaderBasicTests.SpringMessagePayload.SpringMessagePayloadConfig;
 import org.apache.pulsar.spring.support.PulsarNull;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.test.context.ContextConfiguration;
 
 /**

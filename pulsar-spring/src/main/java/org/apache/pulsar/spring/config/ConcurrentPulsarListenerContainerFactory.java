@@ -22,10 +22,10 @@ import java.util.HashSet;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.pulsar.client.api.SubscriptionType;
-
 import org.apache.pulsar.spring.core.PulsarConsumerFactory;
 import org.apache.pulsar.spring.listener.ConcurrentPulsarMessageListenerContainer;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties;
+
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 

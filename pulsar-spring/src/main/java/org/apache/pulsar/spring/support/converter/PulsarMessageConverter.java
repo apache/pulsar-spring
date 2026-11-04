@@ -20,9 +20,9 @@ import java.lang.reflect.Type;
 
 import org.apache.pulsar.client.api.Consumer;
 import org.apache.pulsar.client.api.Reader;
+import org.apache.pulsar.spring.support.MessageConverter;
 
 import org.springframework.messaging.Message;
-import org.apache.pulsar.spring.support.MessageConverter;
 
 /**
  * Pulsar specific record converter strategy.

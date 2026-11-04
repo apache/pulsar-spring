@@ -21,10 +21,9 @@ import java.lang.reflect.Method;
 import org.apache.pulsar.client.api.Consumer;
 import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.MessageListener;
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.listener.Acknowledgement;
 import org.apache.pulsar.spring.listener.PulsarAcknowledgingMessageListener;
+import org.jspecify.annotations.Nullable;
 
 /**
  * A {@link MessageListener MessageListener} adapter that invokes a configurable

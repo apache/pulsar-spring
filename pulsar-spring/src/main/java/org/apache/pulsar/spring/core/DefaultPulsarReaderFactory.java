@@ -28,9 +28,9 @@ import org.apache.pulsar.client.api.Reader;
 import org.apache.pulsar.client.api.ReaderBuilder;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.impl.ReaderBuilderImpl;
+import org.apache.pulsar.spring.PulsarException;
 import org.jspecify.annotations.Nullable;
 
-import org.apache.pulsar.spring.PulsarException;
 import org.springframework.util.CollectionUtils;
 
 /**

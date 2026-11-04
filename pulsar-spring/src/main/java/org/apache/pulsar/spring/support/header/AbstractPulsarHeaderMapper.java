@@ -25,13 +25,13 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import org.apache.pulsar.client.api.Message;
+import org.apache.pulsar.spring.support.PulsarHeaders;
+import org.apache.pulsar.spring.support.header.PulsarHeaderMatcher.NeverMatch;
+import org.apache.pulsar.spring.support.header.PulsarHeaderMatcher.PatternMatch;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.core.log.LogAccessor;
 import org.springframework.messaging.MessageHeaders;
-import org.apache.pulsar.spring.support.PulsarHeaders;
-import org.apache.pulsar.spring.support.header.PulsarHeaderMatcher.NeverMatch;
-import org.apache.pulsar.spring.support.header.PulsarHeaderMatcher.PatternMatch;
 
 /**
  * Base {@code PulsarHeaderMapper} implementation that constrains which headers are mapped

@@ -18,16 +18,16 @@ package org.apache.pulsar.spring.transaction;
 
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
+import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.transaction.PulsarTemplateWithDbTransactionTests.PulsarTemplateSynchronizedWithDbTransaction.PulsarTemplateSynchronizedWithDbTransactionConfig;
+import org.apache.pulsar.spring.transaction.PulsarTemplateWithDbTransactionTests.PulsarTemplateSynchronizedWithDbTransaction.PulsarTemplateSynchronizedWithDbTransactionConfig.TestService;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.apache.pulsar.spring.PulsarException;
-import org.apache.pulsar.spring.core.PulsarTemplate;
-import org.apache.pulsar.spring.transaction.PulsarTemplateWithDbTransactionTests.PulsarTemplateSynchronizedWithDbTransaction.PulsarTemplateSynchronizedWithDbTransactionConfig;
-import org.apache.pulsar.spring.transaction.PulsarTemplateWithDbTransactionTests.PulsarTemplateSynchronizedWithDbTransaction.PulsarTemplateSynchronizedWithDbTransactionConfig.TestService;
 import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;

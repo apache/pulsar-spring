@@ -20,6 +20,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.regex.Pattern;
 
+import org.apache.pulsar.spring.core.ProducerBuilderCustomizer;
+import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.core.PulsarTemplateCustomizer;
+import org.apache.pulsar.spring.inttest.logging.PulsarTemplateLambdaWarnLoggerTests.WithWarnLoggerDisabled.WithWarnLoggerDisabledConfig;
+import org.apache.pulsar.spring.inttest.logging.PulsarTemplateLambdaWarnLoggerTests.WithWarnLoggerIncreasedFrequency.WithWarnLoggerIncreasedFrequencyConfig;
+import org.apache.pulsar.spring.support.internal.logging.LambdaCustomizerWarnLogger;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,13 +43,6 @@ import org.springframework.boot.test.system.CapturedOutput;
 import org.springframework.boot.test.system.OutputCaptureExtension;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
-import org.apache.pulsar.spring.core.ProducerBuilderCustomizer;
-import org.apache.pulsar.spring.core.PulsarTemplate;
-import org.apache.pulsar.spring.core.PulsarTemplateCustomizer;
-import org.apache.pulsar.spring.inttest.logging.PulsarTemplateLambdaWarnLoggerTests.WithWarnLoggerDisabled.WithWarnLoggerDisabledConfig;
-import org.apache.pulsar.spring.inttest.logging.PulsarTemplateLambdaWarnLoggerTests.WithWarnLoggerIncreasedFrequency.WithWarnLoggerIncreasedFrequencyConfig;
-import org.apache.pulsar.spring.support.internal.logging.LambdaCustomizerWarnLogger;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 
 /**
  * Integration tests that covers {@link LambdaCustomizerWarnLogger} and its usage in

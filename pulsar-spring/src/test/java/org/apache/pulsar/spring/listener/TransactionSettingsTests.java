@@ -20,9 +20,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Duration;
 
+import org.apache.pulsar.spring.listener.PulsarContainerProperties.TransactionSettings;
 import org.junit.jupiter.api.Test;
 
-import org.apache.pulsar.spring.listener.PulsarContainerProperties.TransactionSettings;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 

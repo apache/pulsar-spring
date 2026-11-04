@@ -24,14 +24,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.pulsar.client.api.ReaderBuilder;
-import org.assertj.core.api.InstanceOfAssertFactories;
-import org.assertj.core.api.ObjectAssert;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.apache.pulsar.spring.annotation.PulsarReader;
 import org.apache.pulsar.spring.annotation.PulsarReaderReaderBuilderCustomizer;
 import org.apache.pulsar.spring.config.PulsarReaderEndpointRegistry;
@@ -40,6 +32,14 @@ import org.apache.pulsar.spring.reader.PulsarReaderCustomizerTests.WithCustomize
 import org.apache.pulsar.spring.reader.PulsarReaderCustomizerTests.WithMultipleReadersAndSingleCustomizer.WithMultipleReadersAndSingleCustomizerConfig;
 import org.apache.pulsar.spring.reader.PulsarReaderCustomizerTests.WithSingleReaderAndMultipleCustomizers.WithSingleReaderAndMultipleCustomizersConfig;
 import org.apache.pulsar.spring.reader.PulsarReaderCustomizerTests.WithSingleReaderAndSingleCustomizer.WithSingleReaderAndSingleCustomizerConfig;
+import org.assertj.core.api.InstanceOfAssertFactories;
+import org.assertj.core.api.ObjectAssert;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 
 /**

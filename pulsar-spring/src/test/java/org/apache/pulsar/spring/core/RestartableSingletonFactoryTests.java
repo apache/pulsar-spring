@@ -26,13 +26,13 @@ import static org.mockito.Mockito.verify;
 
 import java.util.concurrent.atomic.AtomicReference;
 
+import org.apache.pulsar.spring.core.RestartableComponentSupport.State;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.EnumSource.Mode;
 import org.mockito.InOrder;
 
-import org.apache.pulsar.spring.core.RestartableComponentSupport.State;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**

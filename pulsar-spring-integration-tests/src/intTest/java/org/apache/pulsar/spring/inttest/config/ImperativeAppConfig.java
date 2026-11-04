@@ -22,12 +22,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.common.policies.data.TenantInfoImpl;
-
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
 import org.apache.pulsar.spring.annotation.PulsarListener;
 import org.apache.pulsar.spring.core.DefaultPulsarConsumerFactory;
 import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
@@ -37,6 +31,12 @@ import org.apache.pulsar.spring.core.PulsarProducerFactory;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.core.PulsarTopicBuilder;
 import org.apache.pulsar.spring.core.TopicResolver;
+
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootConfiguration
 @EnableAutoConfiguration

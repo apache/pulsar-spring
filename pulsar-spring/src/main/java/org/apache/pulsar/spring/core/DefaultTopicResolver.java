@@ -23,6 +23,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import org.apache.pulsar.spring.annotation.PulsarMessage;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.beans.BeansException;
@@ -31,7 +32,6 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.annotation.PulsarMessage;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 

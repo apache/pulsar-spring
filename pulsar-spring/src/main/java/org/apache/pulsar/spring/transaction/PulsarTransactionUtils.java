@@ -21,10 +21,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.transaction.Transaction;
+import org.apache.pulsar.spring.PulsarException;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.PulsarException;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 import org.springframework.util.Assert;
 

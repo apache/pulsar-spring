@@ -43,13 +43,13 @@ import org.apache.pulsar.client.api.PulsarClientException.UnsupportedAuthenticat
 import org.apache.pulsar.client.api.ReaderBuilder;
 import org.apache.pulsar.client.api.ServiceUrlProvider;
 import org.apache.pulsar.client.impl.AutoClusterFailover.AutoClusterFailoverBuilderImpl;
+import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.listener.PulsarContainerProperties;
+import org.apache.pulsar.spring.reader.PulsarReaderContainerProperties;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.boot.context.properties.PropertyMapper;
 import org.springframework.boot.json.JsonWriter;
-import org.apache.pulsar.spring.core.PulsarTemplate;
-import org.apache.pulsar.spring.listener.PulsarContainerProperties;
-import org.apache.pulsar.spring.reader.PulsarReaderContainerProperties;
 import org.springframework.util.StringUtils;
 
 /**

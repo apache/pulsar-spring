@@ -24,9 +24,9 @@ import java.lang.annotation.Target;
 
 import org.apache.pulsar.client.api.MessageId;
 import org.apache.pulsar.common.schema.SchemaType;
+import org.apache.pulsar.spring.config.PulsarReaderEndpointRegistry;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.apache.pulsar.spring.config.PulsarReaderEndpointRegistry;
 
 @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)

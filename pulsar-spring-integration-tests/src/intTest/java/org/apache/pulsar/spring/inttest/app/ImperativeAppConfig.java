@@ -18,16 +18,16 @@ package org.apache.pulsar.spring.inttest.app;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.pulsar.spring.annotation.PulsarListener;
+import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.core.PulsarTopic;
+import org.apache.pulsar.spring.core.PulsarTopicBuilder;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
-import org.apache.pulsar.spring.annotation.PulsarListener;
-import org.apache.pulsar.spring.core.PulsarTemplate;
-import org.apache.pulsar.spring.core.PulsarTopic;
-import org.apache.pulsar.spring.core.PulsarTopicBuilder;
 
 @SpringBootConfiguration
 @EnableAutoConfiguration

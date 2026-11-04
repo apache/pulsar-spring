@@ -37,12 +37,12 @@ import org.apache.pulsar.client.api.transaction.Transaction;
 import org.apache.pulsar.client.impl.schema.AutoProduceBytesSchema;
 import org.apache.pulsar.common.protocol.schema.SchemaHash;
 import org.apache.pulsar.common.schema.SchemaType;
+import org.apache.pulsar.spring.cache.provider.CacheProvider;
+import org.apache.pulsar.spring.cache.provider.CacheProviderFactory;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.cache.provider.CacheProvider;
-import org.apache.pulsar.spring.cache.provider.CacheProviderFactory;
 import org.springframework.util.Assert;
 
 /**

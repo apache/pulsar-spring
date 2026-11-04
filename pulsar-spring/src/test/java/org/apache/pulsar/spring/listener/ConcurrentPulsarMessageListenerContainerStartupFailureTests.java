@@ -32,16 +32,16 @@ import java.util.concurrent.TimeUnit;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.SubscriptionType;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.core.log.LogAccessor;
-import org.springframework.core.retry.RetryPolicy;
-import org.springframework.core.retry.RetryTemplate;
 import org.apache.pulsar.spring.config.StartupFailurePolicy;
 import org.apache.pulsar.spring.core.DefaultPulsarConsumerFactory;
 import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.core.log.LogAccessor;
+import org.springframework.core.retry.RetryPolicy;
+import org.springframework.core.retry.RetryTemplate;
 import org.springframework.util.backoff.FixedBackOff;
 
 /**

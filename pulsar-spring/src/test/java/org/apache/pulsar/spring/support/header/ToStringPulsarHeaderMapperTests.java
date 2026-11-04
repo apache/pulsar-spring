@@ -16,8 +16,8 @@
 
 package org.apache.pulsar.spring.support.header;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.apache.pulsar.spring.support.header.PulsarHeaderMapperTestUtil.mockPulsarMessage;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
 import java.util.List;

@@ -23,11 +23,11 @@
 
 package org.apache.pulsar.spring.boot.autoconfigure;
 
-import org.apache.pulsar.client.api.DeadLetterPolicy;
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
+
+import org.apache.pulsar.client.api.DeadLetterPolicy;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link DeadLetterPolicyMapper}.

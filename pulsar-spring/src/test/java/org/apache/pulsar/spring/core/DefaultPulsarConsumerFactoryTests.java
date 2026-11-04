@@ -36,6 +36,8 @@ import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.PulsarClientException.InvalidConfigurationException;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.impl.PatternMultiTopicsConsumerImpl;
+import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -44,8 +46,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.PulsarException;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 
 /**
  * Tests for {@link DefaultPulsarConsumerFactory}.

@@ -18,6 +18,7 @@ package org.apache.pulsar.spring.annotation;
 
 import java.util.List;
 
+import org.apache.pulsar.spring.support.PulsarNull;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.core.MethodParameter;
@@ -25,7 +26,6 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.converter.MessageConverter;
 import org.springframework.messaging.handler.annotation.support.PayloadMethodArgumentResolver;
 import org.springframework.messaging.support.GenericMessage;
-import org.apache.pulsar.spring.support.PulsarNull;
 
 /**
  * A {@link PayloadMethodArgumentResolver} that can properly decode {@link PulsarNull}

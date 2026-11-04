@@ -17,11 +17,6 @@
 package org.apache.pulsar.spring.listener;
 
 import org.apache.pulsar.client.api.PulsarClient;
-
-import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.apache.pulsar.spring.annotation.EnablePulsar;
 import org.apache.pulsar.spring.annotation.PulsarListener;
 import org.apache.pulsar.spring.config.ConcurrentPulsarListenerContainerFactory;
@@ -37,6 +32,11 @@ import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.core.PulsarTopic;
 import org.apache.pulsar.spring.core.PulsarTopicBuilder;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 

@@ -22,18 +22,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.apache.pulsar.spring.annotation.EnablePulsar;
 import org.apache.pulsar.spring.annotation.PulsarReader;
 import org.apache.pulsar.spring.annotation.PulsarReaderReaderBuilderCustomizer;
 import org.apache.pulsar.spring.config.PulsarReaderEndpointRegistry;
 import org.apache.pulsar.spring.reader.PulsarReaderSpelTests.IdAttribute.IdAttributeConfig;
 import org.apache.pulsar.spring.reader.PulsarReaderSpelTests.ReaderCustomizerAttribute.ReaderCustomizerAttributeConfig;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.util.ReflectionTestUtils;

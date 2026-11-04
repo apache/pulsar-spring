@@ -23,11 +23,13 @@
 
 package org.apache.pulsar.spring.boot.autoconfigure;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.mock;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import org.junit.jupiter.api.Test;
 
 import org.apache.pulsar.spring.config.ConcurrentPulsarListenerContainerFactory;
 import org.apache.pulsar.spring.config.DefaultPulsarReaderContainerFactory;
@@ -35,10 +37,7 @@ import org.apache.pulsar.spring.config.ListenerContainerFactory;
 import org.apache.pulsar.spring.config.PulsarContainerFactory;
 import org.apache.pulsar.spring.core.PulsarConsumerFactory;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.mock;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link PulsarContainerFactoryCustomizers}.

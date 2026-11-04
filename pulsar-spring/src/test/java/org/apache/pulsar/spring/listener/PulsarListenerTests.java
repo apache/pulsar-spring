@@ -16,9 +16,9 @@
 
 package org.apache.pulsar.spring.listener;
 
+import static org.apache.pulsar.spring.listener.PulsarListenerTests.PulsarHeadersTest.PulsarListenerWithHeadersConfig;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.apache.pulsar.spring.listener.PulsarListenerTests.PulsarHeadersTest.PulsarListenerWithHeadersConfig;
 
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
@@ -46,19 +46,6 @@ import org.apache.pulsar.client.impl.schema.ProtobufSchema;
 import org.apache.pulsar.common.schema.KeyValue;
 import org.apache.pulsar.common.schema.KeyValueEncodingType;
 import org.apache.pulsar.common.schema.SchemaType;
-import org.assertj.core.api.AbstractObjectAssert;
-import org.assertj.core.api.AbstractStringAssert;
-import org.assertj.core.api.InstanceOfAssertFactories;
-import org.awaitility.Awaitility;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.messaging.MessageHeaders;
-import org.springframework.messaging.handler.annotation.Header;
 import org.apache.pulsar.spring.annotation.EnablePulsar;
 import org.apache.pulsar.spring.annotation.PulsarListener;
 import org.apache.pulsar.spring.annotation.PulsarListenerConsumerBuilderCustomizer;
@@ -81,6 +68,19 @@ import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper;
 import org.apache.pulsar.spring.test.model.UserPojo;
 import org.apache.pulsar.spring.test.model.UserRecord;
 import org.apache.pulsar.spring.test.model.json.UserRecordDeserializer;
+import org.assertj.core.api.AbstractObjectAssert;
+import org.assertj.core.api.AbstractStringAssert;
+import org.assertj.core.api.InstanceOfAssertFactories;
+import org.awaitility.Awaitility;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.MessageHeaders;
+import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.util.backoff.FixedBackOff;
 

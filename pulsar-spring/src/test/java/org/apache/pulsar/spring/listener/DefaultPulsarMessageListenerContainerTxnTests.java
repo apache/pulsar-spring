@@ -42,13 +42,6 @@ import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.client.api.transaction.Transaction;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.pulsar.PulsarContainer;
-
 import org.apache.pulsar.spring.core.ConsumerBuilderCustomizer;
 import org.apache.pulsar.spring.core.DefaultPulsarConsumerFactory;
 import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
@@ -58,6 +51,12 @@ import org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.apache.pulsar.spring.transaction.PulsarTransactionManager;
 import org.apache.pulsar.spring.transaction.PulsarTransactionUtils;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.pulsar.PulsarContainer;
 
 /**
  * Tests for the transaction support in {@link DefaultPulsarMessageListenerContainer}.

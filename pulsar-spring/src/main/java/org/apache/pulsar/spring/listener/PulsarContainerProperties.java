@@ -25,11 +25,6 @@ import java.util.function.Consumer;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.common.schema.SchemaType;
-import org.jspecify.annotations.Nullable;
-
-import org.springframework.core.retry.RetryPolicy;
-import org.springframework.core.retry.RetryTemplate;
-import org.springframework.core.task.AsyncTaskExecutor;
 import org.apache.pulsar.spring.config.StartupFailurePolicy;
 import org.apache.pulsar.spring.core.DefaultSchemaResolver;
 import org.apache.pulsar.spring.core.DefaultTopicResolver;
@@ -38,6 +33,11 @@ import org.apache.pulsar.spring.core.TopicResolver;
 import org.apache.pulsar.spring.core.TransactionProperties;
 import org.apache.pulsar.spring.observation.PulsarListenerObservationConvention;
 import org.apache.pulsar.spring.transaction.PulsarAwareTransactionManager;
+import org.jspecify.annotations.Nullable;
+
+import org.springframework.core.retry.RetryPolicy;
+import org.springframework.core.retry.RetryTemplate;
+import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.util.Assert;

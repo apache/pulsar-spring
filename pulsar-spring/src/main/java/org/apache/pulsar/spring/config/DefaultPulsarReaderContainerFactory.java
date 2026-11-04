@@ -20,6 +20,7 @@ import org.apache.pulsar.spring.core.PulsarReaderFactory;
 import org.apache.pulsar.spring.reader.DefaultPulsarMessageReaderContainer;
 import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
 import org.apache.pulsar.spring.reader.PulsarReaderContainerProperties;
+
 import org.springframework.util.CollectionUtils;
 
 /**

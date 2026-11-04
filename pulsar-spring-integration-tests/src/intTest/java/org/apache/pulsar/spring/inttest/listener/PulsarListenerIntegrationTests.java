@@ -27,6 +27,13 @@ import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.client.impl.conf.ConsumerConfigurationData;
 import org.apache.pulsar.common.schema.SchemaType;
+import org.apache.pulsar.spring.annotation.PulsarListener;
+import org.apache.pulsar.spring.core.DefaultSchemaResolver;
+import org.apache.pulsar.spring.core.DefaultTopicResolver;
+import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.core.SchemaResolver;
+import org.apache.pulsar.spring.core.TopicResolver;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -37,13 +44,6 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.apache.pulsar.spring.annotation.PulsarListener;
-import org.apache.pulsar.spring.core.DefaultSchemaResolver;
-import org.apache.pulsar.spring.core.DefaultTopicResolver;
-import org.apache.pulsar.spring.core.PulsarTemplate;
-import org.apache.pulsar.spring.core.SchemaResolver;
-import org.apache.pulsar.spring.core.TopicResolver;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 
 /**
  * Integration tests for {@link PulsarListener}.

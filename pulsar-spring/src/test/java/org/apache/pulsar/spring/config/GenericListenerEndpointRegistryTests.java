@@ -21,11 +21,11 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import org.apache.pulsar.spring.listener.ConcurrentPulsarMessageListenerContainer;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.apache.pulsar.spring.listener.ConcurrentPulsarMessageListenerContainer;
 
 /**
  * Unit tests for {@link GenericListenerEndpointRegistry}.

@@ -27,11 +27,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.pulsar.spring.config.PulsarContainerFactory;
+import org.apache.pulsar.spring.core.PulsarConsumerFactory;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.boot.util.LambdaSafe;
-import org.apache.pulsar.spring.config.PulsarContainerFactory;
-import org.apache.pulsar.spring.core.PulsarConsumerFactory;
 
 /**
  * Invokes the available {@link PulsarContainerFactoryCustomizer} instances in the context

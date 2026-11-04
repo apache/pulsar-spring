@@ -54,18 +54,6 @@ import org.apache.pulsar.client.api.SubscriptionInitialPosition;
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.client.impl.MultiplierRedeliveryBackoff;
 import org.apache.pulsar.common.policies.data.PartitionedTopicStats;
-import org.awaitility.Awaitility;
-import org.jspecify.annotations.Nullable;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.core.log.LogAccessor;
-import org.springframework.core.retry.RetryListener;
-import org.springframework.core.retry.RetryPolicy;
-import org.springframework.core.retry.RetryTemplate;
-import org.springframework.core.retry.Retryable;
 import org.apache.pulsar.spring.PulsarException;
 import org.apache.pulsar.spring.config.StartupFailurePolicy;
 import org.apache.pulsar.spring.core.ConsumerTestUtils;
@@ -78,6 +66,18 @@ import org.apache.pulsar.spring.test.model.UserRecord;
 import org.apache.pulsar.spring.test.model.json.UserRecordObjectMapper;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.apache.pulsar.spring.transaction.PulsarAwareTransactionManager;
+import org.awaitility.Awaitility;
+import org.jspecify.annotations.Nullable;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.core.log.LogAccessor;
+import org.springframework.core.retry.RetryListener;
+import org.springframework.core.retry.RetryPolicy;
+import org.springframework.core.retry.RetryTemplate;
+import org.springframework.core.retry.Retryable;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.util.backoff.FixedBackOff;
 

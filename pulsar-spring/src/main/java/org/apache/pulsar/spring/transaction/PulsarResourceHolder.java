@@ -17,9 +17,9 @@
 package org.apache.pulsar.spring.transaction;
 
 import org.apache.pulsar.client.api.transaction.Transaction;
+import org.apache.pulsar.spring.PulsarException;
 
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.PulsarException;
 import org.springframework.transaction.support.ResourceHolderSupport;
 import org.springframework.util.Assert;
 

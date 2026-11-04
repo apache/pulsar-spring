@@ -22,9 +22,8 @@ import org.apache.pulsar.client.api.MessageId;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Reader;
 import org.apache.pulsar.client.api.Schema;
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.PulsarException;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Pulsar {@link Reader} factory interface.

@@ -16,6 +16,7 @@
 
 package org.apache.pulsar.spring.inttest.app;
 
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.junit.jupiter.Container;
@@ -24,7 +25,6 @@ import org.testcontainers.pulsar.PulsarContainer;
 
 import org.springframework.boot.test.system.OutputCaptureExtension;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 
 @Testcontainers(disabledWithoutDocker = true)
 @ExtendWith(OutputCaptureExtension.class)

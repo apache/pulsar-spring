@@ -46,6 +46,9 @@ import org.apache.pulsar.client.impl.schema.ProtobufSchema;
 import org.apache.pulsar.common.schema.KeyValue;
 import org.apache.pulsar.common.schema.KeyValueEncodingType;
 import org.apache.pulsar.common.schema.SchemaType;
+import org.apache.pulsar.spring.annotation.PulsarMessage;
+import org.apache.pulsar.spring.listener.Proto;
+import org.apache.pulsar.spring.listener.Proto.Person;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -57,9 +60,6 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import org.springframework.core.ResolvableType;
-import org.apache.pulsar.spring.annotation.PulsarMessage;
-import org.apache.pulsar.spring.listener.Proto;
-import org.apache.pulsar.spring.listener.Proto.Person;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

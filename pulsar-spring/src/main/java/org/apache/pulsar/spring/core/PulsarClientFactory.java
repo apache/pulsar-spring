@@ -17,7 +17,6 @@
 package org.apache.pulsar.spring.core;
 
 import org.apache.pulsar.client.api.PulsarClient;
-
 import org.apache.pulsar.spring.PulsarException;
 
 /**

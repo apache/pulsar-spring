@@ -16,9 +16,10 @@
 
 package org.apache.pulsar.spring.reader;
 
+import org.apache.pulsar.spring.core.ReaderBuilderCustomizer;
+
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.SmartLifecycle;
-import org.apache.pulsar.spring.core.ReaderBuilderCustomizer;
 
 /**
  * Internal abstraction used by the framework representing a message listener container.

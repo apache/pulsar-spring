@@ -17,7 +17,6 @@
 package org.apache.pulsar.spring.annotation;
 
 import org.apache.pulsar.client.api.ConsumerBuilder;
-
 import org.apache.pulsar.spring.core.ConsumerBuilderCustomizer;
 
 /**

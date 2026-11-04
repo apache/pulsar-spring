@@ -27,15 +27,6 @@ import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.Messages;
 import org.apache.pulsar.client.api.RedeliveryBackoff;
 import org.apache.pulsar.common.schema.SchemaType;
-import org.jspecify.annotations.Nullable;
-
-import org.springframework.core.MethodParameter;
-import org.springframework.core.ResolvableType;
-import org.springframework.core.log.LogAccessor;
-import org.springframework.messaging.converter.SmartMessageConverter;
-import org.springframework.messaging.handler.annotation.Header;
-import org.springframework.messaging.handler.annotation.support.MessageHandlerMethodFactory;
-import org.springframework.messaging.handler.invocation.InvocableHandlerMethod;
 import org.apache.pulsar.spring.core.ConsumerBuilderCustomizer;
 import org.apache.pulsar.spring.core.SchemaResolver;
 import org.apache.pulsar.spring.core.TopicResolver;
@@ -51,6 +42,15 @@ import org.apache.pulsar.spring.listener.adapter.PulsarBatchMessagesToSpringMess
 import org.apache.pulsar.spring.listener.adapter.PulsarRecordMessageToSpringMessageListenerAdapter;
 import org.apache.pulsar.spring.support.MessageConverter;
 import org.apache.pulsar.spring.support.converter.PulsarMessageConverter;
+import org.jspecify.annotations.Nullable;
+
+import org.springframework.core.MethodParameter;
+import org.springframework.core.ResolvableType;
+import org.springframework.core.log.LogAccessor;
+import org.springframework.messaging.converter.SmartMessageConverter;
+import org.springframework.messaging.handler.annotation.Header;
+import org.springframework.messaging.handler.annotation.support.MessageHandlerMethodFactory;
+import org.springframework.messaging.handler.invocation.InvocableHandlerMethod;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;

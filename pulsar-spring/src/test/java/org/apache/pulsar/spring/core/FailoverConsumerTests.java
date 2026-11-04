@@ -31,12 +31,11 @@ import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.client.api.TopicMetadata;
-import org.junit.jupiter.api.Test;
-
 import org.apache.pulsar.spring.listener.DefaultPulsarMessageListenerContainer;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties;
 import org.apache.pulsar.spring.listener.PulsarRecordMessageListener;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Soby Chacko

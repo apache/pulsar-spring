@@ -20,10 +20,10 @@ import java.time.Duration;
 
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.transaction.Transaction;
+import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.springframework.transaction.CannotCreateTransactionException;
 import org.springframework.transaction.InvalidIsolationLevelException;
 import org.springframework.transaction.TransactionDefinition;

@@ -23,6 +23,12 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.pulsar.client.api.MessageId;
+import org.apache.pulsar.spring.annotation.PulsarReader;
+import org.apache.pulsar.spring.reader.PulsarReaderHeaderTests.WithCustomObjectMapperTest.WithCustomObjectMapperTestConfig;
+import org.apache.pulsar.spring.reader.PulsarReaderHeaderTests.WithStandardObjectMapperTest.WithStandardObjectMapperTestConfig;
+import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper;
+import org.apache.pulsar.spring.test.model.UserRecord;
+import org.apache.pulsar.spring.test.model.json.UserRecordDeserializer;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -30,12 +36,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.handler.annotation.Header;
-import org.apache.pulsar.spring.annotation.PulsarReader;
-import org.apache.pulsar.spring.reader.PulsarReaderHeaderTests.WithCustomObjectMapperTest.WithCustomObjectMapperTestConfig;
-import org.apache.pulsar.spring.reader.PulsarReaderHeaderTests.WithStandardObjectMapperTest.WithStandardObjectMapperTestConfig;
-import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper;
-import org.apache.pulsar.spring.test.model.UserRecord;
-import org.apache.pulsar.spring.test.model.json.UserRecordDeserializer;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

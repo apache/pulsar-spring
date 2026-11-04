@@ -23,6 +23,14 @@
 
 package org.apache.pulsar.spring.boot.autoconfigure;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
@@ -44,21 +52,12 @@ import org.apache.pulsar.client.api.ReaderBuilder;
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.client.impl.AutoClusterFailover;
 import org.apache.pulsar.common.schema.SchemaType;
-import org.junit.jupiter.api.Test;
-
 import org.apache.pulsar.spring.boot.autoconfigure.PulsarProperties.Consumer;
 import org.apache.pulsar.spring.boot.autoconfigure.PulsarProperties.Failover.BackupCluster;
 import org.apache.pulsar.spring.core.PulsarProducerFactory;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyBoolean;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link PulsarPropertiesMapper}.

@@ -35,6 +35,9 @@ import org.apache.pulsar.client.api.MessageId;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
+import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,10 +46,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.pulsar.PulsarContainer;
-
-import org.apache.pulsar.spring.PulsarException;
-import org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 
 /**
  * Tests for {@link PulsarTemplate#executeInTransaction local transactions} in

@@ -23,6 +23,9 @@
 
 package org.apache.pulsar.spring.boot.autoconfigure;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +41,11 @@ import org.apache.pulsar.client.api.SubscriptionInitialPosition;
 import org.apache.pulsar.client.api.SubscriptionMode;
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.common.schema.SchemaType;
+import org.apache.pulsar.spring.boot.autoconfigure.PulsarProperties.Defaults.SchemaInfo;
+import org.apache.pulsar.spring.boot.autoconfigure.PulsarProperties.Defaults.TypeMapping;
+import org.apache.pulsar.spring.boot.autoconfigure.PulsarProperties.Failover;
+import org.apache.pulsar.spring.boot.autoconfigure.PulsarProperties.Failover.BackupCluster;
+import org.apache.pulsar.spring.core.PulsarTopicBuilder;
 import org.assertj.core.extractor.Extractors;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -45,14 +53,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.context.properties.bind.BindException;
 import org.springframework.boot.context.properties.bind.Binder;
 import org.springframework.boot.context.properties.source.MapConfigurationPropertySource;
-import org.apache.pulsar.spring.boot.autoconfigure.PulsarProperties.Defaults.SchemaInfo;
-import org.apache.pulsar.spring.boot.autoconfigure.PulsarProperties.Defaults.TypeMapping;
-import org.apache.pulsar.spring.boot.autoconfigure.PulsarProperties.Failover;
-import org.apache.pulsar.spring.boot.autoconfigure.PulsarProperties.Failover.BackupCluster;
-import org.apache.pulsar.spring.core.PulsarTopicBuilder;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 /**
  * Tests for {@link PulsarProperties}.

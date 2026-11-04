@@ -26,6 +26,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.apache.pulsar.spring.listener.MessageListenerContainer;
+import org.apache.pulsar.spring.listener.PulsarListenerContainerRegistry;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.beans.BeansException;
@@ -38,8 +40,6 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.SmartLifecycle;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.apache.pulsar.spring.listener.MessageListenerContainer;
-import org.apache.pulsar.spring.listener.PulsarListenerContainerRegistry;
 import org.springframework.util.Assert;
 
 /**

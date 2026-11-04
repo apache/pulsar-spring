@@ -17,6 +17,12 @@
 package org.apache.pulsar.spring.config;
 
 import org.apache.pulsar.client.api.Schema;
+import org.apache.pulsar.spring.core.PulsarReaderFactory;
+import org.apache.pulsar.spring.reader.AbstractPulsarMessageReaderContainer;
+import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
+import org.apache.pulsar.spring.reader.PulsarReaderContainerProperties;
+import org.apache.pulsar.spring.support.JavaUtils;
+import org.apache.pulsar.spring.support.MessageConverter;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.beans.BeansException;
@@ -25,12 +31,6 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.core.PulsarReaderFactory;
-import org.apache.pulsar.spring.reader.AbstractPulsarMessageReaderContainer;
-import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
-import org.apache.pulsar.spring.reader.PulsarReaderContainerProperties;
-import org.apache.pulsar.spring.support.JavaUtils;
-import org.apache.pulsar.spring.support.MessageConverter;
 
 /**
  * Base {@link PulsarReaderContainerFactory} implementation.

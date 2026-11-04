@@ -24,11 +24,11 @@ import static org.mockito.Mockito.verify;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**

@@ -40,6 +40,13 @@ import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.ReaderListener;
 import org.apache.pulsar.client.api.Schema;
+import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.config.StartupFailurePolicy;
+import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
+import org.apache.pulsar.spring.core.DefaultPulsarReaderFactory;
+import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.event.ReaderFailedToStartEvent;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -52,13 +59,6 @@ import org.springframework.core.retry.RetryListener;
 import org.springframework.core.retry.RetryPolicy;
 import org.springframework.core.retry.RetryTemplate;
 import org.springframework.core.retry.Retryable;
-import org.apache.pulsar.spring.PulsarException;
-import org.apache.pulsar.spring.config.StartupFailurePolicy;
-import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
-import org.apache.pulsar.spring.core.DefaultPulsarReaderFactory;
-import org.apache.pulsar.spring.core.PulsarTemplate;
-import org.apache.pulsar.spring.event.ReaderFailedToStartEvent;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.springframework.util.backoff.FixedBackOff;
 
 /**

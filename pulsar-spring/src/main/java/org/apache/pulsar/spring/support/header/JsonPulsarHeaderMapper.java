@@ -30,11 +30,11 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.pulsar.client.api.Message;
+import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper.ToPulsarHeadersContext;
+import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper.ToSpringHeadersContext;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.messaging.MessageHeaders;
-import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper.ToPulsarHeadersContext;
-import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper.ToSpringHeadersContext;
 import org.springframework.util.ClassUtils;
 
 import com.fasterxml.jackson.core.type.TypeReference;

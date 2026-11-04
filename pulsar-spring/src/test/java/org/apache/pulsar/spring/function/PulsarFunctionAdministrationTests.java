@@ -34,6 +34,11 @@ import java.util.Map;
 import org.apache.pulsar.client.admin.PulsarAdmin;
 import org.apache.pulsar.client.admin.PulsarAdminException;
 import org.apache.pulsar.client.api.PulsarClientException;
+import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.core.PulsarAdministration;
+import org.apache.pulsar.spring.function.PulsarFunctionAdministration.PulsarFunctionException;
+import org.apache.pulsar.spring.function.PulsarFunctionOperations.FunctionStopPolicy;
+import org.apache.pulsar.spring.function.PulsarFunctionOperations.FunctionType;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -44,11 +49,6 @@ import org.mockito.InOrder;
 import org.mockito.Mockito;
 
 import org.springframework.beans.factory.support.StaticListableBeanFactory;
-import org.apache.pulsar.spring.PulsarException;
-import org.apache.pulsar.spring.core.PulsarAdministration;
-import org.apache.pulsar.spring.function.PulsarFunctionAdministration.PulsarFunctionException;
-import org.apache.pulsar.spring.function.PulsarFunctionOperations.FunctionStopPolicy;
-import org.apache.pulsar.spring.function.PulsarFunctionOperations.FunctionType;
 
 /**
  * Tests for {@link PulsarFunctionAdministration}.

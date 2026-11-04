@@ -21,14 +21,14 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.apache.pulsar.client.api.SubscriptionType;
+import org.apache.pulsar.spring.core.PulsarConsumerFactory;
+import org.apache.pulsar.spring.listener.PulsarContainerProperties;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.core.retry.RetryPolicy;
 import org.springframework.core.retry.RetryTemplate;
 import org.springframework.core.task.AsyncTaskExecutor;
-import org.apache.pulsar.spring.core.PulsarConsumerFactory;
-import org.apache.pulsar.spring.listener.PulsarContainerProperties;
 
 /**
  * Unit tests for {@link ConcurrentPulsarListenerContainerFactory}.

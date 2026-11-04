@@ -25,12 +25,12 @@ import static org.mockito.Mockito.verifyNoInteractions;
 import java.util.function.Supplier;
 
 import org.apache.pulsar.client.api.ProducerBuilder;
+import org.apache.pulsar.spring.core.ProducerBuilderCustomizer;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatcher;
 
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.core.ProducerBuilderCustomizer;
 
 /**
  * Tests for {@link LambdaCustomizerWarnLogger}.

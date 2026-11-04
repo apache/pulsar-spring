@@ -16,9 +16,10 @@
 
 package org.apache.pulsar.spring.support.internal.logging;
 
-import org.springframework.core.log.LogAccessor;
 import org.apache.pulsar.spring.core.ProducerBuilderCustomizer;
 import org.apache.pulsar.spring.support.JavaUtils;
+
+import org.springframework.core.log.LogAccessor;
 import org.springframework.util.Assert;
 
 /**

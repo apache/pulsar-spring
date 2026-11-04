@@ -18,11 +18,11 @@ package org.apache.pulsar.spring.core;
 
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
+import org.apache.pulsar.spring.PulsarException;
 
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.PulsarException;
 import org.springframework.util.Assert;
 
 /**

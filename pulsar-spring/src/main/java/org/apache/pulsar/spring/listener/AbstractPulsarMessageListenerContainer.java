@@ -20,11 +20,11 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.pulsar.client.api.DeadLetterPolicy;
 import org.apache.pulsar.client.api.RedeliveryBackoff;
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.core.AbstractPulsarMessageContainer;
 import org.apache.pulsar.spring.core.ConsumerBuilderCustomizer;
 import org.apache.pulsar.spring.core.PulsarConsumerFactory;
+import org.jspecify.annotations.Nullable;
+
 import org.springframework.util.Assert;
 
 /**

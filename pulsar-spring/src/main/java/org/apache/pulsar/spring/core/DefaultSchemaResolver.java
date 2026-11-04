@@ -39,12 +39,12 @@ import org.apache.pulsar.client.impl.schema.ProtobufSchema;
 import org.apache.pulsar.common.schema.KeyValue;
 import org.apache.pulsar.common.schema.KeyValueEncodingType;
 import org.apache.pulsar.common.schema.SchemaType;
+import org.apache.pulsar.spring.annotation.PulsarMessage;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.annotation.PulsarMessage;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 

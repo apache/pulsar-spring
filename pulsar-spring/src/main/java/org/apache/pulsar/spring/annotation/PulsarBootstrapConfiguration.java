@@ -16,13 +16,14 @@
 
 package org.apache.pulsar.spring.annotation;
 
+import org.apache.pulsar.spring.config.PulsarAnnotationSupportBeanNames;
+import org.apache.pulsar.spring.config.PulsarListenerEndpointRegistry;
+import org.apache.pulsar.spring.config.PulsarReaderEndpointRegistry;
+
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.type.AnnotationMetadata;
-import org.apache.pulsar.spring.config.PulsarAnnotationSupportBeanNames;
-import org.apache.pulsar.spring.config.PulsarListenerEndpointRegistry;
-import org.apache.pulsar.spring.config.PulsarReaderEndpointRegistry;
 
 /**
  * An {@link ImportBeanDefinitionRegistrar} class that registers a

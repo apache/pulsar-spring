@@ -23,6 +23,8 @@
 
 package org.apache.pulsar.spring.boot.autoconfigure;
 
+import static org.mockito.Mockito.mock;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,8 +32,6 @@ import java.util.Map;
 import org.apache.pulsar.client.api.Authentication;
 import org.apache.pulsar.client.api.AuthenticationDataProvider;
 import org.apache.pulsar.client.api.PulsarClientException;
-
-import static org.mockito.Mockito.mock;
 
 /**
  * Test plugin-class-name for Authentication

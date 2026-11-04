@@ -18,10 +18,9 @@ package org.apache.pulsar.spring.config;
 
 import java.util.Properties;
 
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.listener.AckMode;
 import org.apache.pulsar.spring.listener.PulsarMessageListenerContainer;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Model for a Pulsar listener endpoint. Can be used against a

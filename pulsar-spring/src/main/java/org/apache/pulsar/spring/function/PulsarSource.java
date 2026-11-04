@@ -20,9 +20,8 @@ import org.apache.pulsar.client.admin.PulsarAdmin;
 import org.apache.pulsar.client.admin.PulsarAdminException;
 import org.apache.pulsar.common.functions.UpdateOptions;
 import org.apache.pulsar.common.io.SourceConfig;
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.PulsarException;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Represents a Pulsar Source backed by a {@link SourceConfig}.

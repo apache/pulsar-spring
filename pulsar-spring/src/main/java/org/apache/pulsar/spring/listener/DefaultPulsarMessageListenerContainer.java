@@ -55,13 +55,6 @@ import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.client.api.transaction.Transaction;
 import org.apache.pulsar.client.impl.ConsumerImpl;
 import org.apache.pulsar.client.impl.conf.ConsumerConfigurationData;
-import org.jspecify.annotations.Nullable;
-
-import org.springframework.beans.BeanUtils;
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.core.log.LogAccessor;
-import org.springframework.core.retry.RetryException;
-import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.apache.pulsar.spring.PulsarException;
 import org.apache.pulsar.spring.config.StartupFailurePolicy;
 import org.apache.pulsar.spring.core.ConsumerBuilderConfigurationUtil;
@@ -76,6 +69,13 @@ import org.apache.pulsar.spring.observation.PulsarListenerObservation;
 import org.apache.pulsar.spring.observation.PulsarMessageReceiverContext;
 import org.apache.pulsar.spring.transaction.PulsarAwareTransactionManager;
 import org.apache.pulsar.spring.transaction.PulsarTransactionUtils;
+import org.jspecify.annotations.Nullable;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.core.log.LogAccessor;
+import org.springframework.core.retry.RetryException;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.scheduling.SchedulingAwareRunnable;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.support.TransactionTemplate;

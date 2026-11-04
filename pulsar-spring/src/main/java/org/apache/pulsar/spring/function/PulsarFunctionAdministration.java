@@ -29,12 +29,12 @@ import org.apache.pulsar.client.admin.PulsarAdmin;
 import org.apache.pulsar.client.admin.PulsarAdminException;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.common.functions.Utils;
+import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.core.PulsarAdministration;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.SmartLifecycle;
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.PulsarException;
-import org.apache.pulsar.spring.core.PulsarAdministration;
 
 /**
  * Responsible for creating and updating any user-defined Pulsar functions, sinks, or

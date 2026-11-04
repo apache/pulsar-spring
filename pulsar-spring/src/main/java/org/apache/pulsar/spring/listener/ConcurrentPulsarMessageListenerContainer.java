@@ -20,13 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.pulsar.client.api.SubscriptionType;
+import org.apache.pulsar.spring.core.PulsarConsumerFactory;
+import org.apache.pulsar.spring.observation.PulsarListenerObservationConvention;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
-import org.apache.pulsar.spring.core.PulsarConsumerFactory;
-import org.apache.pulsar.spring.observation.PulsarListenerObservationConvention;
 import org.springframework.util.Assert;
 
 import io.micrometer.observation.ObservationRegistry;

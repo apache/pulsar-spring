@@ -19,9 +19,8 @@ package org.apache.pulsar.spring.listener;
 import java.util.Collection;
 import java.util.Set;
 
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.config.ListenerEndpoint;
+import org.jspecify.annotations.Nullable;
 
 /**
  * A registry for containers.

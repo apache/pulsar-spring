@@ -26,10 +26,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
-
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.apache.pulsar.spring.annotation.EnablePulsar;
 import org.apache.pulsar.spring.annotation.PulsarListener;
 import org.apache.pulsar.spring.config.ConcurrentPulsarListenerContainerFactory;
@@ -45,6 +41,10 @@ import org.apache.pulsar.spring.core.PulsarProducerFactory;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import io.micrometer.common.KeyValues;
 import io.micrometer.core.tck.MeterRegistryAssert;

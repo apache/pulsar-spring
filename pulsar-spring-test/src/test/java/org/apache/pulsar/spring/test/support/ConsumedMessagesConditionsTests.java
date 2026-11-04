@@ -16,9 +16,9 @@
 
 package org.apache.pulsar.spring.test.support;
 
+import static org.apache.pulsar.spring.test.support.ConsumedMessagesConditions.desiredMessageCount;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
-import static org.apache.pulsar.spring.test.support.ConsumedMessagesConditions.desiredMessageCount;
 
 import java.nio.ByteBuffer;
 import java.util.List;

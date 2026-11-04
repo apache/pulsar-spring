@@ -30,13 +30,6 @@ import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.interceptor.ProducerInterceptor;
 import org.apache.pulsar.client.api.transaction.Transaction;
-import org.jspecify.annotations.Nullable;
-
-import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.beans.factory.SmartInitializingSingleton;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.core.log.LogAccessor;
 import org.apache.pulsar.spring.PulsarException;
 import org.apache.pulsar.spring.observation.DefaultPulsarTemplateObservationConvention;
 import org.apache.pulsar.spring.observation.PulsarMessageSenderContext;
@@ -44,6 +37,13 @@ import org.apache.pulsar.spring.observation.PulsarTemplateObservation;
 import org.apache.pulsar.spring.observation.PulsarTemplateObservationConvention;
 import org.apache.pulsar.spring.support.internal.logging.LambdaCustomizerWarnLogger;
 import org.apache.pulsar.spring.transaction.PulsarTransactionUtils;
+import org.jspecify.annotations.Nullable;
+
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.SmartInitializingSingleton;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.core.log.LogAccessor;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 

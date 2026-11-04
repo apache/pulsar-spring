@@ -17,14 +17,14 @@
 package org.apache.pulsar.spring.support.header;
 
 import static java.util.Map.entry;
+import static org.apache.pulsar.spring.support.header.PulsarHeaderMapperTestUtil.assertSpringHeadersHavePulsarMetadata;
+import static org.apache.pulsar.spring.support.header.PulsarHeaderMapperTestUtil.mockPulsarMessage;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.apache.pulsar.spring.support.header.PulsarHeaderMapperTestUtil.assertSpringHeadersHavePulsarMetadata;
-import static org.apache.pulsar.spring.support.header.PulsarHeaderMapperTestUtil.mockPulsarMessage;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -32,12 +32,12 @@ import java.util.List;
 import java.util.Objects;
 
 import org.apache.pulsar.client.api.Message;
+import org.apache.pulsar.spring.support.PulsarHeaders;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.messaging.MessageHeaders;
-import org.apache.pulsar.spring.support.PulsarHeaders;
 
 /**
  * Tests for {@link AbstractPulsarHeaderMapper}.

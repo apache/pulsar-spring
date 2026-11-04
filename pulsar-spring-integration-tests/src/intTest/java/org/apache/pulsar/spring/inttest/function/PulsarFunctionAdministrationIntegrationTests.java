@@ -37,6 +37,13 @@ import org.apache.pulsar.client.admin.PulsarAdminException.NotFoundException;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.common.io.SourceConfig;
 import org.apache.pulsar.common.policies.data.SourceStatus;
+import org.apache.pulsar.spring.annotation.PulsarListener;
+import org.apache.pulsar.spring.boot.autoconfigure.PulsarAutoConfiguration;
+import org.apache.pulsar.spring.function.PulsarFunctionAdministration;
+import org.apache.pulsar.spring.function.PulsarFunctionOperations.FunctionStopPolicy;
+import org.apache.pulsar.spring.function.PulsarSource;
+import org.apache.pulsar.spring.inttest.function.PulsarFunctionAdministrationIntegrationTests.ContainerLoggingTestWatcher;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
@@ -55,7 +62,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.amqp.autoconfigure.RabbitAutoConfiguration;
-import org.apache.pulsar.spring.boot.autoconfigure.PulsarAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -64,12 +70,6 @@ import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternUtils;
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.annotation.PulsarListener;
-import org.apache.pulsar.spring.function.PulsarFunctionAdministration;
-import org.apache.pulsar.spring.function.PulsarFunctionOperations.FunctionStopPolicy;
-import org.apache.pulsar.spring.function.PulsarSource;
-import org.apache.pulsar.spring.inttest.function.PulsarFunctionAdministrationIntegrationTests.ContainerLoggingTestWatcher;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 
 /**
  * Integration tests for {@link PulsarFunctionAdministration}.

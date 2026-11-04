@@ -18,6 +18,8 @@ package org.apache.pulsar.spring.annotation;
 
 import static java.util.Objects.requireNonNull;
 
+import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.core.PulsarTemplateCustomizer;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.beans.BeansException;
@@ -25,8 +27,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.log.LogAccessor;
-import org.apache.pulsar.spring.core.PulsarTemplate;
-import org.apache.pulsar.spring.core.PulsarTemplateCustomizer;
 import org.springframework.util.CollectionUtils;
 
 /**

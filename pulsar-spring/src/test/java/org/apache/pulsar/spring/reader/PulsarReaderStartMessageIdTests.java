@@ -24,16 +24,16 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.MessageId;
+import org.apache.pulsar.spring.annotation.EnablePulsar;
+import org.apache.pulsar.spring.annotation.PulsarReader;
+import org.apache.pulsar.spring.annotation.PulsarReaderReaderBuilderCustomizer;
+import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.apache.pulsar.spring.annotation.EnablePulsar;
-import org.apache.pulsar.spring.annotation.PulsarReader;
-import org.apache.pulsar.spring.annotation.PulsarReaderReaderBuilderCustomizer;
-import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.springframework.test.context.ContextConfiguration;
 
 /**

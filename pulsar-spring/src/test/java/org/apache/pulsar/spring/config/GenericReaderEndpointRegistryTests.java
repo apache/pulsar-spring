@@ -21,12 +21,12 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import org.apache.pulsar.spring.reader.DefaultPulsarMessageReaderContainer;
+import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.apache.pulsar.spring.reader.DefaultPulsarMessageReaderContainer;
-import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
 
 /**
  * Unit tests for {@link GenericReaderEndpointRegistry}.

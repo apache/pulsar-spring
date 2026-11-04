@@ -31,18 +31,18 @@ import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Reader;
 import org.apache.pulsar.client.api.ReaderListener;
 import org.apache.pulsar.client.api.Schema;
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
-
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.core.retry.RetryException;
-import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.apache.pulsar.spring.config.StartupFailurePolicy;
 import org.apache.pulsar.spring.core.PulsarReaderFactory;
 import org.apache.pulsar.spring.core.ReaderBuilderCustomizer;
 import org.apache.pulsar.spring.event.ReaderFailedToStartEvent;
 import org.apache.pulsar.spring.event.ReaderStartedEvent;
 import org.apache.pulsar.spring.event.ReaderStartingEvent;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.core.retry.RetryException;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.scheduling.SchedulingAwareRunnable;
 import org.springframework.util.Assert;
 

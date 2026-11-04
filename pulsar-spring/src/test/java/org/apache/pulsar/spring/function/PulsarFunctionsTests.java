@@ -33,13 +33,12 @@ import org.apache.pulsar.client.admin.Sources;
 import org.apache.pulsar.common.functions.FunctionConfig;
 import org.apache.pulsar.common.io.SinkConfig;
 import org.apache.pulsar.common.io.SourceConfig;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import org.apache.pulsar.spring.PulsarException;
 import org.apache.pulsar.spring.function.PulsarFunctionOperations.FunctionStopPolicy;
 import org.apache.pulsar.spring.function.PulsarFunctionOperations.FunctionType;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 /**
  * Tests for all &quot;Pulsar Functions&quot; (ie. {@link PulsarFunction},

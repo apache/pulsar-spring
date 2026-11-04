@@ -27,6 +27,9 @@ import org.apache.pulsar.client.api.Consumer;
 import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.Messages;
 import org.apache.pulsar.client.api.Reader;
+import org.apache.pulsar.spring.support.converter.PulsarMessageConverter;
+import org.apache.pulsar.spring.support.converter.PulsarRecordMessageConverter;
+import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.core.MethodParameter;
@@ -40,9 +43,6 @@ import org.springframework.messaging.converter.MessageConversionException;
 import org.springframework.messaging.converter.SmartMessageConverter;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
-import org.apache.pulsar.spring.support.converter.PulsarMessageConverter;
-import org.apache.pulsar.spring.support.converter.PulsarRecordMessageConverter;
-import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper;
 import org.springframework.util.Assert;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

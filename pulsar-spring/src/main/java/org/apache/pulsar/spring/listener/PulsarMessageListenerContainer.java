@@ -18,9 +18,8 @@ package org.apache.pulsar.spring.listener;
 
 import org.apache.pulsar.client.api.DeadLetterPolicy;
 import org.apache.pulsar.client.api.RedeliveryBackoff;
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.core.ConsumerBuilderCustomizer;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Internal abstraction used by the framework representing a message listener container.

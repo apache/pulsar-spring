@@ -24,11 +24,11 @@ import java.lang.annotation.Target;
 
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.common.schema.SchemaType;
-
-import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.apache.pulsar.spring.config.PulsarListenerContainerFactory;
 import org.apache.pulsar.spring.config.PulsarListenerEndpointRegistry;
 import org.apache.pulsar.spring.listener.AckMode;
+
+import org.springframework.messaging.handler.annotation.MessageMapping;
 
 /**
  * Annotation that marks a method to be the target of a Pulsar message listener on the

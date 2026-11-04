@@ -16,20 +16,20 @@
 
 package org.apache.pulsar.spring.support.header;
 
+import static org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper.JSON_TYPES;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.entry;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper.JSON_TYPES;
 
 import java.util.Map;
 import java.util.Optional;
 
 import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.MessageId;
+import org.apache.pulsar.spring.support.PulsarHeaders;
 
 import org.springframework.messaging.MessageHeaders;
-import org.apache.pulsar.spring.support.PulsarHeaders;
 
 /**
  * Utilities for testing header mapper related functionality.

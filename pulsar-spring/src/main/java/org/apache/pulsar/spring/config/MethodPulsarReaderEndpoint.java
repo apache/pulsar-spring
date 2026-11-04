@@ -25,15 +25,6 @@ import org.apache.pulsar.client.api.Consumer;
 import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.Messages;
 import org.apache.pulsar.common.schema.SchemaType;
-import org.jspecify.annotations.Nullable;
-
-import org.springframework.core.MethodParameter;
-import org.springframework.core.ResolvableType;
-import org.springframework.core.log.LogAccessor;
-import org.springframework.messaging.converter.SmartMessageConverter;
-import org.springframework.messaging.handler.annotation.Header;
-import org.springframework.messaging.handler.annotation.support.MessageHandlerMethodFactory;
-import org.springframework.messaging.handler.invocation.InvocableHandlerMethod;
 import org.apache.pulsar.spring.core.ReaderBuilderCustomizer;
 import org.apache.pulsar.spring.core.SchemaResolver;
 import org.apache.pulsar.spring.listener.Acknowledgement;
@@ -45,6 +36,15 @@ import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
 import org.apache.pulsar.spring.reader.PulsarReaderContainerProperties;
 import org.apache.pulsar.spring.support.MessageConverter;
 import org.apache.pulsar.spring.support.converter.PulsarMessageConverter;
+import org.jspecify.annotations.Nullable;
+
+import org.springframework.core.MethodParameter;
+import org.springframework.core.ResolvableType;
+import org.springframework.core.log.LogAccessor;
+import org.springframework.messaging.converter.SmartMessageConverter;
+import org.springframework.messaging.handler.annotation.Header;
+import org.springframework.messaging.handler.annotation.support.MessageHandlerMethodFactory;
+import org.springframework.messaging.handler.invocation.InvocableHandlerMethod;
 import org.springframework.util.Assert;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

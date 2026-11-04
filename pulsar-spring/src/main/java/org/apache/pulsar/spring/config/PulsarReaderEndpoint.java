@@ -20,10 +20,9 @@ import java.util.List;
 
 import org.apache.pulsar.client.api.MessageId;
 import org.apache.pulsar.common.schema.SchemaType;
-import org.jspecify.annotations.Nullable;
-
 import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
 import org.apache.pulsar.spring.support.MessageConverter;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Model for a Pulsar Reader endpoint. Can be used against a
