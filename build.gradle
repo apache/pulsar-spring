@@ -37,6 +37,12 @@ nohttp {
 	source.exclude "**/*.dylib"
 	source.exclude "**/*.gif"
 	source.exclude "**/.gradle/**"
+	source.exclude "**/node_modules/**"
+}
+
+// The source of this task is the root directory, which contains the npm install output
+checkstyleNohttp {
+	mustRunAfter ':pulsar-spring-docs:npmCiOrInstall'
 }
 
 check {
