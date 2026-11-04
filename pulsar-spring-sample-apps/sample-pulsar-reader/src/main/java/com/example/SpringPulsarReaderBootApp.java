@@ -24,8 +24,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.pulsar.annotation.PulsarReader;
-import org.springframework.pulsar.core.PulsarTemplate;
+import org.apache.pulsar.spring.annotation.PulsarReader;
+import org.apache.pulsar.spring.core.PulsarTemplate;
 
 @SpringBootApplication
 public class SpringPulsarReaderBootApp {

@@ -1,0 +1,144 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under this License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/*
+ * Copyright 2012-present the original author or authors.
+ */
+
+package org.apache.pulsar.spring.boot.autoconfigure;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
+import org.apache.pulsar.spring.config.ConcurrentPulsarListenerContainerFactory;
+import org.apache.pulsar.spring.config.DefaultPulsarReaderContainerFactory;
+import org.apache.pulsar.spring.config.ListenerContainerFactory;
+import org.apache.pulsar.spring.config.PulsarContainerFactory;
+import org.apache.pulsar.spring.core.PulsarConsumerFactory;
+import org.apache.pulsar.spring.listener.PulsarContainerProperties;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.mock;
+
+/**
+ * Tests for {@link PulsarContainerFactoryCustomizers}.
+ *
+ * @author Chris Bono
+ */
+class PulsarContainerFactoryCustomizersTests {
+
+	@Test
+	void customizeWithNullCustomizersShouldDoNothing() {
+		PulsarContainerFactory<?, ?> containerFactory = mock(PulsarContainerFactory.class);
+		new PulsarContainerFactoryCustomizers(null).customize(containerFactory);
+		then(containerFactory).shouldHaveNoInteractions();
+	}
+
+	@Test
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	void customizeSimplePulsarContainerFactory() {
+		PulsarContainerFactoryCustomizers customizers = new PulsarContainerFactoryCustomizers(
+				Collections.singletonList(new SimplePulsarContainerFactoryCustomizer()));
+		PulsarContainerProperties containerProperties = new PulsarContainerProperties();
+		ConcurrentPulsarListenerContainerFactory<String> pulsarContainerFactory = new ConcurrentPulsarListenerContainerFactory<>(
+				mock(PulsarConsumerFactory.class), containerProperties);
+		customizers.customize(pulsarContainerFactory);
+		assertThat(pulsarContainerFactory.getContainerProperties().getSubscriptionName()).isEqualTo("my-subscription");
+	}
+
+	@Test
+	void customizeShouldCheckGeneric() {
+		List<TestCustomizer<?>> list = new ArrayList<>();
+		list.add(new TestCustomizer<>());
+		list.add(new TestPulsarListenersContainerFactoryCustomizer());
+		list.add(new TestConcurrentPulsarListenerContainerFactoryCustomizer());
+		PulsarContainerFactoryCustomizers customizers = new PulsarContainerFactoryCustomizers(list);
+
+		customizers.customize(mock(PulsarContainerFactory.class));
+		assertThat(list.get(0).getCount()).isOne();
+		assertThat(list.get(1).getCount()).isZero();
+		assertThat(list.get(2).getCount()).isZero();
+
+		customizers.customize(mock(ListenerContainerFactory.class));
+		assertThat(list.get(0).getCount()).isEqualTo(2);
+		assertThat(list.get(1).getCount()).isOne();
+		assertThat(list.get(2).getCount()).isZero();
+
+		customizers.customize(mock(ConcurrentPulsarListenerContainerFactory.class));
+		assertThat(list.get(0).getCount()).isEqualTo(3);
+		assertThat(list.get(1).getCount()).isEqualTo(2);
+		assertThat(list.get(2).getCount()).isOne();
+
+		customizers.customize(mock(DefaultPulsarReaderContainerFactory.class));
+		assertThat(list.get(0).getCount()).isEqualTo(4);
+		assertThat(list.get(1).getCount()).isEqualTo(2);
+		assertThat(list.get(2).getCount()).isOne();
+	}
+
+	static class SimplePulsarContainerFactoryCustomizer
+			implements PulsarContainerFactoryCustomizer<ConcurrentPulsarListenerContainerFactory<?>> {
+
+		@Override
+		public void customize(ConcurrentPulsarListenerContainerFactory<?> containerFactory) {
+			containerFactory.getContainerProperties().setSubscriptionName("my-subscription");
+		}
+
+	}
+
+	/**
+	 * Test customizer that will match all {@link PulsarContainerFactory}.
+	 *
+	 * @param <T> the container factory type
+	 */
+	static class TestCustomizer<T extends PulsarContainerFactory<?, ?>> implements PulsarContainerFactoryCustomizer<T> {
+
+		private int count;
+
+		@Override
+		public void customize(T pulsarContainerFactory) {
+			this.count++;
+		}
+
+		int getCount() {
+			return this.count;
+		}
+
+	}
+
+	/**
+	 * Test customizer that will match all {@link ListenerContainerFactory}.
+	 */
+	static class TestPulsarListenersContainerFactoryCustomizer extends TestCustomizer<ListenerContainerFactory<?, ?>> {
+
+	}
+
+	/**
+	 * Test customizer that will match only
+	 * {@link ConcurrentPulsarListenerContainerFactory}.
+	 */
+	static class TestConcurrentPulsarListenerContainerFactoryCustomizer
+			extends TestCustomizer<ConcurrentPulsarListenerContainerFactory<?>> {
+
+	}
+
+}

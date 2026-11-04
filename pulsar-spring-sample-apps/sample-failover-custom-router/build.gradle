@@ -15,11 +15,11 @@ repositories {
 def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
 def pulsarVersion = project.properties['pulsarVersion'] ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
 
-ext['spring-pulsar.version'] = "${project.property('version.samples')}"
+ext['pulsar-spring.version'] = "${project.property('version.samples')}"
 ext['pulsar.version'] = "${pulsarVersion}"
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-pulsar'
+	implementation 'org.springframework.boot:pulsar-spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-jackson2'
 	implementation 'org.springframework.boot:spring-boot-http-converter'
@@ -28,7 +28,7 @@ dependencies {
 	implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
 	implementation 'io.zipkin.reporter2:zipkin-sender-urlconnection'
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-	testImplementation project(':spring-pulsar-test')
+	testImplementation project(':pulsar-spring-test')
 	testRuntimeOnly 'ch.qos.logback:logback-classic'
 	testImplementation "org.springframework.boot:spring-boot-starter-test"
 	testImplementation "org.springframework.boot:spring-boot-testcontainers"

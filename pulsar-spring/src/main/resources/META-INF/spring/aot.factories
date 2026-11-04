@@ -1,1 +1,1 @@
-org.springframework.aot.hint.RuntimeHintsRegistrar=org.springframework.pulsar.aot.PulsarRuntimeHints
+org.springframework.aot.hint.RuntimeHintsRegistrar=org.apache.pulsar.spring.aot.PulsarRuntimeHints

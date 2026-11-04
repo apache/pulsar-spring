@@ -5,7 +5,7 @@ include::../attributes/attributes.adoc[]
 [[pulsar-admin-client]]
 == Pulsar Admin Client
 On the Pulsar administration side, Spring Boot auto-configuration provides a `PulsarAdministration` to manage Pulsar clusters.
-The administration implements an interface called `PulsarAdminOperations` and provides {javadocs}/org/springframework/pulsar/core/PulsarAdminOperations.html[a `createOrModify` method] to handle topic administration through its contract.
+The administration implements an interface called `PulsarAdminOperations` and provides {javadocs}/org/apache/pulsar/spring/core/PulsarAdminOperations.html[a `createOrModify` method] to handle topic administration through its contract.
 
 When you use the Pulsar Spring Boot starter, you get the `PulsarAdministration` auto-configured.
 
@@ -13,7 +13,7 @@ By default, the application tries to connect to a local Pulsar instance at `\htt
 This can be adjusted by setting the `spring.pulsar.admin.service-url` property to a different value in the form `(http|https)://<host>:<port>`.
 
 There are many application properties available to configure the client.
-See the {spring-boot-pulsar-config-props}[`spring.pulsar.admin.*`] application properties.
+See the {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.admin.*`] application properties.
 
 [[pulsar-admin-authentication]]
 === Authentication

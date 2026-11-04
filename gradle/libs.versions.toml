@@ -59,7 +59,7 @@ json-path = { module = "com.jayway.jsonpath:json-path", version.ref = "json-path
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 mockito-bom = { module = "org.mockito:mockito-bom", version.ref = "mockito" }
 spring-boot-starter-amqp = { module = "org.springframework.boot:spring-boot-starter-amqp", version.ref = "spring-boot" }
-spring-boot-starter-pulsar = { module = "org.springframework.boot:spring-boot-starter-pulsar", version.ref = "spring-boot" }
+pulsar-spring-boot-starter = { module = "org.springframework.boot:pulsar-spring-boot-starter", version.ref = "spring-boot" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
 spring-boot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "spring-boot" }
 system-lambda = { module = "com.github.stefanbirkner:system-lambda", version.ref = "system-lambda" }

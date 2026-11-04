@@ -3,11 +3,11 @@
 
 include::../attributes/attributes.adoc[]
 
-The `spring-pulsar-test` dependency includes some useful utilities when testing your applications.
+The `pulsar-spring-test` dependency includes some useful utilities when testing your applications.
 
 == PulsarConsumerTestUtil
 
-The `org.springframework.pulsar.test.support.PulsarConsumerTestUtil` provides a type-safe fluent API for consuming messages from a Pulsar topic within a test.
+The `org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil` provides a type-safe fluent API for consuming messages from a Pulsar topic within a test.
 
 The following example shows how to consume messages from a topic for 5 seconds:
 [source,java,indent=0,subs="verbatim"]
@@ -32,7 +32,7 @@ List<Message<String>> messages = PulsarConsumerTestUtil.consumeMessages(consumer
             .get();
 ----
 
-A set of commonly used conditions are available in `org.springframework.pulsar.test.support.ConsumedMessagesConditions`.
+A set of commonly used conditions are available in `org.apache.pulsar.spring.test.support.ConsumedMessagesConditions`.
 The following example uses the factory-provided `atLeastOneMessageMatches` condition to return the consumed messages once one of them has a value of `"boom"`.
 
 [source,java,indent=0,subs="verbatim"]
@@ -47,7 +47,7 @@ List<Message<String>> messages = PulsarConsumerTestUtil.consumeMessages(consumer
 
 == PulsarTestContainerSupport
 
-The `org.springframework.pulsar.test.support.PulsarTestContainerSupport` interface provides a static Pulsar Testcontainer.
+The `org.apache.pulsar.spring.test.support.PulsarTestContainerSupport` interface provides a static Pulsar Testcontainer.
 When using Junit Jupiter, the container is automatically started once per test class via `@BeforeAll` annotation.
 
 The following example shows how you can use the container support in a `@SpringBootTest` in conjunction with the previously mentioned `PulsarConsumerTestUtil`.

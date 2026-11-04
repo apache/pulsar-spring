@@ -1,0 +1,48 @@
+# Contributor identity map. Collapses the aliases one person committed under, so
+# `git shortlog`, `git log` and `git blame` credit them once instead of splitting the
+# total across several names.
+#
+# Neither upstream ships a .mailmap, so nothing collapses unless it is listed here.
+# 01-import-history.sh copies this file into the combined repo as .mailmap, which git
+# honours for log, shortlog and blame -- editing it later takes effect immediately and
+# needs no history rewrite.
+#
+# DIRECTION MATTERS. The identity on the LEFT is the canonical one to display; the
+# identity on the RIGHT is what actually appears in the commits:
+#
+#   Canonical Name <canonical@email> <address-found-in-commits>
+#   Canonical Name <canonical@email> Name Found In Commits <address-found-in-commits>
+#   Canonical Name <canonical@email>          # renames the author of that one address
+#
+# Getting it backwards is silent: the entry matches nothing and the credit list looks
+# untouched. 04-history-report.sh probes every entry and reports the ones with no
+# effect, so re-run it after editing.
+#
+# The addresses below come from 04's own output. Which address is canonical is a
+# convention, not a fact: for third parties this uses the most recent address seen in
+# the history, on the assumption it is the one still in use.
+#
+# Bot identities (dependabot[bot], github-actions[bot]) are left alone: they are
+# accurate as they stand, and collapsing them would misattribute automated commits.
+
+# The gmail line also covers the "onobc" display name, since a two-part entry matches
+# on address alone regardless of the name on the commit.
+Chris Bono <onobc@apache.org> <cbono@vmware.com>
+Chris Bono <onobc@apache.org> <chris.bono@gmail.com>
+
+Soby Chacko <soby.chacko@broadcom.com> <chackos@vmware.com>
+Soby Chacko <soby.chacko@broadcom.com> <schacko@pivotal.io>
+
+Andy Wilkinson <andy.wilkinson@broadcom.com> <wilkinsona@vmware.com>
+
+Phillip Webb <phil.webb@broadcom.com> <pwebb@vmware.com>
+
+Vedran Pavic <vedran@vedranpavic.com> <1149230+vpavic@users.noreply.github.com>
+
+# One address, two display names: the first line fixes the name, the second folds in
+# the GitHub noreply address.
+Jonas Geiregat <jonas.grgt@gmail.com>
+Jonas Geiregat <jonas.grgt@gmail.com> <288105+jonas-grgt@users.noreply.github.com>
+
+# Same address under "ka_sh" and "KartikShrivastava".
+Kartik Shrivastava <shrivastavakartik19@gmail.com>

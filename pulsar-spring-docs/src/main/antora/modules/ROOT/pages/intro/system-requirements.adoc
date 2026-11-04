@@ -3,7 +3,7 @@
 
 include::../attributes/attributes-variables.adoc[]
 
-Spring for Apache Pulsar `{spring-pulsar-version}` requires the following:
+Spring for Apache Pulsar `{pulsar-spring-version}` requires the following:
 
 - https://www.java.com[Java 17] and is compatible up to and including Java 20
 - {spring-framework-docs}[Spring Framework `{spring-framework-version}`] or above

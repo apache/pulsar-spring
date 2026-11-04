@@ -3,8 +3,8 @@
 include::attributes/attributes.adoc[]
 
 include::overview/authors.adoc[]
-(v{spring-pulsar-version})
+(v{pulsar-spring-version})
 
 ifeval::[{is-snapshot-version} == true]
-CAUTION: You are viewing documentation for a SNAPSHOT version ({spring-pulsar-version}). While it is usually in-sync with the underlying code, it is subject to change and not guaranteed to be up-to-date with the underlying code.
+CAUTION: You are viewing documentation for a SNAPSHOT version ({pulsar-spring-version}). While it is usually in-sync with the underlying code, it is subject to change and not guaranteed to be up-to-date with the underlying code.
 endif::[]

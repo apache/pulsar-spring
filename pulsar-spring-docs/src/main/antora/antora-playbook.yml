@@ -4,17 +4,17 @@ antora:
       root_component_name: 'pulsar'
 site:
   title: Spring Pulsar
-  url: https://docs.spring.io/spring-pulsar/reference/
+  url: https://docs.spring.io/pulsar-spring/reference/
   robots: allow
 content:
   sources:
     - url: ./../../../../
       branches: HEAD
-      start_path: spring-pulsar-docs/src/main/antora
+      start_path: pulsar-spring-docs/src/main/antora
       worktrees: true
 asciidoc:
   attributes:
-    page-stackoverflow-url: https://stackoverflow.com/tags/spring-pulsar
+    page-stackoverflow-url: https://stackoverflow.com/tags/pulsar-spring
     page-related-doc-projects: framework,cloud,cloud-stream
     hide-uri-scheme: '@'
     tabs-sync-option: '@'

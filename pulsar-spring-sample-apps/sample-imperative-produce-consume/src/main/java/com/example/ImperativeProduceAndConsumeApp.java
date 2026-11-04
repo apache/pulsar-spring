@@ -26,14 +26,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.pulsar.annotation.PulsarListener;
-import org.springframework.pulsar.core.DefaultSchemaResolver;
-import org.springframework.pulsar.core.PulsarTemplate;
-import org.springframework.pulsar.core.PulsarTopic;
-import org.springframework.pulsar.core.PulsarTopicBuilder;
-import org.springframework.pulsar.core.SchemaResolver;
-import org.springframework.pulsar.test.model.UserRecord;
-import org.springframework.pulsar.test.model.json.UserRecordObjectMapper;
+import org.apache.pulsar.spring.annotation.PulsarListener;
+import org.apache.pulsar.spring.core.DefaultSchemaResolver;
+import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.core.PulsarTopic;
+import org.apache.pulsar.spring.core.PulsarTopicBuilder;
+import org.apache.pulsar.spring.core.SchemaResolver;
+import org.apache.pulsar.spring.test.model.UserRecord;
+import org.apache.pulsar.spring.test.model.json.UserRecordObjectMapper;
 
 @SpringBootApplication
 public class ImperativeProduceAndConsumeApp {

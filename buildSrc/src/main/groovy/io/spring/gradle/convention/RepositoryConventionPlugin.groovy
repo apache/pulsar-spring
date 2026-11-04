@@ -19,7 +19,7 @@ package io.spring.gradle.convention
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-import org.springframework.pulsar.gradle.ProjectUtils
+import org.apache.pulsar.spring.gradle.ProjectUtils
 
 class RepositoryConventionPlugin implements Plugin<Project> {
 

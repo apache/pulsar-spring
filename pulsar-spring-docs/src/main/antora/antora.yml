@@ -6,10 +6,10 @@ nav:
 ext:
   collector:
     run:
-      command: gradlew :spring-pulsar-docs:generateAntoraResources
+      command: gradlew :pulsar-spring-docs:generateAntoraResources
       local: true
     scan:
-      dir: spring-pulsar-docs/build/generated-antora-resources
+      dir: pulsar-spring-docs/build/generated-antora-resources
 asciidoc:
   attributes:
     listener-class: PulsarListener@

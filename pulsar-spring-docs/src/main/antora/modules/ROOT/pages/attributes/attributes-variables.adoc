@@ -1,16 +1,16 @@
 :spring-boot-version: current
 :spring-framework-version: current
 :spring-cloud-stream-version: current
-:spring-pulsar-version: current
+:pulsar-spring-version: current
 :pulsar-client-version: current
 :pulsar-client-version-family: current
 :is-snapshot-version:  false
 
-:github: https://github.com/spring-projects/spring-pulsar
-:javadocs: https://docs.spring.io/spring-pulsar/docs/{spring-pulsar-version}/api
+:github: https://github.com/spring-projects/pulsar-spring
+:javadocs: https://docs.spring.io/pulsar-spring/docs/{pulsar-spring-version}/api
 :spring-framework-docs: https://spring.io/projects/spring-framework#learn
 :spring-boot-docs: https://docs.spring.io/spring-boot/{spring-boot-version}
-:spring-boot-pulsar-config-props: {spring-boot-docs}/appendix/application-properties/index.html#appendix.application-properties.integration
+:pulsar-spring-boot-autoconfigure-config-props: {spring-boot-docs}/appendix/application-properties/index.html#appendix.application-properties.integration
 :spring-cloud-stream-docs: https://docs.spring.io/spring-cloud-stream/docs/{spring-cloud-stream-version}/reference/html/
 :spring-cloud-function: https://spring.io/projects/spring-cloud-function
 

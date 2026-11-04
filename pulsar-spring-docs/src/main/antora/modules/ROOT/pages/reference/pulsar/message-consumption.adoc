@@ -10,7 +10,7 @@ To use `PulsarListener`, you need to use the `@EnablePulsar` annotation.
 When you use Spring Boot support, it automatically enables this annotation and configures all the components necessary for `PulsarListener`, such as the message listener infrastructure (which is responsible for creating the Pulsar consumer).
 `PulsarMessageListenerContainer` uses a `PulsarConsumerFactory` to create and manage the Pulsar consumer the underlying Pulsar consumer that it uses to consume messages.
 
-Spring Boot provides this consumer factory which you can further configure by specifying the {spring-boot-pulsar-config-props}[`spring.pulsar.consumer.*`] application properties.
+Spring Boot provides this consumer factory which you can further configure by specifying the {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.consumer.*`] application properties.
 
 Let us revisit the `PulsarListener` code snippet we saw in the quick-tour section:
 
@@ -229,13 +229,13 @@ Once data is received, it is handed over to the selected message listener implem
 
 The following message listener types are available when you use Spring for Apache Pulsar.
 
-* link:{github}/blob/8e33ac0b122bc0e75df299919c956cacabcc9809/spring-pulsar/src/main/java/org/springframework/pulsar/listener/PulsarRecordMessageListener.java#L29[PulsarRecordMessageListener]
+* link:{github}/blob/8e33ac0b122bc0e75df299919c956cacabcc9809/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarRecordMessageListener.java#L29[PulsarRecordMessageListener]
 
-* link:{github}/blob/ade2c74482d8ac1407ffe4840fa058475c07bcfc/spring-pulsar/src/main/java/org/springframework/pulsar/listener/PulsarAcknowledgingMessageListener.java#L28[PulsarAcknowledgingMessageListener]
+* link:{github}/blob/ade2c74482d8ac1407ffe4840fa058475c07bcfc/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarAcknowledgingMessageListener.java#L28[PulsarAcknowledgingMessageListener]
 
-* link:{github}/blob/ade2c74482d8ac1407ffe4840fa058475c07bcfc/spring-pulsar/src/main/java/org/springframework/pulsar/listener/PulsarBatchMessageListener.java#L36[PulsarBatchMessageListener]
+* link:{github}/blob/ade2c74482d8ac1407ffe4840fa058475c07bcfc/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarBatchMessageListener.java#L36[PulsarBatchMessageListener]
 
-* link:{github}/blob/ade2c74482d8ac1407ffe4840fa058475c07bcfc/spring-pulsar/src/main/java/org/springframework/pulsar/listener/PulsarBatchAcknowledgingMessageListener.java#L28[PulsarBatchAcknowledgingMessageListener]
+* link:{github}/blob/ade2c74482d8ac1407ffe4840fa058475c07bcfc/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarBatchAcknowledgingMessageListener.java#L28[PulsarBatchAcknowledgingMessageListener]
 
 We see the details about these various message listeners in the following sections.
 
@@ -940,7 +940,7 @@ include::../message-listener-startup-failure.adoc[leveloffset=+2]
 == Pulsar Reader Support
 The framework provides support for using {apache-pulsar-docs}/concepts-clients/#reader-interface[Pulsar Reader] via the `PulsarReaderFactory`.
 
-Spring Boot provides this reader factory which you can further configure by specifying any of the {spring-boot-pulsar-config-props}[`spring.pulsar.reader.*`] application properties.
+Spring Boot provides this reader factory which you can further configure by specifying any of the {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.reader.*`] application properties.
 
 === PulsarReader Annotation
 

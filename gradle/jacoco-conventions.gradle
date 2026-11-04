@@ -1,7 +1,7 @@
-def javaProjects = [ 'spring-pulsar',
-					 'spring-pulsar-cache-provider',
-					 'spring-pulsar-cache-provider-caffeine',
-					 'spring-pulsar-test' ]
+def javaProjects = [ 'pulsar-spring',
+					 'pulsar-spring-cache-provider',
+					 'pulsar-spring-cache-provider-caffeine',
+					 'pulsar-spring-test' ]
 
 
 allprojects {

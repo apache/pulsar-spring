@@ -11,7 +11,7 @@
 	<suppress files=".*Tests" checks="HideUtilityClassConstructor" />
 	<suppress files=".*Tests" checks="RegexpSinglelineJava" id="toLowerCaseWithoutLocale"/>
 	<suppress files=".*Tests" checks="RegexpSinglelineJava" id="toUpperCaseWithoutLocale"/>
-	<suppress files="[\\/]spring-pulsar-docs[\\/]" checks="JavadocPackage|JavadocType|JavadocVariable|SpringDeprecatedCheck" />
-	<suppress files="[\\/]spring-pulsar-docs[\\/]" checks="SpringJavadoc" message="\@since" />
-	<suppress files="[\\/]spring-pulsar-docs[\\/].*jooq" checks="AvoidStaticImport" />
+	<suppress files="[\\/]pulsar-spring-docs[\\/]" checks="JavadocPackage|JavadocType|JavadocVariable|SpringDeprecatedCheck" />
+	<suppress files="[\\/]pulsar-spring-docs[\\/]" checks="SpringJavadoc" message="\@since" />
+	<suppress files="[\\/]pulsar-spring-docs[\\/].*jooq" checks="AvoidStaticImport" />
 </suppressions>

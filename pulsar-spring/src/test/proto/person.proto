@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option java_package = "org.springframework.pulsar.listener";
+option java_package = "org.apache.pulsar.spring.listener";
 option java_outer_classname = "Proto";
 
 message Person {

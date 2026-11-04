@@ -14,22 +14,22 @@ plugins {
 
 startParameter.noBuildScan = startParameter.taskNames.contains('format')
 
-include 'spring-pulsar'
-include 'spring-pulsar-bom'
-include 'spring-pulsar-cache-provider'
-include 'spring-pulsar-cache-provider-caffeine'
-include 'spring-pulsar-dependencies'
-include 'spring-pulsar-sample-apps:sample-imperative-produce-consume'
-include 'spring-pulsar-sample-apps:sample-failover-custom-router'
-include 'spring-pulsar-sample-apps:sample-pulsar-functions:sample-signup-app'
-include 'spring-pulsar-sample-apps:sample-pulsar-functions:sample-signup-function'
-include 'spring-pulsar-sample-apps:sample-pulsar-binder'
-include 'spring-pulsar-sample-apps:sample-pulsar-reader'
-include 'spring-pulsar-docs'
-include 'spring-pulsar-test'
-include 'integration-tests'
+include 'pulsar-spring'
+include 'pulsar-spring-bom'
+include 'pulsar-spring-cache-provider'
+include 'pulsar-spring-cache-provider-caffeine'
+include 'pulsar-spring-dependencies'
+include 'pulsar-spring-sample-apps:sample-imperative-produce-consume'
+include 'pulsar-spring-sample-apps:sample-failover-custom-router'
+include 'pulsar-spring-sample-apps:sample-pulsar-functions:sample-signup-app'
+include 'pulsar-spring-sample-apps:sample-pulsar-functions:sample-signup-function'
+include 'pulsar-spring-sample-apps:sample-pulsar-binder'
+include 'pulsar-spring-sample-apps:sample-pulsar-reader'
+include 'pulsar-spring-docs'
+include 'pulsar-spring-test'
+include 'pulsar-spring-integration-tests'
 
-rootProject.name = "spring-pulsar-dist"
+rootProject.name = "pulsar-spring-dist"
 
 rootProject.children.findAll { !it.name.startsWith('sample-') }
 		.each {project -> project.buildFileName = "${project.name}.gradle" }

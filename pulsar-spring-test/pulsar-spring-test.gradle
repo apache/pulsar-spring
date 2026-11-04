@@ -1,0 +1,16 @@
+plugins {
+	id 'org.apache.pulsar.spring.spring-module'
+}
+
+description = 'Spring Pulsar Test Utilities Module'
+
+dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter-api'
+    implementation('org.testcontainers:testcontainers-pulsar')
+    implementation('org.testcontainers:testcontainers-junit-jupiter')
+	implementation libs.commons.compress
+    implementation project(':pulsar-spring')
+    testImplementation 'org.assertj:assertj-core'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+	testImplementation 'org.mockito:mockito-core'
+}

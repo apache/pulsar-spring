@@ -17,7 +17,7 @@ Spring for Apache Pulsar allows you to specify a default tenant and/or namespace
 
 [discrete]
 === With Spring Boot
-When using the Spring Boot you can simply set the {spring-boot-pulsar-config-props}[`spring.pulsar.defaults.topic.tenant`] and {spring-boot-pulsar-config-props}[`spring.pulsar.defaults.topic.namespace`] application properties to specify these defaults.
+When using the Spring Boot you can simply set the {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.defaults.topic.tenant`] and {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.defaults.topic.namespace`] application properties to specify these defaults.
 
 If you want to disable this feature, simply set the `spring.pulsar.defaults.topic.enabled` property to `false`.
 

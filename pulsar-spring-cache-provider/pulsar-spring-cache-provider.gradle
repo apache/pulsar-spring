@@ -1,0 +1,11 @@
+plugins {
+	id 'org.apache.pulsar.spring.spring-module'
+}
+
+description = 'Spring Pulsar Cache Provider API'
+
+dependencies {
+	api libs.jspecify
+	testImplementation 'org.assertj:assertj-core'
+	testImplementation 'org.junit.jupiter:junit-jupiter'
+}

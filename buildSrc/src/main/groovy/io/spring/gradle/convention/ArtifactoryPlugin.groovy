@@ -19,7 +19,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.publish.maven.plugins.MavenPublishPlugin
 
-import org.springframework.pulsar.gradle.ProjectUtils
+import org.apache.pulsar.spring.gradle.ProjectUtils
 
 class ArtifactoryPlugin implements Plugin<Project> {
 
@@ -48,7 +48,7 @@ class ArtifactoryPlugin implements Plugin<Project> {
 					defaults {
 						publications('mavenJava')
 						properties {
-							mavenJava '*:*:*:docs@zip', 'zip.name': 'spring-pulsar', 'zip.displayname': 'Spring Pulsar', 'zip.type': 'docs', 'zip.deployed': false
+							mavenJava '*:*:*:docs@zip', 'zip.name': 'pulsar-spring', 'zip.displayname': 'Spring Pulsar', 'zip.type': 'docs', 'zip.deployed': false
 						}
 					}
 				}

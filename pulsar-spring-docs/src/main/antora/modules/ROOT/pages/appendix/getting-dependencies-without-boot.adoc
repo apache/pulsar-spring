@@ -16,9 +16,9 @@ Maven::
 	<dependencies>
 		<!-- ... other dependency elements ... -->
 		<dependency>
-			<groupId>org.springframework.pulsar</groupId>
-			<artifactId>spring-pulsar-bom</artifactId>
-			<version>{spring-pulsar-version}</version>
+			<groupId>org.apache.pulsar.spring</groupId>
+			<artifactId>pulsar-spring-bom</artifactId>
+			<version>{pulsar-spring-version}</version>
 			<type>pom</type>
 			<scope>import</scope>
 		</dependency>
@@ -37,7 +37,7 @@ plugins {
 
 dependencyManagement {
 	imports {
-		mavenBom 'org.springframework.pulsar:spring-pulsar-bom:{spring-pulsar-version}'
+		mavenBom 'org.apache.pulsar.spring:pulsar-spring-bom:{pulsar-spring-version}'
 	}
 }
 ----
@@ -55,8 +55,8 @@ Maven::
 <dependencies>
 	<!-- ... other dependency elements ... -->
 	<dependency>
-		<groupId>org.springframework.pulsar</groupId>
-		<artifactId>spring-pulsar</artifactId>
+		<groupId>org.apache.pulsar.spring</groupId>
+		<artifactId>pulsar-spring</artifactId>
 	</dependency>
 </dependencies>
 ----
@@ -67,7 +67,7 @@ Gradle::
 [source,groovy,indent=0,subs="verbatim,attributes",role="secondary"]
 ----
 dependencies {
-	implementation "org.springframework.pulsar:spring-pulsar"
+	implementation "org.apache.pulsar.spring:pulsar-spring"
 }
 ----
 ======

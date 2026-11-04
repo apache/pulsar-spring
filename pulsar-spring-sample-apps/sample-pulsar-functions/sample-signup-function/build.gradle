@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 }
 
-group = 'org.springframework.pulsar.sample'
+group = 'org.apache.pulsar.spring.sample'
 description = 'Sample Signup Pulsar Function'
 
 repositories {
@@ -28,7 +28,7 @@ dependencies {
 // Customization of jar to make a simple Uber function jar
 jar {
 	manifest {
-		attributes 'Main-Class': 'org.springframework.pulsar.sample.signup.SignupFunction'
+		attributes 'Main-Class': 'org.apache.pulsar.spring.sample.signup.SignupFunction'
 	}
 	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 	from sourceSets.main.output

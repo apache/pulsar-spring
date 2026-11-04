@@ -20,6 +20,6 @@ You can build without running tests by using the following command:
 
 You can build the reference documentation using this command:
 ----
-./gradlew :spring-pulsar-docs:antora
+./gradlew :pulsar-spring-docs:antora
 ----
 You can view the generated HTML in `_docs/build/site_` directory.

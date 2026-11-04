@@ -9,7 +9,7 @@ plugins {
 description = "Starter for testing Spring for Apache Pulsar"
 
 dependencies {
-	api(project(":starter:spring-boot-starter-pulsar"))
+	api(project(":starter:pulsar-spring-boot-starter"))
 	api(project(":starter:spring-boot-starter-test"))
 }
 

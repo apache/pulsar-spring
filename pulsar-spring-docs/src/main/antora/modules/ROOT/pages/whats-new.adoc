@@ -14,7 +14,7 @@ This will only affect you if you were providing a custom `RetryTemplate` via a `
 
 The `RetryTemplate` class still exists in Core Retry but the package name has changed from `org.springframework.retry.support` to `org.springframework.core.retry` and the API has slightly changed.
 
-See the https://github.com/spring-projects/spring-pulsar/commit/fc4742f419fb882c7a045a742cae259f8ab45cc5[commit] for more details.
+See the https://github.com/spring-projects/pulsar-spring/commit/fc4742f419fb882c7a045a742cae259f8ab45cc5[commit] for more details.
 
 === Removals
 
@@ -22,20 +22,20 @@ See the https://github.com/spring-projects/spring-pulsar/commit/fc4742f419fb882c
 
 The following previously deprecated APIs, which were marked for removal in version 2.0.x, have now been removed:
 
-- `org.springframework.pulsar.config.ConcurrentPulsarListenerContainerFactory#setConcurrency`
-- `org.springframework.pulsar.config.ConcurrentPulsarListenerContainerFactoryCustomizer`
-- `org.springframework.pulsar.config.ListenerContainerFactory#createListenerContainer`
-- `org.springframework.pulsar.config.ReaderContainerFactory#createReaderContainer`
-- `org.springframework.pulsar.config.ProducerBuilderConfigurationUtil`
-- `org.springframework.pulsar.config.PulsarClientProxy#getPartitionsForTopic`
-- `org.springframework.pulsar.config.PulsarTopic#builder`
-- `org.springframework.pulsar.config.PulsarTopic#getFullyQualifiedTopicName`
-- `org.springframework.pulsar.config.Resolved#get`
-- `org.springframework.pulsar.test.support.model.UserPojo`
-- `org.springframework.pulsar.test.support.model.UserRecord`
+- `org.apache.pulsar.spring.config.ConcurrentPulsarListenerContainerFactory#setConcurrency`
+- `org.apache.pulsar.spring.config.ConcurrentPulsarListenerContainerFactoryCustomizer`
+- `org.apache.pulsar.spring.config.ListenerContainerFactory#createListenerContainer`
+- `org.apache.pulsar.spring.config.ReaderContainerFactory#createReaderContainer`
+- `org.apache.pulsar.spring.config.ProducerBuilderConfigurationUtil`
+- `org.apache.pulsar.spring.config.PulsarClientProxy#getPartitionsForTopic`
+- `org.apache.pulsar.spring.config.PulsarTopic#builder`
+- `org.apache.pulsar.spring.config.PulsarTopic#getFullyQualifiedTopicName`
+- `org.apache.pulsar.spring.config.Resolved#get`
+- `org.apache.pulsar.spring.test.support.model.UserPojo`
+- `org.apache.pulsar.spring.test.support.model.UserRecord`
 
 ==== Reactive Support
-Reactive support has been removed from Spring Pulsar `2.0.0` - there is no longer a `spring-pulsar-reactive` module published.
+Reactive support has been removed from Spring Pulsar `2.0.0` - there is no longer a `pulsar-spring-reactive` module published.
 
 [[what-s-new-in-1-2-since-1-1]]
 == What's New in 1.2 Since 1.1
@@ -56,7 +56,7 @@ You can now configure the message listener container startup failure policy to `
 For more details see the corresponding section for one of the supported containers xref:./reference/pulsar/message-consumption.adoc#message-listener-startup-failure[@PulsarListener] or xref:./reference/pulsar/message-consumption.adoc#message-reader-startup-failure[@PulsarReader].
 
 === Message Container Factory Customizers (Spring Boot)
-Spring Boot has introduced a generic message container factory customizer `org.springframework.boot.pulsar.autoconfigure.PulsarContainerFactoryCustomizer<T extends PulsarContainerFactory<?, ?>>` that can be used to further configure one or more of the auto-configured container factories that back the following listener annotations:
+Spring Boot has introduced a generic message container factory customizer `org.apache.pulsar.spring.boot.autoconfigure.PulsarContainerFactoryCustomizer<T extends PulsarContainerFactory<?, ?>>` that can be used to further configure one or more of the auto-configured container factories that back the following listener annotations:
 
 - For `@PulsarListener` register one or more PulsarContainerFactoryCustomizer<ConcurrentPulsarListenerContainerFactory<?>> beans.
 
@@ -84,15 +84,15 @@ As part of this, the following APIs were deprecated, copied, and renamed:
 
 ==== ConcurrentPulsarListenerContainerFactoryCustomizer
 The purpose of `ConcurrentPulsarListenerContainerFactoryCustomizer` was to customize the Spring Boot auto-configured message container factories.
-However, Spring Boot has introduced a generic message container factory customizer `org.springframework.boot.pulsar.autoconfigure.PulsarContainerFactoryCustomizer<T extends PulsarContainerFactory<?, ?>>` that removes the need for this customizer.
+However, Spring Boot has introduced a generic message container factory customizer `org.apache.pulsar.spring.boot.autoconfigure.PulsarContainerFactoryCustomizer<T extends PulsarContainerFactory<?, ?>>` that removes the need for this customizer.
 
-Replace all instances of `ConcurrentPulsarListenerContainerFactoryCustomizer` with `org.springframework.boot.pulsar.autoconfigure.PulsarContainerFactoryCustomizer<ConcurrentPulsarListenerContainerFactoryCustomizer<?>>`.
+Replace all instances of `ConcurrentPulsarListenerContainerFactoryCustomizer` with `org.apache.pulsar.spring.boot.autoconfigure.PulsarContainerFactoryCustomizer<ConcurrentPulsarListenerContainerFactoryCustomizer<?>>`.
 
 === Removals
 The following previously deprecated listener endpoint adapters have been removed in favor of default methods in the listener endpoint interfaces:
 
-- `org.springframework.pulsar.config.PulsarListenerEndpointAdapter`
-- `org.springframework.pulsar.reactive.config.ReactivePulsarListenerEndpointAdapter`
+- `org.apache.pulsar.spring.config.PulsarListenerEndpointAdapter`
+- `org.apache.pulsar.spring.reactive.config.ReactivePulsarListenerEndpointAdapter`
 
 === Breaking Changes
 
@@ -128,5 +128,5 @@ WARNING: If you were previously catching or rethrowing `PulsarClientException` j
 If you were actually handling the exception then you will need to replace `PulsarClientException` with `PulsarException` in your catch clause.
 
 === Testing support
-The `spring-pulsar-test` module is now available to help test your Spring for Apache Pulsar applications.
+The `pulsar-spring-test` module is now available to help test your Spring for Apache Pulsar applications.
 See xref:./reference/testing-applications.adoc#testing-applications[Testing Applications] for more details.

@@ -58,40 +58,40 @@ gradlePlugin {
 			implementationClass = "io.spring.gradle.convention.ArtifactoryPlugin"
 		}
 		mavenBomPlugin {
-			id = "org.springframework.pulsar.bom"
-			implementationClass = "org.springframework.pulsar.gradle.MavenBomPlugin"
+			id = "org.apache.pulsar.spring.bom"
+			implementationClass = "org.apache.pulsar.spring.gradle.MavenBomPlugin"
 		}
 		optionalDependenciesPlugin {
-			id = "org.springframework.pulsar.optional-dependencies"
-			implementationClass = "org.springframework.pulsar.gradle.optional.OptionalDependenciesPlugin"
+			id = "org.apache.pulsar.spring.optional-dependencies"
+			implementationClass = "org.apache.pulsar.spring.gradle.optional.OptionalDependenciesPlugin"
 		}
 		repositoryConventionPlugin {
 			id = "io.spring.convention.repository"
 			implementationClass = "io.spring.gradle.convention.RepositoryConventionPlugin"
 		}
 		rootProjectPlugin {
-			id = "org.springframework.pulsar.root-project"
-			implementationClass = "org.springframework.pulsar.gradle.RootProjectPlugin"
+			id = "org.apache.pulsar.spring.root-project"
+			implementationClass = "org.apache.pulsar.spring.gradle.RootProjectPlugin"
 		}
 		springDocsModulePlugin {
-			id = "org.springframework.pulsar.spring-docs-module"
-			implementationClass = "org.springframework.pulsar.gradle.SpringDocsModulePlugin"
+			id = "org.apache.pulsar.spring.spring-docs-module"
+			implementationClass = "org.apache.pulsar.spring.gradle.SpringDocsModulePlugin"
 		}
 		springModulePlugin {
-			id = "org.springframework.pulsar.spring-module"
-			implementationClass = "org.springframework.pulsar.gradle.SpringModulePlugin"
+			id = "org.apache.pulsar.spring.spring-module"
+			implementationClass = "org.apache.pulsar.spring.gradle.SpringModulePlugin"
 		}
 		springUnpublishedModulePlugin {
-			id = "org.springframework.pulsar.spring-unpublished-module"
-			implementationClass = "org.springframework.pulsar.gradle.SpringUnpublishedModulePlugin"
+			id = "org.apache.pulsar.spring.spring-unpublished-module"
+			implementationClass = "org.apache.pulsar.spring.gradle.SpringUnpublishedModulePlugin"
 		}
 		sonarQubeConventionsPlugin {
-			id = "org.springframework.pulsar.sonarqube"
-			implementationClass = "org.springframework.pulsar.gradle.check.SonarQubeConventionsPlugin"
+			id = "org.apache.pulsar.spring.sonarqube"
+			implementationClass = "org.apache.pulsar.spring.gradle.check.SonarQubeConventionsPlugin"
 		}
 		updateProjectVersion {
-			id = "org.springframework.pulsar.update-version"
-			implementationClass = "org.springframework.pulsar.gradle.versions.UpdateProjectVersionPlugin"
+			id = "org.apache.pulsar.spring.update-version"
+			implementationClass = "org.apache.pulsar.spring.gradle.versions.UpdateProjectVersionPlugin"
 		}
 	}
 }

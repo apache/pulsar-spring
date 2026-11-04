@@ -1,1 +1,1 @@
-org.springframework.pulsar.cache.provider.CacheProviderFactoryTests$TestCacheProviderFactory
+org.apache.pulsar.spring.cache.provider.CacheProviderFactoryTests$TestCacheProviderFactory

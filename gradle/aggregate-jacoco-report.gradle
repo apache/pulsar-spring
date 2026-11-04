@@ -13,10 +13,10 @@ project.afterEvaluate {
 	tasks.create(name: 'aggregateJacocoTestReport', type: JacocoReport) {
 
 		dependsOn(
-			':spring-pulsar:compileJava',
-			':spring-pulsar-cache-provider:compileJava',
-			':spring-pulsar-cache-provider:test',
-			':spring-pulsar-cache-provider-caffeine:compileJava')
+			':pulsar-spring:compileJava',
+			':pulsar-spring-cache-provider:compileJava',
+			':pulsar-spring-cache-provider:test',
+			':pulsar-spring-cache-provider-caffeine:compileJava')
 
 
 		group = 'verification'
@@ -32,8 +32,8 @@ project.afterEvaluate {
 		]
 
 		def modulesToAggregate = subprojects.findAll { proj ->
-			def isSampleApp = proj.getParent().getPath().contains('spring-pulsar-sample-apps')
-			def isTestModule = proj.getName() == 'spring-pulsar-test'
+			def isSampleApp = proj.getParent().getPath().contains('pulsar-spring-sample-apps')
+			def isTestModule = proj.getName() == 'pulsar-spring-test'
 			def path = "${proj.projectDir}/src/main/java"
 			!(isSampleApp) && !(isTestModule) && (new File(path)).exists()
 		}

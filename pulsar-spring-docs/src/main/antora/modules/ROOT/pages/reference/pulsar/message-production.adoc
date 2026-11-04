@@ -16,10 +16,10 @@ They return a `CompletableFuture`, which you can use to asynchronously receive t
 NOTE: For the API variants that do not include a topic parameter, a xref:reference/topic-resolution.adoc#topic-resolution-process[topic resolution process] is used to determine the destination topic.
 
 === Simple API
-The template provides a handful of methods ({javadocs}/org/springframework/pulsar/core/PulsarOperations.html[prefixed with _'send'_]) for simple send requests. For more complicated send requests, a fluent API lets you configure more options.
+The template provides a handful of methods ({javadocs}/org/apache/pulsar/spring/core/PulsarOperations.html[prefixed with _'send'_]) for simple send requests. For more complicated send requests, a fluent API lets you configure more options.
 
 === Fluent API
-The template provides a {javadocs}/org/springframework/pulsar/core/PulsarOperations.html#newMessage(T)[fluent builder] to handle more complicated send requests.
+The template provides a {javadocs}/org/apache/pulsar/spring/core/PulsarOperations.html#newMessage(T)[fluent builder] to handle more complicated send requests.
 
 === Message customization
 You can specify a `TypedMessageBuilderCustomizer` to configure the outgoing message. For example, the following code shows how to send a keyed message:
@@ -76,7 +76,7 @@ include::../schema-info/schema-info-template.adoc[]
 [[pulsar-producer-factory]]
 == Pulsar Producer Factory
 The `PulsarTemplate` relies on a `PulsarProducerFactory` to actually create the underlying producer.
-Spring Boot auto-configuration also provides this producer factory which you can further configure by specifying any of the {spring-boot-pulsar-config-props}[`spring.pulsar.producer.*`] application properties.
+Spring Boot auto-configuration also provides this producer factory which you can further configure by specifying any of the {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.producer.*`] application properties.
 
 NOTE: If topic information is not specified when using the producer factory APIs directly, the same xref:reference/topic-resolution.adoc#topic-resolution-process[topic resolution process] used by the `PulsarTemplate` is used with the one exception that the "Message type default" step is **omitted**.
 
@@ -95,9 +95,9 @@ If you want to apply a customizer to just a single producer, you can use the Flu
 Each underlying Pulsar producer consumes resources.
 To improve performance and avoid continual creation of producers, the producer factory caches the producers that it creates.
 They are cached in an LRU fashion and evicted when they have not been used within a configured time period.
-The link:{github}/blob/8e33ac0b122bc0e75df299919c956cacabcc9809/spring-pulsar/src/main/java/org/springframework/pulsar/core/CachingPulsarProducerFactory.java#L159[cache key] is composed of just enough information to ensure that callers are returned the same producer on subsequent creation requests.
+The link:{github}/blob/8e33ac0b122bc0e75df299919c956cacabcc9809/pulsar-spring/src/main/java/org/apache/pulsar/spring/core/CachingPulsarProducerFactory.java#L159[cache key] is composed of just enough information to ensure that callers are returned the same producer on subsequent creation requests.
 
-Additionally, you can configure the cache settings by specifying any of the {spring-boot-pulsar-config-props}[`spring.pulsar.producer.cache.*`] application properties.
+Additionally, you can configure the cache settings by specifying any of the {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.producer.cache.*`] application properties.
 
 [[producer-caching-lambdas]]
 === Caution on Lambda customizers

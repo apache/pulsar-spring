@@ -25,7 +25,7 @@ When you use the Pulsar Spring Boot starter, you get the `PulsarFunctionAdminist
 
 By default, the application tries to connect to a local Pulsar instance at `http://localhost:8080`.
 However, because it leverages the already configured `PulsarAdministration`, see xref:reference/pulsar-admin.adoc#pulsar-admin-client[Pulsar Admin Client] for available client options (including authentication).
-Additional configuration options are available with the {spring-boot-pulsar-config-props}[`spring.pulsar.function.*`] application properties.
+Additional configuration options are available with the {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.function.*`] application properties.
 
 == Automatic Function Management
 On application startup, the framework finds all `PulsarFunction`, `PulsarSink`, and `PulsarSource` beans in the application context.
@@ -148,4 +148,4 @@ PulsarSource rabbitSourceWithBootProps(RabbitProperties props) {
 }
 ----
 
-TIP: For a more elaborate example see the link:{github}/blob/main/spring-pulsar-sample-apps/sample-pulsar-functions/README.adoc[Sample Stream Pipeline with Pulsar Functions] sample app
+TIP: For a more elaborate example see the link:{github}/blob/main/pulsar-spring-sample-apps/sample-pulsar-functions/README.adoc[Sample Stream Pipeline with Pulsar Functions] sample app

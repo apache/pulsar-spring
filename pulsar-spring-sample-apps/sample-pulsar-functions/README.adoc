@@ -117,7 +117,7 @@ cd sample-signup-app && ../../../gradlew bootRun
 ----
 .which should produce
 ----
-[main] PulsarFunctionAdministration : Creating 'UserSignupFunction' function (using local archive: /Users/cbono/repos/spring-pulsar/spring-pulsar-sample-apps/sample-pulsar-functions/signup-function/target/signup-function-0.0.1-SNAPSHOT.jar)
+[main] PulsarFunctionAdministration : Creating 'UserSignupFunction' function (using local archive: /Users/cbono/repos/pulsar-spring/pulsar-spring-sample-apps/sample-pulsar-functions/signup-function/target/signup-function-0.0.1-SNAPSHOT.jar)
 [main] PulsarFunctionAdministration : Creating 'CustomerOnboardCassandraSink' sink (using local archive: builtin://cassandra)
 [main] PulsarFunctionAdministration : Creating 'UserSignupRabbitSource' source (using local archive: builtin://rabbitmq)
 [main] SignupApplication            : Started SignupApplication in 6.485 seconds (process running for 6.839)

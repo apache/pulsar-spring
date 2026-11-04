@@ -1,0 +1,87 @@
+/*
+ * Copyright 2023-present the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.pulsar.spring.reader;
+
+import org.apache.pulsar.client.api.PulsarClient;
+import org.apache.pulsar.client.api.PulsarClientException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.apache.pulsar.spring.annotation.EnablePulsar;
+import org.apache.pulsar.spring.annotation.PulsarReader;
+import org.apache.pulsar.spring.config.DefaultPulsarReaderContainerFactory;
+import org.apache.pulsar.spring.config.PulsarReaderContainerFactory;
+import org.apache.pulsar.spring.core.DefaultPulsarClientFactory;
+import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
+import org.apache.pulsar.spring.core.DefaultPulsarReaderFactory;
+import org.apache.pulsar.spring.core.PulsarProducerFactory;
+import org.apache.pulsar.spring.core.PulsarReaderFactory;
+import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+
+/**
+ * Provides base support for {@link PulsarReader} tests.
+ *
+ * @author Soby Chacko
+ * @author Chris Bono
+ */
+@SpringJUnitConfig
+@DirtiesContext
+class PulsarReaderTestsBase implements PulsarTestContainerSupport {
+
+	@Autowired
+	protected PulsarTemplate<String> pulsarTemplate;
+
+	@Autowired
+	protected PulsarClient pulsarClient;
+
+	@Configuration(proxyBeanMethods = false)
+	@EnablePulsar
+	static class TopLevelConfig {
+
+		@Bean
+		PulsarProducerFactory<String> pulsarProducerFactory(PulsarClient pulsarClient) {
+			return new DefaultPulsarProducerFactory<>(pulsarClient);
+		}
+
+		@Bean
+		PulsarClient pulsarClient() throws PulsarClientException {
+			return new DefaultPulsarClientFactory(PulsarTestContainerSupport.getPulsarBrokerUrl()).createClient();
+		}
+
+		@Bean
+		PulsarTemplate<String> pulsarTemplate(PulsarProducerFactory<String> pulsarProducerFactory) {
+			return new PulsarTemplate<>(pulsarProducerFactory);
+		}
+
+		@Bean
+		PulsarReaderFactory<?> pulsarReaderFactory(PulsarClient pulsarClient) {
+			return new DefaultPulsarReaderFactory<>(pulsarClient);
+		}
+
+		@Bean
+		PulsarReaderContainerFactory pulsarReaderContainerFactory(PulsarReaderFactory<Object> pulsarReaderFactory) {
+			return new DefaultPulsarReaderContainerFactory<>(pulsarReaderFactory,
+					new PulsarReaderContainerProperties());
+		}
+
+	}
+
+}

@@ -12,7 +12,7 @@ tasks.named("generateAntoraYml") {
 }
 
 tasks.create(name: 'createAntoraPartials', type: Sync) {
-	from { project(":spring-pulsar-docs").tasks.generateObservabilityDocs.outputs }
+	from { project(":pulsar-spring-docs").tasks.generateObservabilityDocs.outputs }
 	into layout.buildDirectory.dir('generated-antora-resources/modules/ROOT/partials')
 }
 
@@ -34,5 +34,5 @@ def generateAttributes() {
 			'spring-boot-version': springBootVersionForDocs ?: 'current',
 			'spring-cloud-stream-version': springCloudStreamVersion ?: 'current',
 			'spring-framework-version': springFrameworkVersion ?: 'current',
-			'spring-pulsar-version': project.version]
+			'pulsar-spring-version': project.version]
 }

@@ -5,7 +5,7 @@ Sample applications that can be used to demonstrate and manually verify Spring P
 
 [[build-apps]]
 == Building
-To build the applications simply execute the following command from the `spring-pulsar-sample-apps` directory:
+To build the applications simply execute the following command from the `pulsar-spring-sample-apps` directory:
 [source,bash]
 ----
 ../gradlew clean build
@@ -30,7 +30,7 @@ Make sure the above pre-requisites are satisfied.
 To run the app in your IDE just choose `Run/Debug` on the desired sample application class.
 
 ===== Command Line
-To run the app on the command line open a terminal and navigate to the desired sample application directory (underneath `spring-pulsar-sample-apps`) and execute the following command:
+To run the app on the command line open a terminal and navigate to the desired sample application directory (underneath `pulsar-spring-sample-apps`) and execute the following command:
 
 [source,bash]
 ----

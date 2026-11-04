@@ -6,7 +6,7 @@ We will take a quick tour of Spring for Apache Pulsar by showing a sample Spring
 This is a complete application and does not require any additional configuration, as long as you have a Pulsar cluster running on the default location - `localhost:6650`.
 
 == Dependencies
-Spring Boot applications need only the `spring-boot-starter-pulsar` dependency. The following listings show how to define the dependency for Maven and Gradle, respectively:
+Spring Boot applications need only the `pulsar-spring-boot-starter` dependency. The following listings show how to define the dependency for Maven and Gradle, respectively:
 
 [tabs]
 ======
@@ -17,7 +17,7 @@ Maven::
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-pulsar</artifactId>
+        <artifactId>pulsar-spring-boot-starter</artifactId>
         <version>{spring-boot-version}</version>
     </dependency>
 </dependencies>
@@ -28,7 +28,7 @@ Gradle::
 [source,groovy,indent=0,subs="verbatim,attributes",role="secondary"]
 ----
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-pulsar:{spring-boot-version}'
+    implementation 'org.springframework.boot:pulsar-spring-boot-starter:{spring-boot-version}'
 }
 ----
 ======
