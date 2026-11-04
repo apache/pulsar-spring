@@ -46,13 +46,8 @@ project.afterEvaluate {
 								'Automatic-Module-Name': subproject.name.replace('-', '.')  // for Jigsaw
 						)
 					}
-					from("${rootProject.projectDir}/src/dist") {
-						include 'notice.txt'
-						into 'META-INF'
-						expand(version: project.version)
-					}
 					from("${rootProject.projectDir}") {
-						include 'LICENSE.txt'
+						include 'LICENSE', 'NOTICE'
 						into 'META-INF'
 					}
 				}

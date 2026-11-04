@@ -1,0 +1,63 @@
+buildscript {
+	ext.isCI = System.getenv('GITHUB_ACTION')
+}
+
+plugins {
+	id 'io.spring.nohttp'
+	id 'org.apache.pulsar.spring.root-project'
+	id 'org.apache.pulsar.spring.update-version'
+	alias(libs.plugins.grgit) apply false
+	alias(libs.plugins.versions)
+	alias(libs.plugins.version.catalog.update)
+	id 'io.spring.nullability' version '0.0.17' apply false
+}
+
+description = 'Apache Pulsar support for Spring'
+
+apply from: 'gradle/version-catalog-update.gradle'
+apply from: 'gradle/java-conventions.gradle'
+apply from: 'gradle/nullability-conventions.gradle'
+
+allprojects {
+	group = 'org.apache.pulsar.spring'
+	configurations.all {
+		resolutionStrategy {
+			cacheChangingModulesFor 0, "seconds"
+			cacheDynamicVersionsFor 0, "seconds"
+		}
+	}
+}
+
+nohttp {
+	allowlistFile = project.file('src/nohttp/allowlist.lines')
+	source.exclude "**/bin/**"
+	source.exclude "**/build/**"
+	source.exclude "**/out/**"
+	source.exclude "**/target/**"
+	source.exclude "**/*.dylib"
+	source.exclude "**/*.gif"
+	source.exclude "**/.gradle/**"
+}
+
+check {
+	dependsOn checkstyleNohttp
+}
+
+tasks.register('runAllSampleTests') {
+	var allTasks = rootProject.getAllTasks(true)
+			.findAll {it.key.project.name.startsWith("sample-") }
+	var allTestsTasks = allTasks.values().collect { t ->
+		t.findAll { it.name == 'test' || it.name == 'integrationTest' }
+	}.flatten()
+	it.dependsOn {
+		allTestsTasks
+	}
+}
+
+versionCatalogUpdate {
+	versionCatalogs {
+		buildLibsCatalog {
+			catalogFile = file("gradle/build-libs.versions.toml")
+		}
+	}
+}
