@@ -23,9 +23,14 @@
 
 package org.apache.pulsar.spring.boot.autoconfigure;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.pulsar.spring.annotation.PulsarListener;
+import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -34,16 +39,11 @@ import org.testcontainers.pulsar.PulsarContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.testsupport.container.TestImage;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.apache.pulsar.spring.annotation.PulsarListener;
-import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Integration tests for {@link PulsarAutoConfiguration}.
@@ -56,7 +56,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PulsarAutoConfigurationIntegrationTests {
 
 	@Container
-	static final PulsarContainer pulsar = TestImage.forContainer(PulsarContainer.class);
+	static final PulsarContainer pulsar = new PulsarContainer(PulsarTestContainerSupport.getPulsarImage())
+		.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost");
 
 	private static final CountDownLatch listenLatch = new CountDownLatch(1);
 

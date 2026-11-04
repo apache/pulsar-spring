@@ -23,24 +23,64 @@
 
 package org.apache.pulsar.spring.boot.docker.compose;
 
-import org.springframework.boot.docker.compose.service.connection.test.DockerComposeTest;
-import org.apache.pulsar.spring.boot.autoconfigure.PulsarConnectionDetails;
-import org.springframework.boot.testsupport.container.TestImage;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import org.apache.pulsar.spring.boot.autoconfigure.PulsarConnectionDetails;
+import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIf;
+import org.junit.jupiter.api.io.TempDir;
+import org.testcontainers.DockerClientFactory;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 
 /**
  * Integration test for {@link PulsarDockerComposeConnectionDetailsFactory}.
  *
  * @author Chris Bono
  */
+@EnabledIf("dockerAvailable")
 class PulsarDockerComposeConnectionDetailsFactoryIntegrationTests {
 
-	@DockerComposeTest(composeFile = "pulsar-compose.yaml", image = TestImage.PULSAR)
-	void runCreatesConnectionDetails(PulsarConnectionDetails connectionDetails) {
-		assertThat(connectionDetails).isNotNull();
-		assertThat(connectionDetails.getBrokerUrl()).matches("^pulsar://\\S+:\\d+");
-		assertThat(connectionDetails.getAdminUrl()).matches("^http://\\S+:\\d+");
+	@TempDir
+	private Path tempDir;
+
+	static boolean dockerAvailable() {
+		return DockerClientFactory.instance().isDockerAvailable();
+	}
+
+	@Test
+	void runCreatesConnectionDetails() throws IOException {
+		Path composeFile = writeComposeFile();
+		SpringApplication application = new SpringApplication(TestConfiguration.class);
+		application.setWebApplicationType(WebApplicationType.NONE);
+		try (ConfigurableApplicationContext context = application.run("--spring.docker.compose.skip.in-tests=false",
+				"--spring.docker.compose.file=" + composeFile, "--spring.docker.compose.stop.command=down")) {
+			PulsarConnectionDetails connectionDetails = context.getBean(PulsarConnectionDetails.class);
+			assertThat(connectionDetails.getBrokerUrl()).matches("^pulsar://\\S+:\\d+");
+			assertThat(connectionDetails.getAdminUrl()).matches("^http://\\S+:\\d+");
+		}
+	}
+
+	private Path writeComposeFile() throws IOException {
+		String template = new ClassPathResource("pulsar-compose.yaml", getClass())
+			.getContentAsString(StandardCharsets.UTF_8);
+		String imageName = PulsarTestContainerSupport.getPulsarImage().asCanonicalNameString();
+		return Files.writeString(this.tempDir.resolve("compose.yaml"), template.replace("{imageName}", imageName));
+	}
+
+	@Configuration(proxyBeanMethods = false)
+	static class TestConfiguration {
+
 	}
 
 }
