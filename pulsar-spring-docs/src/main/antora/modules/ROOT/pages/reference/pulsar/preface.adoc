@@ -2,7 +2,7 @@
 = Preface
 include::../../attributes/attributes.adoc[]
 
-NOTE: We recommend using a Spring-Boot-First approach for Spring for Apache Pulsar-based applications, as that simplifies things tremendously.
+NOTE: We recommend using a Spring-Boot-First approach for applications based on Apache Pulsar support for Spring, as that simplifies things tremendously.
 To do so, you can add the `pulsar-spring-boot-starter` module as a dependency.
 
 NOTE: The majority of this reference expects the reader to be using the starter and gives most directions for configuration with that in mind.

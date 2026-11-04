@@ -18,7 +18,7 @@
  */
 
 /**
- * Package containing convenience utilities for testing Spring for Apache Pulsar
+ * Package containing convenience utilities for testing Apache Pulsar support for Spring
  * applications.
  * @since 1.1.0
  */

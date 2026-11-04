@@ -1,6 +1,6 @@
 name: pulsar
 version: true
-title: Spring for Apache Pulsar
+title: Apache Pulsar support for Spring
 nav:
   - modules/ROOT/nav.adoc
 ext:

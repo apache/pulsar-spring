@@ -1,14 +1,14 @@
 [[transactions]]
 = Transactions
 
-This section describes how Spring for Apache Pulsar supports transactions.
+This section describes how Apache Pulsar support for Spring handles transactions.
 
 [[overview]]
 == Overview
-Spring for Apache Pulsar transaction support is built upon the https://docs.spring.io/spring-framework/reference/data-access/transaction.html[transaction support] provided by Spring Framework.
+Transaction support in Apache Pulsar support for Spring is built upon the https://docs.spring.io/spring-framework/reference/data-access/transaction.html[transaction support] provided by Spring Framework.
 At a high-level, transactional resources are registered with a transaction manager which in turn handles the transactional state (commit, rollback, etc..) of the registered resources.
 
-Spring for Apache Pulsar provides the following:
+Apache Pulsar support for Spring provides the following:
 
 * `PulsarTransactionManager` - used with normal Spring transaction support (`@Transactional`, `TransactionTemplate`, etc)
 * Transactional `PulsarTemplate`

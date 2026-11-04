@@ -4,7 +4,7 @@ plugins {
 	alias(libs.plugins.download)
 }
 
-description = 'Spring Pulsar Integration Tests'
+description = 'Apache Pulsar support for Spring - Integration Tests'
 
 repositories {
 	mavenCentral()

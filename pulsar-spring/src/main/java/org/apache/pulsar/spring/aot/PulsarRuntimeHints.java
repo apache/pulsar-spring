@@ -40,7 +40,7 @@ import org.springframework.aot.hint.RuntimeHintsRegistrar;
 import org.springframework.aot.hint.TypeReference;
 
 /**
- * {@link RuntimeHintsRegistrar} for Spring for Apache Pulsar.
+ * {@link RuntimeHintsRegistrar} for Apache Pulsar support for Spring.
  *
  * @author Soby Chacko
  * @author Chris Bono

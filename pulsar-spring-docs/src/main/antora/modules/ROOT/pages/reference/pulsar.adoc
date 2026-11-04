@@ -1,5 +1,5 @@
 [[pulsar]]
-= Using Spring for Apache Pulsar
+= Using Apache Pulsar support for Spring
 :page-section-summary-toc: 1
 
 include::pulsar/preface.adoc[leveloffset=+1]

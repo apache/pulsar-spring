@@ -2,7 +2,7 @@
 
 :curdir: {docdir}/guides/pulsar-functions
 
-A sample appfootnote:[Inspired by the sample app in https://streamnative.io/blog/release/2022-09-21-announcing-spring-for-apache-pulsar/] that leverages the built-in Pulsar Functions support in Spring for Apache Pulsar to create a streaming pipeline to handle user signups.
+A sample appfootnote:[Inspired by the sample app in https://streamnative.io/blog/release/2022-09-21-announcing-spring-for-apache-pulsar/] that leverages the built-in Pulsar Functions support in Apache Pulsar support for Spring to create a streaming pipeline to handle user signups.
 
 The app consists of a Rabbit source, a Pulsar function, and a Cassandra sink with the following details:
 

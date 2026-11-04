@@ -5,7 +5,7 @@ plugins {
 	id 'org.apache.pulsar.spring.bom'
 }
 
-description = 'Spring Pulsar (Bill of Materials)'
+description = 'Apache Pulsar support for Spring - Bill of Materials'
 
 dependencies {
 	constraints {

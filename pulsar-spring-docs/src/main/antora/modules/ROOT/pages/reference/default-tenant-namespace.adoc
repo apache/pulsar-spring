@@ -10,7 +10,7 @@ When producing or consuming messages in Pulsar, the specified topic is actually 
 The URL dictates which tenant and namespace the operation is targeted against.
 However, when not fully-qualified (i.e. only topic name is specified), the default tenant of `public` and namespace of `default` is used.
 
-Spring for Apache Pulsar allows you to specify a default tenant and/or namespace to use when producing or consuming messages against a non-fully-qualified topic URL.
+Apache Pulsar support for Spring allows you to specify a default tenant and/or namespace to use when producing or consuming messages against a non-fully-qualified topic URL.
 
 [discrete]
 == Configuration

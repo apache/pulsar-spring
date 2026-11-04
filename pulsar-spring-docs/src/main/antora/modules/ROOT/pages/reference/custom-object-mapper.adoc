@@ -52,7 +52,7 @@ NOTE: A later version of the framework may instead provide a customizer that ope
 [[jackson2vs3]]
 == Jackson 2 / Jackson 3
 In Spring Boot 4 the default version of {spring-boot-docs}/reference/features/json.html#features.json.jackson[Jackson is 3] and is auto-configured via the spring-boot-starter-json module.
-However, Spring for Apache Pulsar expects a {spring-boot-docs}/reference/features/json.html#features.json.jackson2[Jackson 2] custom mapper.
+However, Apache Pulsar support for Spring expects a {spring-boot-docs}/reference/features/json.html#features.json.jackson2[Jackson 2] custom mapper.
 
 If you are using Jackson 3 in your Spring Boot 4 application and want to use a custom mapper you will need to add Jackson 2 to the classpath.
 Don't worry, Spring Boot 4 allows Jackson 2 and 3 to co-exist in an application.

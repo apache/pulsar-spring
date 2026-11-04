@@ -4,7 +4,7 @@ plugins {
 	alias(libs.plugins.spring.dep.mgmt)
 }
 
-description = 'Spring Pulsar Sample (Custom Routing w/ Failover)'
+description = 'Apache Pulsar support for Spring Sample (Custom Routing w/ Failover)'
 
 repositories {
 	mavenCentral()

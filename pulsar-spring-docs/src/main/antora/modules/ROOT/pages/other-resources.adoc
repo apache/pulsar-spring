@@ -5,7 +5,7 @@ include::attributes/attributes-variables.adoc[]
 
 In addition to this reference documentation, we recommend a number of other resources that may help you learn about Spring and Apache Pulsar.
 
-- {github}[Spring for Apache Pulsar GitHub Repository]
+- {github}[Apache Pulsar support for Spring GitHub Repository]
 - https://pulsar.apache.org/[Apache Pulsar Project Home Page]
 - {apache-pulsar-docs}/client-libraries-java/[Apache Pulsar Java Client]
 - https://github.com/apache/pulsar[Apache Pulsar GitHub Repository]

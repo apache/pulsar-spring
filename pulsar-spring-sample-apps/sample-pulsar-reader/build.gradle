@@ -4,7 +4,7 @@ plugins {
 	alias(libs.plugins.spring.dep.mgmt)
 }
 
-description = 'Spring Pulsar Sample Application (Reader)'
+description = 'Apache Pulsar support for Spring Sample Application (Reader)'
 
 repositories { 
 	mavenCentral()

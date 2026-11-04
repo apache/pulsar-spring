@@ -25,7 +25,7 @@ import org.springframework.util.Assert;
 
 /**
  * Resource holder for a native Pulsar transaction object which is the transactional
- * resource when handling transactions for Spring Pulsar.
+ * resource when handling transactions for Apache Pulsar support for Spring.
  *
  * @author Chris Bono
  * @since 1.1.0

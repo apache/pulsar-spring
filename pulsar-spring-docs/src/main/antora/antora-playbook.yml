@@ -3,7 +3,7 @@ antora:
     - require: '@springio/antora-extensions'
       root_component_name: 'pulsar'
 site:
-  title: Spring Pulsar
+  title: Apache Pulsar support for Spring
   url: https://docs.spring.io/pulsar-spring/reference/
   robots: allow
 content:

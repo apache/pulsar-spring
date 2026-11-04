@@ -18,7 +18,7 @@
  */
 
 /**
- * Package containing the Spring for Apache Pulsar framework classes.
+ * Package containing the classes of Apache Pulsar support for Spring.
  */
 @org.jspecify.annotations.NullMarked
 package org.apache.pulsar.spring;

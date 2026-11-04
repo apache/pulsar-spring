@@ -73,7 +73,7 @@ import io.micrometer.tracing.test.simple.SimpleTracer;
 
 /**
  * Tests for {@link PulsarTemplateObservation send} and {@link PulsarListenerObservation
- * receive} observations in Spring Pulsar.
+ * receive} observations in Apache Pulsar support for Spring.
  * <p>
  * Differs from {@link ObservationIntegrationTests} in that it uses a test observation
  * registry and verifies more details such as propagation and message content.

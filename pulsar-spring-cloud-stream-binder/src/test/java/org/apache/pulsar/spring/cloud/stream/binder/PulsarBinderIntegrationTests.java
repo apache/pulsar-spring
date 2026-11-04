@@ -713,7 +713,8 @@ class PulsarBinderIntegrationTests implements PulsarTestContainerSupport {
 			this.pulsarClient = pulsarClient;
 		}
 
-		// This is required in PulsarProducerFactory in Spring Pulsar 1.1.x (i.e. Spring
+		// This is required in PulsarProducerFactory in Apache Pulsar support for Spring
+		// 1.1.x (i.e. Spring
 		// Boot 3.3.x)
 		public PulsarClient getPulsarClient() {
 			return this.pulsarClient;

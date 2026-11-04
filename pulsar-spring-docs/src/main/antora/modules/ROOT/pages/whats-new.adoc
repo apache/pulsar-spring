@@ -35,7 +35,7 @@ The following previously deprecated APIs, which were marked for removal in versi
 - `org.apache.pulsar.spring.test.support.model.UserRecord`
 
 ==== Reactive Support
-Reactive support has been removed from Spring Pulsar `2.0.0` - there is no longer a `pulsar-spring-reactive` module published.
+Reactive support has been removed from Apache Pulsar support for Spring `2.0.0` - there is no longer a `pulsar-spring-reactive` module published.
 
 [[what-s-new-in-1-2-since-1-1]]
 == What's New in 1.2 Since 1.1
@@ -128,5 +128,5 @@ WARNING: If you were previously catching or rethrowing `PulsarClientException` j
 If you were actually handling the exception then you will need to replace `PulsarClientException` with `PulsarException` in your catch clause.
 
 === Testing support
-The `pulsar-spring-test` module is now available to help test your Spring for Apache Pulsar applications.
+The `pulsar-spring-test` module is now available to help test your Apache Pulsar support for Spring applications.
 See xref:./reference/testing-applications.adoc#testing-applications[Testing Applications] for more details.

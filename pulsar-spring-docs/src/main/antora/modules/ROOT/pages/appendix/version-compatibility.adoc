@@ -5,7 +5,7 @@ include::../attributes/attributes.adoc[]
 
 The following is the compatibility matrix:
 |===
-| Spring for Apache Pulsar | Pulsar Client | Spring Boot | Java
+| Apache Pulsar support for Spring | Pulsar Client | Spring Boot | Java
 
 | 2.0.x
 | 4.1.x / 4.0.x / 3.3.x
@@ -31,7 +31,7 @@ The following is the compatibility matrix:
 
 [NOTE]
 ====
-^**(*)**^ The `3.3.x` Pulsar client is the default version specified by Spring for Apache Pulsar `1.2.x` and Spring Boot `3.4.x`.
+^**(*)**^ The `3.3.x` Pulsar client is the default version specified by Apache Pulsar support for Spring `1.2.x` and Spring Boot `3.4.x`.
 However, the `4.0.x` Pulsar client is compatible.
 
 You can follow xref:appendix/override-boot-dependencies.adoc#override-boot-deps[these steps] to override the Pulsar client version.

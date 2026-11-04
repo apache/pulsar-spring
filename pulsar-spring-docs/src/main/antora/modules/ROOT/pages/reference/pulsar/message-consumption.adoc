@@ -213,12 +213,12 @@ All such operations must be done by the container.
 == Pulsar Message Listener Container
 
 Now that we saw the basic interactions on the consumer side through `PulsarListener`. Let us now dive into the inner workings of how `PulsarListener` interacts with the underlying Pulsar consumer.
-Keep in mind that, for end-user applications, in most scenarios, we recommend using the `PulsarListener` annotation directly for consuming from a Pulsar topic when using Spring for Apache Pulsar, as that model covers a broad set of application use cases.
+Keep in mind that, for end-user applications, in most scenarios, we recommend using the `PulsarListener` annotation directly for consuming from a Pulsar topic when using Apache Pulsar support for Spring, as that model covers a broad set of application use cases.
 However, it is important to understand how `PulsarListener` works internally. This section goes through those details.
 
-As briefly mentioned earlier, the message listener container is at the heart of message consumption when you use Spring for Apache Pulsar.
+As briefly mentioned earlier, the message listener container is at the heart of message consumption when you use Apache Pulsar support for Spring.
 `PulsarListener` uses the message listener container infrastructure behind the scenes to create and manage the Pulsar consumer.
-Spring for Apache Pulsar provides the contract for this message listener container through `PulsarMessageListenerContainer`.
+Apache Pulsar support for Spring provides the contract for this message listener container through `PulsarMessageListenerContainer`.
 The default implementation for this message listener container is provided through `DefaultPulsarMessageListenerContainer`.
 As its name indicates, `PulsarMessageListenerContainer` contains the message listener.
 The container creates the Pulsar consumer and then runs a separate thread to receive and handle the data.
@@ -227,7 +227,7 @@ The data is handled by the provided message listener implementation.
 The message listener container consumes the data in batch by using the consumer's `batchReceive` method.
 Once data is received, it is handed over to the selected message listener implementation.
 
-The following message listener types are available when you use Spring for Apache Pulsar.
+The following message listener types are available when you use Apache Pulsar support for Spring.
 
 * link:{github}/blob/main/pulsar-spring/src/main/java/org/apache/pulsar/spring/listener/PulsarRecordMessageListener.java[PulsarRecordMessageListener]
 
@@ -357,7 +357,7 @@ public void listen(String message) {
 }
 ----
 
-With this `PulsarListener` method, we essential ask Spring for Apache Pulsar to invoke the listener method with a single record each time.
+With this `PulsarListener` method, we essential ask Apache Pulsar support for Spring to invoke the listener method with a single record each time.
 We mentioned that the message listener container consumes the data in batches using the `batchReceive` method on the consumer.
 The framework detects that the `PulsarListener`, in this case, receives a single record. This means that, on each invocation of the method, it needs a singe record.
 Although the records are consumed by the message listener container in batches, it iterates through the received batch and invokes the listener method through an adapter for `PulsarRecordMessageListener`.
@@ -383,13 +383,13 @@ include::../pulsar-header.adoc[leveloffset=+]
 
 == Message Acknowledgment
 
-When you use Spring for Apache Pulsar, the message acknowledgment is handled by the framework, unless opted out by the application.
+When you use Apache Pulsar support for Spring, the message acknowledgment is handled by the framework, unless opted out by the application.
 In this section, we go through the details of how the framework takes care of message acknowledgment.
 
 [[message-ack-modes]]
 === Message ACK modes
 
-Spring for Apache Pulsar provides the following modes for acknowledging messages:
+Apache Pulsar support for Spring provides the following modes for acknowledging messages:
 
 * `BATCH`
 * `RECORD`
@@ -411,7 +411,7 @@ public void listen(String message) {
 ----
 
 It is natural to wonder, how acknowledgment works when you use `PulsarListener`, especially if you are familiar with using Pulsar consumer directly.
-The answer comes down to the message listener container, as that is the central place in Spring for Apache Pulsar that coordinates all the consumer related activities.
+The answer comes down to the message listener container, as that is the central place in Apache Pulsar support for Spring that coordinates all the consumer related activities.
 
 Assuming you are not overriding the default behavior, this is what happens behind the scenes when you use the preceding `PulsarListener`:
 
@@ -419,10 +419,10 @@ Assuming you are not overriding the default behavior, this is what happens behin
 . The received messages are handed down to `PulsarListener` one message at a time.
 . When all the records are handed down to the listener method and successfully processed, the container acknowledges all the messages from the original batch.
 
-This is the normal flow. If any records from the original batch throw an exception, Spring for Apache Pulsar track those records separately.
-When all the records from the batch are processed, Spring for Apache Pulsar acknowledges all the successful messages and negatively acknowledges (nack) all the failed messages.
+This is the normal flow. If any records from the original batch throw an exception, Apache Pulsar support for Spring tracks those records separately.
+When all the records from the batch are processed, Apache Pulsar support for Spring acknowledges all the successful messages and negatively acknowledges (nack) all the failed messages.
 In other words, when consuming single records by using `PulsarRecordMessageListener` and the default ack mode of `BATCH` is used, the framework waits for all the records received from the `batchReceive` call to process successfully and then calls the `acknowledge` method on the Pulsar consumer.
-If any particular record throws an exception when invoking the handler method, Spring for Apache Pulsar tracks those records and separately calls `negativeAcknowledge` on those records after the entire batch is processed.
+If any particular record throws an exception when invoking the handler method, Apache Pulsar support for Spring tracks those records and separately calls `negativeAcknowledge` on those records after the entire batch is processed.
 
 If the application wants the acknowledgment or negative acknowledgment to occur per record, the `RECORD` ack mode can be enabled.
 In that case, after handling each record, the message is acknowledged if no error and negatively acknowledged if there was an error.
@@ -439,7 +439,7 @@ public void listen(String message) {
 === Manual Message Ack in Single Record Mode
 
 You might not always want the framework to send acknowledgments but, rather, do that directly from the application itself.
-Spring for Apache Pulsar provides a couple of ways to enable manual message acknowledgments. The following example shows one of them:
+Apache Pulsar support for Spring provides a couple of ways to enable manual message acknowledgments. The following example shows one of them:
 
 [source, java]
 ----
@@ -451,7 +451,7 @@ public void listen(Message<String> message, Acknowledgment acknowledgment) {
 ----
 
 A few things merit explanation here. First, we enablE manual ack mode by setting `ackMode` on `PulsarListener`.
-When enabling manual ack mode, Spring for Apache Pulsar lets the application inject an `Acknowledgment` object.
+When enabling manual ack mode, Apache Pulsar support for Spring lets the application inject an `Acknowledgment` object.
 The framework achieves this by selecting a compatible message listener container: `PulsarAcknowledgingMessageListener` for single record based consumption, which gives you access to an `Acknowledgment` object.
 
 The `Acknowledgment` object provides the following API methods:
@@ -531,7 +531,7 @@ In such situations, you need to use the `MANUAL` acknowledgement mode.
 
 As seen in the previous section, when `MANUAL` ack mode is set on the message listener container, the framework does not do any acknowledgment, positive or negative.
 It is entirely up to the application to take care of such concerns.
-When `MANUAL` ack mode is set, Spring for Apache Pulsar selects a compatible message listener container: `PulsarBatchAcknowledgingMessageListener` for batch consumption, which gives you access to an `Acknowledgment` object.
+When `MANUAL` ack mode is set, Apache Pulsar support for Spring selects a compatible message listener container: `PulsarBatchAcknowledgingMessageListener` for batch consumption, which gives you access to an `Acknowledgment` object.
 The following are the methods available in the `Acknowledgment` API:
 
 [source, java]
@@ -573,14 +573,14 @@ You can also negatively acknowledge with the `MessageId` for the batch listener.
 == Message Redelivery and Error Handling
 
 Now that we have seen both `PulsarListener` and the message listener container infrastructure and its various functions, let us now try to understand message redelivery and error handling.
-Apache Pulsar provides various native strategies for message redelivery and error handling. We take a look at them and see how we can use them through Spring for Apache Pulsar.
+Apache Pulsar provides various native strategies for message redelivery and error handling. We take a look at them and see how we can use them through Apache Pulsar support for Spring.
 
 === Specifying Acknowledgment Timeout for Message Redelivery
 
 By default, Pulsar consumers do not redeliver messages unless the consumer crashes, but you can change this behavior by setting an ack timeout on the Pulsar consumer.
 If the ack timeout property has a value above zero and if the Pulsar consumer does not acknowledge a message within that timeout period, the message is redelivered.
 
-When you use Spring for Apache Pulsar, you can set this property via a <<_consumer_customization_on_pulsarlistener,consumer customizer>> or with the native Pulsar `ackTimeoutMillis` property in the `properties` attribute of `@PulsarListener`:
+When you use Apache Pulsar support for Spring, you can set this property via a <<_consumer_customization_on_pulsarlistener,consumer customizer>> or with the native Pulsar `ackTimeoutMillis` property in the `properties` attribute of `@PulsarListener`:
 
 [source, java]
 ----
@@ -711,16 +711,16 @@ The problem is that, if you do not specify a DLQ topic (as opposed to what we di
 The easy way to solve this is to provide a DLQ topic name always.
 ****
 
-=== Native Error Handling in Spring for Apache Pulsar
+=== Native Error Handling in Apache Pulsar support for Spring
 
 As we noted earlier, the DLQ feature in Apache Pulsar works only for shared subscriptions.
 What does an application do if it needs to use some similar feature for non-shared subscriptions?
 The main reason Pulsar does not support DLQ on exclusive and failover subscriptions is because those subscription types are order-guaranteed.
 Allowing redeliveries, DLQ, and so on effectively receives messages out of order.
 However, what if an application are okay with that but, more importantly, needs this DLQ feature for non-shared subscriptions?
-For that, Spring for Apache Pulsar provides a `PulsarConsumerErrorHandler`, which you can use across any subscription types in Pulsar:  `Exclusive`, `Failover`, `Shared`, or `Key_Shared`.
+For that, Apache Pulsar support for Spring provides a `PulsarConsumerErrorHandler`, which you can use across any subscription types in Pulsar:  `Exclusive`, `Failover`, `Shared`, or `Key_Shared`.
 
-When you use `PulsarConsumerErrorHandler` from Spring for Apache Pulsar, make sure not to set the ack timeout properties on the listener.
+When you use `PulsarConsumerErrorHandler` from Apache Pulsar support for Spring, make sure not to set the ack timeout properties on the listener.
 
 Let us see some details by examining a few code snippets:
 
@@ -753,7 +753,7 @@ class PulsarConsumerErrorHandlerConfig {
 ----
 
 Consider the `pulsarConsumerErrorHandler` bean.
-This creates a bean of type `PulsarConsumerErrorHandler` and uses the default implementation provided out of the box by Spring for Apache Pulsar: `DefaultPulsarConsumerErrorHandler`.
+This creates a bean of type `PulsarConsumerErrorHandler` and uses the default implementation provided out of the box by Apache Pulsar support for Spring: `DefaultPulsarConsumerErrorHandler`.
 `DefaultPulsarConsumerErrorHandler` has a constructor that takes a `PulsarMessageRecovererFactory` and a `org.springframework.util.backoff.Backoff`.
 `PulsarMessageRecovererFactory` is a functional interface with the following API:
 
@@ -790,7 +790,7 @@ public interface PulsarMessageRecoverer<T> {
 }
 ----
 
-Spring for Apache Pulsar provides an implementation for `PulsarMessageRecovererFactory` called `PulsarDeadLetterPublishingRecoverer` that provides a default implementation that can recover the message by sending it to a Dead Letter Topic (DLT).
+Apache Pulsar support for Spring provides an implementation for `PulsarMessageRecovererFactory` called `PulsarDeadLetterPublishingRecoverer` that provides a default implementation that can recover the message by sending it to a Dead Letter Topic (DLT).
 We provide this implementation to the constructor for the preceding `DefaultPulsarConsumerErrorHandler`.
 As the second argument, we provide a `FixedBackOff`.
 You can also provide the `ExponentialBackoff` from Spring for advanced backoff features.
@@ -868,7 +868,7 @@ void dltReceiver(Message<Integer> message) {
 ----
 
 Once again, we provide the `pulsarConsumerErrorHandler` property with the `PulsarConsumerErrorHandler` bean name.
-When you use a batch listener (as shown in the preceding example) and want to use the `PulsarConsumerErrorHandler` from Spring for Apache Pulsar, you need to use manual acknowledgment.
+When you use a batch listener (as shown in the preceding example) and want to use the `PulsarConsumerErrorHandler` from Apache Pulsar support for Spring, you need to use manual acknowledgment.
 This way, you can acknowledge all the successful individual messages.
 For the ones that fail, you must throw a `PulsarBatchListenerFailedException` with the message on which it fails.
 If you throw any other exception, the framework will nack the entire batch and log a warning, rather than applying the per-message retry and recovery logic provided by the error handler.
@@ -878,7 +878,7 @@ At that point, the message is acknowledged by the container, and the listener is
 
 == Consumer Customization on PulsarListener
 
-Spring for Apache Pulsar provides a convenient way to customize the consumer created by the container used by the `PulsarListener`.
+Apache Pulsar support for Spring provides a convenient way to customize the consumer created by the container used by the `PulsarListener`.
 Applications can provide a bean for `PulsarListenerConsumerBuilderCustomizer`.
 Here is an example.
 [source, java]
@@ -913,7 +913,7 @@ If you have multiple `PulsarListener` methods, and each of them have different c
 === Pausing and Resuming
 
 There are situations in which an application might want to pause message consumption temporarily and then resume later.
-Spring for Apache Pulsar provides the ability to pause and resume the underlying message listener containers.
+Apache Pulsar support for Spring provides the ability to pause and resume the underlying message listener containers.
 When the Pulsar message listener container is paused, any polling done by the container to receive data from the Pulsar consumer will be paused.
 Similarly, when the container is resumed, the next poll starts returning data if the topic has any new records added while paused.
 
@@ -944,7 +944,7 @@ Spring Boot provides this reader factory which you can further configure by spec
 
 === PulsarReader Annotation
 
-While it is possible to use `PulsarReaderFactory` directly, Spring for Apache Pulsar provides the `PulsarReader` annotation that you can use to quickly read from a topic without setting up any reader factories yourselves.
+While it is possible to use `PulsarReaderFactory` directly, Apache Pulsar support for Spring provides the `PulsarReader` annotation that you can use to quickly read from a topic without setting up any reader factories yourselves.
 This is similar to the same ideas behind `PulsarListener.`
 Here is a quick example.
 
@@ -965,7 +965,7 @@ Suppose you want the reader to start reading messages arbitrarily from a topic o
 
 === Customizing the ReaderBuilder
 
-You can customize any fields available through `ReaderBuilder` using a `PulsarReaderReaderBuilderCustomizer` in Spring for Apache Pulsar.
+You can customize any fields available through `ReaderBuilder` using a `PulsarReaderReaderBuilderCustomizer` in Apache Pulsar support for Spring.
 You can provide a `@Bean` of type `PulsarReaderReaderBuilderCustomizer` and then make it available to the `PulsarReader` as below.
 
 [source, java]

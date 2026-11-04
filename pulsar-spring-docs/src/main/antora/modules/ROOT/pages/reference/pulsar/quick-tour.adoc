@@ -2,7 +2,7 @@
 = Quick Tour
 include::../../attributes/attributes.adoc[]
 
-We will take a quick tour of Spring for Apache Pulsar by showing a sample Spring Boot application that produces and consumes.
+We will take a quick tour of Apache Pulsar support for Spring by showing a sample Spring Boot application that produces and consumes.
 This is a complete application and does not require any additional configuration, as long as you have a Pulsar cluster running on the default location - `localhost:6650`.
 
 == Dependencies
@@ -67,10 +67,10 @@ It automatically provides a `PulsarClient`, which is used by both the producer a
 
 Spring Boot also auto-configures `PulsarTemplate`, which we inject in the application and start sending records to a Pulsar topic.
 The application sends messages to a topic named `hello-pulsar`.
-Note that the application does not specify any schema information, because Spring for Apache Pulsar library automatically infers the schema type from the type of the data that you send.
+Note that the application does not specify any schema information, because the Apache Pulsar support for Spring library automatically infers the schema type from the type of the data that you send.
 
 We use the `PulsarListener` annotation to consume from the `hello-pulsar` topic where we publish the data.
-`PulsarListener` is a convenience annotation that wraps the message listener container infrastructure in Spring for Apache Pulsar.
+`PulsarListener` is a convenience annotation that wraps the message listener container infrastructure in Apache Pulsar support for Spring.
 Behind the scenes, it creates a message listener container to create and manage the Pulsar consumer.
 As with a regular Pulsar consumer, the default subscription type when using `PulsarListener` is the `Exclusive` mode.
 As records are published in to the `hello-pulsar` topic, the `Pulsarlistener` consumes them and prints them on the console.

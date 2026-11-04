@@ -22,7 +22,8 @@ import org.jspecify.annotations.Nullable;
 import org.springframework.core.NestedRuntimeException;
 
 /**
- * Spring Pulsar specific {@link NestedRuntimeException} implementation.
+ * {@link NestedRuntimeException} implementation specific to Apache Pulsar support for
+ * Spring.
  *
  * @author Soby Chacko
  * @author Jonas Geiregat

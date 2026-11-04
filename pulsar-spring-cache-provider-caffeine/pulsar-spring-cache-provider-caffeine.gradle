@@ -3,7 +3,7 @@ plugins {
 	alias(libs.plugins.shadow)
 }
 
-description = 'Spring Pulsar Caffeine Cache Provider'
+description = 'Apache Pulsar support for Spring - Caffeine Cache Provider'
 
 dependencies {
 	api project (':pulsar-spring-cache-provider')

@@ -1,6 +1,6 @@
-= Spring Pulsar Sample Applications
+= Apache Pulsar support for Spring Sample Applications
 
-Sample applications that can be used to demonstrate and manually verify Spring Pulsar functionality.
+Sample applications that can be used to demonstrate and manually verify Apache Pulsar support for Spring functionality.
 
 
 [[build-apps]]

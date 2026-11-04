@@ -1,7 +1,7 @@
 [[deps-without-boot]]
 = Getting Dependencies without Spring Boot
 
-We recommend a Spring Boot first approach when using Spring for Apache Pulsar.
+We recommend a Spring Boot first approach when using Apache Pulsar support for Spring.
 However, if you do not use Spring Boot, the preferred way to get the dependencies is to use the provided BOM to ensure a consistent version of modules is used throughout your entire project.
 The following example shows how to do so for both Maven and Gradle:
 
@@ -43,7 +43,7 @@ dependencyManagement {
 ----
 ======
 
-A minimal Spring for Apache Pulsar set of dependencies typically looks like the following:
+A minimal set of dependencies for Apache Pulsar support for Spring typically looks like the following:
 
 [tabs]
 ======
@@ -74,8 +74,8 @@ dependencies {
 
 If you use additional features you need to also include the appropriate dependencies.
 
-Spring for Apache Pulsar builds against Spring Framework {spring-framework-version} but should generally work with any newer version of Spring Framework 6.x.
-Many users are likely to run afoul of the fact that Spring for Apache Pulsar's transitive dependencies resolve Spring Framework {spring-framework-version}, which can cause strange classpath problems.
+Apache Pulsar support for Spring builds against Spring Framework {spring-framework-version} but should generally work with any newer version of Spring Framework 6.x.
+Many users are likely to run afoul of the fact that Apache Pulsar support for Spring's transitive dependencies resolve Spring Framework {spring-framework-version}, which can cause strange classpath problems.
 The easiest way to resolve this is to use the `spring-framework-bom` within your `dependencyManagement` section as follows:
 
 [tabs]
@@ -116,4 +116,4 @@ dependencyManagement {
 ----
 ======
 
-The preceding example ensures that all the transitive dependencies of Spring for Apache Pulsar use the Spring {spring-framework-version} modules.
+The preceding example ensures that all the transitive dependencies of Apache Pulsar support for Spring use the Spring {spring-framework-version} modules.

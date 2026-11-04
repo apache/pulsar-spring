@@ -12,7 +12,7 @@ node {
 	version = "24.15.0"
 }
 
-description = 'Spring for Apache Pulsar Docs'
+description = 'Apache Pulsar support for Spring Docs'
 
 configurations {
 	observationDocs
@@ -55,8 +55,8 @@ task aggregatedJavadoc(type: Javadoc) {
 		options {
 			encoding = "UTF-8"
 			author = true
-			docTitle = "Spring for Apache Pulsar ${project.version} API"
-			windowTitle = "Spring for Apache Pulsar ${project.version} API"
+			docTitle = "Apache Pulsar support for Spring ${project.version} API"
+			windowTitle = "Apache Pulsar support for Spring ${project.version} API"
 			overview = 'src/api/overview.html'
 			memberLevel = JavadocMemberLevel.PROTECTED
 			outputLevel = JavadocOutputLevel.QUIET

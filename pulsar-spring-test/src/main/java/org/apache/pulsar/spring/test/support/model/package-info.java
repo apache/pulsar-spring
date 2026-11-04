@@ -18,7 +18,8 @@
  */
 
 /**
- * Package containing model classes to ease testing Spring for Apache Pulsar applications.
+ * Package containing model classes to ease testing Apache Pulsar support for Spring
+ * applications.
  * @since 1.1.0
  */
 @org.jspecify.annotations.NullMarked

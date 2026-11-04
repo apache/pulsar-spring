@@ -22,7 +22,7 @@
  */
 
 /**
- * Auto-configuration for Spring for Apache Pulsar.
+ * Auto-configuration for Apache Pulsar support for Spring.
  */
 @NullMarked
 package org.apache.pulsar.spring.boot.autoconfigure;
