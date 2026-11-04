@@ -36,26 +36,12 @@ sourceSets {
 	}
 }
 
-configurations {
-	implementation {
-		exclude module: 'groovy-all'
-	}
-}
-
 dependencies {
 	implementation localGroovy()
-	implementation buildLibs.commons.codec
-	implementation buildLibs.commons.compress
-	implementation buildLibs.groovy.all
-	implementation buildLibs.jackson.databind
 	implementation buildLibs.javaformat.gradle
-	implementation buildLibs.maven.embedder
 	// Newer than the version that the Antora plugin depends on, for Gradle compatibility
 	implementation buildLibs.node.gradle
 	implementation buildLibs.nohttp.gradle
-	implementation(platform(buildLibs.spring.bom))
-	implementation buildLibs.spring.core
-	implementation buildLibs.spring.web
 }
 
 gradlePlugin {
