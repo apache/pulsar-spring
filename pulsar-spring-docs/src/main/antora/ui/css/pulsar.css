@@ -229,6 +229,11 @@ html.dark-theme .nav-menu .is-current-page > .nav-item-toggle {
   filter: invert(1);
 }
 
+/* Tables */
+.doc table.tableblock code {
+  overflow-wrap: anywhere;
+}
+
 /* Footer */
 .footer.pulsar-footer {
   background: var(--pulsar-footer-background);
