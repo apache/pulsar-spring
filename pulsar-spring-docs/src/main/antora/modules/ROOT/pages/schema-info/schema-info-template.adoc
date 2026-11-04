@@ -1,5 +1,5 @@
 
-include::../attributes/attributes-variables.adoc[]
+include::partial$attributes-variables.adoc[]
 
 == Specifying Schema Information
 If you use Java primitive types, the framework auto-detects the schema for you, and you need not specify any schema types for publishing the data.

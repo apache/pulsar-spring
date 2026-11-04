@@ -1,7 +1,7 @@
 [[version-compatibility]]
 = Pulsar Clients and Spring Boot Compatibility
 
-include::../attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
 The following is the compatibility matrix:
 |===

@@ -1,6 +1,6 @@
 [[migration]]
 = Migration from Spring's Pulsar support
-include::attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
 Apache Pulsar support for Spring is the successor to Spring for Apache Pulsar.
 This page describes where the project came from and what you need to change when you move an application to it.

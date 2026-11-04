@@ -1,7 +1,7 @@
 [[other-resources]]
 = Other Resources
 
-include::attributes/attributes-variables.adoc[]
+include::partial$attributes-variables.adoc[]
 
 In addition to this reference documentation, we recommend a number of other resources that may help you learn about Spring and Apache Pulsar.
 

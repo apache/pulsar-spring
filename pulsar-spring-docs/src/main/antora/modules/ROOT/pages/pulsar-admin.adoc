@@ -1,6 +1,6 @@
 [[pulsar-admin]]
 = Pulsar Administration
-include::attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
 [[pulsar-admin-client]]
 == Pulsar Admin Client

@@ -1,6 +1,6 @@
 [[pulsar-binder]]
 = Spring Cloud Stream Binder for Apache Pulsar
-include::attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
 Apache Pulsar support for Spring provides a binder for Spring Cloud Stream that we can use to build event-driven microservices using pub-sub paradigms.
 In this section, we will go through the basic details of this binder.

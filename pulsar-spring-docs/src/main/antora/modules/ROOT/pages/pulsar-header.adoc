@@ -1,4 +1,4 @@
-include::attributes/attributes-variables.adoc[]
+include::partial$attributes-variables.adoc[]
 
 [[pulsar-headers]]
 == Pulsar Headers

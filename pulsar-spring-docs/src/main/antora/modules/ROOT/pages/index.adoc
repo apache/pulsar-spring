@@ -1,8 +1,8 @@
 [[overview]]
 = Overview
-include::attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
-include::overview/authors.adoc[]
+include::partial$authors.adoc[]
 (v{pulsar-spring-version})
 
 ifeval::[{is-snapshot-version} == true]

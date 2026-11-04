@@ -1,7 +1,7 @@
 [[getting-help]]
 = Getting Help
 
-include::../attributes/attributes-variables.adoc[]
+include::partial$attributes-variables.adoc[]
 
 If you have trouble with Apache Pulsar support for Spring, we would like to help.
 

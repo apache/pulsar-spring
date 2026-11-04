@@ -1,6 +1,6 @@
 [[pulsar-function]]
 = Pulsar Functions
-include::attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
 Apache Pulsar support for Spring provides basic suppport for {apache-pulsar-io-docs}/[Pulsar IO] (connectors) and {apache-pulsar-function-docs}[Pulsar Functions] which allow users to define stream processing pipelines made up of `sources`, `processors`, and `sinks`.
 The `sources` and `sinks` are modeled by _Pulsar IO (connectors)_ and the `processors` are represented by _Pulsar Functions_.

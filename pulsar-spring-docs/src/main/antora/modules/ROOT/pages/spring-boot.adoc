@@ -1,6 +1,6 @@
 [[boot]]
 = Spring Boot Auto-configuration
-include::attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
 The `pulsar-spring-boot-autoconfigure` module provides Spring Boot auto-configuration for Apache Pulsar support for Spring.
 

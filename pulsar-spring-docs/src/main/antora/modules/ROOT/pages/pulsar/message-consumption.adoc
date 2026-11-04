@@ -1,6 +1,6 @@
 [[message-consumption]]
 = Message Consumption
-include::../attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
 [[pulsar-listener]]
 == Pulsar Listener

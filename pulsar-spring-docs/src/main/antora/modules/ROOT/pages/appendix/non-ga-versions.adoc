@@ -1,7 +1,7 @@
 [[non-ga-versions]]
 = Non-GA Versions
 
-include::../attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
 You can find snapshot versions in the Apache snapshots repository:
 

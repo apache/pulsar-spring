@@ -1,5 +1,5 @@
 = Handling Startup Failures
-include::attributes/attributes-variables.adoc[]
+include::partial$attributes-variables.adoc[]
 
 Message listener containers are started when the application context is refreshed.
 By default, any failures encountered during startup are re-thrown and the application will fail to start.

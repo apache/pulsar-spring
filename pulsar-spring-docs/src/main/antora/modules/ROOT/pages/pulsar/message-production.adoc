@@ -1,6 +1,6 @@
 [[message-production]]
 = Message Production
-include::../attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
 [[pulsar-producer]]
 == Pulsar Template

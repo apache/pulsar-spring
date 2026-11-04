@@ -1,7 +1,7 @@
 [[building-project]]
 = Building the Project
 
-include::../attributes/attributes-variables.adoc[]
+include::partial$attributes-variables.adoc[]
 
 If you have cloned the project locally, follow these steps to build the project from the source code.
 

@@ -1,6 +1,6 @@
 [[preface]]
 = Preface
-include::../attributes/attributes.adoc[]
+include::partial$attributes.adoc[]
 
 NOTE: We recommend using a Spring-Boot-First approach for applications based on Apache Pulsar support for Spring, as that simplifies things tremendously.
 To do so, you can add the `pulsar-spring-boot-starter` module as a dependency.

@@ -1,7 +1,7 @@
 [[system-requirements]]
 = System Requirements
 
-include::../attributes/attributes-variables.adoc[]
+include::partial$attributes-variables.adoc[]
 
 Apache Pulsar support for Spring `{pulsar-spring-version}` requires the following:
 
