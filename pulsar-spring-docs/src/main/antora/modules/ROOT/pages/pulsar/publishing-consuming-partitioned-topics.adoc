@@ -1,6 +1,6 @@
 [[publishing-consuming-partitioned-topics]]
 = Publishing and Consuming Partitioned Topics
-include::../../attributes/attributes.adoc[]
+include::../attributes/attributes.adoc[]
 
 In the following example, we publish to a topic called `hello-pulsar-partitioned`.
 It is a topic that is partitioned, and, for this sample, we assume that the topic is already created with three partitions.

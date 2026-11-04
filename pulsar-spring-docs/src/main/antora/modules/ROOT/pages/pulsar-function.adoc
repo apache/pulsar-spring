@@ -1,6 +1,6 @@
 [[pulsar-function]]
 = Pulsar Functions
-include::../attributes/attributes.adoc[]
+include::attributes/attributes.adoc[]
 
 Apache Pulsar support for Spring provides basic suppport for {apache-pulsar-io-docs}/[Pulsar IO] (connectors) and {apache-pulsar-function-docs}[Pulsar Functions] which allow users to define stream processing pipelines made up of `sources`, `processors`, and `sinks`.
 The `sources` and `sinks` are modeled by _Pulsar IO (connectors)_ and the `processors` are represented by _Pulsar Functions_.
@@ -24,7 +24,7 @@ The framework provides the `PulsarFunctionAdministration` component to manage Pu
 When you use the Pulsar Spring Boot starter, you get the `PulsarFunctionAdministration` auto-configured.
 
 By default, the application tries to connect to a local Pulsar instance at `http://localhost:8080`.
-However, because it leverages the already configured `PulsarAdministration`, see xref:reference/pulsar-admin.adoc#pulsar-admin-client[Pulsar Admin Client] for available client options (including authentication).
+However, because it leverages the already configured `PulsarAdministration`, see xref:pulsar-admin.adoc#pulsar-admin-client[Pulsar Admin Client] for available client options (including authentication).
 Additional configuration options are available with the {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.function.*`] application properties.
 
 == Automatic Function Management

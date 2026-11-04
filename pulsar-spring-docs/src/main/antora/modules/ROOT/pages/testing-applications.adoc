@@ -1,7 +1,7 @@
 [[testing-applications]]
 = Testing Applications
 
-include::../attributes/attributes.adoc[]
+include::attributes/attributes.adoc[]
 
 The `pulsar-spring-test` dependency includes some useful utilities when testing your applications.
 

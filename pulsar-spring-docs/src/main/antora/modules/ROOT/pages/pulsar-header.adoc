@@ -1,4 +1,4 @@
-include::../attributes/attributes-variables.adoc[]
+include::attributes/attributes-variables.adoc[]
 
 [[pulsar-headers]]
 == Pulsar Headers
@@ -153,7 +153,7 @@ static class PulsarHeadersCustomObjectMapperTestConfig {
 
 IMPORTANT: The object mapper in the example above should be an instance of `com.fasterxml.jackson.databind.ObjectMapper`, **not** the shaded `org.apache.pulsar.shade.com.fasterxml.jackson.databind.ObjectMapper`.
 
-IMPORTANT: The xref:reference/custom-object-mapper.adoc#jackson2vs3[same limitations] regarding Jackson 2 vs. Jackson 3 apply here }
+IMPORTANT: The xref:custom-object-mapper.adoc#jackson2vs3[same limitations] regarding Jackson 2 vs. Jackson 3 apply here }
 
 === Inbound/Outbound Patterns
 On  the inbound side, by default, all Pulsar headers (message metadata plus user properties) are mapped to `MessageHeaders`.

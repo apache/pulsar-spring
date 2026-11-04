@@ -45,15 +45,15 @@ This section covers the changes made from version 1.1 to version 1.2.
 
 === Custom Object Mapper
 You can provide your own Jackson `ObjectMapper` that Pulsar will use when producing and consuming JSON messages.
-See xref:./reference/custom-object-mapper.adoc[Custom Object Mapper] for more details.
+See xref:./custom-object-mapper.adoc[Custom Object Mapper] for more details.
 
 === Default Tenant and Namespace
 You can specify a default tenant and/or namespace to use when producing or consuming messages against a non-fully-qualified topic URL.
-See xref:./reference/default-tenant-namespace.adoc[Default Tenant / Namespace] for more details.
+See xref:./default-tenant-namespace.adoc[Default Tenant / Namespace] for more details.
 
 === Message Container Startup Policy
 You can now configure the message listener container startup failure policy to `stop`, `continue`, or `retry`.
-For more details see the corresponding section for one of the supported containers xref:./reference/pulsar/message-consumption.adoc#message-listener-startup-failure[@PulsarListener] or xref:./reference/pulsar/message-consumption.adoc#message-reader-startup-failure[@PulsarReader].
+For more details see the corresponding section for one of the supported containers xref:./pulsar/message-consumption.adoc#message-listener-startup-failure[@PulsarListener] or xref:./pulsar/message-consumption.adoc#message-reader-startup-failure[@PulsarReader].
 
 === Message Container Factory Customizers (Spring Boot)
 Spring Boot has introduced a generic message container factory customizer `org.apache.pulsar.spring.boot.autoconfigure.PulsarContainerFactoryCustomizer<T extends PulsarContainerFactory<?, ?>>` that can be used to further configure one or more of the auto-configured container factories that back the following listener annotations:
@@ -113,13 +113,13 @@ This section covers the changes made from version 1.0 to version 1.1.
 
 === Auto Schema support
 If there is no chance to know the schema of a Pulsar topic in advance, you can use AUTO Schemas to produce/consume generic records to/from brokers.
-See xref:./reference/pulsar/message-production.adoc#template-auto-produce[Producing with AUTO_SCHEMA] and xref:./reference/pulsar/message-consumption.adoc#listener-auto-consume[Consuming with AUTO_SCHEMA] for more details.
+See xref:./pulsar/message-production.adoc#template-auto-produce[Producing with AUTO_SCHEMA] and xref:./pulsar/message-consumption.adoc#listener-auto-consume[Consuming with AUTO_SCHEMA] for more details.
 
 NOTE: While the above links focus on `PulsarTemplate` and `@PulsarListener`, this feature is also supported in `ReactivePulsarTemplate`, `@ReactivePulsarListener`, and `@PulsarReader`.
 Details for each can be found in their respective section of this reference guide.
 
 === Default topic/schema via message annotation
-You can now mark a message class with `@PulsarMessage` to specify the xref:./reference/topic-resolution.adoc#default-topic-via-annotation[default topic] and/or xref:./reference/pulsar/message-consumption.adoc#listener-default-schema-annotation[default schema] to use when producing/consuming messages of that type.
+You can now mark a message class with `@PulsarMessage` to specify the xref:./topic-resolution.adoc#default-topic-via-annotation[default topic] and/or xref:./pulsar/message-consumption.adoc#listener-default-schema-annotation[default schema] to use when producing/consuming messages of that type.
 
 === Remove checked exceptions
 The APIs provided by the framework no longer throw the checked `PulsarClientException`, but rather the unchecked `PulsarException`.
@@ -129,4 +129,4 @@ If you were actually handling the exception then you will need to replace `Pulsa
 
 === Testing support
 The `pulsar-spring-test` module is now available to help test your Apache Pulsar support for Spring applications.
-See xref:./reference/testing-applications.adoc#testing-applications[Testing Applications] for more details.
+See xref:./testing-applications.adoc#testing-applications[Testing Applications] for more details.

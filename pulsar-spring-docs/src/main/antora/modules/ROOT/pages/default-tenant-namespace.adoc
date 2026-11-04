@@ -1,6 +1,6 @@
 [[default-tenant-namespace]]
 = Default Tenant / Namespace
-include::../attributes/attributes.adoc[]
+include::attributes/attributes.adoc[]
 
 Pulsar has built-in support for {apache-pulsar-docs}/concepts-multi-tenancy/[multi-tenancy].
 When producing or consuming messages in Pulsar, the specified topic is actually a topic URL of the following format:

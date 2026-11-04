@@ -1,6 +1,6 @@
 [[pulsar-admin]]
 = Pulsar Administration
-include::../attributes/attributes.adoc[]
+include::attributes/attributes.adoc[]
 
 [[pulsar-admin-client]]
 == Pulsar Admin Client
@@ -18,7 +18,7 @@ See the {pulsar-spring-boot-autoconfigure-config-props}[`spring.pulsar.admin.*`]
 [[pulsar-admin-authentication]]
 === Authentication
 When accessing a Pulsar cluster that requires authentication, the admin client requires the same security configuration as the regular Pulsar client.
-You can use the aforementioned xref:reference/pulsar/pulsar-client.adoc#client-authentication[security configuration] by replacing `spring.pulsar.client` with `spring.pulsar.admin`.
+You can use the aforementioned xref:pulsar/pulsar-client.adoc#client-authentication[security configuration] by replacing `spring.pulsar.client` with `spring.pulsar.admin`.
 
 [[pulsar-auto-topic-creation]]
 == Automatic Topic Creation

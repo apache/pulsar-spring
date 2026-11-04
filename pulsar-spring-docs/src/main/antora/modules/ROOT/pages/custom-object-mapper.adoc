@@ -1,6 +1,6 @@
 [[custom-object-mapper]]
 = Custom Object Mapper
-include::../attributes/attributes-variables.adoc[]
+include::attributes/attributes-variables.adoc[]
 
 Pulsar uses an internal shaded Jackson `ObjectMapper` when de/serializing JSON messages.
 If you instead want to provide your own Jackson 2 object mapper instance, you can register a `SchemaResolverCustomizer` and set your mapper on the `DefaultSchemaResolver` as follows:

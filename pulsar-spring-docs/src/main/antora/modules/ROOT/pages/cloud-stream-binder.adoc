@@ -1,6 +1,6 @@
 [[pulsar-binder]]
 = Spring Cloud Stream Binder for Apache Pulsar
-include::../attributes/attributes.adoc[]
+include::attributes/attributes.adoc[]
 
 Apache Pulsar support for Spring provides a binder for Spring Cloud Stream that we can use to build event-driven microservices using pub-sub paradigms.
 In this section, we will go through the basic details of this binder.
@@ -205,7 +205,7 @@ TIP: Any configured custom schema mappings will be consulted when the `schema-ty
 Each message typically has header information that needs to be carried along as the message traverses between Pulsar and Spring Messaging via Spring Cloud Stream input and output bindings.
 To support this traversal, the framework handles the necessary message header conversion.
 
-See xref:reference/pulsar/message-consumption.adoc#pulsar-headers[Pulsar Headers] for more details.
+See xref:pulsar/message-consumption.adoc#pulsar-headers[Pulsar Headers] for more details.
 
 [[custom-header-mapper]]
 ==== Custom Header Mapper

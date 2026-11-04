@@ -1,6 +1,6 @@
 [[pulsar-client]]
 = Pulsar Client
-include::../../attributes/attributes.adoc[]
+include::../attributes/attributes.adoc[]
 
 When you use the Pulsar Spring Boot Starter, you get the `PulsarClient` auto-configured.
 
