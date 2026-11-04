@@ -51,6 +51,8 @@ dependencies {
 	implementation buildLibs.jackson.databind
 	implementation buildLibs.javaformat.gradle
 	implementation buildLibs.maven.embedder
+	// Newer than the version that the Antora plugin depends on, for Gradle compatibility
+	implementation buildLibs.node.gradle
 	implementation buildLibs.nohttp.gradle
 	implementation buildLibs.sonarqube.gradle
 	implementation(platform(buildLibs.spring.bom))

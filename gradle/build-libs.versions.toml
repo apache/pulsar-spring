@@ -23,6 +23,7 @@ groovy = "4.0.27"
 jackson = "2.19.1"
 javaformat = "0.0.47"
 maven = "3.6.3"
+node-gradle = "7.1.0"
 nohttp = "0.0.11"
 sonarqube = "2.7.1"
 spring = "7.0.10"
@@ -40,6 +41,7 @@ jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", ver
 javaformat-checkstyle = { module = "io.spring.javaformat:spring-javaformat-checkstyle", version.ref = "javaformat" }
 javaformat-gradle = { module = "io.spring.javaformat:spring-javaformat-gradle-plugin", version.ref = "javaformat" }
 maven-embedder = { module = "org.apache.maven:maven-embedder", version.ref = "maven" }
+node-gradle = { module = "com.github.node-gradle:gradle-node-plugin", version.ref = "node-gradle" }
 nohttp-gradle = { module = "io.spring.nohttp:nohttp-gradle", version.ref = "nohttp" }
 sonarqube-gradle = { module = "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin", version.ref = "sonarqube" }
 spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring" }
