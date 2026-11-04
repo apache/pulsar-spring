@@ -22,8 +22,6 @@ public abstract class UpdateToNextBootSnapshotVersionTask extends UpdateProjectV
 
 	@TaskAction
 	public void updateToBootSnapshotVersion() {
-		String currentVersion = getProject().getVersion().toString();
-		updateVersionInGradleProperties(VERSION_FOR_SAMPLES_PROPERTY, currentVersion);
 		updateVersionInTomlVersions(SPRING_BOOT_VERSION_FOR_DOCS_PROPERTY, this::calculateNextSnapshotVersion);
 		updateVersionInTomlVersions(SPRING_BOOT_VERSION_FOR_SAMPLES_PROPERTY, SPRING_BOOT_VERSION_FOR_DOCS_PROPERTY, this::calculateNextSnapshotVersion);
 	}

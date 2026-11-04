@@ -30,13 +30,11 @@ public abstract class UpdateProjectVersionTask extends DefaultTask {
 
 	static final String VERSION_PROPERTY = "version";
 
-	static final String VERSION_FOR_SAMPLES_PROPERTY = "version.samples";
-
 	static final String SPRING_BOOT_VERSION_FOR_SAMPLES_PROPERTY = "spring-boot";
 
 	static final String SPRING_BOOT_VERSION_FOR_DOCS_PROPERTY = "spring-boot-for-docs";
 
-	static final Pattern VERSION_PATTERN = Pattern.compile("^([0-9]+)\\.([0-9]+)\\.([0-9]+)(-M\\d+|-RC\\d+|-SNAPSHOT)?$");
+	static final Pattern VERSION_PATTERN = Pattern.compile("^([0-9]+)\\.([0-9]+)\\.([0-9]+)((?:-M\\d+|-RC\\d+)(?:-SNAPSHOT)?|-SNAPSHOT)?$");
 
 	protected void updateVersionInGradleProperties(String versionPropertyName, String newVersion) {
 		this.updatePropertyInFile(Project.GRADLE_PROPERTIES, versionPropertyName,
