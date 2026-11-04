@@ -55,6 +55,26 @@ The build uses the included Gradle wrapper and a Java 25 toolchain. Docker is re
 ./gradlew :pulsar-spring-docs:antora
 ```
 
+## Publishing
+
+Artifacts are published to the [Apache repository](https://repository.apache.org/). `publishArtifacts` uses the snapshot repository for `-SNAPSHOT` versions and a staging repository for other versions, which must be signed. It refuses to publish a version to the wrong repository.
+
+Pass your ASF credentials as environment variables so that they aren't stored in `gradle.properties`, and start the command with a space to keep the password out of your shell history:
+
+```shell
+# Snapshot
+ ORG_GRADLE_PROJECT_apacheSnapshotsUsername=<ASF ID> \
+ ORG_GRADLE_PROJECT_apacheSnapshotsPassword=<password> \
+ ./gradlew publishArtifacts
+
+# Release or milestone, with -Psigning.gnupg.keyName=<key ID> to choose a key other than the default
+ ORG_GRADLE_PROJECT_apacheReleasesUsername=<ASF ID> \
+ ORG_GRADLE_PROJECT_apacheReleasesPassword=<password> \
+ ./gradlew publishArtifacts -PuseGpgCmd=true
+```
+
+Set `-PapacheSnapshotsRepoUrl` and `-PapacheReleasesRepoUrl` to `file://` URLs to test the publication without uploading anything.
+
 ## License
 
 Licensed under the [Apache License, Version 2.0](LICENSE).

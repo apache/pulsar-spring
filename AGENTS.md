@@ -34,6 +34,8 @@ This project is licensed under the Apache License 2.0, and all contributions mus
 - **Confirm state-changing actions.** Get the user's explicit confirmation before pushing, opening or
   updating a PR, or posting a comment. Being asked to start a task is not standing authorization for
   these outward-facing actions.
+- **Don't publish artifacts** to `repository.apache.org` unless the user explicitly asks. To test
+  publishing, use `file://` URLs as described in [`README.md`](README.md#publishing).
 - **Check before claiming conformance.** Say which checks you ran, and don't describe a change as tested
   if you only compiled it.
 - **Stay in scope.** Keep a change focused on its task, and don't bundle unrelated refactoring.

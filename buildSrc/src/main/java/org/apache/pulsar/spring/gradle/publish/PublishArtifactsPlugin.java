@@ -28,20 +28,12 @@ public class PublishArtifactsPlugin implements Plugin<Project> {
 
 	@Override
 	public void apply(Project project) {
-		project.getTasks().register("stageForCentralPublish", centralPublish -> {
-			centralPublish.setGroup("Publishing");
-			centralPublish.setDescription("Stage the artifacts for Maven Central");
-			centralPublish.dependsOn("publishAllPublicationsToLocalRepository");
-		});
 		project.getTasks().register("publishArtifacts", publishArtifacts -> {
 			publishArtifacts.setGroup("Publishing");
-			publishArtifacts.setDescription("Publish the artifacts to either Artifactory or Maven Central based on the version");
-			if (ProjectUtils.isSnapshot(project) || project.getName().equals("pulsar-spring-docs")) {
-				publishArtifacts.dependsOn("artifactoryPublish");
-			}
-			else {
-				publishArtifacts.dependsOn("stageForCentralPublish");
-			}
+			publishArtifacts.setDescription("Publish the artifacts to the Apache snapshot or release repository based on the version");
+			publishArtifacts.dependsOn(ProjectUtils.isSnapshot(project)
+					? "publishAllPublicationsToApacheSnapshotsRepository"
+					: "publishAllPublicationsToApacheReleasesRepository");
 		});
 	}
 

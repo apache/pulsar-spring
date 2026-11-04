@@ -19,7 +19,6 @@
 
 package org.apache.pulsar.spring.gradle.publish;
 
-import org.apache.pulsar.spring.gradle.convention.ArtifactoryPlugin;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.PluginManager;
@@ -34,6 +33,6 @@ public class SpringMavenPlugin implements Plugin<Project> {
 		pluginManager.apply(MavenPublishingConventionsPlugin.class);
 		pluginManager.apply(PublishLocalPlugin.class);
 		pluginManager.apply(PublishArtifactsPlugin.class);
-		pluginManager.apply(ArtifactoryPlugin.class);
+		pluginManager.apply(ApacheRepositoriesPlugin.class);
 	}
 }

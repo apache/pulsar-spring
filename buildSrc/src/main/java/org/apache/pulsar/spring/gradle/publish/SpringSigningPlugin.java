@@ -16,8 +16,6 @@
 
 package org.apache.pulsar.spring.gradle.publish;
 
-import java.util.concurrent.Callable;
-
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.publish.Publication;
@@ -27,12 +25,25 @@ import org.gradle.plugins.signing.SigningPlugin;
 
 public class SpringSigningPlugin implements Plugin<Project> {
 
+	/**
+	 * Whether signing has been configured with {@code -PuseGpgCmd=true}, the
+	 * {@code signing.keyId} property or the {@code signingKey} property.
+	 * @param project the project
+	 * @return whether artifacts will be signed
+	 */
+	static boolean isSigningConfigured(Project project) {
+		return useGpgCmd(project) || project.hasProperty("signing.keyId") || project.hasProperty("signingKey");
+	}
+
+	private static boolean useGpgCmd(Project project) {
+		return Boolean.parseBoolean(String.valueOf(project.findProperty("useGpgCmd")));
+	}
+
 	@Override
 	public void apply(Project project) {
 		project.getPluginManager().apply(SigningPlugin.class);
 		project.getPlugins().withType(SigningPlugin.class).all(signingPlugin -> {
-			boolean hasSigningKey = project.hasProperty("signing.keyId") || project.hasProperty("signingKey");
-			if (hasSigningKey) {
+			if (isSigningConfigured(project)) {
 				sign(project);
 			}
 		});
@@ -40,15 +51,20 @@ public class SpringSigningPlugin implements Plugin<Project> {
 
 	private void sign(Project project) {
 		SigningExtension signing = project.getExtensions().findByType(SigningExtension.class);
-		signing.setRequired((Callable<Boolean>) () -> project.getGradle().getTaskGraph().hasTask("publishArtifacts"));
-		String signingKeyId = (String) project.findProperty("signingKeyId");
+		signing.setRequired(true);
 		String signingKey = (String) project.findProperty("signingKey");
-		String signingPassword = (String) project.findProperty("signingPassword");
-		if (signingKeyId != null) {
-			signing.useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword);
+		if (useGpgCmd(project)) {
+			signing.useGpgCmd();
 		}
-		else {
-			signing.useInMemoryPgpKeys(signingKey, signingPassword);
+		else if (signingKey != null) {
+			String signingKeyId = (String) project.findProperty("signingKeyId");
+			String signingPassword = (String) project.findProperty("signingPassword");
+			if (signingKeyId != null) {
+				signing.useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword);
+			}
+			else {
+				signing.useInMemoryPgpKeys(signingKey, signingPassword);
+			}
 		}
 		project.getPlugins().withType(PublishAllJavaComponentsPlugin.class)
 				.all(publishingPlugin -> {

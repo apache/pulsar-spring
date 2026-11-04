@@ -119,10 +119,6 @@ publishing {
 	}
 }
 
-artifactoryPublish {
-	publications(publishing.publications.mavenJava)
-}
-
 tasks.withType(PublishToMavenRepository).configureEach {
 	enabled = ProjectUtils.isSnapshot(project) || project.hasProperty('forceLocalPublish')
 }

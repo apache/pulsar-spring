@@ -29,11 +29,9 @@ dependencies {
 	implementation buildLibs.commons.codec
 	implementation buildLibs.commons.compress
 	implementation buildLibs.groovy.all
-	implementation buildLibs.jfrog.build.extractor.gradle
 	implementation buildLibs.jackson.databind
 	implementation buildLibs.javaformat.gradle
 	implementation buildLibs.maven.embedder
-	implementation buildLibs.nexus.publish
 	implementation buildLibs.nohttp.gradle
 	implementation buildLibs.sonarqube.gradle
 	implementation(platform(buildLibs.spring.bom))
@@ -44,10 +42,6 @@ dependencies {
 
 gradlePlugin {
 	plugins {
-		artifactoryPlugin {
-			id = "org.apache.pulsar.spring.artifactory"
-			implementationClass = "org.apache.pulsar.spring.gradle.convention.ArtifactoryPlugin"
-		}
 		mavenBomPlugin {
 			id = "org.apache.pulsar.spring.bom"
 			implementationClass = "org.apache.pulsar.spring.gradle.MavenBomPlugin"
