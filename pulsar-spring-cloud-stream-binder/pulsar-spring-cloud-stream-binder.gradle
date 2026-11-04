@@ -1,0 +1,25 @@
+plugins {
+	id 'org.apache.pulsar.spring.spring-module'
+}
+
+description = 'Spring Cloud Stream binder for Apache Pulsar'
+
+dependencies {
+	annotationProcessor libs.spring.boot.configuration.processor
+
+	api libs.jspecify
+	api libs.spring.cloud.stream
+	api project(':pulsar-spring-boot-starter')
+
+	testImplementation libs.spring.boot.test
+	testImplementation libs.spring.cloud.stream.test.support
+	testImplementation 'org.assertj:assertj-core'
+	testImplementation 'org.awaitility:awaitility'
+	testImplementation 'org.junit.jupiter:junit-jupiter'
+	testImplementation 'org.mockito:mockito-junit-jupiter'
+	testImplementation 'org.springframework:spring-test'
+	testImplementation 'org.testcontainers:testcontainers-junit-jupiter'
+	testImplementation 'org.testcontainers:testcontainers-pulsar'
+
+	testRuntimeOnly libs.logback.classic
+}

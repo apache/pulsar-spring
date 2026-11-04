@@ -68,6 +68,8 @@ spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-star
 spring-boot-test = { module = "org.springframework.boot:spring-boot-test", version.ref = "spring-boot" }
 spring-boot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "spring-boot" }
 spring-boot-transaction = { module = "org.springframework.boot:spring-boot-transaction", version.ref = "spring-boot" }
+spring-cloud-stream = { module = "org.springframework.cloud:spring-cloud-stream", version.ref = "spring-cloud-stream" }
+spring-cloud-stream-test-support = { module = "org.springframework.cloud:spring-cloud-stream-test-support", version.ref = "spring-cloud-stream" }
 system-lambda = { module = "com.github.stefanbirkner:system-lambda", version.ref = "system-lambda" }
 testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
 

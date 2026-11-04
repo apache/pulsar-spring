@@ -14,13 +14,11 @@ repositories {
 
 def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
 def pulsarVersion = project.properties['pulsarVersion'] ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
-def springCloudStreamVersion = versionCatalog.findVersion("spring-cloud-stream").orElseThrow().displayName
 
 ext['pulsar.version'] = "${pulsarVersion}"
 
 dependencies {
-	implementation project(':pulsar-spring-boot-starter')
-	implementation "org.springframework.cloud:spring-cloud-stream-binder-pulsar:${springCloudStreamVersion}"
+	implementation project(':pulsar-spring-cloud-stream-binder')
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 
 	testImplementation project(':pulsar-spring-test')
