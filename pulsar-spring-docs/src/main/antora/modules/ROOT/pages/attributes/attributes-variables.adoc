@@ -6,7 +6,7 @@
 :pulsar-client-version-family: current
 :is-snapshot-version:  false
 
-:github: https://github.com/spring-projects/pulsar-spring
+:github: https://github.com/apache/pulsar-spring
 :javadocs: https://docs.spring.io/pulsar-spring/docs/{pulsar-spring-version}/api
 :spring-framework-docs: https://spring.io/projects/spring-framework#learn
 :spring-boot-docs: https://docs.spring.io/spring-boot/{spring-boot-version}

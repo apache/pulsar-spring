@@ -14,7 +14,7 @@ This will only affect you if you were providing a custom `RetryTemplate` via a `
 
 The `RetryTemplate` class still exists in Core Retry but the package name has changed from `org.springframework.retry.support` to `org.springframework.core.retry` and the API has slightly changed.
 
-See the https://github.com/spring-projects/pulsar-spring/commit/fc4742f419fb882c7a045a742cae259f8ab45cc5[commit] for more details.
+See the https://github.com/spring-projects/spring-pulsar/commit/fc4742f419fb882c7a045a742cae259f8ab45cc5[commit] for more details.
 
 === Removals
 

@@ -1,7 +1,7 @@
 [[micrometer]]
 = Observability
 
-:github: https://github.com/spring-projects/pulsar-spring
+:github: https://github.com/apache/pulsar-spring
 :micrometer-docs: https://docs.micrometer.io/
 
 Spring for Apache Pulsar includes a way to manage observability through https://micrometer.io/[Micrometer].
