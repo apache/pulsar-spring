@@ -154,7 +154,8 @@ class PulsarConsumerTestUtilTests implements PulsarTestContainerSupport {
 					.withSchema(Schema.STRING)
 					.awaitAtMost(Duration.ofSeconds(2))
 					.get())
-				.withStackTraceContaining("Connection refused: localhost");
+				.withStackTraceContaining("Connection refused")
+				.withStackTraceContaining("localhost");
 		}
 		// @formatter:on
 	}
