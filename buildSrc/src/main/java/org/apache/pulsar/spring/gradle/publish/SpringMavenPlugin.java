@@ -19,12 +19,11 @@
 
 package org.apache.pulsar.spring.gradle.publish;
 
+import org.apache.pulsar.spring.gradle.convention.ArtifactoryPlugin;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.PluginManager;
 import org.gradle.api.publish.maven.plugins.MavenPublishPlugin;
-
-import io.spring.gradle.convention.ArtifactoryPlugin;
 
 public class SpringMavenPlugin implements Plugin<Project> {
 	@Override

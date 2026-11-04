@@ -16,15 +16,13 @@
 
 package org.apache.pulsar.spring.gradle;
 
+import org.apache.pulsar.spring.gradle.convention.RepositoryConventionPlugin;
+import org.apache.pulsar.spring.gradle.optional.OptionalDependenciesPlugin;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.JavaLibraryPlugin;
 import org.gradle.api.plugins.JavaPlugin;
 import org.gradle.api.plugins.PluginManager;
-
-import org.apache.pulsar.spring.gradle.optional.OptionalDependenciesPlugin;
-
-import io.spring.gradle.convention.RepositoryConventionPlugin;
 
 /**
  * @author Chris Bono

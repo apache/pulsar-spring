@@ -54,8 +54,8 @@ dependencies {
 gradlePlugin {
 	plugins {
 		artifactoryPlugin {
-			id = "io.spring.convention.artfiactory"
-			implementationClass = "io.spring.gradle.convention.ArtifactoryPlugin"
+			id = "org.apache.pulsar.spring.artifactory"
+			implementationClass = "org.apache.pulsar.spring.gradle.convention.ArtifactoryPlugin"
 		}
 		mavenBomPlugin {
 			id = "org.apache.pulsar.spring.bom"
@@ -66,8 +66,8 @@ gradlePlugin {
 			implementationClass = "org.apache.pulsar.spring.gradle.optional.OptionalDependenciesPlugin"
 		}
 		repositoryConventionPlugin {
-			id = "io.spring.convention.repository"
-			implementationClass = "io.spring.gradle.convention.RepositoryConventionPlugin"
+			id = "org.apache.pulsar.spring.repository"
+			implementationClass = "org.apache.pulsar.spring.gradle.convention.RepositoryConventionPlugin"
 		}
 		rootProjectPlugin {
 			id = "org.apache.pulsar.spring.root-project"

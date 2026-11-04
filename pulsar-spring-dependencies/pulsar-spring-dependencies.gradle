@@ -1,6 +1,6 @@
 plugins {
 	id 'java-platform'
-	id 'io.spring.convention.repository'
+	id 'org.apache.pulsar.spring.repository'
 }
 
 javaPlatform {

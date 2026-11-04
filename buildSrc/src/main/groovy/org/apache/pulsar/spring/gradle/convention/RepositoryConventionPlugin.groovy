@@ -14,7 +14,7 @@
  * the License.
  */
 
-package io.spring.gradle.convention
+package org.apache.pulsar.spring.gradle.convention
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

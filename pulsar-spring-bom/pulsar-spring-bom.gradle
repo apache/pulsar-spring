@@ -1,7 +1,7 @@
 import org.apache.pulsar.spring.gradle.SpringModulePlugin
 
 plugins {
-	id 'io.spring.convention.repository'
+	id 'org.apache.pulsar.spring.repository'
 	id 'org.apache.pulsar.spring.bom'
 }
 
