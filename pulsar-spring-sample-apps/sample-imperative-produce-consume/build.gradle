@@ -8,8 +8,7 @@ description = 'Apache Pulsar support for Spring Sample (Imperative Produce and C
 
 repositories { 
 	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
+	maven { url 'https://repository.apache.org/snapshots/' }
 }
 
 def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")

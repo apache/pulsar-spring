@@ -10,15 +10,6 @@ repositories {
 	gradlePluginPortal()
 }
 
-def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("buildLibs")
-def springVersion = versionCatalog.findVersion("spring").orElseThrow().displayName
-if (springVersion.contains("-")) {
-	repositories {
-		maven { url "https://repo.spring.io/milestone" }
-		maven { url "https://repo.spring.io/snapshot" }
-	}
-}
-
 sourceSets {
 	main {
 		java { srcDirs = [] }

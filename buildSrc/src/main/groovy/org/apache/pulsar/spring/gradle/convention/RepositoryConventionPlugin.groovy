@@ -26,10 +26,8 @@ class RepositoryConventionPlugin implements Plugin<Project> {
 	@Override
 	void apply(Project project) {
 		String[] forceMavenRepositories = ((String) project.findProperty("forceMavenRepositories"))?.split(',')
-		boolean isImplicitSnapshotRepository = forceMavenRepositories == null && ProjectUtils.isSnapshot(project)
-		boolean isImplicitMilestoneRepository = forceMavenRepositories == null && ProjectUtils.isMilestone(project)
-		boolean isSnapshot = isImplicitSnapshotRepository || forceMavenRepositories?.contains('snapshot')
-		boolean isMilestone = isImplicitMilestoneRepository || forceMavenRepositories?.contains('milestone')
+		boolean isSnapshot = forceMavenRepositories == null ? ProjectUtils.isSnapshot(project)
+				: forceMavenRepositories.contains('snapshot')
 
 		project.repositories {
 			if (forceMavenRepositories?.contains('local')) {
@@ -38,30 +36,8 @@ class RepositoryConventionPlugin implements Plugin<Project> {
 			mavenCentral()
 			if (isSnapshot) {
 				maven {
-					name = 'artifactory-snapshot'
-					if (project.hasProperty('artifactoryUsername')) {
-						credentials {
-							username project.artifactoryUsername
-							password project.artifactoryPassword
-						}
-					}
-					url = 'https://repo.spring.io/snapshot/'
-				}
-				maven {
 					name = 'apache-snapshot'
-					url = 'https://repository.apache.org/content/repositories/snapshots'
-				}
-			}
-			if (isSnapshot || isMilestone) {
-				maven {
-					name = 'artifactory-milestone'
-					if (project.hasProperty('artifactoryUsername')) {
-						credentials {
-							username project.artifactoryUsername
-							password project.artifactoryPassword
-						}
-					}
-					url = 'https://repo.spring.io/milestone/'
+					url = 'https://repository.apache.org/snapshots/'
 				}
 			}
 		}
