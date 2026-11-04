@@ -47,12 +47,12 @@ testcontainers = "2.0.5"
 kotlin = "2.4.21"
 antora = "1.0.0"
 antora-yml = "0.0.1"
-download = "5.6.0"
+download = "5.7.0"
 nohttp = "0.0.11"
 rat = "0.11.0"
-shadow = "9.2.2"
-versions = "0.52.0"
-version-catalog-update = "0.8.5"
+shadow = "9.6.1"
+versions = "0.67.0"
+version-catalog-update = "1.1.2"
 protobuf-plugin = "0.10.0"
 
 [libraries]
@@ -99,7 +99,7 @@ download = { id = "de.undercouch.download", version.ref = "download" }
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dep-mgmt = { id = "io.spring.dependency-management", version.ref = "spring-dep-mgmt" }
-versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }
+versions = { id = "io.github.ben-manes.versions", version.ref = "versions" }
 version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "version-catalog-update" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }
 rat = { id = "org.nosphere.apache.rat", version.ref = "rat" }

@@ -54,8 +54,6 @@ tasks.named("dependencyUpdates").configure {
 versionCatalogUpdate {
 	sortByKey = false
 	keep {
-		keepUnusedLibraries = true
 		keepUnusedVersions = true
-		keepUnusedPlugins = true
 	}
 }
