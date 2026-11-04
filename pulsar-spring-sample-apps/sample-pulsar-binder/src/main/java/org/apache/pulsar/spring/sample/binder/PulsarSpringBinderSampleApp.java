@@ -30,12 +30,12 @@ import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class SpringPulsarBinderSampleApp {
+public class PulsarSpringBinderSampleApp {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SpringPulsarBinderSampleApp.class);
+	private static final Logger LOG = LoggerFactory.getLogger(PulsarSpringBinderSampleApp.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringPulsarBinderSampleApp.class, args);
+		SpringApplication.run(PulsarSpringBinderSampleApp.class, args);
 	}
 
 	private AtomicInteger counter = new AtomicInteger();

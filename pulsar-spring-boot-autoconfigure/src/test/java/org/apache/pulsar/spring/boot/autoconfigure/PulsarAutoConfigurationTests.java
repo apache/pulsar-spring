@@ -131,7 +131,7 @@ class PulsarAutoConfigurationTests {
 	}
 
 	@Test
-	void whenSpringPulsarNotOnClasspathAutoConfigurationIsSkipped() {
+	void whenPulsarSpringNotOnClasspathAutoConfigurationIsSkipped() {
 		this.contextRunner.withClassLoader(new FilteredClassLoader(PulsarTemplate.class))
 			.run((context) -> assertThat(context).doesNotHaveBean(PulsarAutoConfiguration.class));
 	}

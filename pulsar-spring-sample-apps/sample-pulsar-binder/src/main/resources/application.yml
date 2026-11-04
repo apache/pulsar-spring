@@ -25,19 +25,19 @@ spring:
           fooSupplier-out-0:
             producer:
               schema-type: JSON
-              message-type: org.apache.pulsar.spring.sample.binder.SpringPulsarBinderSampleApp.Foo
+              message-type: org.apache.pulsar.spring.sample.binder.PulsarSpringBinderSampleApp.Foo
           fooProcessor-in-0:
             consumer:
               schema-type: JSON
-              message-type: org.apache.pulsar.spring.sample.binder.SpringPulsarBinderSampleApp.Foo
+              message-type: org.apache.pulsar.spring.sample.binder.PulsarSpringBinderSampleApp.Foo
           fooProcessor-out-0:
             producer:
               schema-type: JSON
-              message-type: org.apache.pulsar.spring.sample.binder.SpringPulsarBinderSampleApp.Bar
+              message-type: org.apache.pulsar.spring.sample.binder.PulsarSpringBinderSampleApp.Bar
           barLogger-in-0:
             consumer:
               schema-type: JSON
-              message-type: org.apache.pulsar.spring.sample.binder.SpringPulsarBinderSampleApp.Bar
+              message-type: org.apache.pulsar.spring.sample.binder.PulsarSpringBinderSampleApp.Bar
   docker:
     compose:
       # when run from Intellij via "Run" button, path must be set from project root

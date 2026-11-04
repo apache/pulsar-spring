@@ -14,17 +14,16 @@
  * limitations under the License.
  */
 
-package org.apache.pulsar.spring.sample.reader;
+package org.apache.pulsar.spring.sample.binder;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Function;
 import java.util.stream.IntStream;
 
-import org.apache.pulsar.spring.sample.reader.SpringPulsarReaderBootApp.Foo;
+import org.apache.pulsar.spring.sample.binder.PulsarSpringBinderSampleApp.Bar;
+import org.apache.pulsar.spring.sample.binder.PulsarSpringBinderSampleApp.Foo;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
@@ -38,7 +37,7 @@ import org.springframework.test.context.DynamicPropertySource;
 
 @SpringBootTest
 @ExtendWith(OutputCaptureExtension.class)
-class SpringPulsarReaderBootAppTests implements PulsarTestContainerSupport {
+class PulsarSpringBinderSampleAppTests implements PulsarTestContainerSupport {
 
 	@DynamicPropertySource
 	static void pulsarProperties(DynamicPropertyRegistry registry) {
@@ -48,24 +47,16 @@ class SpringPulsarReaderBootAppTests implements PulsarTestContainerSupport {
 
 	@Test
 	void produceConsumeWithPrimitiveMessageType(CapturedOutput output) {
-		verifyProduceConsume(output,10, (i) -> "ProduceAndReadWithPrimitiveMessageType:" + i);
-	}
-
-	@Test
-	void produceConsumeWithComplexMessageType(CapturedOutput output) {
-		verifyProduceConsume(output,10,
-				(i) -> new Foo("ProduceAndReadWithComplexMessageType", i));
-	}
-
-	private void verifyProduceConsume(CapturedOutput output, int numExpectedMessages,
-			Function<Integer, Object> expectedMessageFactory) {
-		List < String > expectedOutput = new ArrayList<>();
-		IntStream.range(0, numExpectedMessages).forEachOrdered((i) -> {
-			var msg = expectedMessageFactory.apply(i);
-			expectedOutput.add("++++++PRODUCE %s------".formatted(msg));
-			expectedOutput.add("++++++READ %s------".formatted(msg));
+		var expectedOutput = new ArrayList<String>();
+		IntStream.range(0, 10).forEachOrdered((i) -> {
+			var foo = new Foo("fooSupplier:" + i);
+			var bar = new Bar(foo);
+			expectedOutput.add("++++++SOURCE %s------".formatted(foo));
+			expectedOutput.add("++++++PROCESSOR %s --> %s------".formatted(foo, bar));
+			expectedOutput.add("++++++SINK %s------".formatted(bar));
 		});
 		Awaitility.waitAtMost(Duration.ofSeconds(15))
 				.untilAsserted(() -> assertThat(output).contains(expectedOutput));
 	}
+
 }

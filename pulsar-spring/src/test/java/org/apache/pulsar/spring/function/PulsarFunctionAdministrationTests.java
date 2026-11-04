@@ -59,7 +59,7 @@ class PulsarFunctionAdministrationTests {
 
 	private PulsarAdmin pulsarAdmin;
 
-	private PulsarAdministration springPulsarAdmin;
+	private PulsarAdministration pulsarAdministration;
 
 	private PulsarFunctionAdministration functionAdmin;
 
@@ -74,10 +74,10 @@ class PulsarFunctionAdministrationTests {
 	@BeforeEach
 	void setupSharedMocks() throws PulsarClientException, PulsarAdminException {
 		pulsarAdmin = mock(PulsarAdmin.class, Mockito.RETURNS_DEEP_STUBS);
-		springPulsarAdmin = mock(PulsarAdministration.class);
-		when(springPulsarAdmin.createAdminClient()).thenReturn(pulsarAdmin);
+		pulsarAdministration = mock(PulsarAdministration.class);
+		when(pulsarAdministration.createAdminClient()).thenReturn(pulsarAdmin);
 		beanFactory = new StaticListableBeanFactory();
-		functionAdmin = new PulsarFunctionAdministration(springPulsarAdmin,
+		functionAdmin = new PulsarFunctionAdministration(pulsarAdministration,
 				beanFactory.getBeanProvider(PulsarFunction.class), beanFactory.getBeanProvider(PulsarSink.class),
 				beanFactory.getBeanProvider(PulsarSource.class), true, true, true);
 		// create function, sink, source mock but do not add to bean factory
@@ -162,7 +162,7 @@ class PulsarFunctionAdministrationTests {
 		@Test
 		void noFunctionsProvided() throws PulsarClientException {
 			functionAdmin.createOrUpdateUserDefinedFunctions();
-			verify(springPulsarAdmin, never()).createAdminClient();
+			verify(pulsarAdministration, never()).createAdminClient();
 			verifyNoInteractions(pulsarAdmin);
 			assertThat(functionAdmin.getProcessedFunctions()).isEmpty();
 		}
@@ -227,7 +227,7 @@ class PulsarFunctionAdministrationTests {
 
 		@Test
 		void createAdminClientFails() throws PulsarClientException {
-			when(springPulsarAdmin.createAdminClient()).thenThrow(new PulsarClientException("NOPE"));
+			when(pulsarAdministration.createAdminClient()).thenThrow(new PulsarClientException("NOPE"));
 			assertThatThrownBy(() -> functionAdmin.createOrUpdateUserDefinedFunctions())
 				.isInstanceOf(PulsarException.class)
 				.hasMessageContaining("Unable to create/update functions - could not create PulsarAdmin: NOPE");
@@ -282,7 +282,7 @@ class PulsarFunctionAdministrationTests {
 
 			@BeforeEach
 			void disableFailFastOnFunctionAdmin() {
-				functionAdmin = new PulsarFunctionAdministration(springPulsarAdmin,
+				functionAdmin = new PulsarFunctionAdministration(pulsarAdministration,
 						beanFactory.getBeanProvider(PulsarFunction.class),
 						beanFactory.getBeanProvider(PulsarSink.class), beanFactory.getBeanProvider(PulsarSource.class),
 						false, true, true);
@@ -354,7 +354,7 @@ class PulsarFunctionAdministrationTests {
 
 			@BeforeEach
 			void disablePropagationOnFunctionAdmin() {
-				functionAdmin = new PulsarFunctionAdministration(springPulsarAdmin,
+				functionAdmin = new PulsarFunctionAdministration(pulsarAdministration,
 						beanFactory.getBeanProvider(PulsarFunction.class),
 						beanFactory.getBeanProvider(PulsarSink.class), beanFactory.getBeanProvider(PulsarSource.class),
 						true, false, false);
@@ -363,7 +363,7 @@ class PulsarFunctionAdministrationTests {
 			@Test
 			void createAdminClientFails() throws Exception {
 				beanFactory.addBean("function1", function1);
-				when(springPulsarAdmin.createAdminClient()).thenThrow(new PulsarClientException("NOPE"));
+				when(pulsarAdministration.createAdminClient()).thenThrow(new PulsarClientException("NOPE"));
 				var output = tapSystemErrAndOutNormalized(() -> functionAdmin.createOrUpdateUserDefinedFunctions());
 				assertThat(output).contains("Unable to create/update functions - could not create PulsarAdmin: NOPE");
 			}
@@ -434,7 +434,7 @@ class PulsarFunctionAdministrationTests {
 		@Test
 		void noFunctionsProvided() throws PulsarClientException {
 			functionAdmin.enforceStopPolicyOnUserDefinedFunctions();
-			verify(springPulsarAdmin, never()).createAdminClient();
+			verify(pulsarAdministration, never()).createAdminClient();
 			verifyNoInteractions(pulsarAdmin);
 		}
 
@@ -470,7 +470,7 @@ class PulsarFunctionAdministrationTests {
 
 		@Test
 		void createAdminClientFails() throws PulsarClientException {
-			when(springPulsarAdmin.createAdminClient()).thenThrow(new PulsarClientException("NOPE"));
+			when(pulsarAdministration.createAdminClient()).thenThrow(new PulsarClientException("NOPE"));
 			assertThatThrownBy(() -> functionAdmin.enforceStopPolicyOnUserDefinedFunctions())
 				.isInstanceOf(PulsarException.class)
 				.hasMessageContaining(
@@ -525,7 +525,7 @@ class PulsarFunctionAdministrationTests {
 
 			@BeforeEach
 			void disableStopPropagationOnFunctionAdmin() {
-				functionAdmin = new PulsarFunctionAdministration(springPulsarAdmin,
+				functionAdmin = new PulsarFunctionAdministration(pulsarAdministration,
 						beanFactory.getBeanProvider(PulsarFunction.class),
 						beanFactory.getBeanProvider(PulsarSink.class), beanFactory.getBeanProvider(PulsarSource.class),
 						true, false, false);
@@ -534,7 +534,7 @@ class PulsarFunctionAdministrationTests {
 			@Test
 			void createAdminClientFails() throws Exception {
 				functionAdmin.getProcessedFunctions().add(function1);
-				when(springPulsarAdmin.createAdminClient()).thenThrow(new PulsarClientException("NOPE"));
+				when(pulsarAdministration.createAdminClient()).thenThrow(new PulsarClientException("NOPE"));
 				var output = tapSystemErrAndOutNormalized(
 						() -> functionAdmin.enforceStopPolicyOnUserDefinedFunctions());
 				assertThat(output)

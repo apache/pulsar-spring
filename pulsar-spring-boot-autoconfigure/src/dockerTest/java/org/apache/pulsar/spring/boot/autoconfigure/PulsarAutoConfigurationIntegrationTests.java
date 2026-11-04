@@ -70,7 +70,7 @@ class PulsarAutoConfigurationIntegrationTests {
 	}
 
 	@Test
-	void appStartsWithAutoConfiguredSpringPulsarComponents(
+	void appStartsWithAutoConfiguredPulsarSpringComponents(
 			@Autowired(required = false) PulsarTemplate<String> pulsarTemplate) {
 		assertThat(pulsarTemplate).isNotNull();
 	}

@@ -28,12 +28,12 @@ import org.apache.pulsar.spring.annotation.PulsarReader;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 
 @SpringBootApplication
-public class SpringPulsarReaderBootApp {
+public class PulsarSpringReaderBootApp {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SpringPulsarReaderBootApp.class);
+	private static final Logger LOG = LoggerFactory.getLogger(PulsarSpringReaderBootApp.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringPulsarReaderBootApp.class, args);
+		SpringApplication.run(PulsarSpringReaderBootApp.class, args);
 	}
 
 	@Configuration(proxyBeanMethods = false)
