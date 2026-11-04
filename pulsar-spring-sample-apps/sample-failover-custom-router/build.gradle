@@ -27,11 +27,11 @@ description = 'Apache Pulsar support for Spring Sample (Custom Routing w/ Failov
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repository.apache.org/snapshots/' }
+	maven { url = 'https://repository.apache.org/snapshots/' }
 }
 
 def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
-def pulsarVersion = project.properties['pulsarVersion'] ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
+def pulsarVersion = project.findProperty('pulsarVersion') ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
 
 ext['pulsar.version'] = "${pulsarVersion}"
 

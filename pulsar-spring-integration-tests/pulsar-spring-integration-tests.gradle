@@ -27,7 +27,7 @@ description = 'Apache Pulsar support for Spring - Integration Tests'
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repository.apache.org/snapshots/' }
+	maven { url = 'https://repository.apache.org/snapshots/' }
 }
 
 dependencies {
@@ -50,7 +50,7 @@ test {
 }
 
 integrationTest {
-	maxHeapSize '2048m'
+	maxHeapSize = '2048m'
 }
 
 def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
@@ -65,7 +65,7 @@ task downloadRabbitConnector {
 			download.run {
 				println "Downloading Rabbit connector to 'src/intTest/resources/connectors/' (one time only if not already downloaded)..."
 				src "https://archive.apache.org/dist/pulsar/pulsar-${pulsarVersion}/connectors/pulsar-io-rabbitmq-${pulsarVersion}.nar"
-				dest "$buildDir/../src/intTest/resources/connectors/pulsar-io-rabbitmq-${pulsarVersion}.nar"
+				dest "$projectDir/src/intTest/resources/connectors/pulsar-io-rabbitmq-${pulsarVersion}.nar"
 				overwrite false
 			}
 		} catch (Exception ex) {

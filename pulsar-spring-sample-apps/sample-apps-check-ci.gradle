@@ -22,7 +22,7 @@ settingsEvaluated { settings ->
 		repositories {
 			mavenCentral()
 			gradlePluginPortal()
-			maven { url "https://repository.apache.org/snapshots/" }
+			maven { url = "https://repository.apache.org/snapshots/" }
 		}
 		resolutionStrategy {
 			eachPlugin {
@@ -47,7 +47,7 @@ allprojects {
 		exclusiveContent {
 			forRepository {
 				maven {
-					url "file://$localRepositoryPath"
+					url = "file://$localRepositoryPath"
 				}
 			}
 			filter {

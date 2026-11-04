@@ -33,7 +33,7 @@ dependencies {
 				.findAll { it.name != "pulsar-spring-bom" }
 				.each { p ->
 					p.plugins.withType(SpringModulePlugin) {
-						api p
+						api project(p.path)
 					}
 				}
 	}

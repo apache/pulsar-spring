@@ -87,7 +87,7 @@ task aggregatedJavadoc(type: Javadoc) {
 		dependsOn publishedProjects.javadoc
 		source publishedProjects.javadoc.source
 		classpath = project.files(publishedProjects.javadoc.classpath)
-		destinationDir = project.file "${buildDir}/api"
+		destinationDir = layout.buildDirectory.dir("api").get().asFile
 		options {
 			encoding = "UTF-8"
 			author = true
@@ -108,7 +108,7 @@ task aggregatedJavadoc(type: Javadoc) {
 }
 
 def observationsInputDir = file("${rootDir}/pulsar-spring/src/main/java/org/apache/pulsar/spring/observation").absolutePath
-def observationsOutputDir = file("${buildDir}/docs/generated/observation/").absolutePath
+def observationsOutputDir = layout.buildDirectory.dir("docs/generated/observation").get().asFile.absolutePath
 
 task generateObservabilityDocs(type: JavaExec) {
 	mainClass = 'io.micrometer.docs.DocsGeneratorCommand'
@@ -122,7 +122,7 @@ task docsZip(type: Zip, dependsOn: [':pulsar-spring-docs:antora']) {
 	group = 'Distribution'
 	archiveClassifier = 'docs'
 	description = "Builds docs archive containing api and reference for deployment at pulsar.apache.org/pulsar-spring."
-	duplicatesStrategy "fail"
+	duplicatesStrategy = DuplicatesStrategy.FAIL
 	from(aggregatedJavadoc) {
 		into "api"
 	}
@@ -131,8 +131,8 @@ task docsZip(type: Zip, dependsOn: [':pulsar-spring-docs:antora']) {
 	}
 }
 
-artifacts {
-	archives docsZip
+tasks.named('assemble') {
+	dependsOn docsZip
 }
 
 publishing {

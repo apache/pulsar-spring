@@ -39,7 +39,7 @@ public class SonarQubeConventionsPlugin implements Plugin<Project> {
 		project.getExtensions().configure(SonarQubeExtension.class, (sonarExtension) ->
 				sonarExtension.properties((sonarProperties) -> {
 					sonarProperties.property("sonar.projectName", project.getName());
-					sonarProperties.property("sonar.jacoco.reportPath", project.getBuildDir().getName() + "/jacoco.exec");
+					sonarProperties.property("sonar.jacoco.reportPath", project.getLayout().getBuildDirectory().get().getAsFile().getName() + "/jacoco.exec");
 					sonarProperties.property("sonar.links.homepage", ProjectLinks.HOMEPAGE.link());
 					sonarProperties.property("sonar.links.ci", ProjectLinks.CI.link());
 					sonarProperties.property("sonar.links.issue", ProjectLinks.ISSUES.link());

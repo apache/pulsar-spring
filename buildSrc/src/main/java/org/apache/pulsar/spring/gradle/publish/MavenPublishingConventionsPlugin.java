@@ -19,8 +19,6 @@ package org.apache.pulsar.spring.gradle.publish;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.attributes.Usage;
-import org.gradle.api.component.AdhocComponentWithVariants;
-import org.gradle.api.component.ConfigurationVariantDetails;
 import org.gradle.api.plugins.JavaPlugin;
 import org.gradle.api.plugins.JavaPluginExtension;
 import org.gradle.api.publish.PublishingExtension;
@@ -90,7 +88,6 @@ public class MavenPublishingConventionsPlugin implements Plugin<Project> {
 		customizePom(publication.getPom(), project);
 		project.getPlugins().withType(JavaPlugin.class)
 				.all((javaPlugin) -> customizeJavaMavenPublication(publication, project));
-		suppressMavenOptionalFeatureWarnings(publication);
 	}
 
 	private void customizePom(MavenPom pom, Project project) {
@@ -105,53 +102,11 @@ public class MavenPublishingConventionsPlugin implements Plugin<Project> {
 	}
 
 	private void customizeJavaMavenPublication(MavenPublication publication, Project project) {
-		addMavenOptionalFeature(project);
 		publication.versionMapping((strategy) -> strategy.usage(Usage.JAVA_API, (mappingStrategy) -> mappingStrategy
 				.fromResolutionOf(JavaPlugin.RUNTIME_CLASSPATH_CONFIGURATION_NAME)));
 		publication.versionMapping(
 				(strategy) -> strategy.usage(Usage.JAVA_RUNTIME, VariantVersionMappingStrategy::fromResolutionResult));
 	}
-
-	/**
-	 * Add a feature that allows maven plugins to declare optional dependencies that
-	 * appear in the POM. This is required to make m2e in Eclipse happy.
-	 * @param project the project to add the feature to
-	 */
-	private void addMavenOptionalFeature(Project project) {
-		JavaPluginExtension extension = project.getExtensions().getByType(JavaPluginExtension.class);
-		extension.registerFeature("mavenOptional",
-				(feature) -> feature.usingSourceSet(extension.getSourceSets().getByName("main")));
-		AdhocComponentWithVariants javaComponent = (AdhocComponentWithVariants) project.getComponents()
-				.findByName("java");
-		javaComponent.addVariantsFromConfiguration(
-				project.getConfigurations().findByName("mavenOptionalRuntimeElements"),
-				ConfigurationVariantDetails::mapToOptional);
-		skipPublishingOfMavenOptionalRuntimeElements(javaComponent, project);
-	}
-
-	/**
-	 * Workaround bug in SigningPlugin where it attempts to sign 'java-classes-dir' and 'java-resources-dir'
-	 * from the 'mavenOptionalRuntimeElements' and 'mavenOptionalRuntimeElementsResources', respectively.
-	 *
-	 * Approach is to use {@link AdhocComponentWithVariants#withVariantsFromConfiguration} and skip publishing of the
-	 * unwanted elements.
-	 *
-	 * @param javaComponent the Java component from JavaPlugin
-	 * @param project the Gradle project being applied to
-	 */
-	private void skipPublishingOfMavenOptionalRuntimeElements(AdhocComponentWithVariants javaComponent, Project project) {
-		javaComponent.withVariantsFromConfiguration(
-				project.getConfigurations().findByName("mavenOptionalRuntimeElements"),
-				ConfigurationVariantDetails::skip);
-	}
-
-	private void suppressMavenOptionalFeatureWarnings(MavenPublication publication) {
-		publication.suppressPomMetadataWarningsFor("mavenOptionalApiElements");
-		publication.suppressPomMetadataWarningsFor("mavenOptionalRuntimeElements");
-		publication.suppressPomMetadataWarningsFor("mavenOptionalRuntimeElementsClasses");
-		publication.suppressPomMetadataWarningsFor("mavenOptionalRuntimeElementsResources");
-	}
-
 
 	private void customizeOrganization(MavenPomOrganization organization) {
 		organization.getName().set("The Apache Software Foundation");

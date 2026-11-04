@@ -17,8 +17,8 @@
 package org.apache.pulsar.spring.cloud.stream.binder;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.testcontainers.containers.PulsarContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.pulsar.PulsarContainer;
 import org.testcontainers.utility.DockerImageName;
 
 /**

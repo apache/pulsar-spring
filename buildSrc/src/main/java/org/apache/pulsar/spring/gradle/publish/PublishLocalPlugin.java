@@ -19,8 +19,6 @@
 
 package org.apache.pulsar.spring.gradle.publish;
 
-import java.io.File;
-
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.publish.PublishingExtension;
@@ -34,7 +32,7 @@ public class PublishLocalPlugin implements Plugin<Project> {
 			PublishingExtension publishing = project.getExtensions().getByType(PublishingExtension.class);
 			publishing.getRepositories().maven(maven -> {
 				maven.setName("local");
-				maven.setUrl(new File(project.getRootProject().getBuildDir(), "publications/repos"));
+				maven.setUrl(project.getRootProject().getLayout().getBuildDirectory().dir("publications/repos").get().getAsFile());
 			});
 		});
 	}
