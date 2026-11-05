@@ -30,6 +30,9 @@ dependencies {
 	api libs.spring.cloud.stream
 	api project(':pulsar-spring-boot-starter')
 
+	// Spring Cloud Function uses the ObjectMapper bean that this auto-configures
+	runtimeOnly libs.spring.boot.starter.jackson
+
 	testImplementation project(':pulsar-spring-test')
 	testImplementation libs.spring.boot.test
 	testImplementation libs.spring.cloud.stream.test.support

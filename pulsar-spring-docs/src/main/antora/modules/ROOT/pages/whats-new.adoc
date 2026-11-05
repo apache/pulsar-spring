@@ -13,6 +13,10 @@ The version has been bumped to `3.0.0-M1` to indicate this.
 The Maven coordinates and Java packages have changed.
 See xref:migration.adoc[] for the background and the changes to make in your application.
 
+=== Jackson in the Spring Cloud Stream binder
+The binder now depends on `spring-boot-starter-jackson`, so that applications have an auto-configured `ObjectMapper` bean.
+Spring Cloud Function uses this bean for JSON conversion, so that it now applies `spring.jackson.*` properties and Jackson customizers, rather than falling back to its default configuration.
+
 === PulsarTestImage
 The `pulsar-spring-test` module has a new `PulsarTestImage` class, which creates Pulsar Testcontainers that are configured for tests.
 See xref:testing-applications.adoc#pulsar-test-image[PulsarTestImage] for more information.

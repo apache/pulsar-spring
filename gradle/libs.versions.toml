@@ -85,6 +85,7 @@ spring-boot-configuration-processor = { module = "org.springframework.boot:sprin
 spring-boot-docker-compose = { module = "org.springframework.boot:spring-boot-docker-compose", version.ref = "spring-boot" }
 spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "spring-boot" }
 spring-boot-starter-amqp = { module = "org.springframework.boot:spring-boot-starter-amqp", version.ref = "spring-boot" }
+spring-boot-starter-jackson = { module = "org.springframework.boot:spring-boot-starter-jackson", version.ref = "spring-boot" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
 spring-boot-test = { module = "org.springframework.boot:spring-boot-test", version.ref = "spring-boot" }
 spring-boot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "spring-boot" }
