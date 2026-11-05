@@ -38,6 +38,9 @@ class RepositoryConventionPlugin implements Plugin<Project> {
 				maven {
 					name = 'apache-snapshot'
 					url = 'https://repository.apache.org/snapshots/'
+					mavenContent {
+						snapshotsOnly()
+					}
 				}
 			}
 		}

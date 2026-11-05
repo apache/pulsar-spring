@@ -27,7 +27,12 @@ description = 'Apache Pulsar support for Spring - Integration Tests'
 
 repositories {
 	mavenCentral()
-	maven { url = 'https://repository.apache.org/snapshots/' }
+	maven {
+		url = 'https://repository.apache.org/snapshots/'
+		mavenContent {
+			snapshotsOnly()
+		}
+	}
 }
 
 dependencies {

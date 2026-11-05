@@ -21,7 +21,12 @@ pluginManagement {
 	repositories {
 		mavenCentral()
 		gradlePluginPortal()
-		maven { url = 'https://repository.apache.org/snapshots/' }
+		maven {
+			url = 'https://repository.apache.org/snapshots/'
+			mavenContent {
+				snapshotsOnly()
+			}
+		}
 	}
 }
 
@@ -47,7 +52,12 @@ dependencyResolutionManagement {
 			}
 		}
 		mavenCentral()
-		maven { url = 'https://repository.apache.org/snapshots/' }
+		maven {
+			url = 'https://repository.apache.org/snapshots/'
+			mavenContent {
+				snapshotsOnly()
+			}
+		}
 	}
 	versionCatalogs {
 		libs {
