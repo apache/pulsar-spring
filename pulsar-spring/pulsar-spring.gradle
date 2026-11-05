@@ -73,3 +73,8 @@ dependencies {
 	// Used by UserRecordDe/serializer in test fixtures
 	testFixturesApi 'com.fasterxml.jackson.core:jackson-databind'
 }
+
+// The test fixtures are only for the tests of this project
+['testFixturesApiElements', 'testFixturesRuntimeElements'].each {
+	components.java.withVariantsFromConfiguration(configurations.getByName(it)) { skip() }
+}

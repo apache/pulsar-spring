@@ -34,7 +34,7 @@ dependencies {
 	implementation platform(libs.pulsar.spring.bom)
 	implementation 'org.apache.pulsar:pulsar-spring-boot-starter'
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-	implementation(testFixtures('org.apache.pulsar:pulsar-spring'))
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
 	implementation 'org.apache.pulsar:pulsar-spring-test'
 	testRuntimeOnly 'ch.qos.logback:logback-classic'
 	testImplementation "org.springframework.boot:spring-boot-starter-test"

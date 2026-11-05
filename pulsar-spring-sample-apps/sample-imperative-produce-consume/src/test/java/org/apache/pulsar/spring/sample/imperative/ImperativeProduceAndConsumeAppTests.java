@@ -25,7 +25,6 @@ import java.util.stream.IntStream;
 
 import org.apache.pulsar.spring.sample.imperative.ImperativeProduceAndConsumeApp.Bar;
 import org.apache.pulsar.spring.sample.imperative.ImperativeProduceAndConsumeApp.Foo;
-import org.apache.pulsar.spring.test.model.UserRecord;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;

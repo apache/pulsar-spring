@@ -32,8 +32,6 @@ import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.core.PulsarTopic;
 import org.apache.pulsar.spring.core.PulsarTopicBuilder;
 import org.apache.pulsar.spring.core.SchemaResolver;
-import org.apache.pulsar.spring.test.model.UserRecord;
-import org.apache.pulsar.spring.test.model.json.UserRecordObjectMapper;
 
 @SpringBootApplication
 public class ImperativeProduceAndConsumeApp {
