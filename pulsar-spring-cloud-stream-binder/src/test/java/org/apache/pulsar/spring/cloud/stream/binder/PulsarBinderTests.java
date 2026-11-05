@@ -39,6 +39,7 @@ import org.apache.pulsar.spring.core.PulsarAdministration;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.core.PulsarTopicBuilder;
 import org.apache.pulsar.spring.support.header.JsonPulsarHeaderMapper;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -77,7 +78,7 @@ class PulsarBinderTests extends
 
 	@BeforeEach
 	void createPulsarClient() throws PulsarClientException {
-		pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 	}
 
 	@AfterEach

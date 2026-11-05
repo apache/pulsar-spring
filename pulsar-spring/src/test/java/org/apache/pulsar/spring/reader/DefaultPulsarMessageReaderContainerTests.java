@@ -46,6 +46,7 @@ import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
 import org.apache.pulsar.spring.core.DefaultPulsarReaderFactory;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.event.ReaderFailedToStartEvent;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.AfterEach;
@@ -75,7 +76,7 @@ public class DefaultPulsarMessageReaderContainerTests implements PulsarTestConta
 
 	@BeforeEach
 	void createPulsarClient() throws PulsarClientException {
-		pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 	}
 
 	@AfterEach

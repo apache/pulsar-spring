@@ -36,6 +36,7 @@ import org.apache.pulsar.client.api.Reader;
 import org.apache.pulsar.client.api.ReaderBuilder;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,7 +56,7 @@ public class DefaultPulsarReaderFactoryTests implements PulsarTestContainerSuppo
 
 	@BeforeEach
 	void createPulsarClient() throws PulsarClientException {
-		this.pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		this.pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 	}
 
 	@AfterEach

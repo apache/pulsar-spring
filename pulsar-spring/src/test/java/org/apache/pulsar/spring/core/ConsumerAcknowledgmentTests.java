@@ -48,6 +48,7 @@ import org.apache.pulsar.spring.listener.PulsarAcknowledgingMessageListener;
 import org.apache.pulsar.spring.listener.PulsarBatchMessageListener;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties;
 import org.apache.pulsar.spring.listener.PulsarRecordMessageListener;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.Test;
 
@@ -58,7 +59,7 @@ class ConsumerAcknowledgmentTests implements PulsarTestContainerSupport {
 
 	@Test
 	void testRecordAck() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = spy(new DefaultPulsarConsumerFactory<>(
@@ -92,7 +93,7 @@ class ConsumerAcknowledgmentTests implements PulsarTestContainerSupport {
 
 	@Test
 	void testBatchAck() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = spy(new DefaultPulsarConsumerFactory<>(
@@ -123,7 +124,7 @@ class ConsumerAcknowledgmentTests implements PulsarTestContainerSupport {
 
 	@Test
 	void testBatchAckButSomeRecordsFail() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = spy(new DefaultPulsarConsumerFactory<>(
@@ -184,7 +185,7 @@ class ConsumerAcknowledgmentTests implements PulsarTestContainerSupport {
 	@Test
 	@SuppressWarnings("unchecked")
 	void testManualAckForRecordListener() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = spy(new DefaultPulsarConsumerFactory<>(
@@ -229,7 +230,7 @@ class ConsumerAcknowledgmentTests implements PulsarTestContainerSupport {
 	@Test
 	@SuppressWarnings("unchecked")
 	void testBatchAckForBatchListener() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = spy(new DefaultPulsarConsumerFactory<>(
@@ -269,7 +270,7 @@ class ConsumerAcknowledgmentTests implements PulsarTestContainerSupport {
 	@Test
 	@SuppressWarnings("unchecked")
 	void testBatchNackForEntireBatchWhenUsingBatchListener() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = spy(new DefaultPulsarConsumerFactory<>(
@@ -308,7 +309,7 @@ class ConsumerAcknowledgmentTests implements PulsarTestContainerSupport {
 
 	@Test
 	void messagesAreProperlyAckdOnContainerStopBeforeExitingListenerThread() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient,

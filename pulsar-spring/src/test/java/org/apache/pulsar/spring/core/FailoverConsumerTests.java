@@ -34,6 +34,7 @@ import org.apache.pulsar.client.api.TopicMetadata;
 import org.apache.pulsar.spring.listener.DefaultPulsarMessageListenerContainer;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties;
 import org.apache.pulsar.spring.listener.PulsarRecordMessageListener;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.Test;
 
@@ -50,7 +51,7 @@ class FailoverConsumerTests implements PulsarTestContainerSupport {
 		String topicName = "persistent://public/default/my-part-topic-1";
 		admin.topics().createPartitionedTopic(topicName, 3);
 
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient,

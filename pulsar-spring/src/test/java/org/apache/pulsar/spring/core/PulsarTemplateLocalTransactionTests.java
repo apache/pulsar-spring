@@ -36,7 +36,9 @@ import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.test.support.ConsumedMessagesConditions;
 import org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -68,7 +70,7 @@ class PulsarTemplateLocalTransactionTests {
 
 	@BeforeEach
 	void setup() throws PulsarClientException {
-		client = PulsarClient.builder()
+		client = PulsarTestClients.builder()
 			.enableTransaction(true)
 			.serviceUrl(PULSAR_CONTAINER.getPulsarBrokerUrl())
 			.build();
@@ -198,11 +200,14 @@ class PulsarTemplateLocalTransactionTests {
 	}
 
 	private void assertMessagesCommitted(String topic, List<String> expectedMsgs) {
-		assertThat(PulsarConsumerTestUtil.<String>consumeMessages(client)
+		var consumer = PulsarConsumerTestUtil.<String>consumeMessages(client)
 			.fromTopic(topic)
 			.withSchema(Schema.STRING)
-			.awaitAtMost(Duration.ofSeconds(3))
-			.get()).map(Message::getValue).containsExactlyInAnyOrderElementsOf(expectedMsgs);
+			.awaitAtMost(Duration.ofSeconds(3));
+		// Proving that there are no messages takes the full time
+		var messages = expectedMsgs.isEmpty() ? consumer.get()
+				: consumer.until(ConsumedMessagesConditions.desiredMessageCount(expectedMsgs.size())).get();
+		assertThat(messages).map(Message::getValue).containsExactlyInAnyOrderElementsOf(expectedMsgs);
 	}
 
 	@Test

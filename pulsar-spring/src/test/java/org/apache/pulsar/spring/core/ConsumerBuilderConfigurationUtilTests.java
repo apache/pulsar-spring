@@ -37,6 +37,7 @@ import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.RedeliveryBackoff;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.impl.conf.ConsumerConfigurationData;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,7 +56,7 @@ public class ConsumerBuilderConfigurationUtilTests {
 
 	@BeforeEach
 	void prepareBuilder() throws PulsarClientException {
-		PulsarClient pulsarClient = PulsarClient.builder().serviceUrl("pulsar://localhost:6650").build();
+		PulsarClient pulsarClient = PulsarTestClients.builder().serviceUrl("pulsar://localhost:6650").build();
 		builder = pulsarClient.newConsumer(Schema.STRING);
 	}
 

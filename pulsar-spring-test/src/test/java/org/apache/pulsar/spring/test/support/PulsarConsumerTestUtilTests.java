@@ -62,7 +62,9 @@ class PulsarConsumerTestUtilTests implements PulsarTestContainerSupport {
 
 	@BeforeEach
 	void prepareForTest() throws PulsarClientException {
-		this.pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		this.pulsarClient = PulsarTestClients.builder()
+			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
+			.build();
 		this.pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient, List.of());
 		this.pulsarTemplate = new PulsarTemplate<>(new DefaultPulsarProducerFactory<>(pulsarClient));
 	}

@@ -64,6 +64,7 @@ import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.event.ConsumerFailedToStartEvent;
 import org.apache.pulsar.spring.test.model.UserRecord;
 import org.apache.pulsar.spring.test.model.json.UserRecordObjectMapper;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.apache.pulsar.spring.transaction.PulsarAwareTransactionManager;
 import org.awaitility.Awaitility;
@@ -92,7 +93,7 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 
 	@Test
 	void basicDefaultConsumer() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient,
@@ -121,7 +122,7 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 	@Disabled
 	@Test
 	void containerPauseAndResumeFeatureUsingWaitAndNotify() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient,
@@ -191,7 +192,7 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 
 	@Test
 	void subscriptionInitialPositionEarliest() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient,
@@ -223,7 +224,7 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 
 	@Test
 	void subscriptionInitialPositionDefaultLatest() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient,
@@ -257,7 +258,7 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 
 	@Test
 	void negativeAckRedeliveryBackoff() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		RedeliveryBackoff redeliveryBackoff = MultiplierRedeliveryBackoff.builder()
@@ -307,7 +308,7 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 
 	@Test
 	void deadLetterPolicyDefault() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DeadLetterPolicy deadLetterPolicy = DeadLetterPolicy.builder()
@@ -366,7 +367,7 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 
 	@Test
 	void deadLetterPolicyCustom() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		DeadLetterPolicy deadLetterPolicy = DeadLetterPolicy.builder()
@@ -448,7 +449,7 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 
 	@Test
 	void basicDefaultConsumerWithCustomObjectMapper() throws Exception {
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var topic = "dpmlct-com-topic";
 		var pulsarConsumerFactory = new DefaultPulsarConsumerFactory<UserRecord>(pulsarClient,
 				List.of((consumerBuilder) -> {
@@ -488,7 +489,7 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 
 	@Test // GH-1344
 	void partitionedTopicAckBatchModeAckedRestartNoRedelivery() throws Exception {
-		PulsarClient pulsarClient = PulsarClient.builder()
+		PulsarClient pulsarClient = PulsarTestClients.builder()
 			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 			.build();
 		String topic = "dpmlct-batch-ack-prtnd-topic";
@@ -667,7 +668,7 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 		@Test
 		void whenPolicyIsRetryAndRetryIsSuccessfulThenContainerStarts() throws Exception {
 			var topic = "dpmlct-wsf-retry";
-			var pulsarClient = PulsarClient.builder()
+			var pulsarClient = PulsarTestClients.builder()
 				.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
 				.operationTimeout(5, TimeUnit.SECONDS)
 				.build();

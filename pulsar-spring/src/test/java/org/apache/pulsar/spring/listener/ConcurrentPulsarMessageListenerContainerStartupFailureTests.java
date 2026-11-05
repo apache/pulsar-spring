@@ -29,13 +29,13 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.SubscriptionType;
 import org.apache.pulsar.spring.config.StartupFailurePolicy;
 import org.apache.pulsar.spring.core.DefaultPulsarConsumerFactory;
 import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
 import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.Test;
 
@@ -56,7 +56,7 @@ class ConcurrentPulsarMessageListenerContainerStartupFailureTests implements Pul
 	@Test
 	void whenPolicyIsStopThenExceptionIsThrown() throws Exception {
 		var topic = "cpmlcsft-stop";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		ConcurrentPulsarMessageListenerContainer<String> container = null;
 		try {
 			var consumerFactory = spy(
@@ -95,7 +95,7 @@ class ConcurrentPulsarMessageListenerContainerStartupFailureTests implements Pul
 	@Test
 	void whenPolicyIsContinueThenExceptionIsNotThrown() throws Exception {
 		var topic = "cpmlcsft-continue";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		ConcurrentPulsarMessageListenerContainer<String> container = null;
 		try {
 			var consumerFactory = spy(
@@ -142,7 +142,7 @@ class ConcurrentPulsarMessageListenerContainerStartupFailureTests implements Pul
 	@Test
 	void whenPolicyIsRetryAndRetryIsSuccessfulThenContainerStarts() throws Exception {
 		var topic = "cpmlcsft-retry";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		ConcurrentPulsarMessageListenerContainer<String> container = null;
 		try {
 			var consumerFactory = spy(

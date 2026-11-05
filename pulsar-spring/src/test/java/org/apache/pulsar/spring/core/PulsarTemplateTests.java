@@ -48,6 +48,7 @@ import org.apache.pulsar.client.api.interceptor.ProducerInterceptor;
 import org.apache.pulsar.spring.annotation.EnablePulsar;
 import org.apache.pulsar.spring.test.model.UserRecord;
 import org.apache.pulsar.spring.test.model.json.UserRecordObjectMapper;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.AfterEach;
@@ -81,7 +82,7 @@ class PulsarTemplateTests implements PulsarTestContainerSupport {
 
 	@BeforeEach
 	void setup() throws PulsarClientException {
-		client = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		client = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 	}
 
 	@AfterEach

@@ -42,6 +42,7 @@ import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
 import org.apache.pulsar.spring.core.PulsarOperations;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.core.TypedMessageBuilderCustomizer;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.Test;
 import org.mockito.stubbing.Answer;
@@ -61,7 +62,7 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 	@Test
 	void whenRecordListenerWithNonTransientErrorThenSendToDlt() throws Exception {
 		var topicName = "default-error-handler-tests-1";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var container = buildPulsarRecordContainer(pulsarClient, topicName, (__) -> {
 			throw new RuntimeException();
 		});
@@ -82,7 +83,7 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 	@Test
 	void whenRecordListenerWithTransientErrorThenDoNotSendToDlt() throws Exception {
 		var topicName = "default-error-handler-tests-2";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var count = new AtomicInteger(0);
 		var container = buildPulsarRecordContainer(pulsarClient, topicName, (invocation) -> {
 			int currentCount = count.incrementAndGet();
@@ -108,7 +109,7 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 	@Test
 	void whenRecordListenerWithEveryOtherNonTransientErrorThenSendAllFailedMessagesToDlt() throws Exception {
 		var topicName = "default-error-handler-tests-3";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var container = buildPulsarRecordContainer(pulsarClient, topicName, (invocation) -> {
 			Message<Integer> message = invocation.getArgument(1);
 			if (message.getValue() % 2 == 0) {
@@ -135,7 +136,7 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 	@Test
 	void whenBatchListenerWithFirstMsgNonTransientErrorThenSendToDlt() throws Exception {
 		var topicName = "default-error-handler-tests-4";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var container = buildPulsarBatchContainer(pulsarClient, topicName, 10, (invocation) -> {
 			List<Message<Integer>> messages = invocation.getArgument(1);
 			Message<Integer> firstMessage = messages.get(0);
@@ -165,7 +166,7 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 	@Test
 	void whenBatchListenerWithMiddleMsgNonTransientErrorThenSendToDlt() throws Exception {
 		var topicName = "default-error-handler-tests-5";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var container = buildPulsarBatchContainer(pulsarClient, topicName, 10, (invocation) -> {
 			List<Message<Integer>> messages = invocation.getArgument(1);
 			Acknowledgement acknowledgment = invocation.getArgument(2);
@@ -197,7 +198,7 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 	@Test
 	void whenBatchListenerWithTwoMiddleMsgsWithNonTransientErrorThenSendBothToDlt() throws Exception {
 		var topicName = "default-error-handler-tests-6";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var container = buildPulsarBatchContainer(pulsarClient, topicName, 10, (invocation) -> {
 			List<Message<Integer>> messages = invocation.getArgument(1);
 			Acknowledgement acknowledgment = invocation.getArgument(2);
@@ -230,7 +231,7 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 	@Test
 	void whenBatchListenerWithMiddleMsgTransientErrorThenDoNotSendToDlt() throws Exception {
 		var topicName = "default-error-handler-tests-7";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var count = new AtomicInteger(0);
 		var container = buildPulsarBatchContainer(pulsarClient, topicName, 10, (invocation) -> {
 			List<Message<Integer>> messages = invocation.getArgument(1);
@@ -269,7 +270,7 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 	@Test
 	void whenBatchListenerWithTransientFollowedByNonTransientThenSendTransientToDlt() throws Exception {
 		var topicName = "default-error-handler-tests-8";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var count = new AtomicInteger(0);
 		var container = buildPulsarBatchContainer(pulsarClient, topicName, 10, (invocation) -> {
 			List<Message<Integer>> messages = invocation.getArgument(1);
@@ -312,7 +313,7 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 	@Test
 	void whenBatchListenerOneMessageBatchFailsThenSentToDlt() throws Exception {
 		var topicName = "default-error-handler-tests-9";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var container = buildPulsarBatchContainer(pulsarClient, topicName, 1, (invocation) -> {
 			List<Message<Integer>> messages = invocation.getArgument(1);
 			Message<Integer> firstMessage = messages.get(0);
@@ -425,7 +426,7 @@ class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSuppo
 	@SuppressWarnings("unchecked")
 	void whenBatchListenerThrowsPlainRuntimeExceptionWithErrorHandlerThenContainerContinues() throws Exception {
 		var topicName = "default-error-handler-tests-10";
-		var pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		var pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 		var pulsarConsumerFactory = new DefaultPulsarConsumerFactory<Integer>(pulsarClient,
 				List.of((consumerBuilder) -> {
 					consumerBuilder.topic(topicName);

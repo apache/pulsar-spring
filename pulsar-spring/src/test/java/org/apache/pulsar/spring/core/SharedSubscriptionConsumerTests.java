@@ -31,6 +31,7 @@ import org.apache.pulsar.spring.listener.DefaultPulsarMessageListenerContainer;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties;
 import org.apache.pulsar.spring.listener.PulsarMessageListenerContainer;
 import org.apache.pulsar.spring.listener.PulsarRecordMessageListener;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -55,7 +56,7 @@ public class SharedSubscriptionConsumerTests implements PulsarTestContainerSuppo
 		DefaultPulsarMessageListenerContainer<String> container3 = null;
 		PulsarClient pulsarClient = null;
 		try {
-			pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+			pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 			DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(
 					pulsarClient, List.of((consumerBuilder) -> {
 						consumerBuilder.topic("shared-subscription-single-msg-test-topic");
@@ -112,7 +113,7 @@ public class SharedSubscriptionConsumerTests implements PulsarTestContainerSuppo
 		DefaultPulsarMessageListenerContainer<String> container3 = null;
 		PulsarClient pulsarClient = null;
 		try {
-			pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+			pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 			DefaultPulsarConsumerFactory<String> consumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient,
 					List.of((consumerBuilder) -> {
 						consumerBuilder.topic("key-shared-batch-disabled-topic");

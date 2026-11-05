@@ -47,7 +47,9 @@ import org.apache.pulsar.spring.core.DefaultPulsarConsumerFactory;
 import org.apache.pulsar.spring.core.DefaultPulsarProducerFactory;
 import org.apache.pulsar.spring.core.ProducerBuilderCustomizer;
 import org.apache.pulsar.spring.core.PulsarTemplate;
+import org.apache.pulsar.spring.test.support.ConsumedMessagesConditions;
 import org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.apache.pulsar.spring.transaction.PulsarTransactionManager;
@@ -84,7 +86,7 @@ class DefaultPulsarMessageListenerContainerTxnTests {
 
 	@BeforeEach
 	void setup() throws PulsarClientException {
-		client = PulsarClient.builder()
+		client = PulsarTestClients.builder()
 			.enableTransaction(true)
 			.serviceUrl(PULSAR_CONTAINER.getPulsarBrokerUrl())
 			.build();
@@ -467,6 +469,7 @@ class DefaultPulsarMessageListenerContainerTxnTests {
 			.fromTopic(topicOut)
 			.withSchema(Schema.STRING)
 			.awaitAtMost(Duration.ofSeconds(5))
+			.until(ConsumedMessagesConditions.desiredMessageCount(expectedMessages.size()))
 			.get()).map(Message::getValue).containsExactlyInAnyOrderElementsOf(expectedMessages);
 	}
 

@@ -37,6 +37,7 @@ import org.apache.pulsar.client.api.PulsarClientException.InvalidConfigurationEx
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.impl.PatternMultiTopicsConsumerImpl;
 import org.apache.pulsar.spring.PulsarException;
+import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.AfterEach;
@@ -62,7 +63,7 @@ class DefaultPulsarConsumerFactoryTests implements PulsarTestContainerSupport {
 
 	@BeforeEach
 	void createPulsarClient() throws PulsarClientException {
-		pulsarClient = PulsarClient.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
+		pulsarClient = PulsarTestClients.builder().serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl()).build();
 	}
 
 	@AfterEach
