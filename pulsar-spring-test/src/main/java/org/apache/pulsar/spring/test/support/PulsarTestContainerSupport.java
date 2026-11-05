@@ -16,6 +16,12 @@
 
 package org.apache.pulsar.spring.test.support;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UncheckedIOException;
+import java.util.Objects;
+import java.util.Properties;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.pulsar.PulsarContainer;
@@ -34,7 +40,19 @@ public interface PulsarTestContainerSupport {
 			"localhost");
 
 	static DockerImageName getPulsarImage() {
-		return DockerImageName.parse("apachepulsar/pulsar:4.2.0");
+		return DockerImageName.parse("apachepulsar/pulsar:" + getPulsarVersion());
+	}
+
+	private static String getPulsarVersion() {
+		String resource = "pulsar-test-container.properties";
+		try (InputStream input = PulsarTestContainerSupport.class.getResourceAsStream(resource)) {
+			Properties properties = new Properties();
+			properties.load(Objects.requireNonNull(input, () -> "Missing resource " + resource));
+			return Objects.requireNonNull(properties.getProperty("pulsar.version"));
+		}
+		catch (IOException ex) {
+			throw new UncheckedIOException(ex);
+		}
 	}
 
 	@BeforeAll

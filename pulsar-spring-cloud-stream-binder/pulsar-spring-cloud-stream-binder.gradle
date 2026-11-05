@@ -30,6 +30,7 @@ dependencies {
 	api libs.spring.cloud.stream
 	api project(':pulsar-spring-boot-starter')
 
+	testImplementation project(':pulsar-spring-test')
 	testImplementation libs.spring.boot.test
 	testImplementation libs.spring.cloud.stream.test.support
 	testImplementation 'org.assertj:assertj-core'

@@ -33,3 +33,12 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 	testImplementation 'org.mockito:mockito-core'
 }
+
+// Tests use the Pulsar image of the same version as the client in the version catalog.
+def pulsarVersion = extensions.getByType(VersionCatalogsExtension).named("libs").findVersion("pulsar").orElseThrow().displayName
+def generatedResourcesDir = layout.buildDirectory.dir("generated/pulsarTestContainer")
+def generatePulsarTestContainerProperties = tasks.register("generatePulsarTestContainerProperties", WriteProperties) {
+	destinationFile = generatedResourcesDir.map { it.file("org/apache/pulsar/spring/test/support/pulsar-test-container.properties") }
+	property("pulsar.version", pulsarVersion)
+}
+sourceSets.main.resources.srcDir(files(generatedResourcesDir).builtBy(generatePulsarTestContainerProperties))
