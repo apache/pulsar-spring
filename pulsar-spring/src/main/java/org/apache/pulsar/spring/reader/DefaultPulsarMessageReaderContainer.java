@@ -229,7 +229,10 @@ public class DefaultPulsarMessageReaderContainer<T> extends AbstractPulsarMessag
 					this.listener.received(this.reader, message);
 				}
 				catch (PulsarClientException e) {
-					DefaultPulsarMessageReaderContainer.this.logger.error(e, () -> "Error receiving messages.");
+					// Stopping the container closes the reader, which interrupts this call
+					if (isRunning()) {
+						DefaultPulsarMessageReaderContainer.this.logger.error(e, () -> "Error receiving messages.");
+					}
 				}
 				catch (Exception e) {
 					DefaultPulsarMessageReaderContainer.this.logger.error(e,
