@@ -62,10 +62,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * message for this endpoint.
  *
  * @param <V> Message payload type
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Chris Bono
- * @author Jihoon Kim
  */
 public class MethodPulsarListenerEndpoint<V> extends AbstractPulsarListenerEndpoint<V> {
 

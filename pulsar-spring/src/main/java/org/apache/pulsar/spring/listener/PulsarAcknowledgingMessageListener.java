@@ -23,7 +23,6 @@ import org.apache.pulsar.client.api.Message;
  * Message listener for manually acknowledging messages.
  *
  * @param <T> payload type.
- * @author Soby Chacko
  */
 public interface PulsarAcknowledgingMessageListener<T> extends PulsarRecordMessageListener<T> {
 

@@ -30,7 +30,6 @@ import org.apache.pulsar.spring.core.ConsumerBuilderCustomizer;
  * {@code @PulsarListener(s)} it is associated with.
  *
  * @param <T> The message payload type
- * @author Chris Bono
  */
 @FunctionalInterface
 public interface PulsarListenerConsumerBuilderCustomizer<T> {

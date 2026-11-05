@@ -30,7 +30,6 @@ import org.apache.pulsar.spring.config.PulsarContainerFactory;
  * {@link PulsarContainerFactory} to fine-tune its auto-configuration.
  *
  * @param <T> the type of the {@link PulsarContainerFactory}
- * @author Chris Bono
  * @since 4.0.0
  */
 @FunctionalInterface

@@ -38,8 +38,6 @@ import org.springframework.util.backoff.FixedBackOff;
 
 /**
  * Container properties for Pulsar {@link Reader}.
- *
- * @author Soby Chacko
  */
 @NullUnmarked
 public class PulsarReaderContainerProperties {

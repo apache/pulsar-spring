@@ -38,7 +38,6 @@ import org.springframework.core.log.LogAccessor;
  * Implementors are required to provide the component state and an optional logger - see
  * {@link RestartableComponentBase} for an example.
  *
- * @author Chris Bono
  * @see RestartableComponentBase
  */
 interface RestartableComponentSupport extends SmartLifecycle, DisposableBean {

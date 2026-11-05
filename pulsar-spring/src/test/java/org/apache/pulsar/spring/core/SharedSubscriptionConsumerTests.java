@@ -40,8 +40,6 @@ import org.springframework.core.log.LogAccessor;
 
 /**
  * Tests for shared subscription types in Pulsar consumer.
- *
- * @author Soby Chacko
  */
 public class SharedSubscriptionConsumerTests implements PulsarTestContainerSupport {
 

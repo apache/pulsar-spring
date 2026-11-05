@@ -35,8 +35,6 @@ import org.springframework.util.Assert;
  * @param topicName the fully qualified topic name in the format
  * {@code 'domain://tenant/namespace/name'}
  * @param numberOfPartitions the number of partitions, or 0 for non-partitioned topics
- * @author Alexander Preuß
- * @author Chris Bono
  * @see PulsarTopicBuilder
  */
 public record PulsarTopic(String topicName, int numberOfPartitions) {

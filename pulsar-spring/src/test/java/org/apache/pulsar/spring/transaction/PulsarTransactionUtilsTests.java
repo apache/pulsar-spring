@@ -37,8 +37,6 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 
 /**
  * Tests for {@link PulsarTransactionUtils}.
- *
- * @author Chris Bono
  */
 class PulsarTransactionUtilsTests {
 

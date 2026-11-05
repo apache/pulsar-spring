@@ -43,8 +43,6 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 
 /**
  * Tests consuming records with header in {@link PulsarReader @PulsarReader}.
- *
- * @author Chris Bono
  */
 class PulsarReaderHeaderTests extends PulsarReaderTestsBase {
 

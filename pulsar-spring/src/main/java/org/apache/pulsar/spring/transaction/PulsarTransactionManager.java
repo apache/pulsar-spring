@@ -48,7 +48,6 @@ import org.springframework.util.Assert;
  * alongside a datastore-based Spring transaction manager such as the JDBC
  * {@code DataSourceTransactionManager}, which has stronger needs for synchronization.
  *
- * @author Chris Bono
  * @since 1.1.0
  */
 public class PulsarTransactionManager extends AbstractPlatformTransactionManager

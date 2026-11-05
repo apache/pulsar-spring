@@ -78,13 +78,6 @@ import io.spring.javaformat.gradle.tasks.Format;
  * <li>{@code pulsar-spring-dependencies} is used for dependency management</li>
  * </ul>
  *
- * <p/>
- *
- * @author Andy Wilkinson
- * @author Christoph Dreis
- * @author Mike Smithson
- * @author Scott Frederick
- * @author Chris Bono
  */
 public class JavaConventionsPlugin implements Plugin<Project> {
 

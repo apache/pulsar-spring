@@ -25,7 +25,6 @@ import org.apache.pulsar.client.api.Message;
  * messages satisfy the given criteria.
  *
  * @param <T> the type of the message
- * @author Jonas Geiregat
  */
 @FunctionalInterface
 public interface ConsumedMessagesCondition<T> {

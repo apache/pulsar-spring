@@ -34,8 +34,6 @@ import org.springframework.util.CollectionUtils;
  * <p>
  * There must be only one customizer in the application context in order for it to be
  * applied.
- *
- * @author Chris Bono
  */
 class PulsarTemplateBeanCustomizerPostProcessor implements BeanPostProcessor, ApplicationContextAware {
 

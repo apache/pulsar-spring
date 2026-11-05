@@ -31,9 +31,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link DeadLetterPolicyMapper}.
- *
- * @author Chris Bono
- * @author Phillip Webb
  */
 class DeadLetterPolicyMapperTests {
 

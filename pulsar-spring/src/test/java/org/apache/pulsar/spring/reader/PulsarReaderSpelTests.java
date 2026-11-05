@@ -40,8 +40,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * Tests {@code SpEL} functionality in {@link PulsarReader @PulsarReader} attributes.
- *
- * @author Chris Bono
  */
 class PulsarReaderSpelTests extends PulsarReaderTestsBase {
 

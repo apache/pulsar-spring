@@ -70,8 +70,6 @@ import org.springframework.util.StringUtils;
  * complete usage details.
  *
  * @param <V> the payload type.
- * @author Soby Chacko
- * @author Jihoon Kim
  * @see PulsarReader
  * @see EnablePulsar
  * @see PulsarReaderConfigurer

@@ -32,8 +32,6 @@ import org.springframework.core.ResolvableType;
 
 /**
  * Unit tests for {@link SchemaResolver} default methods.
- *
- * @author Chris Bono
  */
 class SchemaResolverTests {
 

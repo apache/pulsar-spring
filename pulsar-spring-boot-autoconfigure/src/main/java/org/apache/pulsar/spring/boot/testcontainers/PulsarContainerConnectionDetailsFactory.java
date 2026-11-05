@@ -33,8 +33,6 @@ import org.springframework.boot.testcontainers.service.connection.ServiceConnect
 /**
  * {@link ContainerConnectionDetailsFactory} to create {@link PulsarConnectionDetails}
  * from a {@link ServiceConnection @ServiceConnection}-annotated {@link PulsarContainer}.
- *
- * @author Chris Bono
  */
 class PulsarContainerConnectionDetailsFactory
 		extends ContainerConnectionDetailsFactory<PulsarContainer, PulsarConnectionDetails> {

@@ -39,10 +39,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
  * Lightweight integration tests for {@link PulsarAdministration}.
- *
- * @author Alexander Preuß
- * @author Chris Bono
- * @author Kirill Merkushev
  */
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration

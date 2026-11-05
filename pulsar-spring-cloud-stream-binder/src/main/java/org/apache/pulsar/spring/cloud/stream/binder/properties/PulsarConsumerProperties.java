@@ -21,9 +21,6 @@ import org.jspecify.annotations.Nullable;
 
 /**
  * Pulsar consumer properties used by the binder.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 public class PulsarConsumerProperties extends ConsumerConfigProperties {
 

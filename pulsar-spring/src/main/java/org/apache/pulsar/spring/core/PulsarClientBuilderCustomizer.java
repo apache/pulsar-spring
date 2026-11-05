@@ -20,8 +20,6 @@ import org.apache.pulsar.client.api.ClientBuilder;
 
 /**
  * The interface to customize a {@link ClientBuilder}.
- *
- * @author Chris Bono
  */
 @FunctionalInterface
 public interface PulsarClientBuilderCustomizer {

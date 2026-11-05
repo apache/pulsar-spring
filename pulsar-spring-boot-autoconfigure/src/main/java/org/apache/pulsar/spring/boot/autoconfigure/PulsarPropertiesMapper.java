@@ -54,11 +54,6 @@ import org.springframework.util.StringUtils;
 
 /**
  * Helper class used to map {@link PulsarProperties} to various builder customizers.
- *
- * @author Chris Bono
- * @author Phillip Webb
- * @author Swamy Mavuri
- * @author Vedran Pavic
  */
 final class PulsarPropertiesMapper {
 

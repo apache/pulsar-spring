@@ -42,10 +42,6 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 /**
  * Provides base support for {@link PulsarListener @PulsarListener} tests.
- *
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Chris Bono
  */
 @SpringJUnitConfig
 @DirtiesContext

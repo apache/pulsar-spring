@@ -69,6 +69,7 @@ so it can also reformat unrelated files there: review the diff and keep those ch
   Spring Boot does not manage their versions.
 - **Name:** the project is "Apache Pulsar support for Spring". Use "Spring for Apache Pulsar" only when
   referring to the upstream project it succeeds, as in `NOTICE` and the migration page.
+- **Author tags:** don't add `@author` tags. The [ASF board discourages them](https://www.apache.org/foundation/records/minutes/2004/board_minutes_2004_02_18.txt), and the Git history records the authors. Checkstyle and CI reject them.
 - **Imports:** Checkstyle requires static imports first, then `java`, `javax`, `org`, `org.springframework`
   and everything else, as separate groups.
 - **Documentation:** there is one site, in `pulsar-spring-docs/src/main/antora`. Don't add documentation

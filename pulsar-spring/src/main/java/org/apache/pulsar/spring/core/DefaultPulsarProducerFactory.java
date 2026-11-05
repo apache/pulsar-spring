@@ -39,10 +39,6 @@ import org.springframework.util.CollectionUtils;
  * Default implementation of {@link PulsarProducerFactory}.
  *
  * @param <T> producer type.
- * @author Soby Chacko
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Christophe Bornet
  */
 public class DefaultPulsarProducerFactory<T> implements PulsarProducerFactory<T> {
 

@@ -18,8 +18,6 @@ package org.apache.pulsar.spring.support;
 
 /**
  * Pulsar specific message headers.
- *
- * @author Soby Chacko
  */
 public abstract class PulsarHeaders {
 

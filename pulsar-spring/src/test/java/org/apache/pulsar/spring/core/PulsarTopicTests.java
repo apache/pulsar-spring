@@ -26,9 +26,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Tests for {@link PulsarTopic}.
- *
- * @author Alexander Preuß
- * @@author Chris Bono
  */
 public class PulsarTopicTests {
 

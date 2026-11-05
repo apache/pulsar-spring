@@ -30,9 +30,6 @@ import org.springframework.integration.config.EnableIntegration;
 /**
  * Test binder to exercise producer/consumer bindings in
  * {@link PulsarMessageChannelBinder}.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 class PulsarTestBinder extends AbstractPulsarTestBinder {
 

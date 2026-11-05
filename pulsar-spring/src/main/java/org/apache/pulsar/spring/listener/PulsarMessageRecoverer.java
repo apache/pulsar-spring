@@ -30,8 +30,6 @@ import org.apache.pulsar.client.api.Message;
  * {@link Exception}.
  *
  * @param <T> payload type of Pulsar message.
- * @author Soby Chacko
- * @author Chris Bono
  */
 @FunctionalInterface
 public interface PulsarMessageRecoverer<T> {

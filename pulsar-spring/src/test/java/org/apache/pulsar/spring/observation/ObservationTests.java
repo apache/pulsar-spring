@@ -77,8 +77,6 @@ import io.micrometer.tracing.test.simple.SimpleTracer;
  * <p>
  * Differs from {@link ObservationIntegrationTests} in that it uses a test observation
  * registry and verifies more details such as propagation and message content.
- *
- * @author Chris Bono
  */
 @SpringJUnitConfig
 @DirtiesContext

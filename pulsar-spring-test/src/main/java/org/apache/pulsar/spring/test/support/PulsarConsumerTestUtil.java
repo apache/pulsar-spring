@@ -43,9 +43,6 @@ import org.springframework.util.Assert;
  * consumption.
  *
  * @param <T> the type of the message payload
- * @author Jonas Geiregat
- * @author Kartik Shrivastava
- * @author Chris Bono
  */
 public final class PulsarConsumerTestUtil<T> implements TopicSpec<T>, SchemaSpec<T>, ConditionsSpec<T> {
 

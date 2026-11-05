@@ -29,9 +29,6 @@ import org.springframework.messaging.MessageHeaders;
  * <b>NOTE:</b>Pulsar does not have the concept of message headers, but rather message
  * metadata. The terms &quot;Pulsar message headers&quot; and &quot;Pulsar message
  * metadata&quot; are used interchangeably.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 public interface PulsarHeaderMapper {
 

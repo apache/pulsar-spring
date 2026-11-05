@@ -30,8 +30,6 @@ import org.mockito.InOrder;
 
 /**
  * Unit tests for {@link PulsarAdministration}.
- *
- * @author Chris Bono
  */
 public class PulsarAdministrationTests {
 

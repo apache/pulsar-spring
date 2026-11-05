@@ -27,9 +27,6 @@ import org.springframework.util.Assert;
 
 /**
  * Default implementation for {@link PulsarClientFactory}.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 public class DefaultPulsarClientFactory implements PulsarClientFactory, EnvironmentAware {
 

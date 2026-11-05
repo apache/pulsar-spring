@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-/**
- * @author Soby Chacko
- */
 package org.apache.pulsar.spring.listener;
 
 import java.util.List;
@@ -29,7 +26,6 @@ import org.apache.pulsar.client.api.Message;
  * Batch message listener.
  *
  * @param <T> payload type.
- * @author Soby Chacko
  */
 public interface PulsarBatchMessageListener<T> extends PulsarRecordMessageListener<T> {
 

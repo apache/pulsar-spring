@@ -52,8 +52,6 @@ import org.springframework.beans.factory.support.StaticListableBeanFactory;
 
 /**
  * Tests for {@link PulsarFunctionAdministration}.
- *
- * @author Chris Bono
  */
 class PulsarFunctionAdministrationTests {
 

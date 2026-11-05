@@ -64,8 +64,6 @@ import org.springframework.util.ReflectionUtils;
 /**
  * Base class implementation for the various annotation post processors in Apache Pulsar
  * support for Spring.
- *
- * @author Soby Chacko
  */
 public class AbstractPulsarAnnotationsBeanPostProcessor
 		implements BeanPostProcessor, ApplicationContextAware, InitializingBean, Ordered {

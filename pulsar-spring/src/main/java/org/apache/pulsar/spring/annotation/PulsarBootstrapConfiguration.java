@@ -35,8 +35,6 @@ import org.springframework.core.type.AnnotationMetadata;
  * This configuration class is automatically imported when using the @{@link EnablePulsar}
  * annotation.
  *
- * @author Soby Chacko
- * @author Chris Bono
  * @see PulsarListenerAnnotationBeanPostProcessor
  * @see PulsarListenerEndpointRegistry
  * @see EnablePulsar

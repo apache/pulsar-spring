@@ -23,8 +23,6 @@ import org.springframework.core.type.AnnotationMetadata;
 /**
  * A {@link DeferredImportSelector} implementation with the lowest order to import
  * {@link PulsarBootstrapConfiguration} as late as possible.
- *
- * @author Soby Chacko
  */
 @Order
 public class PulsarAnnotationsConfigurationSelector implements DeferredImportSelector {

@@ -74,10 +74,6 @@ import org.springframework.util.StringUtils;
  * complete usage details.
  *
  * @param <V> the payload type.
- * @author Soby Chacko
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Jihoon Kim
  * @see PulsarListener
  * @see EnablePulsar
  * @see PulsarListenerConfigurer

@@ -41,8 +41,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link PulsarContainerFactoryCustomizers}.
- *
- * @author Chris Bono
  */
 class PulsarContainerFactoryCustomizersTests {
 

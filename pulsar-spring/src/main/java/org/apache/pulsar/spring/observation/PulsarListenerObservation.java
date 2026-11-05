@@ -26,8 +26,6 @@ import io.micrometer.observation.docs.ObservationDocumentation;
 
 /**
  * An {@link Observation} for a {@link PulsarListener}.
- *
- * @author Chris Bono
  */
 public enum PulsarListenerObservation implements ObservationDocumentation {
 

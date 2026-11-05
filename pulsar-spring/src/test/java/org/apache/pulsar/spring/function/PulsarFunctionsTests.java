@@ -43,8 +43,6 @@ import org.mockito.Mockito;
 /**
  * Tests for all &quot;Pulsar Functions&quot; (ie. {@link PulsarFunction},
  * {@link PulsarSink}, and {@link PulsarSource}).
- *
- * @author Chris Bono
  */
 class PulsarFunctionsTests {
 

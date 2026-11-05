@@ -30,8 +30,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Tests for {@link PulsarTopicBuilder}.
- *
- * @author Chris Bono
  */
 class PulsarTopicBuilderTests {
 

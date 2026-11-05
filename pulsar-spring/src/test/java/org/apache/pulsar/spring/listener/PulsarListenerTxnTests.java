@@ -47,9 +47,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Tests for the transaction support in {@link PulsarListener @PulsarListener}.
- *
- * @author Chris Bono
- * @author Andrey Litvitski
  */
 @SuppressWarnings("removal")
 class PulsarListenerTxnTests extends PulsarTxnTestsBase {

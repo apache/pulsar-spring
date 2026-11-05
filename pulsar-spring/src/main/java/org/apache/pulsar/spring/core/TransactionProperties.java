@@ -23,7 +23,6 @@ import org.jspecify.annotations.Nullable;
 /**
  * Common transaction settings for components.
  *
- * @author Chris Bono
  * @since 1.1.0
  */
 public class TransactionProperties {

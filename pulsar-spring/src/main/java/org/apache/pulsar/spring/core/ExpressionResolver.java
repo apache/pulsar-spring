@@ -19,7 +19,6 @@ package org.apache.pulsar.spring.core;
 /**
  * Strategy interface for resolving a value from a string expression.
  *
- * @author Jonas Geiregat
  * @since 1.1.0
  */
 public interface ExpressionResolver {

@@ -27,7 +27,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 /**
  * Custom Jackson serializer for {@link UserRecord}.
  *
- * @author Chris Bono
  * @since 1.2.0
  */
 public class UserRecordSerializer extends StdSerializer<UserRecord> {

@@ -49,8 +49,6 @@ import org.springframework.core.io.ClassPathResource;
 
 /**
  * Integration test for {@link PulsarDockerComposeConnectionDetailsFactory}.
- *
- * @author Chris Bono
  */
 @EnabledIf("dockerAvailable")
 class PulsarDockerComposeConnectionDetailsFactoryIntegrationTests {

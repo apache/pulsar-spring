@@ -24,8 +24,6 @@ import org.jspecify.annotations.Nullable;
 /**
  * Internal abstraction used by the framework representing a message listener container.
  * Not meant to be implemented externally.
- *
- * @author Soby Chacko
  */
 public sealed interface PulsarMessageListenerContainer extends MessageListenerContainer
 		permits AbstractPulsarMessageListenerContainer {

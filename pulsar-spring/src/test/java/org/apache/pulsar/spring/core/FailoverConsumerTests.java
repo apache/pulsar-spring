@@ -39,9 +39,6 @@ import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.junit.jupiter.api.Test;
 
-/**
- * @author Soby Chacko
- */
 class FailoverConsumerTests implements PulsarTestContainerSupport {
 
 	@Test

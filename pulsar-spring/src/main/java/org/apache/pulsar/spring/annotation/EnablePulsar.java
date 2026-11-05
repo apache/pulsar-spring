@@ -27,9 +27,6 @@ import org.springframework.context.annotation.Import;
 /**
  * Enables detection of {@link PulsarListener} annotations on any Spring-managed bean in
  * the container.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

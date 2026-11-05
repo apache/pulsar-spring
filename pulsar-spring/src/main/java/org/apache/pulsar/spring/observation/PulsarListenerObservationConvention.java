@@ -21,8 +21,6 @@ import io.micrometer.observation.ObservationConvention;
 
 /**
  * {@link ObservationConvention} for Pulsar listener key values.
- *
- * @author Chris Bono
  */
 public interface PulsarListenerObservationConvention extends ObservationConvention<PulsarMessageReceiverContext> {
 

@@ -30,8 +30,6 @@ import org.gradle.tooling.events.OperationCompletionListener;
 
 /**
  * {@link BuildService} that provides an overview of all the test failures in the build.
- *
- * @author Andy Wilkinson
  */
 public abstract class TestResultsOverview
 		implements BuildService<BuildServiceParameters.None>, OperationCompletionListener, AutoCloseable {

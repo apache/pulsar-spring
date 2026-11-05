@@ -82,11 +82,6 @@ import org.springframework.core.retry.Retryable;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.util.backoff.FixedBackOff;
 
-/**
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Chris Bono
- */
 class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerSupport {
 
 	private final LogAccessor logger = new LogAccessor(this.getClass());

@@ -30,8 +30,6 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 
 /**
  * Unit tests for {@link DefaultExpressionResolver}.
- *
- * @author Jonas Geiregat
  */
 class DefaultExpressionResolverTest {
 

@@ -52,8 +52,6 @@ import org.springframework.test.context.ContextConfiguration;
 /**
  * Tests for {@link PulsarReader @PulsarReader} using {@code schemaType} of
  * {@link SchemaType#AUTO_CONSUME}.
- *
- * @author Chris Bono
  */
 @ContextConfiguration(classes = PulsarReaderAutoConsumeSchemaTestsConfig.class)
 class PulsarReaderAutoConsumeSchemaTests extends PulsarReaderTestsBase {

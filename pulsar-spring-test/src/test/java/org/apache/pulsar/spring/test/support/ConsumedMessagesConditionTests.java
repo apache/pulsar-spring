@@ -24,8 +24,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link ConsumedMessagesCondition}.
- *
- * @author Jonas Geiregat
  */
 class ConsumedMessagesConditionTests {
 

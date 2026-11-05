@@ -29,8 +29,6 @@ import org.springframework.util.PatternMatchUtils;
  * <p>
  * Used by the header mapper to determine whether an incoming or outgoing message header
  * should be included in the target.
- *
- * @author Chris Bono
  */
 public interface PulsarHeaderMatcher {
 

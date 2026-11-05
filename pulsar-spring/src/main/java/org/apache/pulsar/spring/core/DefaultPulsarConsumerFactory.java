@@ -43,11 +43,6 @@ import org.springframework.util.StringUtils;
  * Default implementation for {@link PulsarConsumerFactory}.
  *
  * @param <T> underlying payload type for the consumer.
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Christophe Bornet
- * @author Chris Bono
- * @author Jonas Geiregat
  */
 public class DefaultPulsarConsumerFactory<T> implements PulsarConsumerFactory<T> {
 

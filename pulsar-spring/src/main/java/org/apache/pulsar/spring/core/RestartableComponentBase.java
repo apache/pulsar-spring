@@ -27,8 +27,6 @@ import org.springframework.core.log.LogAccessor;
  * Subclasses can use this as a base implementation for coordinated checkpoint and restore
  * by simply implementing the {@link #doStart() start} and/or {@link #doStop() stop}
  * callback to re-acquire and release resources, respectively.
- *
- * @author Chris Bono
  */
 abstract class RestartableComponentBase implements RestartableComponentSupport {
 

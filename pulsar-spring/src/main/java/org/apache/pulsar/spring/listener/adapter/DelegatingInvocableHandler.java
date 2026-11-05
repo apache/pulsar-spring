@@ -49,8 +49,6 @@ import org.springframework.validation.Validator;
  * Matches a single, non-annotated parameter or one that is annotated with
  * {@link org.springframework.messaging.handler.annotation.Payload}. Matches must be
  * unambiguous.
- *
- * @author Soby Chacko
  */
 public class DelegatingInvocableHandler {
 

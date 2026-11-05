@@ -30,9 +30,6 @@ import org.apache.pulsar.common.schema.SchemaType;
  * When a message class is marked with this annotation, the topic/schema resolution
  * process will use the specified information to determine a topic/schema to use for the
  * message in process.
- *
- * @author Aleksei Arsenev
- * @author Chris Bono
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

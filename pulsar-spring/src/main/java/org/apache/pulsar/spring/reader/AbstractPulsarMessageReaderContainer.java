@@ -30,7 +30,6 @@ import org.springframework.util.Assert;
  * Core implementation for {@link PulsarMessageReaderContainer}.
  *
  * @param <T> reader data type.
- * @author Soby Chacko
  */
 public non-sealed abstract class AbstractPulsarMessageReaderContainer<T> extends AbstractPulsarMessageContainer
 		implements PulsarMessageReaderContainer {

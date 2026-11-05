@@ -24,9 +24,6 @@ import org.jspecify.annotations.Nullable;
 
 /**
  * A registry for containers.
- *
- * @author Christophe Bornet
- * @author Soby Chacko
  */
 public interface PulsarListenerContainerRegistry {
 

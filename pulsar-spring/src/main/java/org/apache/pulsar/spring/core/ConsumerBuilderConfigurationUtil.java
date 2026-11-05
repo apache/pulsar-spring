@@ -33,8 +33,6 @@ import org.apache.pulsar.client.impl.conf.ConsumerConfigurationData;
  * {@link ConsumerBuilder#loadConf} sets {@code @JsonIgnore} fields to null.
  * <p>
  * Should be removed once the above issue is fixed.
- *
- * @author Chris Bono
  */
 public final class ConsumerBuilderConfigurationUtil {
 

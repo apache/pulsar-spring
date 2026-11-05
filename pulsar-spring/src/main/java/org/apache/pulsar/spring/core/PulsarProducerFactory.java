@@ -30,11 +30,6 @@ import org.jspecify.annotations.Nullable;
  * The strategy to create a {@link Producer} instance(s).
  *
  * @param <T> producer payload type
- * @author Soby Chacko
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Christophe Bornet
- * @author Jonas Geiregat
  */
 public interface PulsarProducerFactory<T> {
 

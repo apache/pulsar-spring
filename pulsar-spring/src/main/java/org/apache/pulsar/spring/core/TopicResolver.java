@@ -22,8 +22,6 @@ import org.jspecify.annotations.Nullable;
 
 /**
  * Resolves topics to use when producing or consuming.
- *
- * @author Chris Bono
  */
 public interface TopicResolver {
 

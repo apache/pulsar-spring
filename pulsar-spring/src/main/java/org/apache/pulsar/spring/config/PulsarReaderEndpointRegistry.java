@@ -30,8 +30,6 @@ import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
  * registry's listener containers for management purposes. If you need to access to a
  * specific message listener container, use {@link #getReaderContainer(String)} with the
  * id of the endpoint.
- *
- * @author Soby Chacko
  */
 public class PulsarReaderEndpointRegistry extends
 		GenericReaderEndpointRegistry<PulsarMessageReaderContainer, PulsarReaderEndpoint<PulsarMessageReaderContainer>> {

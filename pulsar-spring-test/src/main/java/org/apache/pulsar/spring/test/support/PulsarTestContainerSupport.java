@@ -23,9 +23,6 @@ import org.testcontainers.utility.DockerImageName;
 
 /**
  * Provides a static {@link PulsarContainer} that can be shared across test classes.
- *
- * @author Chris Bono
- * @author Kartik Shrivastava
  */
 @Testcontainers(disabledWithoutDocker = true)
 public interface PulsarTestContainerSupport {

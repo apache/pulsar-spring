@@ -29,7 +29,6 @@ import org.apache.pulsar.spring.config.PulsarReaderEndpointRegistrar;
  * <em>programmatic</em> fashion as opposed to the <em>declarative</em> approach of using
  * the {@link PulsarListener} annotation.
  *
- * @author Soby Chacko
  * @see PulsarReaderEndpointRegistrar
  */
 public interface PulsarReaderConfigurer {

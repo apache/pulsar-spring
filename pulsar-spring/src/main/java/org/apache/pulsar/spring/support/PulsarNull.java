@@ -19,7 +19,6 @@ package org.apache.pulsar.spring.support;
 /**
  * Represents a null record value.
  *
- * @author Chris Bono
  * @since 1.0.1
  */
 public final class PulsarNull {

@@ -46,8 +46,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * <p>
  * Allows user to constrain which classes are {@code "trusted"} for deserialization as
  * well as configure a list of classes to serialize with a simple {@code "toString"}.
- *
- * @author Chris Bono
  */
 public class JsonPulsarHeaderMapper extends AbstractPulsarHeaderMapper<ToPulsarHeadersContext, ToSpringHeadersContext> {
 

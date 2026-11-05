@@ -65,9 +65,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Unit tests for {@link DefaultSchemaResolver}.
- *
- * @author Chris Bono
- * @author Aleksei Arsenev
  */
 class DefaultSchemaResolverTests {
 

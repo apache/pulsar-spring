@@ -30,8 +30,6 @@ import org.springframework.util.Assert;
 /**
  * Helper bean for registering {@link PulsarReaderEndpoint} with a
  * {@link GenericReaderEndpointRegistry}.
- *
- * @author Soby Chacko
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class PulsarReaderEndpointRegistrar implements BeanFactoryAware, InitializingBean {

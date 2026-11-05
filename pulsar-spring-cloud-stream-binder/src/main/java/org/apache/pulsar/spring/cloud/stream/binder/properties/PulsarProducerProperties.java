@@ -21,9 +21,6 @@ import org.jspecify.annotations.Nullable;
 
 /**
  * Pulsar producer properties used by the binder.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 public class PulsarProducerProperties extends ProducerConfigProperties {
 

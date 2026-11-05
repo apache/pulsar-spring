@@ -24,8 +24,6 @@ import org.springframework.context.SmartLifecycle;
 /**
  * Internal abstraction used by the framework representing a message listener container.
  * Not meant to be implemented externally.
- *
- * @author Soby Chacko
  */
 public sealed interface PulsarMessageReaderContainer extends SmartLifecycle, DisposableBean
 		permits AbstractPulsarMessageReaderContainer {

@@ -30,7 +30,6 @@ import org.springframework.core.log.LogAccessor;
  * by publishing the failed record to a DLT - Dead Letter Topic.
  *
  * @param <T> payload type of the Pulsar message
- * @author Soby Chacko
  */
 public class PulsarDeadLetterPublishingRecoverer<T> implements PulsarMessageRecovererFactory<T> {
 

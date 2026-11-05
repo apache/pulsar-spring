@@ -26,9 +26,6 @@ import org.springframework.mock.env.MockEnvironment;
 
 /**
  * Tests for {@link DefaultPulsarClientFactory}.
- *
- * @author Chris Bono
- * @author Jonas Geiregat
  */
 class DefaultPulsarClientFactoryTests {
 

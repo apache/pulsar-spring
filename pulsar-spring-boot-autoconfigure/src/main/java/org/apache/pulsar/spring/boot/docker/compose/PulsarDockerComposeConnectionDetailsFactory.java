@@ -33,8 +33,6 @@ import org.springframework.boot.docker.compose.service.connection.DockerComposeC
 /**
  * {@link DockerComposeConnectionDetailsFactory} to create {@link PulsarConnectionDetails}
  * for a {@code pulsar} service.
- *
- * @author Chris Bono
  */
 class PulsarDockerComposeConnectionDetailsFactory
 		extends DockerComposeConnectionDetailsFactory<PulsarConnectionDetails> {

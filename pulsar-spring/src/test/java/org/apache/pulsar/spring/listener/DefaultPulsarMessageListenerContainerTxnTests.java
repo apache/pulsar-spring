@@ -63,8 +63,6 @@ import org.testcontainers.pulsar.PulsarContainer;
 
 /**
  * Tests for the transaction support in {@link DefaultPulsarMessageListenerContainer}.
- *
- * @author Chris Bono
  */
 @Testcontainers(disabledWithoutDocker = true)
 class DefaultPulsarMessageListenerContainerTxnTests {

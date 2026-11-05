@@ -35,9 +35,6 @@ import org.springframework.cloud.stream.binder.ExtendedProducerProperties;
 import org.springframework.cloud.stream.provisioning.ConsumerDestination;
 import org.springframework.cloud.stream.provisioning.ProducerDestination;
 
-/**
- * @author Soby Chacko
- */
 class PulsarTopicProvisionerTests {
 
 	@Test

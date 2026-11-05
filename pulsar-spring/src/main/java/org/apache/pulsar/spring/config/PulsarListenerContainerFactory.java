@@ -20,9 +20,6 @@ import org.apache.pulsar.spring.listener.PulsarMessageListenerContainer;
 
 /**
  * Factory for Pulsar message listener containers.
- *
- * @author Soby Chacko
- * @author Christophe Bornet
  */
 public interface PulsarListenerContainerFactory
 		extends ListenerContainerFactory<PulsarMessageListenerContainer, PulsarListenerEndpoint> {

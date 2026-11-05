@@ -25,8 +25,6 @@ import org.springframework.util.Assert;
 /**
  * A wrapper for either an {@link InvocableHandlerMethod} or
  * {@link DelegatingInvocableHandler}. All methods delegate to the underlying handler.
- *
- * @author Soby Chacko
  */
 public class HandlerAdapter {
 

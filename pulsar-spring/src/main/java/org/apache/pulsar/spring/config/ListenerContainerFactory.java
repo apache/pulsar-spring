@@ -23,9 +23,6 @@ import org.apache.pulsar.spring.listener.MessageListenerContainer;
  *
  * @param <C> message listener container type.
  * @param <E> listener endpoint type.
- * @author Soby Chacko
- * @author Christophe Bornet
- * @author Chris Bono
  */
 public interface ListenerContainerFactory<C extends MessageListenerContainer, E extends ListenerEndpoint<C>>
 		extends PulsarContainerFactory<C, E> {

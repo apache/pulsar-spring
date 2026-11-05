@@ -20,8 +20,6 @@ import org.apache.pulsar.client.api.Schema;
 
 /**
  * Specification for defining the schema to use for the {@link PulsarConsumerTestUtil}.
- *
- * @author Jonas Geiregat
  */
 public interface SchemaSpec<T> {
 

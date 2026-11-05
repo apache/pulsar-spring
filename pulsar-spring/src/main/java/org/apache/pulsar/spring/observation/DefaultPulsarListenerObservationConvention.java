@@ -20,8 +20,6 @@ import io.micrometer.common.KeyValues;
 
 /**
  * Default {@link PulsarListenerObservationConvention} for Pulsar listener key values.
- *
- * @author Chris Bono
  */
 public class DefaultPulsarListenerObservationConvention implements PulsarListenerObservationConvention {
 

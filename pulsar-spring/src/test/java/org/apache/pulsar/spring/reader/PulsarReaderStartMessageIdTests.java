@@ -38,10 +38,6 @@ import org.springframework.test.context.ContextConfiguration;
 
 /**
  * Tests for {@link PulsarReader}.
- *
- * @author Soby Chacko
- * @author Chris Bono
- * @author Jonas Geiregat
  */
 public class PulsarReaderStartMessageIdTests extends PulsarReaderTestsBase {
 

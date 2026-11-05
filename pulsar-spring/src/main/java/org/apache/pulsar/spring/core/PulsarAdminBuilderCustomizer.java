@@ -20,8 +20,6 @@ import org.apache.pulsar.client.admin.PulsarAdminBuilder;
 
 /**
  * The interface to customize a {@link PulsarAdminBuilder}.
- *
- * @author Chris Bono
  */
 @FunctionalInterface
 public interface PulsarAdminBuilderCustomizer {

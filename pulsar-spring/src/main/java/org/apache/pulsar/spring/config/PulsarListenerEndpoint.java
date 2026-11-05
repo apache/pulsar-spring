@@ -26,10 +26,6 @@ import org.jspecify.annotations.Nullable;
  * Model for a Pulsar listener endpoint. Can be used against a
  * {@link org.apache.pulsar.spring.annotation.PulsarListenerConfigurer} to register
  * endpoints programmatically.
- *
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Vedran Pavic
  */
 public interface PulsarListenerEndpoint extends ListenerEndpoint<PulsarMessageListenerContainer> {
 

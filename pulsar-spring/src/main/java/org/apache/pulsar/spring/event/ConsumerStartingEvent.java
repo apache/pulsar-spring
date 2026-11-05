@@ -18,8 +18,6 @@ package org.apache.pulsar.spring.event;
 
 /**
  * Event to publish while the consumer is starting.
- *
- * @author Soby Chacko
  */
 public class ConsumerStartingEvent extends PulsarEvent {
 

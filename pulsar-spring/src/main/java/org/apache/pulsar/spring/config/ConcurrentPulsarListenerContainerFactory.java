@@ -33,11 +33,6 @@ import org.springframework.util.StringUtils;
  * Concrete implementation for {@link PulsarListenerContainerFactory}.
  *
  * @param <T> message type in the listener.
- * @author Soby Chacko
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Vedran Pavic
- * @author Daniel Szabo
  */
 public class ConcurrentPulsarListenerContainerFactory<T>
 		extends AbstractPulsarListenerContainerFactory<ConcurrentPulsarMessageListenerContainer<T>, T> {

@@ -90,7 +90,6 @@ task aggregatedJavadoc(type: Javadoc) {
 		destinationDir = layout.buildDirectory.dir("api").get().asFile
 		options {
 			encoding = "UTF-8"
-			author = true
 			docTitle = "Apache Pulsar support for Spring ${project.version} API"
 			windowTitle = "Apache Pulsar support for Spring ${project.version} API"
 			overview = rootProject.file('src/api/overview.html').path

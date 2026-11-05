@@ -26,9 +26,6 @@ import org.gradle.api.plugins.JavaPlatformPlugin
 import org.apache.pulsar.spring.gradle.publish.PublishAllJavaComponentsPlugin
 import org.apache.pulsar.spring.gradle.publish.SpringMavenPlugin
 
-/**
- * @author Chris Bono
- */
 public class MavenBomPlugin implements Plugin<Project> {
 
 	public void apply(Project project) {

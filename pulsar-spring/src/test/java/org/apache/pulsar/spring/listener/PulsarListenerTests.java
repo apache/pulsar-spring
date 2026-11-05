@@ -87,11 +87,6 @@ import org.springframework.util.backoff.FixedBackOff;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
-/**
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Chris Bono
- */
 class PulsarListenerTests extends PulsarListenerTestsBase {
 
 	@Nested

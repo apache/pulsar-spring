@@ -38,8 +38,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 /**
  * Tests for {@link JsonPulsarHeaderMapper}.
- *
- * @author Chris Bono
  */
 class JsonPulsarHeaderMapperTests extends AbstractPulsarHeaderMapperTests {
 

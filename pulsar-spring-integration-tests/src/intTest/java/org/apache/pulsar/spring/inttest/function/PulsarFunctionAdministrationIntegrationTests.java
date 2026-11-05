@@ -75,8 +75,6 @@ import org.springframework.core.log.LogAccessor;
  * Integration tests for {@link PulsarFunctionAdministration}.
  * <p>
  * Sets up a Rabbit container and a Rabbit source and verifies end-end functionality.
- *
- * @author Chris Bono
  */
 @Testcontainers(disabledWithoutDocker = true)
 @EnabledIf("rabbitConnectorExists")

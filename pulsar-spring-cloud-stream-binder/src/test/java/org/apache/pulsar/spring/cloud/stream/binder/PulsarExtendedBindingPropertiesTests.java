@@ -39,8 +39,6 @@ import org.springframework.boot.context.properties.source.MapConfigurationProper
 
 /**
  * Tests for {@link PulsarExtendedBindingProperties}.
- *
- * @author Chris Bono
  */
 class PulsarExtendedBindingPropertiesTests {
 

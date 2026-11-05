@@ -30,8 +30,6 @@ import org.springframework.messaging.MessageHeaders;
 
 /**
  * Tests for {@link ToStringPulsarHeaderMapper}.
- *
- * @author Chris Bono
  */
 class ToStringPulsarHeaderMapperTests extends AbstractPulsarHeaderMapperTests {
 

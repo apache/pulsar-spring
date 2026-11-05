@@ -44,8 +44,6 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 /**
  * Provides base support for tests that use Pulsar transactions mixed with DB
  * transactions.
- *
- * @author Chris Bono
  */
 @SpringJUnitConfig
 @DirtiesContext

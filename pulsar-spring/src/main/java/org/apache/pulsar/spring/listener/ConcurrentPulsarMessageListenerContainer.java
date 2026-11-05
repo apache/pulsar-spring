@@ -37,9 +37,6 @@ import io.micrometer.observation.ObservationRegistry;
  * allowed for exclusive subscriptions.
  *
  * @param <T> the payload type.
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Chris Bono
  */
 public class ConcurrentPulsarMessageListenerContainer<T> extends AbstractPulsarMessageListenerContainer<T> {
 

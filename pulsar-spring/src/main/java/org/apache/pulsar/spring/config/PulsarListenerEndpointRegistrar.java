@@ -30,9 +30,6 @@ import org.springframework.util.Assert;
 /**
  * Helper bean for registering {@link ListenerEndpoint} with a
  * {@link GenericListenerEndpointRegistry}.
- *
- * @author Soby Chacko
- * @author Christophe Bornet
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class PulsarListenerEndpointRegistrar implements BeanFactoryAware, InitializingBean {

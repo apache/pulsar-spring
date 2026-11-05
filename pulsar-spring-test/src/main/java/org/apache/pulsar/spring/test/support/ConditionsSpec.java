@@ -25,7 +25,6 @@ import org.apache.pulsar.client.api.Message;
  * Conditions related step in the fluent API for building a Pulsar test consumer.
  *
  * @param <T> the type of the message payload
- * @author Jonas Geiregat
  */
 public interface ConditionsSpec<T> {
 

@@ -28,9 +28,6 @@ import org.springframework.cloud.stream.binder.BinderSpecificPropertiesProvider;
  * <p>
  * These properties are applied to individual bindings and will override any binder-level
  * settings.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 @ConfigurationProperties("spring.cloud.stream.pulsar")
 public class PulsarExtendedBindingProperties extends

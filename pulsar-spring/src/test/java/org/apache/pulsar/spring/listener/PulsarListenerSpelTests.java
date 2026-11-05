@@ -62,8 +62,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * Tests {@code SpEL} functionality in {@link PulsarListener @PulsarListener} attributes.
- *
- * @author Chris Bono
  */
 class PulsarListenerSpelTests extends PulsarListenerTestsBase {
 

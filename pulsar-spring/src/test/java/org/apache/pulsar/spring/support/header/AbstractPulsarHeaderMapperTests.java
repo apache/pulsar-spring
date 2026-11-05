@@ -41,8 +41,6 @@ import org.springframework.messaging.MessageHeaders;
 
 /**
  * Tests for {@link AbstractPulsarHeaderMapper}.
- *
- * @author Chris Bono
  */
 abstract class AbstractPulsarHeaderMapperTests {
 

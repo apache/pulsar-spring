@@ -18,9 +18,6 @@ package org.apache.pulsar.spring.config;
 
 /**
  * Constants for bean names that need to be accessed in multiple places by name.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 public abstract class PulsarAnnotationSupportBeanNames {
 

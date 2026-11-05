@@ -31,8 +31,6 @@ import org.springframework.util.Assert;
 
 /**
  * Base class for the various container implementations.
- *
- * @author Soby Chacko
  */
 public abstract class AbstractPulsarMessageContainer implements ApplicationEventPublisherAware, BeanNameAware,
 		ApplicationContextAware, SmartLifecycle, DisposableBean {

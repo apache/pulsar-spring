@@ -38,8 +38,6 @@ import org.springframework.messaging.MessageChannel;
 
 /**
  * Tests for {@link ExtendedBindingHandlerMappingsProviderConfiguration}.
- *
- * @author Soby Chacko
  */
 class PulsarExtendedBindingDefaultPropertiesTests implements PulsarTestContainerSupport {
 

@@ -94,11 +94,6 @@ import org.springframework.util.Assert;
 /**
  * {@link EnableAutoConfiguration Auto-configuration} for Apache Pulsar.
  *
- * @author Chris Bono
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Phillip Webb
- * @author Jonas Geiregat
  * @since 4.0.0
  */
 @AutoConfiguration

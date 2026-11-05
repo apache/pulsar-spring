@@ -27,7 +27,6 @@ import org.springframework.util.CollectionUtils;
  * Concrete implementation for {@link PulsarReaderContainerFactory}.
  *
  * @param <T> message type in the listener.
- * @author Soby Chacko
  */
 public class DefaultPulsarReaderContainerFactory<T>
 		extends AbstractPulsarReaderContainerFactory<DefaultPulsarMessageReaderContainer<T>, T> {

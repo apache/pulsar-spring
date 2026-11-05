@@ -25,9 +25,6 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
  * {@link ConfigurationProperties @ConfigurationProperties} for the Pulsar binder.
  * <p>
  * These properties are applied at the binder level (to all bindings).
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 @ConfigurationProperties(prefix = "spring.cloud.stream.pulsar.binder")
 public class PulsarBinderConfigurationProperties {

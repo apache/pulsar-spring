@@ -35,8 +35,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Tests for {@link ConsumedMessagesConditions}.
- *
- * @author Jonas Geiregat
  */
 class ConsumedMessagesConditionsTests {
 

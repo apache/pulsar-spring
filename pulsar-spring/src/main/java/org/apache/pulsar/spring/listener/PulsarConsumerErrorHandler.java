@@ -29,7 +29,6 @@ import org.jspecify.annotations.Nullable;
  * container will funnel all errors through it for handling.
  *
  * @param <T> payload type managed by the consumer
- * @author Soby Chacko
  */
 public interface PulsarConsumerErrorHandler<T> {
 

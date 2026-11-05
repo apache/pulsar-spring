@@ -18,8 +18,6 @@ package org.apache.pulsar.spring.event;
 
 /**
  * Event to publish when the reader is failed to start.
- *
- * @author Soby Chacko
  */
 public class ReaderFailedToStartEvent extends PulsarEvent {
 

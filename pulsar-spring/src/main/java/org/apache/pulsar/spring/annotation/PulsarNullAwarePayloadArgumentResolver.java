@@ -31,7 +31,6 @@ import org.springframework.messaging.support.GenericMessage;
  * A {@link PayloadMethodArgumentResolver} that can properly decode {@link PulsarNull}
  * payloads into null.
  *
- * @author Chris Bono
  * @since 1.0.1
  */
 public class PulsarNullAwarePayloadArgumentResolver extends PayloadMethodArgumentResolver {

@@ -22,8 +22,6 @@ import org.springframework.expression.Expression;
 
 /**
  * The result of a method invocation.
- *
- * @author Soby Chacko
  */
 public final class InvocationResult {
 

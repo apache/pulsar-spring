@@ -24,8 +24,6 @@ import org.jspecify.annotations.Nullable;
 
 /**
  * A {@link PulsarHeaderMapper} that converts header values using simple 'toString'.
- *
- * @author Chris Bono
  */
 public class ToStringPulsarHeaderMapper extends AbstractPulsarHeaderMapper<Object, Object> {
 

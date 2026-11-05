@@ -28,8 +28,6 @@ import org.gradle.api.tasks.SourceSetContainer;
  * {@code optional} configuration. The {@code optional} configuration is part of the
  * project's compile and runtime classpaths but does not affect the classpath of dependent
  * projects.
- *
- * @author Andy Wilkinson
  */
 public class OptionalDependenciesPlugin implements Plugin<Project> {
 

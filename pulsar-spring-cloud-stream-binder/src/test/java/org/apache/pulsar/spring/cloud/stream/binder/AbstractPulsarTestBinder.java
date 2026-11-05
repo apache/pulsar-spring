@@ -26,8 +26,6 @@ import org.springframework.context.ApplicationContext;
 
 /**
  * Base class for {@link PulsarTestBinder}.
- *
- * @author Soby Chacko
  */
 public abstract class AbstractPulsarTestBinder extends
 		AbstractPollableConsumerTestBinder<PulsarMessageChannelBinder, ExtendedConsumerProperties<PulsarConsumerProperties>, ExtendedProducerProperties<PulsarProducerProperties>> {

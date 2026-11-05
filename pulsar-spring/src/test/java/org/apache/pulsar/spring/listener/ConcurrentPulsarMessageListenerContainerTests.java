@@ -48,11 +48,6 @@ import org.springframework.util.backoff.BackOff;
 
 import io.micrometer.observation.ObservationRegistry;
 
-/**
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Chris Bono
- */
 public class ConcurrentPulsarMessageListenerContainerTests {
 
 	@Test

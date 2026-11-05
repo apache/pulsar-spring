@@ -30,7 +30,6 @@ import org.jspecify.annotations.Nullable;
  * endpoints programmatically.
  *
  * @param <C> reader listener container type.
- * @author Soby Chacko
  */
 public interface PulsarReaderEndpoint<C extends PulsarMessageReaderContainer> {
 

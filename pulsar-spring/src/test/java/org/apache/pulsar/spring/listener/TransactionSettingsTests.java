@@ -28,8 +28,6 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 /**
  * Unit tests for {@link TransactionSettings}.
- *
- * @author Chris Bono
  */
 class TransactionSettingsTests {
 

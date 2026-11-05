@@ -40,8 +40,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  *
  * @param <C> the customizer type
  * @param <T> the target class that is customized
- * @author Phillip Webb
- * @author Chris Bono
  */
 final class Customizers<C, T> {
 

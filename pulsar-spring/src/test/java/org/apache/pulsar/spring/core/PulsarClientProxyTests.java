@@ -33,8 +33,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * Tests for {@link PulsarClientProxy}.
- *
- * @author Chris Bono
  */
 class PulsarClientProxyTests implements PulsarTestContainerSupport {
 

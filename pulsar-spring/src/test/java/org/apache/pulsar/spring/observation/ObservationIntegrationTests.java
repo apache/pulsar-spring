@@ -60,7 +60,6 @@ import io.micrometer.tracing.test.simple.SpansAssert;
  * {@link PulsarListenerObservation receive} observations in Apache Pulsar support for
  * Spring against all supported Tracing runtimes.
  *
- * @author Chris Bono
  * @see SampleTestRunner
  */
 public class ObservationIntegrationTests extends SampleTestRunner implements PulsarTestContainerSupport {

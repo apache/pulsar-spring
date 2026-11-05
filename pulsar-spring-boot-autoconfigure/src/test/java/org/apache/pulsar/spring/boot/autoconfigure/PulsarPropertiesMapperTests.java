@@ -61,11 +61,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link PulsarPropertiesMapper}.
- *
- * @author Chris Bono
- * @author Phillip Webb
- * @author Swamy Mavuri
- * @author Vedran Pavic
  */
 class PulsarPropertiesMapperTests {
 

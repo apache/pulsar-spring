@@ -28,8 +28,6 @@ import org.springframework.transaction.support.TransactionSynchronization;
 
 /**
  * Tests for {@link PulsarResourceSynchronization}.
- *
- * @author Chris Bono
  */
 class PulsarResourceSynchronizationTests {
 

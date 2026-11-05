@@ -24,9 +24,6 @@ import org.springframework.core.NestedRuntimeException;
 /**
  * {@link NestedRuntimeException} implementation specific to Apache Pulsar support for
  * Spring.
- *
- * @author Soby Chacko
- * @author Jonas Geiregat
  */
 public class PulsarException extends NestedRuntimeException {
 

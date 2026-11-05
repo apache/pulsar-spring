@@ -53,8 +53,6 @@ import org.testcontainers.pulsar.PulsarContainer;
 /**
  * Tests for {@link PulsarTemplate#executeInTransaction local transactions} in
  * {@code PulsarTemplate}.
- *
- * @author Chris Bono
  */
 @Testcontainers(disabledWithoutDocker = true)
 class PulsarTemplateLocalTransactionTests {

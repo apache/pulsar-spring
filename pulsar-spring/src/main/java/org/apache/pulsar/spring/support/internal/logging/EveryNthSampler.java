@@ -35,7 +35,6 @@ import org.springframework.util.Assert;
  * capacity.
  *
  * @param <T> type of input (e.g. String)
- * @author Chris Bono
  * @since 1.2.0
  */
 class EveryNthSampler<T> {

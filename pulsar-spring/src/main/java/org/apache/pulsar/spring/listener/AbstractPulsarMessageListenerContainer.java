@@ -31,8 +31,6 @@ import org.springframework.util.Assert;
  * Base implementation for the {@link PulsarMessageListenerContainer}.
  *
  * @param <T> message type.
- * @author Soby Chacko
- * @author Alexander Preuß
  */
 public non-sealed abstract class AbstractPulsarMessageListenerContainer<T> extends AbstractPulsarMessageContainer
 		implements PulsarMessageListenerContainer {

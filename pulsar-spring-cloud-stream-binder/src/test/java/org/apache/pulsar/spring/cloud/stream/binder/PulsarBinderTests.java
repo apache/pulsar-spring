@@ -65,8 +65,6 @@ import org.springframework.util.MimeTypeUtils;
 
 /**
  * Tests for {@link PulsarMessageChannelBinder}.
- *
- * @author Soby Chacko
  */
 class PulsarBinderTests extends
 		PartitionCapableBinderTests<AbstractPulsarTestBinder, ExtendedConsumerProperties<PulsarConsumerProperties>, ExtendedProducerProperties<PulsarProducerProperties>>

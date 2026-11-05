@@ -59,9 +59,6 @@ import org.springframework.messaging.support.MessageBuilder;
 
 /**
  * {@link Binder} implementation for Apache Pulsar.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 public class PulsarMessageChannelBinder extends
 		AbstractMessageChannelBinder<ExtendedConsumerProperties<PulsarConsumerProperties>, ExtendedProducerProperties<PulsarProducerProperties>, PulsarTopicProvisioner>

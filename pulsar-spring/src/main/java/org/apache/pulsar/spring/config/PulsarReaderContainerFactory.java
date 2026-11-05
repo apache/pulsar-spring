@@ -20,8 +20,6 @@ import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
 
 /**
  * Container factory for {@link PulsarMessageReaderContainer}.
- *
- * @author Soby Chacko
  */
 public interface PulsarReaderContainerFactory extends
 		ReaderContainerFactory<PulsarMessageReaderContainer, PulsarReaderEndpoint<PulsarMessageReaderContainer>> {

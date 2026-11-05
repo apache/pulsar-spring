@@ -32,9 +32,6 @@ import org.springframework.cloud.stream.binder.BinderSpecificPropertiesProvider;
  * default is not included in the generated configuration metadata. To get around this
  * limitation it is annotated with {@code @ConfigurationProperties}. However, that is the
  * only reason it is annotated and is not intended to be used directly.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 @SuppressWarnings("ConfigurationProperties")
 @ConfigurationProperties("spring.cloud.stream.pulsar.bindings.for-docs-only")

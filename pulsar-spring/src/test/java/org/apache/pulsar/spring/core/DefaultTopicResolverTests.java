@@ -48,10 +48,6 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 /**
  * Unit tests for {@link DefaultTopicResolver}.
- *
- * @author Chris Bono
- * @author Aleksei Arsenev
- * @author Jonas Geiregat
  */
 class DefaultTopicResolverTests {
 

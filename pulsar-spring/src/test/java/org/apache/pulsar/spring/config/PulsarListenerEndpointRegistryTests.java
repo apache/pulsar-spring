@@ -27,8 +27,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for {@link PulsarListenerEndpointRegistry}.
- *
- * @author Hyun Lee
  */
 class PulsarListenerEndpointRegistryTests {
 

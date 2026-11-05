@@ -37,7 +37,6 @@ import org.springframework.util.CollectionUtils;
  * Default implementation of {@link PulsarReaderFactory}.
  *
  * @param <T> message type
- * @author Soby Chacko
  */
 public class DefaultPulsarReaderFactory<T> implements PulsarReaderFactory<T> {
 

@@ -25,8 +25,6 @@ import org.apache.pulsar.client.api.MessageId;
  *
  * When manual acknowledgment is used, applications can inject an Acknowledgment object in
  * the listener and then invoke manual acknowledgment.
- *
- * @author Soby Chacko
  */
 public interface Acknowledgement {
 

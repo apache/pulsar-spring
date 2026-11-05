@@ -22,8 +22,6 @@ import io.micrometer.observation.transport.ReceiverContext;
 
 /**
  * {@link ReceiverContext} for Pulsar messages.
- *
- * @author Chris Bono
  */
 public class PulsarMessageReceiverContext extends ReceiverContext<Message<?>> {
 

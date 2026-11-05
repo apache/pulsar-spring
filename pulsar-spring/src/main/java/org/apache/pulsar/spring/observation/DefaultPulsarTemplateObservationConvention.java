@@ -20,8 +20,6 @@ import io.micrometer.common.KeyValues;
 
 /**
  * Default {@link PulsarTemplateObservationConvention} for Pulsar template key values.
- *
- * @author Chris Bono
  */
 public class DefaultPulsarTemplateObservationConvention implements PulsarTemplateObservationConvention {
 

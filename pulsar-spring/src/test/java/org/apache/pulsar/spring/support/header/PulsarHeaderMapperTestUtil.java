@@ -33,8 +33,6 @@ import org.springframework.messaging.MessageHeaders;
 
 /**
  * Utilities for testing header mapper related functionality.
- *
- * @author Chris Bono
  */
 final class PulsarHeaderMapperTestUtil {
 

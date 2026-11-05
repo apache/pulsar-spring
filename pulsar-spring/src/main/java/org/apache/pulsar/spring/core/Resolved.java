@@ -28,9 +28,6 @@ import org.jspecify.annotations.Nullable;
  * A resolved value or an exception if it could not be resolved.
  *
  * @param <T> the resolved type
- * @author Christophe Bornet
- * @author Chris Bono
- * @author Jonas Geiregat
  */
 public final class Resolved<T> {
 

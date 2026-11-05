@@ -90,10 +90,6 @@ import io.micrometer.observation.Observation;
  * Default implementation for {@link PulsarMessageListenerContainer}.
  *
  * @param <T> message type.
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Chris Bono
- * @author Christophe Bornet
  */
 public class DefaultPulsarMessageListenerContainer<T> extends AbstractPulsarMessageListenerContainer<T> {
 

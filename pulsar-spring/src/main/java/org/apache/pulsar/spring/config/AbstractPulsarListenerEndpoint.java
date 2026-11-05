@@ -46,8 +46,6 @@ import org.springframework.util.StringUtils;
  * Base implementation for {@link PulsarListenerEndpoint}.
  *
  * @param <K> Message payload type.
- * @author Soby Chacko
- * @author Alexander Preuß
  */
 public abstract class AbstractPulsarListenerEndpoint<K>
 		implements PulsarListenerEndpoint, BeanFactoryAware, InitializingBean {

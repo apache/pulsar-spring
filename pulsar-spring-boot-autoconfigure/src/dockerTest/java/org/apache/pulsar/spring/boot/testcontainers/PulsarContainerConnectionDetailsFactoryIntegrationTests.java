@@ -49,8 +49,6 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 /**
  * Tests for {@link PulsarContainerConnectionDetailsFactory}.
- *
- * @author Chris Bono
  */
 @SpringJUnitConfig
 @Testcontainers(disabledWithoutDocker = true)

@@ -20,8 +20,6 @@ import org.springframework.core.NestedRuntimeException;
 
 /**
  * Generic exception thrown when something related to testing fails.
- *
- * @author Jonas Geiregat
  */
 public class PulsarTestException extends NestedRuntimeException {
 

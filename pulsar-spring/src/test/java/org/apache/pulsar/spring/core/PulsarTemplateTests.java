@@ -69,12 +69,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Tests for {@link PulsarTemplate}.
- *
- * @author Soby Chacko
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Christophe Bornet
- * @author Jonas Geiregat
  */
 class PulsarTemplateTests implements PulsarTestContainerSupport {
 

@@ -49,10 +49,6 @@ import org.mockito.InOrder;
 /**
  * Common tests for {@link DefaultPulsarProducerFactory} and
  * {@link CachingPulsarProducerFactory}.
- *
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Christophe Bornet
  */
 abstract class PulsarProducerFactoryTests implements PulsarTestContainerSupport {
 

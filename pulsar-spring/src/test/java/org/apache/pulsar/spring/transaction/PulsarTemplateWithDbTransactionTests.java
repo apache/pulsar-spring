@@ -37,8 +37,6 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 /**
  * Tests transaction support of {@link PulsarTemplate} when mixed with database
  * transactions.
- *
- * @author Chris Bono
  */
 class PulsarTemplateWithDbTransactionTests extends PulsarTxnWithDbTxnTestsBase {
 

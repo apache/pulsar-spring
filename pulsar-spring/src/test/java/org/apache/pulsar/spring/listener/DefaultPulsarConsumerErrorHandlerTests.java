@@ -50,11 +50,6 @@ import org.mockito.stubbing.Answer;
 import org.springframework.core.log.LogAccessor;
 import org.springframework.util.backoff.FixedBackOff;
 
-/**
- * @author Soby Chacko
- * @author Sauhard Sharma
- * @@author Chris Bono
- */
 class DefaultPulsarConsumerErrorHandlerTests implements PulsarTestContainerSupport {
 
 	private final LogAccessor logger = new LogAccessor(this.getClass());

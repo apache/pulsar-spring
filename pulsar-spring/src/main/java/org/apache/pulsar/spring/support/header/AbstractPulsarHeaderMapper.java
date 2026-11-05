@@ -46,7 +46,6 @@ import org.springframework.messaging.MessageHeaders;
  * {@link #toPulsarHeaders} API
  * @param <ToSpringHeadersContextType> type of context object used in the
  * {@link #toSpringHeaders} API
- * @author Chris Bono
  */
 public abstract class AbstractPulsarHeaderMapper<ToPulsarHeadersContextType, ToSpringHeadersContextType>
 		implements PulsarHeaderMapper {

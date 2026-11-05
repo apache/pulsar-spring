@@ -27,9 +27,6 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 
 /**
  * The utilities for Jackson {@link ObjectMapper} instances.
- *
- * @author Artem Bilan
- * @author Chris Bono
  */
 public final class JacksonUtils {
 

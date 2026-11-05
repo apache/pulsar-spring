@@ -23,7 +23,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 /**
  * A transaction manager that can provide a {@link PulsarClient}.
  *
- * @author Chris Bono
  * @since 1.1.0
  */
 public interface PulsarAwareTransactionManager extends PlatformTransactionManager {

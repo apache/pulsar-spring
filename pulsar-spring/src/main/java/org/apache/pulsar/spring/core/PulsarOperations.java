@@ -29,9 +29,6 @@ import org.jspecify.annotations.Nullable;
  * The basic Pulsar operations contract.
  *
  * @param <T> the message payload type
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Jonas Geiregat
  */
 public interface PulsarOperations<T> {
 

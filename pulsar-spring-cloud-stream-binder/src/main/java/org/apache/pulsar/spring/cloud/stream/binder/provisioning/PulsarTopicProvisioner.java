@@ -32,9 +32,6 @@ import org.springframework.cloud.stream.provisioning.ProvisioningProvider;
 
 /**
  * Pulsar topic provisioner.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 public class PulsarTopicProvisioner implements
 		ProvisioningProvider<ExtendedConsumerProperties<PulsarConsumerProperties>, ExtendedProducerProperties<PulsarProducerProperties>> {

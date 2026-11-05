@@ -51,11 +51,6 @@ import org.apache.pulsar.spring.gradle.ProjectLinks;
  * resolved versions.
  * </ul>
  * </ul>
- *
- * @author Andy Wilkinson
- * @author Christoph Dreis
- * @author Mike Smithson
- * @author Chris Bono
  */
 public class MavenPublishingConventionsPlugin implements Plugin<Project> {
 

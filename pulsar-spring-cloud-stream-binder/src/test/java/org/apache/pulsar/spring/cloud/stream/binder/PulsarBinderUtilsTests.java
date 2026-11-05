@@ -41,9 +41,6 @@ import org.springframework.cloud.stream.provisioning.ConsumerDestination;
 
 /**
  * Unit tests for {@link PulsarBinderUtils}.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 class PulsarBinderUtilsTests {
 

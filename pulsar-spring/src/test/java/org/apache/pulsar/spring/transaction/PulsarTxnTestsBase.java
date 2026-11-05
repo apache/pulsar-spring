@@ -55,8 +55,6 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 /**
  * Provides base support for tests that use Pulsar transactions.
- *
- * @author Chris Bono
  */
 @SpringJUnitConfig
 @DirtiesContext

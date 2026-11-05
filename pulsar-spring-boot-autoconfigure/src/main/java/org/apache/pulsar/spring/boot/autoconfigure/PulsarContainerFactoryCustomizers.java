@@ -36,8 +36,6 @@ import org.springframework.boot.util.LambdaSafe;
 /**
  * Invokes the available {@link PulsarContainerFactoryCustomizer} instances in the context
  * for a given {@link PulsarConsumerFactory}.
- *
- * @author Chris Bono
  */
 class PulsarContainerFactoryCustomizers {
 

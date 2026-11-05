@@ -21,7 +21,6 @@ package org.apache.pulsar.spring.config;
  *
  * @param <C> message container
  * @param <E> message listener endpoint
- * @author Chris Bono
  * @since 1.2.0
  */
 public interface PulsarContainerFactory<C, E> {

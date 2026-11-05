@@ -25,7 +25,6 @@ import org.apache.pulsar.client.api.Message;
  * Batch message listener that allows manual acknowledgment.
  *
  * @param <T> payload type.
- * @author Soby Chacko
  */
 public interface PulsarBatchAcknowledgingMessageListener<T> extends PulsarBatchMessageListener<T> {
 

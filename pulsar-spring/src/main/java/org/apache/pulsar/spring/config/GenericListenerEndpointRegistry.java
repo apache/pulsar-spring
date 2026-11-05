@@ -57,10 +57,6 @@ import org.springframework.util.Assert;
  *
  * @param <C> listener container type.
  * @param <E> listener endpoint type.
- * @author Soby Chacko
- * @author Christophe Bornet
- * @author Chris Bono
- * @author Hyun Lee
  */
 public class GenericListenerEndpointRegistry<C extends MessageListenerContainer, E extends ListenerEndpoint<C>>
 		implements PulsarListenerContainerRegistry, DisposableBean, SmartLifecycle, ApplicationContextAware,

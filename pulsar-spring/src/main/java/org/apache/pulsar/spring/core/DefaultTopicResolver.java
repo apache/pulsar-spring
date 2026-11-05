@@ -41,10 +41,6 @@ import org.springframework.util.StringUtils;
  * <p>
  * Message type to topic mappings can be configured with
  * {@link #addCustomTopicMapping(Class, String)}.
- *
- * @author Chris Bono
- * @author Aleksei Arsenev
- * @author Jonas Geiregat
  */
 public class DefaultTopicResolver implements TopicResolver, BeanFactoryAware, BeanClassLoaderAware {
 

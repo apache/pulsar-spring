@@ -24,8 +24,6 @@ import org.testcontainers.utility.MountableFile;
 
 /**
  * A {@link PulsarContainer} with TLS (SSL) configuration.
- *
- * @author Chris Bono
  */
 final class PulsarContainerWithSsl extends PulsarContainer {
 

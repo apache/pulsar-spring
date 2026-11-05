@@ -43,10 +43,6 @@ import org.mockito.Mockito;
 
 /**
  * Tests for {@link PulsarConsumerTestUtil}.
- *
- * @author Jonas Geiregat
- * @author Kartik Shrivastava
- * @author Chris Bono
  */
 class PulsarConsumerTestUtilTests implements PulsarTestContainerSupport {
 

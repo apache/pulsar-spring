@@ -28,8 +28,6 @@ import org.apache.pulsar.spring.config.PulsarListenerEndpointRegistry;
  * <em>programmatic</em> fashion as opposed to the <em>declarative</em> approach of using
  * the {@link PulsarListener} annotation.
  *
- * @author Soby Chacko
- * @author Chris Bono
  * @see PulsarListenerEndpointRegistrar
  */
 public interface PulsarListenerConfigurer {

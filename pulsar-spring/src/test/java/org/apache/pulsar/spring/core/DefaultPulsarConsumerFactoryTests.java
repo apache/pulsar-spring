@@ -50,8 +50,6 @@ import org.springframework.core.log.LogAccessor;
 
 /**
  * Tests for {@link DefaultPulsarConsumerFactory}.
- *
- * @author Chris Bono
  */
 class DefaultPulsarConsumerFactoryTests implements PulsarTestContainerSupport {
 

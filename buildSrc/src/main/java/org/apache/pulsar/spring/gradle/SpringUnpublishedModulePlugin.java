@@ -37,9 +37,6 @@ package org.apache.pulsar.spring.gradle;
 
 import org.gradle.api.Project;
 
-/**
- * @author Chris Bono
- */
 public class SpringUnpublishedModulePlugin extends AbstractSpringModulePlugin {
 
 	@Override

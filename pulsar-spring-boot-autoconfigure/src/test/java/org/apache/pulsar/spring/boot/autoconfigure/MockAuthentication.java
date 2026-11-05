@@ -35,8 +35,6 @@ import org.apache.pulsar.client.api.PulsarClientException;
 
 /**
  * Test plugin-class-name for Authentication
- *
- * @author Swamy Mavuri
  */
 @SuppressWarnings("deprecation")
 public class MockAuthentication implements Authentication {

@@ -45,10 +45,6 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
  * {@link PulsarListenerAnnotationBeanPostProcessor}. This can be done manually or, more
  * conveniently, through {@link EnablePulsar} annotation.
  * </p>
- *
- * @author Soby Chacko
- * @author Chris Bono
- * @author Alexander Preuß
  */
 @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)

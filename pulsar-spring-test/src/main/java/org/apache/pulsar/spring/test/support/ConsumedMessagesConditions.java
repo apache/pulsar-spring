@@ -25,8 +25,6 @@ import org.springframework.util.Assert;
 /**
  * A factory for creating commonly used {@link ConsumedMessagesCondition conditions} that
  * can be used with {@link PulsarConsumerTestUtil}.
- *
- * @author Jonas Geiregat
  */
 public interface ConsumedMessagesConditions {
 

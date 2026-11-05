@@ -26,8 +26,6 @@ import org.springframework.core.log.LogAccessor;
 
 /**
  * Common utilities used by producer components.
- *
- * @author Chris Bono
  */
 final class ProducerUtils {
 

@@ -30,8 +30,6 @@ import java.lang.annotation.Target;
  * {@link PulsarListener} can simply be declared several times on the same method (or
  * class), implicitly generating this container annotation.
  *
- * @author Soby Chacko
- * @author Chris Bono
  * @see PulsarListener
  */
 @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.ANNOTATION_TYPE })

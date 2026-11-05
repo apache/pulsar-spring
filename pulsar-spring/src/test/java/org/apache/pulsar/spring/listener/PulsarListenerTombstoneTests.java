@@ -50,8 +50,6 @@ import org.springframework.test.context.ContextConfiguration;
 /**
  * Tests consuming {@link PulsarNull tombstone} records in
  * {@link PulsarListener @PulsarListener}.
- *
- * @author Chris Bono
  */
 class PulsarListenerTombstoneTests extends PulsarListenerTestsBase {
 

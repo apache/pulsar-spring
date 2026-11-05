@@ -21,8 +21,6 @@ import org.springframework.util.Assert;
 
 /**
  * Base class for events.
- *
- * @author Soby Chacko
  */
 public class PulsarEvent extends ApplicationEvent {
 

@@ -31,8 +31,6 @@ import org.springframework.util.Assert;
 
 /**
  * Configuration properties used to specify Pulsar consumers.
- *
- * @author Chris Bono
  */
 public class ConsumerConfigProperties extends PulsarProperties.Consumer {
 

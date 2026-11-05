@@ -32,9 +32,6 @@ import org.springframework.util.Assert;
 /**
  * Helper class used to map {@link PulsarProperties.Consumer.DeadLetterPolicy dead letter
  * policy properties}.
- *
- * @author Chris Bono
- * @author Phillip Webb
  */
 final class DeadLetterPolicyMapper {
 

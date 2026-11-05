@@ -56,11 +56,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * <p>
  * Additional message types can be configured with
  * {@link #addCustomSchemaMapping(Class, Schema)}.
- *
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Chris Bono
- * @author Aleksei Arsenev
  */
 public class DefaultSchemaResolver implements SchemaResolver, BeanClassLoaderAware {
 

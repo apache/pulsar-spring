@@ -25,7 +25,6 @@ import org.apache.pulsar.client.api.MessageListener;
  * extension is needed as a base class to deal with acknowledgments in the framework.
  *
  * @param <T> message payload type
- * @author Soby Chacko
  */
 public interface PulsarRecordMessageListener<T> extends MessageListener<T> {
 

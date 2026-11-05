@@ -31,7 +31,6 @@ import org.springframework.util.Assert;
 /**
  * Provides conveniences for managing Pulsar transactions.
  *
- * @author Chris Bono
  * @since 1.1.0
  */
 public final class PulsarTransactionUtils {

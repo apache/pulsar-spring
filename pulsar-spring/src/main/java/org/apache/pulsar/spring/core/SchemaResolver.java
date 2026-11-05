@@ -27,8 +27,6 @@ import org.springframework.core.ResolvableType;
 
 /**
  * Resolves schema to use for message types.
- *
- * @author Chris Bono
  */
 public interface SchemaResolver {
 
@@ -116,7 +114,6 @@ public interface SchemaResolver {
 	 * resolver before it is fully initialized, in particular to tune its configuration.
 	 *
 	 * @param <T> the type of the {@link SchemaResolver}
-	 * @author Chris Bono
 	 */
 	@FunctionalInterface
 	interface SchemaResolverCustomizer<T extends SchemaResolver> {

@@ -18,8 +18,6 @@ package org.apache.pulsar.spring.core;
 
 /**
  * The Pulsar administration contract.
- *
- * @author Alexander Preuß
  */
 public interface PulsarAdministrationOperations {
 

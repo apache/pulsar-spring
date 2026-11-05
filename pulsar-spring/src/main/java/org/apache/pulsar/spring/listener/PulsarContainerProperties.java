@@ -47,11 +47,6 @@ import io.micrometer.observation.ObservationRegistry;
 
 /**
  * Contains runtime properties for a listener container.
- *
- * @author Soby Chacko
- * @author Alexander Preuß
- * @author Chris Bono
- * @author Vedran Pavic
  */
 public class PulsarContainerProperties {
 

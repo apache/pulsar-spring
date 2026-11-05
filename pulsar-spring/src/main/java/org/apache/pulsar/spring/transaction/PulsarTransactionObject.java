@@ -26,7 +26,6 @@ import org.springframework.util.Assert;
  * A transaction object representing a native {@link Transaction Pulsar transaction}. Used
  * as transaction object by {@code PulsarTransactionManager}.
  *
- * @author Chris Bono
  * @since 1.1.0
  */
 class PulsarTransactionObject implements SmartTransactionObject {

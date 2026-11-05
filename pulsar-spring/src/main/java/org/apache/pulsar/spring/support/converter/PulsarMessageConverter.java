@@ -28,7 +28,6 @@ import org.springframework.messaging.Message;
  * Pulsar specific record converter strategy.
  *
  * @param <T> message type
- * @author Soby Chacko
  */
 public interface PulsarMessageConverter<T> extends MessageConverter {
 

@@ -47,9 +47,6 @@ import org.springframework.context.annotation.Bean;
 
 /**
  * Integration tests for {@link PulsarListener}.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 class PulsarListenerIntegrationTests implements PulsarTestContainerSupport {
 

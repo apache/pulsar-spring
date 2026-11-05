@@ -64,9 +64,6 @@ import org.springframework.util.backoff.FixedBackOff;
 
 /**
  * Basic tests for {@link DefaultPulsarMessageReaderContainer}.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 public class DefaultPulsarMessageReaderContainerTests implements PulsarTestContainerSupport {
 

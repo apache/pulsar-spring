@@ -29,8 +29,6 @@ import org.gradle.api.tasks.testing.TestResult;
 
 /**
  * Plugin for recording test failures and reporting them at the end of the build.
- *
- * @author Andy Wilkinson
  */
 public class TestFailuresPlugin implements Plugin<Project> {
 

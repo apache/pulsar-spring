@@ -37,8 +37,6 @@ import org.springframework.core.log.LogAccessor;
  *
  * @param <C> the {@link AbstractPulsarMessageListenerContainer} implementation type.
  * @param <T> Message payload type.
- * @author Soby Chacko
- * @author Chris Bono
  */
 public abstract class AbstractPulsarListenerContainerFactory<C extends AbstractPulsarMessageListenerContainer<T>, T>
 		implements PulsarListenerContainerFactory, ApplicationEventPublisherAware, ApplicationContextAware {

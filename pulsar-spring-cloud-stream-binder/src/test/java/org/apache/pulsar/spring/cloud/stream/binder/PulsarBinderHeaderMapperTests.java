@@ -42,8 +42,6 @@ import org.springframework.messaging.MessageHeaders;
 
 /**
  * Tests for {@link PulsarBinderHeaderMapper}.
- *
- * @author Chris Bono
  */
 @ExtendWith(MockitoExtension.class)
 class PulsarBinderHeaderMapperTests {

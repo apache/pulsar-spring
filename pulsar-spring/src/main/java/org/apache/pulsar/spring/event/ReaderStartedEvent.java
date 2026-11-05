@@ -18,8 +18,6 @@ package org.apache.pulsar.spring.event;
 
 /**
  * Event to publish when the reader is started.
- *
- * @author Soby Chacko
  */
 public class ReaderStartedEvent extends PulsarEvent {
 

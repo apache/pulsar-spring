@@ -41,9 +41,6 @@ import org.springframework.boot.context.properties.source.MapConfigurationProper
 
 /**
  * Unit tests for {@link ConsumerConfigProperties}.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 class ConsumerConfigPropertiesTests {
 

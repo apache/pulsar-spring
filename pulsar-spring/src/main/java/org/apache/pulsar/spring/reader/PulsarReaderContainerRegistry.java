@@ -23,8 +23,6 @@ import org.jspecify.annotations.Nullable;
 
 /**
  * Reader container registry.
- *
- * @author Soby Chacko
  */
 public interface PulsarReaderContainerRegistry {
 

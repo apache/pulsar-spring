@@ -24,9 +24,6 @@ import org.gradle.api.plugins.JavaLibraryPlugin;
 import org.gradle.api.plugins.JavaPlugin;
 import org.gradle.api.plugins.PluginManager;
 
-/**
- * @author Chris Bono
- */
 public abstract class AbstractSpringModulePlugin implements Plugin<Project> {
 
 	@Override

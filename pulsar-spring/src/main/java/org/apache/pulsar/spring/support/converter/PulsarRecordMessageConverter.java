@@ -34,8 +34,6 @@ import org.springframework.messaging.support.MessageBuilder;
  * for a message listener that receives individual messages.
  *
  * @param <V> message type
- * @author Soby Chacko
- * @author Chris Bono
  */
 public class PulsarRecordMessageConverter<V> implements PulsarMessageConverter<V> {
 

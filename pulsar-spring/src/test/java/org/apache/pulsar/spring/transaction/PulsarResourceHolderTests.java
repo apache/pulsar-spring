@@ -27,8 +27,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link PulsarResourceHolder}.
- *
- * @author Chris Bono
  */
 class PulsarResourceHolderTests {
 

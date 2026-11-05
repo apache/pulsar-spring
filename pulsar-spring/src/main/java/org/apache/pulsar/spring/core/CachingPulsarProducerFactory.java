@@ -59,9 +59,6 @@ import com.github.benmanes.caffeine.cache.Scheduler;
  * within a configured time period.
  *
  * @param <T> producer type.
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Christophe Bornet
  */
 public class CachingPulsarProducerFactory<T> extends DefaultPulsarProducerFactory<T>
 		implements RestartableComponentSupport {

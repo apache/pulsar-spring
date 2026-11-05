@@ -38,9 +38,6 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 /**
  * Provides base support for {@link PulsarReader} tests.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 @SpringJUnitConfig
 @DirtiesContext

@@ -30,8 +30,6 @@ import org.springframework.context.event.ContextRefreshedEvent;
 
 /**
  * Unit tests for {@link GenericReaderEndpointRegistry}.
- *
- * @author Soby Chacko
  */
 class GenericReaderEndpointRegistryTests {
 

@@ -46,9 +46,6 @@ import org.mockito.InOrder;
 
 /**
  * Testing {@link DefaultPulsarReaderFactory}.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 public class DefaultPulsarReaderFactoryTests implements PulsarTestContainerSupport {
 

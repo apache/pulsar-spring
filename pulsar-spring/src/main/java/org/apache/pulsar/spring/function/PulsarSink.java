@@ -29,7 +29,6 @@ import org.jspecify.annotations.Nullable;
  * @param config the sink details
  * @param stopPolicy the action to take on the sink when the server is stopped
  * @param updateOptions the options to use during an update operation (optional)
- * @author Chris Bono
  */
 public record PulsarSink(SinkConfig config, FunctionStopPolicy stopPolicy,
 		@Nullable UpdateOptions updateOptions) implements PulsarFunctionOperations<SinkConfig> {

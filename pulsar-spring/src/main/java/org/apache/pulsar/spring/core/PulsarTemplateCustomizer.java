@@ -20,7 +20,6 @@ package org.apache.pulsar.spring.core;
  * Callback interface that can be implemented to customize a {@link PulsarTemplate}.
  *
  * @param <T> the payload type of the template
- * @author Chris Bono
  */
 @FunctionalInterface
 public interface PulsarTemplateCustomizer<T> {

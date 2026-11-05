@@ -29,7 +29,6 @@ import org.jspecify.annotations.Nullable;
  * @param config the source details
  * @param stopPolicy the action to take on the source when the server is stopped
  * @param updateOptions the options to use during an update operation (optional)
- * @author Chris Bono
  */
 public record PulsarSource(SourceConfig config, FunctionStopPolicy stopPolicy,
 		@Nullable UpdateOptions updateOptions) implements PulsarFunctionOperations<SourceConfig> {

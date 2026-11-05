@@ -31,7 +31,6 @@ import org.apache.pulsar.client.api.ConsumerBuilder;
  * in customizer only applies to the single created consumer.
  *
  * @param <T> The message payload type
- * @author Christophe Bornet
  */
 @FunctionalInterface
 public interface ConsumerBuilderCustomizer<T> {

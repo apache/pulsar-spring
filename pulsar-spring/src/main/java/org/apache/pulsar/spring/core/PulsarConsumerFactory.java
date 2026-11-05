@@ -31,10 +31,6 @@ import org.jspecify.annotations.Nullable;
  * Pulsar consumer factory interface.
  *
  * @param <T> payload type for the consumer.
- * @author Soby Chacko
- * @author Christophe Bornet
- * @author Chris Bono
- * @author Jonas Geiregat
  */
 public interface PulsarConsumerFactory<T> {
 

@@ -26,7 +26,6 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
  * Default implementation of {@link ExpressionResolver} that relies on the
  * {@link ConfigurableBeanFactory} capabilities to resolve expressions.
  *
- * @author Jonas Geiregat
  * @since 1.1.0
  */
 public class DefaultExpressionResolver implements ExpressionResolver {

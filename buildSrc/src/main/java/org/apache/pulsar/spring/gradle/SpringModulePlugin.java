@@ -22,9 +22,6 @@ import org.gradle.api.plugins.PluginManager;
 import org.apache.pulsar.spring.gradle.publish.PublishAllJavaComponentsPlugin;
 import org.apache.pulsar.spring.gradle.publish.SpringMavenPlugin;
 
-/**
- * @author Chris Bono
- */
 public class SpringModulePlugin extends AbstractSpringModulePlugin {
 
 	@Override

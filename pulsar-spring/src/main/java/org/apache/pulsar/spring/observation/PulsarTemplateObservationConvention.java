@@ -21,8 +21,6 @@ import io.micrometer.observation.ObservationConvention;
 
 /**
  * {@link ObservationConvention} for Pulsar template key values.
- *
- * @author Chris Bono
  */
 public interface PulsarTemplateObservationConvention extends ObservationConvention<PulsarMessageSenderContext> {
 

@@ -34,7 +34,6 @@ import org.springframework.util.backoff.BackOffExecution;
  * it's associated BackOffExecution.
  *
  * @param <T> payload type managed by the Pulsar consumer
- * @author Soby Chacko
  */
 public class DefaultPulsarConsumerErrorHandler<T> implements PulsarConsumerErrorHandler<T> {
 

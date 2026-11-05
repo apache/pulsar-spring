@@ -29,7 +29,6 @@ import org.springframework.util.Assert;
  * flooding the logs. The warning is logged on the very first occurrence and then every
  * nth time thereafter.
  *
- * @author Chris Bono
  * @since 1.2.0
  */
 public class LambdaCustomizerWarnLogger {

@@ -19,8 +19,6 @@ package org.apache.pulsar.spring.test.support;
 /**
  * Specification for defining the topic to consume from for the
  * {@link PulsarConsumerTestUtil}.
- *
- * @author Jonas Geiregat
  */
 public interface TopicSpec<T> {
 

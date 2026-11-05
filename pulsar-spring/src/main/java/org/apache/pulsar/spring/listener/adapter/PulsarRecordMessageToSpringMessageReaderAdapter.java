@@ -29,7 +29,6 @@ import org.apache.pulsar.client.api.ReaderListener;
  * individual messages.
  *
  * @param <V> payload type.
- * @author Soby Chacko
  */
 public class PulsarRecordMessageToSpringMessageReaderAdapter<V> extends AbstractPulsarMessageToSpringMessageAdapter<V>
 		implements ReaderListener<V> {

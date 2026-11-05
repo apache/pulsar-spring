@@ -23,8 +23,6 @@ import org.apache.pulsar.spring.reader.PulsarMessageReaderContainer;
  *
  * @param <C> Container type
  * @param <E> Endpoint type
- * @author Soby Chacko
- * @author Chris Bono
  */
 public interface ReaderContainerFactory<C extends PulsarMessageReaderContainer, E extends PulsarReaderEndpoint<C>>
 		extends PulsarContainerFactory<C, E> {

@@ -42,8 +42,6 @@ import org.springframework.util.Assert;
  * The proxy client participates in the Spring {@link SmartLifecycle Lifecycle} and closes
  * the underlying client when {@link SmartLifecycle#stop() stopped} and creates another
  * delegate client when subsequently {@link SmartLifecycle#start() started}.
- *
- * @author Chris Bono
  */
 final class PulsarClientProxy extends RestartableSingletonFactory<PulsarClient> implements PulsarClient {
 

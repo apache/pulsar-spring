@@ -21,9 +21,6 @@ import org.apache.pulsar.spring.PulsarException;
 
 /**
  * Pulsar client factory interface.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 public interface PulsarClientFactory {
 

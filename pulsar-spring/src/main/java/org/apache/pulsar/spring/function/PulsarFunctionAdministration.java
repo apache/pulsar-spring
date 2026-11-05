@@ -39,8 +39,6 @@ import org.springframework.core.log.LogAccessor;
 /**
  * Responsible for creating and updating any user-defined Pulsar functions, sinks, or
  * sources.
- *
- * @author Chris Bono
  */
 public class PulsarFunctionAdministration implements SmartLifecycle {
 

@@ -49,10 +49,6 @@ import org.springframework.util.Assert;
 /**
  * Configuration properties Apache Pulsar.
  *
- * @author Chris Bono
- * @author Phillip Webb
- * @author Swamy Mavuri
- * @author Vedran Pavic
  * @since 4.0.0
  */
 @ConfigurationProperties("spring.pulsar")

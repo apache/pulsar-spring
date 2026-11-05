@@ -19,7 +19,6 @@ package org.apache.pulsar.spring.config;
 /**
  * The action to take on the container when a failure occurs during startup.
  *
- * @author Chris Bono
  * @since 1.2.0
  */
 public enum StartupFailurePolicy {

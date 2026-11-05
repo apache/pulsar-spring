@@ -29,8 +29,6 @@ import org.springframework.messaging.support.MessageHeaderAccessor;
 /**
  * A delegating {@code PulsarHeaderMapper} that ensures the delegate mapper never includes
  * internal binder specific headers during outbound mapping.
- *
- * @author Chris Bono
  */
 class PulsarBinderHeaderMapper implements PulsarHeaderMapper {
 

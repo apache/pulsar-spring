@@ -44,8 +44,6 @@ import org.springframework.test.context.ContextConfiguration;
 
 /**
  * Tests setting the consumer customizer on the {@link PulsarReader @PulsarReader}.
- *
- * @author Chris Bono
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 class PulsarReaderCustomizerTests extends PulsarReaderTestsBase {

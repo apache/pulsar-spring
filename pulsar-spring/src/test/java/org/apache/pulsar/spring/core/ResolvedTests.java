@@ -31,8 +31,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for {@link Resolved}.
- *
- * @author Chris Bono
  */
 class ResolvedTests {
 

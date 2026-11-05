@@ -43,7 +43,6 @@ import org.springframework.util.Assert;
  * Base implementation for {@link PulsarListenerEndpoint}.
  *
  * @param <K> Message payload type.
- * @author Soby Chacko
  */
 public abstract class AbstractPulsarReaderEndpoint<K>
 		implements PulsarReaderEndpoint<PulsarMessageReaderContainer>, BeanFactoryAware, InitializingBean {

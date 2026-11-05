@@ -52,8 +52,6 @@ import org.springframework.test.context.ContextConfiguration;
 /**
  * Tests for {@link PulsarListener @PulsarListener} using {@code schemaType} of
  * {@link SchemaType#AUTO_CONSUME}.
- *
- * @author Chris Bono
  */
 @ContextConfiguration(classes = PulsarListenerAutoConsumeSchemaTestsConfig.class)
 class PulsarListenerAutoConsumeSchemaTests extends PulsarListenerTestsBase {

@@ -39,9 +39,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Pulsar binder {@link Configuration}.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnMissingBean(Binder.class)

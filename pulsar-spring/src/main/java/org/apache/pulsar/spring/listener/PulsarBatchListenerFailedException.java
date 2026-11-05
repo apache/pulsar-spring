@@ -21,8 +21,6 @@ import org.apache.pulsar.spring.PulsarException;
 
 /**
  * Batch message listeners should throw this exception in the event of an error.
- *
- * @author Soby Chacko
  */
 public class PulsarBatchListenerFailedException extends PulsarException {
 

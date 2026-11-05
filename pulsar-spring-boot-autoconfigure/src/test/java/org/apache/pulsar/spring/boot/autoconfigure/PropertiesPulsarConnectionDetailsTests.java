@@ -29,8 +29,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link PropertiesPulsarConnectionDetails}.
- *
- * @author Chris Bono
  */
 class PropertiesPulsarConnectionDetailsTests {
 

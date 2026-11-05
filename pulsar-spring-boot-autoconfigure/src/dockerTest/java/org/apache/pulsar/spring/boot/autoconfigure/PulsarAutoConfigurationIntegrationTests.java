@@ -47,9 +47,6 @@ import org.springframework.test.context.DynamicPropertySource;
 
 /**
  * Integration tests for {@link PulsarAutoConfiguration}.
- *
- * @author Chris Bono
- * @author Phillip Webb
  */
 @SpringBootTest
 @Testcontainers(disabledWithoutDocker = true)

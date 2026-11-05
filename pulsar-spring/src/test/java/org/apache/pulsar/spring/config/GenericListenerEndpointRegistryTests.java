@@ -29,8 +29,6 @@ import org.springframework.context.event.ContextRefreshedEvent;
 
 /**
  * Unit tests for {@link GenericListenerEndpointRegistry}.
- *
- * @author Hyun Lee
  */
 class GenericListenerEndpointRegistryTests {
 

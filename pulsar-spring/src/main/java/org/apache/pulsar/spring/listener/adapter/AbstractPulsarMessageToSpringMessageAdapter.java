@@ -52,8 +52,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * necessary infrastructure to extract the payload from a Pulsar message.
  *
  * @param <V> payload type.
- * @author Soby Chacko
- * @author Christophe Bornet
  */
 public abstract class AbstractPulsarMessageToSpringMessageAdapter<V> {
 

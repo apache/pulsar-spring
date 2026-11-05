@@ -67,9 +67,6 @@ import org.springframework.messaging.support.MessageBuilder;
 
 /**
  * Integration tests for {@link PulsarBinderIntegrationTests}.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 @ExtendWith(OutputCaptureExtension.class)
 @SuppressWarnings("JUnitMalformedDeclaration")

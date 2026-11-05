@@ -25,8 +25,6 @@ package org.apache.pulsar.spring.boot.autoconfigure;
 
 /**
  * Adapts {@link PulsarProperties} to {@link PulsarConnectionDetails}.
- *
- * @author Chris Bono
  */
 class PropertiesPulsarConnectionDetails implements PulsarConnectionDetails {
 

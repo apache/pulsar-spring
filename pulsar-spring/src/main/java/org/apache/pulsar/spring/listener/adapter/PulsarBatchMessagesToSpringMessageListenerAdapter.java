@@ -38,7 +38,6 @@ import org.springframework.messaging.support.MessageBuilder;
  * the listener to receive batches of messages.
  *
  * @param <V> payload type.
- * @author Soby Chacko
  */
 public class PulsarBatchMessagesToSpringMessageListenerAdapter<V> extends AbstractPulsarMessageToSpringMessageAdapter<V>
 		implements PulsarBatchAcknowledgingMessageListener<V> {

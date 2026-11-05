@@ -22,8 +22,6 @@ import org.apache.pulsar.client.api.Consumer;
  * Factory interface for {@link PulsarMessageRecoverer}.
  *
  * @param <T> message type
- * @author Soby Chacko
- * @author Chris Bono
  */
 @FunctionalInterface
 public interface PulsarMessageRecovererFactory<T> {

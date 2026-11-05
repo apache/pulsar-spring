@@ -54,8 +54,6 @@ import org.springframework.context.annotation.Bean;
  * </pre> The nature of the feature (logging and template customization) lends itself well
  * to an integration test w/ help of {@link CapturedOutput} and
  * {@link PulsarTemplateCustomizer}.
- *
- * @author Chris Bono
  */
 @Testcontainers(disabledWithoutDocker = true)
 @ExtendWith(OutputCaptureExtension.class)

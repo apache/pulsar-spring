@@ -104,11 +104,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * Tests for {@link PulsarAutoConfiguration}.
- *
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Soby Chacko
- * @author Phillip Webb
  */
 class PulsarAutoConfigurationTests {
 

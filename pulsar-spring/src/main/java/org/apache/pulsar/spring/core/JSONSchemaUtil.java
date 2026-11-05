@@ -38,7 +38,6 @@ import com.fasterxml.jackson.databind.ObjectReader;
  * Factory to create schema definition {@link SchemaDefinitionBuilder builders} that
  * provide schema definitions that use custom object mappers when de/serializing objects.
  *
- * @author Chris Bono
  * @since 1.2.0
  */
 public interface JSONSchemaUtil {

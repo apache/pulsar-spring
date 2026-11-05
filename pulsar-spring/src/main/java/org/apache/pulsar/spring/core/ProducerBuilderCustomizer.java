@@ -22,7 +22,6 @@ import org.apache.pulsar.client.api.ProducerBuilder;
  * The interface to customize a {@link ProducerBuilder}.
  *
  * @param <T> The message payload type
- * @author Chris Bono
  */
 @FunctionalInterface
 public interface ProducerBuilderCustomizer<T> {

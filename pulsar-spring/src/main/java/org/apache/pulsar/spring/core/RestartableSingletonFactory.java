@@ -36,7 +36,6 @@ import org.springframework.util.Assert;
  * be used as a base implementation for coordinated checkpoint and restore.
  *
  * @param <T> the bean type
- * @author Chris Bono
  */
 abstract class RestartableSingletonFactory<T> extends RestartableComponentBase implements InitializingBean {
 

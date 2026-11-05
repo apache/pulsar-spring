@@ -46,7 +46,6 @@ import org.springframework.core.log.LogAccessor;
  *
  * @param <T> the function config (one of {@link SourceConfig}, {@link SinkConfig},
  * {@link FunctionConfig})
- * @author Chris Bono
  */
 public interface PulsarFunctionOperations<T> {
 

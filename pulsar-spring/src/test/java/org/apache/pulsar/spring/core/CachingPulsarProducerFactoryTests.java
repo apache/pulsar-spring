@@ -56,10 +56,6 @@ import com.github.benmanes.caffeine.cache.Cache;
 
 /**
  * Tests for {@link CachingPulsarProducerFactory}.
- *
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Christophe Bornet
  */
 class CachingPulsarProducerFactoryTests extends PulsarProducerFactoryTests {
 

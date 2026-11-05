@@ -42,10 +42,6 @@ import org.springframework.util.CollectionUtils;
 /**
  * An administration class that delegates to {@link PulsarAdmin} to create and manage
  * topics defined in the application context.
- *
- * @author Alexander Preuß
- * @author Chris Bono
- * @author Kirill Merkushev
  */
 public class PulsarAdministration
 		implements ApplicationContextAware, SmartInitializingSingleton, PulsarAdministrationOperations {

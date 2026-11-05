@@ -18,8 +18,6 @@ package org.apache.pulsar.spring.listener;
 
 /**
  * Enumeration for ack mode.
- *
- * @author Soby Chacko
  */
 public enum AckMode {
 

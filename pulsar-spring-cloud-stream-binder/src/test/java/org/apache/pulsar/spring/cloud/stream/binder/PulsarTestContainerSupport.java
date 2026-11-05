@@ -23,8 +23,6 @@ import org.testcontainers.pulsar.PulsarContainer;
 
 /**
  * Provides a static {@link PulsarContainer} that can be shared across test classes.
- *
- * @author Chris Bono
  */
 @Testcontainers(disabledWithoutDocker = true)
 interface PulsarTestContainerSupport {

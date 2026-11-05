@@ -54,11 +54,6 @@ import io.micrometer.observation.ObservationRegistry;
  * A template for executing high-level Pulsar operations.
  *
  * @param <T> the message payload type
- * @author Soby Chacko
- * @author Chris Bono
- * @author Alexander Preuß
- * @author Christophe Bornet
- * @author Jonas Geiregat
  */
 public class PulsarTemplate<T>
 		implements PulsarOperations<T>, ApplicationContextAware, BeanNameAware, SmartInitializingSingleton {

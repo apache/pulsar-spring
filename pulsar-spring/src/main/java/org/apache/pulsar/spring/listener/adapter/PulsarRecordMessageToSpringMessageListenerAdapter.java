@@ -31,7 +31,6 @@ import org.jspecify.annotations.Nullable;
  * individual messages.
  *
  * @param <V> payload type.
- * @author Soby Chacko
  */
 public class PulsarRecordMessageToSpringMessageListenerAdapter<V> extends AbstractPulsarMessageToSpringMessageAdapter<V>
 		implements PulsarAcknowledgingMessageListener<V> {

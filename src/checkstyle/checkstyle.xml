@@ -127,7 +127,6 @@
 		<!-- Javadoc Comments -->
 		<module name="JavadocType">
 			<property name="scope" value="package"/>
-			<property name="authorFormat" value=".+\s.+"/>
 		</module>
 		<module name="JavadocMethod">
 		</module>
@@ -143,7 +142,7 @@
 		</module>
 		<module name="AtclauseOrder">
 			<property name="target" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF"/>
-			<property name="tagOrder" value="@param, @author, @since, @see, @version, @serial, @deprecated"/>
+			<property name="tagOrder" value="@param, @since, @see, @version, @serial, @deprecated"/>
 		</module>
 		<module name="AtclauseOrder">
 			<property name="target" value="METHOD_DEF, CTOR_DEF, VARIABLE_DEF"/>
@@ -162,6 +161,11 @@
 		<module name="RedundantModifier"/>
 
 		<!-- Regexp -->
+		<module name="RegexpSinglelineJava">
+			<property name="format" value="@+author\b"/>
+			<property name="ignoreComments" value="false"/>
+			<property name="message" value="Do not use author tags, the Git history records the authors"/>
+		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="^\t* +\t*\S"/>
 			<property name="message"

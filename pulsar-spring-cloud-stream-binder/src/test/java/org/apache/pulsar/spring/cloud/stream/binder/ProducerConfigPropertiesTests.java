@@ -39,9 +39,6 @@ import org.springframework.boot.context.properties.source.MapConfigurationProper
 
 /**
  * Unit tests for {@link ProducerConfigProperties}.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 class ProducerConfigPropertiesTests {
 

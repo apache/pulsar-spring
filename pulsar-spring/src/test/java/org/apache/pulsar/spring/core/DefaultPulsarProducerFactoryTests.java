@@ -34,8 +34,6 @@ import org.mockito.InOrder;
 
 /**
  * Tests for {@link DefaultPulsarProducerFactory}.
- *
- * @author Chris Bono
  */
 class DefaultPulsarProducerFactoryTests extends PulsarProducerFactoryTests {
 

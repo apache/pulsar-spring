@@ -28,7 +28,6 @@ import org.springframework.boot.autoconfigure.service.connection.ConnectionDetai
 /**
  * Details required to establish a connection to a Pulsar service.
  *
- * @author Chris Bono
  * @since 4.0.0
  */
 public interface PulsarConnectionDetails extends ConnectionDetails {

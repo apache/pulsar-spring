@@ -31,8 +31,6 @@ import org.jspecify.annotations.Nullable;
  * endpoints programmatically.
  *
  * @param <C> Message listener container type.
- * @author Christophe Bornet
- * @author Vedran Pavic
  */
 public interface ListenerEndpoint<C extends MessageListenerContainer> {
 

@@ -18,8 +18,6 @@ package org.apache.pulsar.spring.test.support;
 
 /**
  * Exception thrown when a condition was not fulfilled within the specified timeout.
- *
- * @author Jonas Geiregat
  */
 public class ConditionTimeoutException extends PulsarTestException {
 

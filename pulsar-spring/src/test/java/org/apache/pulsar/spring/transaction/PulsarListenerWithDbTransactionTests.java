@@ -43,8 +43,6 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 /**
  * Tests transaction support of {@link PulsarListener} when mixed with database
  * transactions.
- *
- * @author Chris Bono
  */
 class PulsarListenerWithDbTransactionTests extends PulsarTxnWithDbTxnTestsBase {
 

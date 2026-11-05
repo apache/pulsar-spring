@@ -24,9 +24,6 @@ import org.springframework.util.StringUtils;
 
 /**
  * Builder class to create {@link PulsarTopic} instances.
- *
- * @author Alexander Preuß
- * @author Chris Bono
  */
 public class PulsarTopicBuilder {
 

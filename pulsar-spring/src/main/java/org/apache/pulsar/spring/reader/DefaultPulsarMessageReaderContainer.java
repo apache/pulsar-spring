@@ -53,8 +53,6 @@ import org.springframework.util.Assert;
  * container.
  *
  * @param <T> reader data type.
- * @author Soby Chacko
- * @author Chris Bono
  */
 public class DefaultPulsarMessageReaderContainer<T> extends AbstractPulsarMessageReaderContainer<T> {
 

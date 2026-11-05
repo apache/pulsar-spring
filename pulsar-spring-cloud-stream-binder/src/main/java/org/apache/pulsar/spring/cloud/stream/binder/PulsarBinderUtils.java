@@ -36,9 +36,6 @@ import org.springframework.util.StringUtils;
 
 /**
  * Binder utility methods.
- *
- * @author Soby Chacko
- * @author Chris Bono
  */
 final class PulsarBinderUtils {
 

@@ -57,8 +57,6 @@ import org.springframework.util.Assert;
  *
  * @param <C> container type
  * @param <E> endpoint type
- * @author Soby Chacko
- * @author Chris Bono
  */
 public class GenericReaderEndpointRegistry<C extends PulsarMessageReaderContainer, E extends PulsarReaderEndpoint<C>>
 		implements PulsarReaderContainerRegistry, DisposableBean, SmartLifecycle, ApplicationContextAware,

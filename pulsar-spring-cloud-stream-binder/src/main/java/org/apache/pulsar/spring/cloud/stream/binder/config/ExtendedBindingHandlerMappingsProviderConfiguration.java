@@ -28,7 +28,6 @@ import org.springframework.context.annotation.Configuration;
  * {@link EnableAutoConfiguration Auto-configuration} for extended binding metadata for
  * the Pulsar binder.
  *
- * @author Soby Chacko
  * @since 4.1.0
  */
 @Configuration(proxyBeanMethods = false)

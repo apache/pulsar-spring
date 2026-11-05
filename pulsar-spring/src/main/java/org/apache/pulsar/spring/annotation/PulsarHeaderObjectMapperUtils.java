@@ -29,7 +29,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * Resolves header mapper configuration beans (object mapper and trusted packages) for use
  * during JSON header deserialization.
  *
- * @author Chris Bono
  * @since 1.2.0
  */
 public final class PulsarHeaderObjectMapperUtils {

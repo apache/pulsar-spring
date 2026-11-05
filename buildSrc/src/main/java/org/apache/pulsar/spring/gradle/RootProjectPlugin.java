@@ -23,7 +23,6 @@ import org.gradle.api.plugins.PluginManager;
 
 /**
  * Plugin for the root project.
- * @author Chris Bono
  */
 public class RootProjectPlugin implements Plugin<Project> {
 

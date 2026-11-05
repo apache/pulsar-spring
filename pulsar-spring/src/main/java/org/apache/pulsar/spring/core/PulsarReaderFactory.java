@@ -29,8 +29,6 @@ import org.jspecify.annotations.Nullable;
  * Pulsar {@link Reader} factory interface.
  *
  * @param <T> Underlying message type handled by this reader.
- * @author Soby Chacko
- * @author Chris Bono
  */
 public interface PulsarReaderFactory<T> {
 

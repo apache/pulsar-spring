@@ -34,8 +34,6 @@ import org.springframework.util.Assert;
  * Once the cache reaches a {@link #maxNumberOfAnnotationsCached certain size} (default of
  * {@link #DEFAULT_MAX_CACHE_SIZE}) it is cleared and the annotations will be looked up
  * again the next time they are requested.
- *
- * @author Chris Bono
  */
 class PulsarMessageAnnotationRegistry {
 

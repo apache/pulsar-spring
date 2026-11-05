@@ -31,7 +31,6 @@ import org.apache.pulsar.client.api.ReaderBuilder;
  * customizer only applies to the single created reader.
  *
  * @param <T> The message payload type
- * @author Soby Chacko
  */
 @FunctionalInterface
 public interface ReaderBuilderCustomizer<T> {

@@ -29,8 +29,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Unit tests for {@link PulsarMessageAnnotationRegistry}.
- *
- * @author Chris Bono
  */
 class PulsarMessageAnnotationRegistryTests {
 

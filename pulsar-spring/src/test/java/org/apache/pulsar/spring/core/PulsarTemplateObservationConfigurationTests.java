@@ -30,8 +30,6 @@ import io.micrometer.observation.ObservationRegistry;
 
 /**
  * Tests for the observation configuration aspect of {@link PulsarTemplate}.
- *
- * @author Chris Bono
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 class PulsarTemplateObservationConfigurationTests {
