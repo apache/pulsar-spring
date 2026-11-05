@@ -57,6 +57,8 @@ subprojects {
 		// Added when the task runs since the test classpath and Java version are task inputs
 		// already, and this keeps the absolute path of the Mockito jar out of the inputs.
 		tasks.withType(Test).configureEach {
+			// PulsarTestImage reads this, so results for another image must not be reused
+			inputs.property('pulsarTestImage', providers.environmentVariable('PULSAR_TEST_IMAGE').orElse(''))
 			doFirst { Test test ->
 				// Mockito can't rely on attaching itself in future JDK releases
 				test.classpath.files.findAll { it.name ==~ /mockito-core-.*\.jar/ }.each {

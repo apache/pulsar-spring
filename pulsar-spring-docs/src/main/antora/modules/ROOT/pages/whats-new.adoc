@@ -31,6 +31,7 @@ Spring Cloud Function uses this bean for JSON conversion, so that it now applies
 
 === PulsarTestImage
 The `pulsar-spring-test` module has a new `PulsarTestImage` class, which creates Pulsar Testcontainers that are configured for tests.
+The `pulsar.test.image` system property or the `PULSAR_TEST_IMAGE` environment variable sets its default image.
 See xref:testing-applications.adoc#pulsar-test-image[PulsarTestImage] for more information.
 
 [[what-s-new-in-2-0-since-1-2]]

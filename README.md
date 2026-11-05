@@ -55,6 +55,9 @@ The build uses the included Gradle wrapper and a Java 25 toolchain. Docker is re
 ./gradlew publishAllPublicationsToLocalRepository
 (cd pulsar-spring-sample-apps && ../gradlew runAllSampleTests -PsampleTests -PpulsarSpringRepository=../build/publications/repos)
 
+# Run the tests with another Pulsar image
+PULSAR_TEST_IMAGE=registry.example.com/pulsar:5.0.1 ./gradlew :pulsar-spring-cloud-stream-binder:test
+
 # Reference documentation, generated in pulsar-spring-docs/build/site
 ./gradlew :pulsar-spring-docs:antora
 ```

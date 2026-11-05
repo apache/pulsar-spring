@@ -23,7 +23,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
 
 import org.apache.pulsar.PulsarVersion;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable;
 import org.testcontainers.pulsar.PulsarContainer;
 import org.testcontainers.utility.DockerImageName;
 
@@ -32,11 +34,41 @@ import org.testcontainers.utility.DockerImageName;
  */
 class PulsarTestImageTests {
 
+	@AfterEach
+	void clearImageSystemProperty() {
+		System.clearProperty(PulsarTestImage.IMAGE_SYSTEM_PROPERTY);
+	}
+
 	@Test
+	@DisabledIfEnvironmentVariable(named = PulsarTestImage.IMAGE_ENVIRONMENT_VARIABLE, matches = ".*\\S.*")
 	void defaultImageVersionMatchesPulsarClientVersion() {
 		assertThat(PulsarTestImage.getDefaultImage().asCanonicalNameString())
 			.isEqualTo("apachepulsar/pulsar:" + PulsarVersion.getVersion());
 		assertThat(PulsarTestContainerSupport.getPulsarImage()).isEqualTo(PulsarTestImage.getDefaultImage());
+	}
+
+	@Test
+	void systemPropertySetsDefaultImage() {
+		System.setProperty(PulsarTestImage.IMAGE_SYSTEM_PROPERTY, "registry.example.com/pulsar:1.2.3");
+		assertThat(PulsarTestImage.getDefaultImage().asCanonicalNameString())
+			.isEqualTo("registry.example.com/pulsar:1.2.3");
+		assertImage(PulsarTestImage.createContainer(), "registry.example.com/pulsar:1.2.3");
+		assertThat(PulsarTestContainerSupport.getPulsarImage().asCanonicalNameString())
+			.isEqualTo("registry.example.com/pulsar:1.2.3");
+	}
+
+	@Test
+	@DisabledIfEnvironmentVariable(named = PulsarTestImage.IMAGE_ENVIRONMENT_VARIABLE, matches = ".*\\S.*")
+	void blankSystemPropertyIsIgnored() {
+		System.setProperty(PulsarTestImage.IMAGE_SYSTEM_PROPERTY, " ");
+		assertThat(PulsarTestImage.getDefaultImage().asCanonicalNameString())
+			.isEqualTo("apachepulsar/pulsar:" + PulsarVersion.getVersion());
+	}
+
+	@Test
+	void createContainerWithTagIgnoresConfiguredImage() {
+		System.setProperty(PulsarTestImage.IMAGE_SYSTEM_PROPERTY, "registry.example.com/pulsar:1.2.3");
+		assertImage(PulsarTestImage.createContainer("4.5.6"), "apachepulsar/pulsar:4.5.6");
 	}
 
 	@Test

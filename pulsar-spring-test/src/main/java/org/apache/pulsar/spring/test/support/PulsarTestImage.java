@@ -40,6 +40,17 @@ import org.testcontainers.utility.DockerImageName;
  */
 public final class PulsarTestImage {
 
+	/**
+	 * The system property that sets the {@link #getDefaultImage() default image}.
+	 */
+	public static final String IMAGE_SYSTEM_PROPERTY = "pulsar.test.image";
+
+	/**
+	 * The environment variable that sets the {@link #getDefaultImage() default image},
+	 * unless {@value #IMAGE_SYSTEM_PROPERTY} is set.
+	 */
+	public static final String IMAGE_ENVIRONMENT_VARIABLE = "PULSAR_TEST_IMAGE";
+
 	private static final String IMAGE_NAME = "apachepulsar/pulsar";
 
 	private PulsarTestImage() {
@@ -76,12 +87,23 @@ public final class PulsarTestImage {
 	}
 
 	/**
-	 * Return the default image, which is the {@code apachepulsar/pulsar} image of the
-	 * Pulsar version that this project is built with.
+	 * Return the default image. This is the image in the {@value #IMAGE_SYSTEM_PROPERTY}
+	 * system property or the {@value #IMAGE_ENVIRONMENT_VARIABLE} environment variable,
+	 * such as {@code apachepulsar/pulsar:5.0.1}, which is assumed to be compatible with
+	 * {@code apachepulsar/pulsar}. When neither is set, it is the
+	 * {@code apachepulsar/pulsar} image of the Pulsar version that this project is built
+	 * with.
 	 * @return the default image
 	 */
 	public static DockerImageName getDefaultImage() {
-		return DockerImageName.parse(IMAGE_NAME).withTag(getDefaultTag());
+		String image = System.getProperty(IMAGE_SYSTEM_PROPERTY);
+		if (image == null || image.isBlank()) {
+			image = System.getenv(IMAGE_ENVIRONMENT_VARIABLE);
+		}
+		if (image == null || image.isBlank()) {
+			return DockerImageName.parse(IMAGE_NAME).withTag(getDefaultTag());
+		}
+		return DockerImageName.parse(image.strip()).asCompatibleSubstituteFor(IMAGE_NAME);
 	}
 
 	private static String getDefaultTag() {

@@ -101,4 +101,8 @@ PulsarContainer pulsar = PulsarTestImage.createContainer(DockerImageName.parse("
 ----
 
 The containers are not started, and you can customize them further, for example with `withTransactions()`.
+
+To run tests with another image without changing them, set the `pulsar.test.image` system property or the `PULSAR_TEST_IMAGE` environment variable, for example to `registry.example.com/pulsar:5.0.1`.
+This changes the image of `createContainer()` and of the shared container in `PulsarTestContainerSupport`, and the system property takes precedence.
+
 Your project needs a dependency on `org.testcontainers:testcontainers-pulsar` to use this class.
