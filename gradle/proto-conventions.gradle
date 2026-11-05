@@ -39,6 +39,14 @@ tasks.withType(io.spring.javaformat.gradle.tasks.CheckFormat).configureEach { ta
 	)
 }
 
+// The protobuf plugin replaces what these extend, so this must come after it. They need the
+// managed versions when task dependencies are resolved in a composite build.
+afterEvaluate {
+	configurations.matching { it.name.endsWith('ProtoPath') }.configureEach {
+		extendsFrom configurations.dependencyManagement
+	}
+}
+
 protobuf {
 	protoc {
 		artifact = libs.protobuf.protoc.get()
