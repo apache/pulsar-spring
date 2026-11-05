@@ -149,7 +149,6 @@ public class JavaConventionsPlugin implements Plugin<Project> {
 			test.getInputs()
 				.property("pulsarTestImage",
 						project.getProviders().environmentVariable("PULSAR_TEST_IMAGE").orElse(""));
-			test.getTestLogging().setShowStandardStreams(true);
 			project.getTasks().withType(Checkstyle.class, test::mustRunAfter);
 			project.getTasks().withType(CheckFormat.class, test::mustRunAfter);
 		});

@@ -19,6 +19,7 @@ package org.apache.pulsar.spring.core;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.Serial;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -45,67 +46,76 @@ class FailoverConsumerTests implements PulsarTestContainerSupport {
 
 	@Test
 	void testFailOverConsumersOnPartitionedTopic() throws Exception {
-		PulsarAdmin admin = PulsarAdmin.builder()
+		String topicName = "persistent://public/default/my-part-topic-1";
+		try (PulsarAdmin admin = PulsarAdmin.builder()
 			.serviceHttpUrl(PulsarTestContainerSupport.getHttpServiceUrl())
 			.build();
-		String topicName = "persistent://public/default/my-part-topic-1";
-		admin.topics().createPartitionedTopic(topicName, 3);
+				PulsarClient pulsarClient = PulsarTestClients.builder()
+					.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
+					.build()) {
+			admin.topics().createPartitionedTopic(topicName, 3);
+			DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient,
+					List.of((consumerBuilder) -> {
+						consumerBuilder.topic("my-part-topic-1");
+						consumerBuilder.subscriptionName("my-part-subscription-1");
+					}));
 
-		PulsarClient pulsarClient = PulsarTestClients.builder()
-			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
-			.build();
-		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient,
-				List.of((consumerBuilder) -> {
-					consumerBuilder.topic("my-part-topic-1");
-					consumerBuilder.subscriptionName("my-part-subscription-1");
-				}));
+			CountDownLatch latch1 = new CountDownLatch(1);
+			CountDownLatch latch2 = new CountDownLatch(1);
+			CountDownLatch latch3 = new CountDownLatch(1);
 
-		CountDownLatch latch1 = new CountDownLatch(1);
-		CountDownLatch latch2 = new CountDownLatch(1);
-		CountDownLatch latch3 = new CountDownLatch(1);
+			PulsarContainerProperties pulsarContainerProperties = new PulsarContainerProperties();
+			pulsarContainerProperties
+				.setMessageListener((PulsarRecordMessageListener<?>) (consumer, msg) -> latch1.countDown());
+			pulsarContainerProperties.setSubscriptionType(SubscriptionType.Failover);
+			pulsarContainerProperties.setSchema(Schema.STRING);
+			List<DefaultPulsarMessageListenerContainer<String>> containers = new ArrayList<>();
+			try {
+				DefaultPulsarMessageListenerContainer<String> container1 = new DefaultPulsarMessageListenerContainer<>(
+						pulsarConsumerFactory, pulsarContainerProperties);
+				containers.add(container1);
+				container1.start();
 
-		PulsarContainerProperties pulsarContainerProperties = new PulsarContainerProperties();
-		pulsarContainerProperties
-			.setMessageListener((PulsarRecordMessageListener<?>) (consumer, msg) -> latch1.countDown());
-		pulsarContainerProperties.setSubscriptionType(SubscriptionType.Failover);
-		pulsarContainerProperties.setSchema(Schema.STRING);
-		DefaultPulsarMessageListenerContainer<String> container1 = new DefaultPulsarMessageListenerContainer<>(
-				pulsarConsumerFactory, pulsarContainerProperties);
-		container1.start();
+				pulsarContainerProperties
+					.setMessageListener((PulsarRecordMessageListener<?>) (consumer, msg) -> latch2.countDown());
+				DefaultPulsarMessageListenerContainer<String> container2 = new DefaultPulsarMessageListenerContainer<>(
+						pulsarConsumerFactory, pulsarContainerProperties);
+				containers.add(container2);
+				container2.start();
 
-		pulsarContainerProperties
-			.setMessageListener((PulsarRecordMessageListener<?>) (consumer, msg) -> latch2.countDown());
-		DefaultPulsarMessageListenerContainer<String> container2 = new DefaultPulsarMessageListenerContainer<>(
-				pulsarConsumerFactory, pulsarContainerProperties);
-		container2.start();
+				pulsarContainerProperties
+					.setMessageListener((PulsarRecordMessageListener<?>) (consumer, msg) -> latch3.countDown());
+				DefaultPulsarMessageListenerContainer<String> container3 = new DefaultPulsarMessageListenerContainer<>(
+						pulsarConsumerFactory, pulsarContainerProperties);
+				containers.add(container3);
+				container3.start();
 
-		pulsarContainerProperties
-			.setMessageListener((PulsarRecordMessageListener<?>) (consumer, msg) -> latch3.countDown());
-		DefaultPulsarMessageListenerContainer<String> container3 = new DefaultPulsarMessageListenerContainer<>(
-				pulsarConsumerFactory, pulsarContainerProperties);
-		container3.start();
+				DefaultPulsarProducerFactory<String> pulsarProducerFactory = new DefaultPulsarProducerFactory<>(pulsarClient,
+						"my-part-topic-1", List.of((pb) -> pb.messageRoutingMode(MessageRoutingMode.CustomPartition)));
+				PulsarTemplate<String> pulsarTemplate = new PulsarTemplate<>(pulsarProducerFactory);
 
-		DefaultPulsarProducerFactory<String> pulsarProducerFactory = new DefaultPulsarProducerFactory<>(pulsarClient,
-				"my-part-topic-1", List.of((pb) -> pb.messageRoutingMode(MessageRoutingMode.CustomPartition)));
-		PulsarTemplate<String> pulsarTemplate = new PulsarTemplate<>(pulsarProducerFactory);
+				pulsarTemplate.newMessage("hello john doe")
+					.withProducerCustomizer(builder -> builder.messageRouter(new FooRouter()))
+					.sendAsync();
+				pulsarTemplate.newMessage("hello alice doe")
+					.withProducerCustomizer(builder -> builder.messageRouter(new BarRouter()))
+					.sendAsync();
+				pulsarTemplate.newMessage("hello buzz doe")
+					.withProducerCustomizer(builder -> builder.messageRouter(new BuzzRouter()))
+					.sendAsync();
 
-		pulsarTemplate.newMessage("hello john doe")
-			.withProducerCustomizer(builder -> builder.messageRouter(new FooRouter()))
-			.sendAsync();
-		pulsarTemplate.newMessage("hello alice doe")
-			.withProducerCustomizer(builder -> builder.messageRouter(new BarRouter()))
-			.sendAsync();
-		pulsarTemplate.newMessage("hello buzz doe")
-			.withProducerCustomizer(builder -> builder.messageRouter(new BuzzRouter()))
-			.sendAsync();
+				boolean await1 = latch1.await(10, TimeUnit.SECONDS);
+				boolean await2 = latch2.await(10, TimeUnit.SECONDS);
+				boolean await3 = latch3.await(10, TimeUnit.SECONDS);
 
-		boolean await1 = latch1.await(10, TimeUnit.SECONDS);
-		boolean await2 = latch2.await(10, TimeUnit.SECONDS);
-		boolean await3 = latch3.await(10, TimeUnit.SECONDS);
-
-		assertThat(await1).isTrue();
-		assertThat(await2).isTrue();
-		assertThat(await3).isTrue();
+				assertThat(await1).isTrue();
+				assertThat(await2).isTrue();
+				assertThat(await3).isTrue();
+			}
+			finally {
+				containers.forEach(DefaultPulsarMessageListenerContainer::stop);
+			}
+		}
 	}
 
 	static class FooRouter implements MessageRouter {

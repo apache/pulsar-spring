@@ -40,6 +40,7 @@ import org.apache.pulsar.spring.test.support.ConsumedMessagesConditions;
 import org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil;
 import org.apache.pulsar.spring.test.support.PulsarTestClients;
 import org.apache.pulsar.spring.test.support.PulsarTestImage;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -66,6 +67,11 @@ class PulsarTemplateLocalTransactionTests {
 	@BeforeAll
 	static void startContainer() {
 		PULSAR_CONTAINER.start();
+	}
+
+	@AfterAll
+	static void stopContainer() {
+		PULSAR_CONTAINER.stop();
 	}
 
 	@BeforeEach

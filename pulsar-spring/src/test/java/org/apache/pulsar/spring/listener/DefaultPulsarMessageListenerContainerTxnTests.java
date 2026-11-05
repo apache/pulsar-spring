@@ -50,10 +50,10 @@ import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.test.support.ConsumedMessagesConditions;
 import org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil;
 import org.apache.pulsar.spring.test.support.PulsarTestClients;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
 import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.apache.pulsar.spring.transaction.PulsarTransactionManager;
 import org.apache.pulsar.spring.transaction.PulsarTransactionUtils;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -80,8 +80,12 @@ class DefaultPulsarMessageListenerContainerTxnTests {
 
 	@BeforeAll
 	static void startContainer() {
-		PulsarTestContainerSupport.stopContainer();
 		PULSAR_CONTAINER.start();
+	}
+
+	@AfterAll
+	static void stopContainer() {
+		PULSAR_CONTAINER.stop();
 	}
 
 	@BeforeEach
