@@ -1,7 +1,15 @@
 [[introduction]]
 = Introduction
 
-This project provides a basic Spring-friendly API for developing https://pulsar.apache.org/[Apache Pulsar] applications.
+This section helps you get started with Apache Pulsar support for Spring.
+See the xref:index.adoc[Overview] for what the project provides.
 
-On a very high level, Apache Pulsar support for Spring provides a `PulsarTemplate` for publishing to a Pulsar topic and a `PulsarListener` annotation for consuming from a Pulsar topic.
-In addition, it also provides various convenience APIs for Spring developers to ramp up their development journey into Apache Pulsar.
+To build your first application:
+
+. Check the xref:intro/system-requirements.adoc[system requirements].
+. Follow the xref:pulsar/quick-tour.adoc[Quick Tour], which adds the `pulsar-spring-boot-starter` dependency, sets the Pulsar version and builds a complete Spring Boot application that publishes and consumes a message.
+If you don't use Spring Boot, see xref:appendix/getting-dependencies-without-boot.adoc[Getting Dependencies without Spring Boot].
+. Continue with xref:pulsar.adoc[Using Apache Pulsar support for Spring] for the details of each feature.
+
+If you run into a problem, see xref:intro/getting-help.adoc[Getting Help].
+To work on the project itself, see xref:intro/building.adoc[Building the Project].
