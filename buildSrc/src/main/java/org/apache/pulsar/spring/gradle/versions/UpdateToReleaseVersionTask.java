@@ -27,6 +27,7 @@ public abstract class UpdateToReleaseVersionTask extends UpdateProjectVersionTas
 	@TaskAction
 	public void updateToReleaseVersion() {
 		updateVersionInGradleProperties(VERSION_PROPERTY, this.releaseVersion);
+		updateVersionInTomlVersions(PULSAR_SPRING_VERSION_FOR_SAMPLES_PROPERTY, (__) -> this.releaseVersion);
 		updateVersionInTomlVersions(SPRING_BOOT_VERSION_FOR_DOCS_PROPERTY, this::calculateReleaseBootVersion);
 	}
 

@@ -51,6 +51,10 @@ The build uses the included Gradle wrapper and a Java 25 toolchain. Docker is re
 # Also run the sample application tests
 ./gradlew build -PsampleTests
 
+# Run the sample application tests against published artifacts in a local repository
+./gradlew publishAllPublicationsToLocalRepository
+(cd pulsar-spring-sample-apps && ../gradlew runAllSampleTests -PsampleTests -PpulsarSpringRepository=../build/publications/repos)
+
 # Reference documentation, generated in pulsar-spring-docs/build/site
 ./gradlew :pulsar-spring-docs:antora
 ```

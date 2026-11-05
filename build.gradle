@@ -75,15 +75,18 @@ check {
 	dependsOn 'rat'
 }
 
+def sampleApps = gradle.includedBuild('pulsar-spring-sample-apps')
+
+tasks.named('build') {
+	dependsOn sampleApps.task(':build')
+}
+
+tasks.named('clean') {
+	dependsOn sampleApps.task(':clean')
+}
+
 tasks.register('runAllSampleTests') {
-	var allTasks = rootProject.getAllTasks(true)
-			.findAll {it.key.project.name.startsWith("sample-") }
-	var allTestsTasks = allTasks.values().collect { t ->
-		t.findAll { it.name == 'test' || it.name == 'integrationTest' }
-	}.flatten()
-	it.dependsOn {
-		allTestsTasks
-	}
+	dependsOn sampleApps.task(':runAllSampleTests')
 }
 
 versionCatalogUpdate {

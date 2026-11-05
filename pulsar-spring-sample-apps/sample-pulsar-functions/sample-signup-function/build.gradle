@@ -24,15 +24,6 @@ plugins {
 group = 'org.apache.pulsar.spring.sample'
 description = 'Sample Signup Pulsar Function'
 
-repositories {
-	mavenCentral()
-}
-
-java {
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
-}
-
 def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
 def pulsarVersion = project.findProperty('pulsarVersion') ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
 

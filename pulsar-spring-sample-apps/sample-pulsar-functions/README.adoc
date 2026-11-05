@@ -26,7 +26,7 @@ NOTE: All commands are expected to be executed from the directory this document 
 === Build app and function
 Build the application and function libs with the following command:
 ----
-../../gradlew clean build
+(cd ../../.. && ./gradlew :pulsar-spring-sample-apps:sample-pulsar-functions:sample-signup-app:build :pulsar-spring-sample-apps:sample-pulsar-functions:sample-signup-function:build)
 ----
 
 === Download connectors
@@ -113,7 +113,7 @@ The sample app registers the Pulsar Functions which effectively create the strea
 
 .Run the sample app within your IDE or by executing the following command
 ----
-cd sample-signup-app && ../../../gradlew bootRun
+(cd ../../.. && ./gradlew :pulsar-spring-sample-apps:sample-pulsar-functions:sample-signup-app:bootRun)
 ----
 .which should produce
 ----

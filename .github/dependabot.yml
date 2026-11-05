@@ -39,6 +39,26 @@ updates:
         update-types:
           - version-update:semver-major
           - version-update:semver-minor
+      # The version of this project that the sample apps use
+      - dependency-name: "org.apache.pulsar:pulsar-spring-bom"
+
+  # The sample apps are a separate build, which has its own dependencies in addition to the
+  # version catalog of the main build
+  - package-ecosystem: gradle
+    directory: "/pulsar-spring-sample-apps"
+    schedule:
+      interval: daily
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: build
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-major
+          - version-update:semver-minor
+      - dependency-name: "org.apache.pulsar:pulsar-spring-bom"
 
   - package-ecosystem: github-actions
     directory: "/"

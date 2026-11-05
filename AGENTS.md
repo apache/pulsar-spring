@@ -51,6 +51,7 @@ for most tests.
 ```shell
 ./gradlew build                                # Everything, including tests (about 20 minutes)
 ./gradlew build -PsampleTests                  # Also runs the sample application tests
+./gradlew :pulsar-spring-sample-apps:sample-pulsar-reader:test -PsampleTests   # Scope a sample's tests
 ./gradlew build -x test -x integrationTest -x dockerTest   # Everything except the tests
 ./gradlew :pulsar-spring:test --tests '*PulsarTemplateTests'   # Scope test runs while working
 ./gradlew :pulsar-spring-boot-autoconfigure:dockerTest
@@ -73,6 +74,11 @@ so it can also reformat unrelated files there: review the diff and keep those ch
 - **Documentation:** there is one site, in `pulsar-spring-docs/src/main/antora`. Don't add documentation
   to other modules. The Java and Kotlin snippets in `pulsar-spring-docs/src/main` are compiled, and the
   Configuration Properties appendix is generated from the auto-configuration metadata.
+- **Sample apps:** `pulsar-spring-sample-apps` is a separate Gradle build that only shares the version
+  catalog, and uses the artifacts by their coordinates. The main build includes it and substitutes its
+  projects for them. Gradle's `dependencies` and `dependencyInsight` tasks hang for its projects when run
+  through the main build, so run them in that directory with `-PpulsarSpringRepository`, as described in
+  its [`README.adoc`](pulsar-spring-sample-apps/README.adoc).
 - **Tests:** tests that need a broker use Testcontainers. Clean up anything you start, including
   containers, so that runs don't leave resources behind.
 

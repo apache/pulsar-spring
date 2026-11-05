@@ -28,6 +28,8 @@ micrometer-docs-gen = "1.0.4"
 micrometer-tracing = "1.7.2"
 protobuf = "3.25.9"
 pulsar = "4.2.5"
+# the version of this project that the sample apps use, the same as in gradle.properties
+pulsar-spring = "3.0.0-M1-SNAPSHOT"
 spring = "7.0.10"
 # tests
 assertj = "3.27.7"
@@ -68,6 +70,7 @@ micrometer-tracing-bom = { module = "io.micrometer:micrometer-tracing-bom", vers
 protobuf-java = { module = "com.google.protobuf:protobuf-java", version.ref = "protobuf" }
 protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protobuf" }
 pulsar-client-all = { module = "org.apache.pulsar:pulsar-client-all", version.ref = "pulsar" }
+pulsar-spring-bom = { module = "org.apache.pulsar:pulsar-spring-bom", version.ref = "pulsar-spring" }
 spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring" }
 # Testing libs
 assertj-bom = { module = "org.assertj:assertj-bom", version.ref = "assertj" }

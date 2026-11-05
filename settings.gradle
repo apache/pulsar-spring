@@ -34,17 +34,16 @@ include 'pulsar-spring-cache-provider'
 include 'pulsar-spring-cache-provider-caffeine'
 include 'pulsar-spring-cloud-stream-binder'
 include 'pulsar-spring-dependencies'
-include 'pulsar-spring-sample-apps:sample-imperative-produce-consume'
-include 'pulsar-spring-sample-apps:sample-failover-custom-router'
-include 'pulsar-spring-sample-apps:sample-pulsar-functions:sample-signup-app'
-include 'pulsar-spring-sample-apps:sample-pulsar-functions:sample-signup-function'
-include 'pulsar-spring-sample-apps:sample-pulsar-binder'
-include 'pulsar-spring-sample-apps:sample-pulsar-reader'
 include 'pulsar-spring-docs'
 include 'pulsar-spring-test'
 include 'pulsar-spring-integration-tests'
 
 rootProject.name = "pulsar-spring-dist"
 
-rootProject.children.findAll { !it.name.startsWith('sample-') }
-		.each {project -> project.buildFileName = "${project.name}.gradle" }
+rootProject.children.each { project -> project.buildFileName = "${project.name}.gradle" }
+
+// The sample apps are a separate build, so that they can also be run against published
+// artifacts. Here, dependency substitution makes them use the projects of this build, which
+// requires this build to be included as well.
+includeBuild('.')
+includeBuild('pulsar-spring-sample-apps')

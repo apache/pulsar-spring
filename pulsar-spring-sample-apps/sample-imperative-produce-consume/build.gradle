@@ -25,21 +25,17 @@ plugins {
 
 description = 'Apache Pulsar support for Spring Sample (Imperative Produce and Consume)'
 
-repositories { 
-	mavenCentral()
-	maven { url = 'https://repository.apache.org/snapshots/' }
-}
-
 def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
 def pulsarVersion = project.findProperty('pulsarVersion') ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
 
 ext['pulsar.version'] = "${pulsarVersion}"
 
 dependencies {
-	implementation project(':pulsar-spring-boot-starter')
+	implementation platform(libs.pulsar.spring.bom)
+	implementation 'org.apache.pulsar:pulsar-spring-boot-starter'
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-	implementation(testFixtures(project(":pulsar-spring")))
-	implementation project(':pulsar-spring-test')
+	implementation(testFixtures('org.apache.pulsar:pulsar-spring'))
+	implementation 'org.apache.pulsar:pulsar-spring-test'
 	testRuntimeOnly 'ch.qos.logback:logback-classic'
 	testImplementation "org.springframework.boot:spring-boot-starter-test"
 	testImplementation "org.springframework.boot:spring-boot-testcontainers"

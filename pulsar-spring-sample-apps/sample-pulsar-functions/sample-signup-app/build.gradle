@@ -26,18 +26,14 @@ plugins {
 group = 'org.apache.pulsar.spring.sample'
 description = 'Sample Signup App (Pulsar Functions)'
 
-repositories { 
-	mavenCentral()
-	maven { url = 'https://repository.apache.org/snapshots/' }
-}
-
 def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
 def pulsarVersion = project.findProperty('pulsarVersion') ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
 
 ext['pulsar.version'] = "${pulsarVersion}"
 
 dependencies {
-	implementation project(':pulsar-spring-cloud-stream-binder')
+	implementation platform(libs.pulsar.spring.bom)
+	implementation 'org.apache.pulsar:pulsar-spring-cloud-stream-binder'
 	implementation 'org.springframework.boot:spring-boot-starter-amqp'
 	implementation 'org.springframework.boot:spring-boot-starter-data-cassandra'
 	implementation 'com.devskiller:jfairy:0.6.5'

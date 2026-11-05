@@ -5,10 +5,29 @@ Sample applications that can be used to demonstrate and manually verify Apache P
 
 [[build-apps]]
 == Building
-To build the applications simply execute the following command from the `pulsar-spring-sample-apps` directory:
+The sample applications are a separate Gradle build, which only shares the version catalog of the main build.
+
+The main build includes it and substitutes its own projects for the Apache Pulsar support for Spring artifacts, so use this when developing.
+Execute the following command from the root directory of the repository:
 [source,bash]
 ----
-../gradlew clean build
+./gradlew :pulsar-spring-sample-apps:build
+----
+
+Add `-PsampleTests` to also run the tests of the sample applications.
+
+[[published-artifacts]]
+=== Using published artifacts
+When run on its own, the build gets the artifacts from a repository, as an application would.
+The `pulsarSpringRepository` property sets the repository, as a path or a URL.
+Without it, the build uses Maven Central and the Apache snapshot repository.
+
+The following commands test the sample applications against artifacts published to a local repository:
+[source,bash]
+----
+./gradlew publishAllPublicationsToLocalRepository
+cd pulsar-spring-sample-apps
+../gradlew runAllSampleTests -PsampleTests -PpulsarSpringRepository=../build/publications/repos
 ----
 
 [[run-apps]]
@@ -30,11 +49,11 @@ Make sure the above pre-requisites are satisfied.
 To run the app in your IDE just choose `Run/Debug` on the desired sample application class.
 
 ===== Command Line
-To run the app on the command line open a terminal and navigate to the desired sample application directory (underneath `pulsar-spring-sample-apps`) and execute the following command:
+To run the app on the command line execute the following command from the root directory of the repository, using the name of the desired sample application:
 
 [source,bash]
 ----
-../../gradlew bootRun
+./gradlew :pulsar-spring-sample-apps:sample-pulsar-reader:bootRun
 ----
 
 TIP: When running on the command line the `add-opens` JVM args are automatically configured which prevents annoying exceptions at runtime.

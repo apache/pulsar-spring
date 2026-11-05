@@ -30,6 +30,8 @@ public abstract class UpdateProjectVersionTask extends DefaultTask {
 
 	static final String VERSION_PROPERTY = "version";
 
+	static final String PULSAR_SPRING_VERSION_FOR_SAMPLES_PROPERTY = "pulsar-spring";
+
 	static final String SPRING_BOOT_VERSION_FOR_SAMPLES_PROPERTY = "spring-boot";
 
 	static final String SPRING_BOOT_VERSION_FOR_DOCS_PROPERTY = "spring-boot-for-docs";
