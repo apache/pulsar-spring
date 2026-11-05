@@ -95,14 +95,34 @@ PulsarContainer pulsar = PulsarTestImage.createContainer();
 // Another version of the apachepulsar/pulsar image
 PulsarContainer pulsar = PulsarTestImage.createContainer("5.0.1");
 
-// Another image, which must be declared compatible when it has another name
-PulsarContainer pulsar = PulsarTestImage.createContainer(DockerImageName.parse("registry.example.com/pulsar:5.0.1")
-		.asCompatibleSubstituteFor("apachepulsar/pulsar"));
+// Another image, which is assumed to be compatible with apachepulsar/pulsar
+PulsarContainer pulsar = PulsarTestImage.createContainer(DockerImageName.parse("registry.example.com/pulsar:5.0.1"));
 ----
 
 The containers are not started, and you can customize them further, for example with `withTransactions()`.
 
-To run tests with another image without changing them, set the `pulsar.test.image` system property or the `PULSAR_TEST_IMAGE` environment variable, for example to `registry.example.com/pulsar:5.0.1`.
-This changes the image of `createContainer()` and of the shared container in `PulsarTestContainerSupport`, and the system property takes precedence.
-
 Your project needs a dependency on `org.testcontainers:testcontainers-pulsar` to use this class.
+
+[[pulsar-test-image-default]]
+=== Setting the default image
+
+By default, `PulsarTestImage` uses the `apachepulsar/pulsar` image of the Pulsar version that this project is built with.
+To run your tests with another image or version without changing them, set one of the following to the image name, including its version as the tag:
+
+* The `pulsar.test.image` system property, which takes precedence
+* The `PULSAR_TEST_IMAGE` environment variable
+
+For example, to run the tests with another Pulsar version or with an image from another registry:
+
+[source,bash,subs="attributes"]
+----
+PULSAR_TEST_IMAGE=apachepulsar/pulsar:{pulsar-client-version} ./gradlew test
+PULSAR_TEST_IMAGE=registry.example.com/pulsar:{pulsar-client-version} ./gradlew test
+----
+
+An image name without a tag uses the `latest` tag.
+
+This changes the image of `PulsarTestImage.createContainer()` and of the shared container in `PulsarTestContainerSupport`.
+It does not change `createContainer(String)` and `createContainer(DockerImageName)`, which use the version or the image that they are given.
+
+NOTE: Gradle does not pass its own system properties to the JVM that runs the tests, so with Gradle, use the environment variable or set the system property on the `Test` task.

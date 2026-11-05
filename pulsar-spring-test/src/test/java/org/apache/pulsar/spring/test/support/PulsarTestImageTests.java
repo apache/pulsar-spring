@@ -20,7 +20,6 @@
 package org.apache.pulsar.spring.test.support;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
 
 import org.apache.pulsar.PulsarVersion;
 import org.junit.jupiter.api.AfterEach;
@@ -83,15 +82,8 @@ class PulsarTestImageTests {
 
 	@Test
 	void createContainerWithImageUsesImage() {
-		DockerImageName image = DockerImageName.parse("registry.example.com/pulsar:1.2.3")
-			.asCompatibleSubstituteFor("apachepulsar/pulsar");
+		DockerImageName image = DockerImageName.parse("registry.example.com/pulsar:1.2.3");
 		assertImage(PulsarTestImage.createContainer(image), "registry.example.com/pulsar:1.2.3");
-	}
-
-	@Test
-	void createContainerWithIncompatibleImageFails() {
-		assertThatIllegalStateException().isThrownBy(
-				() -> PulsarTestImage.createContainer(DockerImageName.parse("registry.example.com/pulsar:1.2.3")));
 	}
 
 	@Test

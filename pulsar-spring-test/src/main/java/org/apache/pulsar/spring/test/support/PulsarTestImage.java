@@ -74,14 +74,13 @@ public final class PulsarTestImage {
 	}
 
 	/**
-	 * Create a container with the given image. An image that is not named
-	 * {@code apachepulsar/pulsar} must be declared compatible with it, by using
-	 * {@link DockerImageName#asCompatibleSubstituteFor(String)}.
+	 * Create a container with the given image, which is assumed to be compatible with
+	 * {@code apachepulsar/pulsar}.
 	 * @param image the image
 	 * @return the container, which has not been started
 	 */
 	public static PulsarContainer createContainer(DockerImageName image) {
-		return new PulsarContainer(image).withStartupAttempts(2)
+		return new PulsarContainer(image.asCompatibleSubstituteFor(IMAGE_NAME)).withStartupAttempts(2)
 			.withStartupTimeout(Duration.ofMinutes(3))
 			.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost");
 	}
