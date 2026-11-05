@@ -30,6 +30,15 @@ cd pulsar-spring-sample-apps
 ../gradlew runAllSampleTests -PsampleTests -PpulsarSpringRepository=../build/publications/repos
 ----
 
+[[native-image]]
+=== Testing the native image
+The tests of `sample-native-image` start the application with ahead-of-time processing on the JVM.
+The `nativeSmokeTest` task runs the same tests with the application as a native image, which requires GraalVM for JDK 25 in the `GRAALVM_HOME` or `JAVA_HOME` environment variable:
+[source,bash]
+----
+../gradlew :sample-native-image:nativeSmokeTest -PpulsarSpringRepository=../build/publications/repos
+----
+
 [[run-apps]]
 == Running
 

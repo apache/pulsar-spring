@@ -148,6 +148,45 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+  # Tests the AOT support and the runtime hints in a native image of a sample app
+  native-image:
+    name: Tests - Native image
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - name: Check out the source code
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up GraalVM
+        uses: graalvm/setup-graalvm@f70bc8032f90a104502824a54bcb94b6f01715bc # v1.6.8
+        with:
+          distribution: graalvm-community
+          java-version: ${{ env.JDK_VERSION }}
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+
+      - name: Publish the artifacts to a local repository
+        run: ./gradlew publishAllPublicationsToLocalRepository
+
+      - name: Build and test the native image
+        working-directory: pulsar-spring-sample-apps
+        run: ../gradlew :sample-native-image:nativeSmokeTest -PpulsarSpringRepository=../build/publications/repos
+
+      - name: Upload the test reports
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-reports-native-image
+          path: |
+            **/build/reports/tests/
+            **/build/test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
   # A single job that can be required for merging pull requests, through the
   # required_status_checks of the protected branch in .asf.yaml
   ci-checks-completed:
@@ -156,6 +195,7 @@ jobs:
     needs:
       - build
       - tests
+      - native-image
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:

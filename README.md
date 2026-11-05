@@ -58,6 +58,9 @@ The build uses the included Gradle wrapper and a Java 25 toolchain. Docker is re
 # Run the tests with another Pulsar image
 PULSAR_TEST_IMAGE=registry.example.com/pulsar:5.0.1 ./gradlew :pulsar-spring-cloud-stream-binder:test
 
+# Also test the AOT support in a native image, which requires GraalVM for JDK 25
+(cd pulsar-spring-sample-apps && ../gradlew :sample-native-image:nativeSmokeTest -PpulsarSpringRepository=../build/publications/repos)
+
 # Reference documentation, generated in pulsar-spring-docs/build/site
 ./gradlew :pulsar-spring-docs:antora
 ```

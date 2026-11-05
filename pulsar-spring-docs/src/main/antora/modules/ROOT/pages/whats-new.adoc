@@ -25,6 +25,10 @@ Applications that use Protobuf schemas add `protobuf-java` themselves, and can u
 Spring Boot applications must always set the `pulsar.version` property, and it's recommended that they also set `netty.version` to the most recent 4.2.x release of Netty.
 See xref:intro/system-requirements.adoc#pulsar-client-dependencies[Pulsar client] and xref:appendix/override-boot-dependencies.adoc[] for more information.
 
+=== Native image support
+The runtime hints have been updated for the unshaded Pulsar 5 client.
+The new `sample-native-image` sample application, which comes from the Spring AOT smoke tests, tests them with ahead-of-time processing and as a native image.
+
 === Jackson in the Spring Cloud Stream binder
 The binder now depends on `spring-boot-starter-jackson`, so that applications have an auto-configured `ObjectMapper` bean.
 Spring Cloud Function uses this bean for JSON conversion, so that it now applies `spring.jackson.*` properties and Jackson customizers, rather than falling back to its default configuration.
