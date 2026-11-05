@@ -20,6 +20,7 @@ gradle/wrapper/gradle-wrapper.properties
 **/META-INF/**
 **/mockito-extensions/*
 # Tool configuration
+.idea/**
 .gitignore
 .mailmap
 .ratignore

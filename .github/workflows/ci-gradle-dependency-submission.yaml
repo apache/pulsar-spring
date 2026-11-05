@@ -55,6 +55,12 @@ jobs:
           distribution: corretto
           java-version: '25'
 
+      - name: Set up Gradle
+        uses: ./.github/actions/setup-gradle
+        with:
+          develocity-access-key: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
+          cache-read-only: false
+
       - name: Generate and submit the dependency graph
         uses: gradle/actions/dependency-submission@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
         with:
