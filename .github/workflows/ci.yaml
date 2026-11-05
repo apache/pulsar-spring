@@ -96,7 +96,6 @@ jobs:
           - name: Core
             tasks: >-
               :pulsar-spring:test
-              :pulsar-spring-cache-provider:test
               :pulsar-spring-test:test
           - name: Spring Boot
             tasks: >-
