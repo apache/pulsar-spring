@@ -46,8 +46,9 @@ test {
 	outputs.upToDateWhen { false }
 	dependsOn tasks.named('bootJar')
 	doFirst {
-		systemProperty 'sample.command', [javaLauncher.get().executablePath, '-Dspring.aot.enabled=true', '-jar',
-				tasks.bootJar.archiveFile.get().asFile].join('\n')
+		def jvmArgs = rootProject.pulsarClientJvmArgs(javaVersion) + ['-Dspring.aot.enabled=true', '-jar',
+				tasks.bootJar.archiveFile.get().asFile]
+		systemProperty 'sample.command', ([javaLauncher.get().executablePath] + jvmArgs).join('\n')
 	}
 }
 

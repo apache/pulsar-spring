@@ -25,6 +25,24 @@ description = 'Apache Pulsar support for Spring Sample Applications'
 
 def toolchainVersion = (findProperty('testToolchain') ?: 25).toString().toInteger()
 
+// The JVM options that the Pulsar client and Netty need. Applications should use these too.
+ext.pulsarClientJvmArgs = { JavaVersion javaVersion ->
+	def args = [
+			'--add-opens', 'java.base/java.nio=ALL-UNNAMED',
+			'--add-opens', 'java.base/jdk.internal.misc=ALL-UNNAMED',
+			'--add-opens', 'java.base/java.util.zip=ALL-UNNAMED',
+			'-Dio.netty.tryReflectionSetAccessible=true'
+	]
+	// These options don't exist or aren't needed on earlier Java versions
+	if (javaVersion.isCompatibleWith(JavaVersion.VERSION_23)) {
+		args << '--sun-misc-unsafe-memory-access=allow'
+	}
+	if (javaVersion.isCompatibleWith(JavaVersion.VERSION_24)) {
+		args << '--enable-native-access=ALL-UNNAMED'
+	}
+	args
+}
+
 subprojects {
 	group = 'org.apache.pulsar.spring.sample'
 
@@ -65,6 +83,12 @@ subprojects {
 				options.compilerArgs.add('-Werror')
 			}
 		}
+		// The bootRun task of the Spring Boot plugin is a JavaExec task
+		tasks.withType(JavaExec).configureEach {
+			doFirst { JavaExec exec ->
+				exec.jvmArgs(rootProject.pulsarClientJvmArgs(exec.javaVersion))
+			}
+		}
 		// Added when the task runs since the test classpath and Java version are task inputs
 		// already, and this keeps the absolute path of the Mockito jar out of the inputs.
 		tasks.withType(Test).configureEach {
@@ -75,10 +99,7 @@ subprojects {
 				test.classpath.files.findAll { it.name ==~ /mockito-core-.*\.jar/ }.each {
 					test.jvmArgs("-javaagent:${it.absolutePath}")
 				}
-				if (test.javaVersion.isCompatibleWith(JavaVersion.VERSION_24)) {
-					// The Netty of the Pulsar client loads native libraries and uses Unsafe
-					test.jvmArgs('--enable-native-access=ALL-UNNAMED', '--sun-misc-unsafe-memory-access=allow')
-				}
+				test.jvmArgs(rootProject.pulsarClientJvmArgs(test.javaVersion))
 			}
 		}
 	}

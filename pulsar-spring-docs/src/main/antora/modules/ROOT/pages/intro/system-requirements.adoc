@@ -32,3 +32,24 @@ Applications that use Protobuf schemas must add the `com.google.protobuf:protobu
 They can use Protobuf 3 or 4.
 
 Spring Boot applications should also set `netty.version` to the most recent 4.2.x release of Netty, as described in xref:appendix/override-boot-dependencies.adoc[].
+
+[[pulsar-jvm-options]]
+== JVM options
+
+The Pulsar client and Netty work best with the following JVM options, which also avoid warnings about restricted operations on recent Java versions.
+Use the options for your Java version when you run your application.
+
+[source,subs="verbatim"]
+----
+--add-opens java.base/java.nio=ALL-UNNAMED
+--add-opens java.base/jdk.internal.misc=ALL-UNNAMED
+--add-opens java.base/java.util.zip=ALL-UNNAMED
+-Dio.netty.tryReflectionSetAccessible=true
+----
+
+On Java 23 and later, also add `--sun-misc-unsafe-memory-access=allow`.
+On Java 24 and later, also add `--enable-native-access=ALL-UNNAMED`.
+Java versions before those don't support or need these options respectively, and an unsupported option prevents the JVM from starting.
+
+The `java.nio` and `jdk.internal.misc` options, together with the system property, enable https://pulsar.apache.org/docs/client-libraries/java-setup/#enabling-optimized-netty-direct-memory-buffer-access[Netty's optimized direct memory access], which helps to avoid `OutOfMemoryError: Direct buffer memory` errors.
+The `java.util.zip` option enables the https://pulsar.apache.org/docs/client-libraries/java-setup/#enabling-optimized-checksum-calculation-when-native-library-loading-fails[optimized checksum calculation when the native library can't be loaded].

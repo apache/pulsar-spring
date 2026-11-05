@@ -65,4 +65,4 @@ To run the app on the command line execute the following command from the root d
 ./gradlew :pulsar-spring-sample-apps:sample-pulsar-reader:bootRun
 ----
 
-TIP: When running on the command line the `add-opens` JVM args are automatically configured which prevents annoying exceptions at runtime.
+TIP: When running on the command line the build sets the JVM options that the Pulsar client and Netty need, as described in the https://pulsar.apache.org/pulsar-spring/reference/intro/system-requirements.html#pulsar-jvm-options[system requirements].

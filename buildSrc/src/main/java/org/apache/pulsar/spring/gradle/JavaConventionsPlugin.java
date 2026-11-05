@@ -60,7 +60,7 @@ import io.spring.javaformat.gradle.tasks.Format;
  * <li>to use JUnit Platform
  * <li>with a max heap of 1024M
  * <li>with Mockito as a Java agent when it is on the test classpath
- * <li>to allow Netty's native access and use of {@code sun.misc.Unsafe} on Java 24+
+ * <li>with the JVM options that the Pulsar client and Netty need
  * <li>to run after any Checkstyle and format checking tasks
  * </ul>
  * <li>A {@code testRuntimeOnly} dependency upon
@@ -138,10 +138,12 @@ public class JavaConventionsPlugin implements Plugin<Project> {
 				testLoggingContainer.setExceptionFormat(TestExceptionFormat.FULL);
 			});
 			test.jvmArgs(
-					"--add-opens", "java.base/java.lang=ALL-UNNAMED",
-					"--add-opens", "java.base/java.util=ALL-UNNAMED",
-					"--add-opens", "java.base/sun.net=ALL-UNNAMED"
+					"--add-opens", "java.base/java.nio=ALL-UNNAMED",
+					"--add-opens", "java.base/jdk.internal.misc=ALL-UNNAMED",
+					"--add-opens", "java.base/java.util.zip=ALL-UNNAMED"
 					);
+			// Used by Netty together with the java.nio and jdk.internal.misc options above
+			test.systemProperty("io.netty.tryReflectionSetAccessible", "true");
 			test.doFirst(new AddTestJvmArguments());
 			// PulsarTestImage reads this, so results for another image must not be reused
 			test.getInputs()
@@ -185,9 +187,14 @@ public class JavaConventionsPlugin implements Plugin<Project> {
 			test.getClasspath().getFiles().stream()
 					.filter((file) -> file.getName().matches("mockito-core-.*\\.jar"))
 					.forEach((file) -> test.jvmArgs("-javaagent:" + file.getAbsolutePath()));
+			// These options don't exist or aren't needed on earlier Java versions
+			if (test.getJavaVersion().isCompatibleWith(JavaVersion.VERSION_23)) {
+				// The Netty of the Pulsar client uses Unsafe
+				test.jvmArgs("--sun-misc-unsafe-memory-access=allow");
+			}
 			if (test.getJavaVersion().isCompatibleWith(JavaVersion.VERSION_24)) {
-				// The Netty of the Pulsar client loads native libraries and uses Unsafe
-				test.jvmArgs("--enable-native-access=ALL-UNNAMED", "--sun-misc-unsafe-memory-access=allow");
+				// The Netty of the Pulsar client loads native libraries
+				test.jvmArgs("--enable-native-access=ALL-UNNAMED");
 			}
 		}
 
