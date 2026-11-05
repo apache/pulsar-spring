@@ -183,12 +183,12 @@ public class PulsarRuntimeHints implements RuntimeHintsRegistrar {
 				"org.glassfish.jersey.spi.ThreadPoolExecutorProvider",
 				"org.jvnet.hk2.internal.DynamicConfigurationServiceImpl",
 				"org.jvnet.hk2.internal.ServiceLocatorRuntimeImpl",
-				"org.apache.pulsar.spring.shade.com.github.benmanes.caffeine.cache.PSAMS",
-				"org.apache.pulsar.spring.shade.com.github.benmanes.caffeine.cache.PSW",
-				"org.apache.pulsar.spring.shade.com.github.benmanes.caffeine.cache.PSWMS",
-				"org.apache.pulsar.spring.shade.com.github.benmanes.caffeine.cache.SSLA",
-				"org.apache.pulsar.spring.shade.com.github.benmanes.caffeine.cache.SSMSA",
-				"org.apache.pulsar.spring.shade.com.github.benmanes.caffeine.cache.SSLMSAW")
+				"com.github.benmanes.caffeine.cache.PSAMS",
+				"com.github.benmanes.caffeine.cache.PSW",
+				"com.github.benmanes.caffeine.cache.PSWMS",
+				"com.github.benmanes.caffeine.cache.SSLA",
+				"com.github.benmanes.caffeine.cache.SSMSA",
+				"com.github.benmanes.caffeine.cache.SSLMSAW")
 			.forEach(type -> reflectionHints.registerTypeIfPresent(classLoader, type,
 					builder -> builder.withMembers(MemberCategory.INVOKE_DECLARED_CONSTRUCTORS,
 							MemberCategory.INVOKE_PUBLIC_METHODS, MemberCategory.INVOKE_DECLARED_METHODS,

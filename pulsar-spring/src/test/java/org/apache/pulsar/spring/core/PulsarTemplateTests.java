@@ -251,7 +251,7 @@ class PulsarTemplateTests implements PulsarTestContainerSupport {
 	}
 
 	private <T> void assertCacheSize(CachingPulsarProducerFactory<T> producerFactory, int expectedSize) {
-		assertThat(producerFactory).extracting("producerCache.cache.cache")
+		assertThat(producerFactory).extracting("producerCache.cache")
 			.asInstanceOf(InstanceOfAssertFactories.MAP)
 			.hasSize(expectedSize);
 	}

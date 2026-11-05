@@ -34,8 +34,7 @@ dependencies {
 	api 'org.springframework:spring-context'
 	api 'org.springframework:spring-messaging'
 	api 'org.springframework:spring-tx'
-	api project(':pulsar-spring-cache-provider')
-	implementation project(path: ':pulsar-spring-cache-provider-caffeine', configuration: 'shadow')
+	implementation libs.caffeine
 	implementation libs.pulsar.client.original
 	implementation libs.pulsar.client.admin.original
 	// The client uses this for message encryption, but only has it as a compile-only dependency

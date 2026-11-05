@@ -18,8 +18,6 @@
  */
 
 def javaProjects = [ 'pulsar-spring',
-					 'pulsar-spring-cache-provider',
-					 'pulsar-spring-cache-provider-caffeine',
 					 'pulsar-spring-test' ]
 
 

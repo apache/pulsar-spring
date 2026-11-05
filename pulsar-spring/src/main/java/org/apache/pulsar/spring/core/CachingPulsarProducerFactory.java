@@ -37,13 +37,15 @@ import org.apache.pulsar.client.api.transaction.Transaction;
 import org.apache.pulsar.client.impl.schema.AutoProduceBytesSchema;
 import org.apache.pulsar.common.protocol.schema.SchemaHash;
 import org.apache.pulsar.common.schema.SchemaType;
-import org.apache.pulsar.spring.cache.provider.CacheProvider;
-import org.apache.pulsar.spring.cache.provider.CacheProviderFactory;
 import org.jspecify.annotations.Nullable;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.core.log.LogAccessor;
 import org.springframework.util.Assert;
+
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
+import com.github.benmanes.caffeine.cache.Scheduler;
 
 /**
  * A {@link PulsarProducerFactory} that extends the {@link DefaultPulsarProducerFactory
@@ -68,7 +70,7 @@ public class CachingPulsarProducerFactory<T> extends DefaultPulsarProducerFactor
 
 	private final LogAccessor logger = new LogAccessor(this.getClass());
 
-	private final CacheProvider<ProducerCacheKey<T>, Producer<T>> producerCache;
+	private final Cache<ProducerCacheKey<T>, Producer<T>> producerCache;
 
 	private final AtomicReference<State> currentState = RestartableComponentSupport.initialState();
 
@@ -88,16 +90,20 @@ public class CachingPulsarProducerFactory<T> extends DefaultPulsarProducerFactor
 			List<ProducerBuilderCustomizer<T>> defaultConfigCustomizers, TopicResolver topicResolver,
 			Duration cacheExpireAfterAccess, Long cacheMaximumSize, Integer cacheInitialCapacity) {
 		super(pulsarClient, defaultTopic, defaultConfigCustomizers, topicResolver);
-		var cacheFactory = CacheProviderFactory.<ProducerCacheKey<T>, Producer<T>>load();
-		this.producerCache = cacheFactory.create(cacheExpireAfterAccess, cacheMaximumSize, cacheInitialCapacity,
-				(key, producer, cause) -> {
-					if (producer == null) {
-						return;
-					}
-					this.logger.debug(() -> "Producer %s evicted from cache due to %s"
-						.formatted(ProducerUtils.formatProducer(producer), cause));
-					closeProducer(producer, true);
-				});
+		this.producerCache = Caffeine.newBuilder()
+			.expireAfterAccess(cacheExpireAfterAccess)
+			.maximumSize(cacheMaximumSize)
+			.initialCapacity(cacheInitialCapacity)
+			.scheduler(Scheduler.systemScheduler())
+			.<ProducerCacheKey<T>, Producer<T>>evictionListener((key, producer, cause) -> {
+				if (producer == null) {
+					return;
+				}
+				this.logger.debug(() -> "Producer %s evicted from cache due to %s"
+					.formatted(ProducerUtils.formatProducer(producer), cause));
+				closeProducer(producer, true);
+			})
+			.build();
 	}
 
 	@Override
@@ -107,7 +113,7 @@ public class CachingPulsarProducerFactory<T> extends DefaultPulsarProducerFactor
 		var resolveTopicName = resolveTopicName(topic);
 		var producerCacheKey = new ProducerCacheKey<>(schema, resolveTopicName,
 				encryptionKeys == null ? null : new HashSet<>(encryptionKeys), customizers);
-		return this.producerCache.getOrCreateIfAbsent(producerCacheKey,
+		return this.producerCache.get(producerCacheKey,
 				(st) -> createCacheableProducer(st.schema, st.topic, st.encryptionKeys, customizers));
 	}
 
@@ -145,7 +151,10 @@ public class CachingPulsarProducerFactory<T> extends DefaultPulsarProducerFactor
 
 	@Override
 	public void doStop() {
-		this.producerCache.invalidateAll((key, producer) -> closeProducer(producer, false));
+		this.producerCache.asMap().forEach((key, producer) -> {
+			this.producerCache.invalidate(key);
+			closeProducer(producer, false);
+		});
 	}
 
 	private void closeProducer(Producer<T> producer, boolean async) {

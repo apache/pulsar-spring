@@ -17,7 +17,7 @@
 
 [versions]
 # product
-caffeine = "3.2.4"
+caffeine = "3.3.1"
 commons-compress = "1.28.0"
 jackson = "2.21.8"
 jspecify = "1.0.1"
@@ -55,7 +55,6 @@ download = "5.7.0"
 native-build-tools = "1.1.14"
 nohttp = "0.0.11"
 rat = "0.11.0"
-shadow = "9.6.1"
 versions = "0.67.0"
 version-catalog-update = "1.1.2"
 protobuf-plugin = "0.10.0"
@@ -110,7 +109,6 @@ antora = { id = "org.antora", version.ref = "antora" }
 antora-yml = { id = "io.spring.antora.generate-antora-yml", version.ref = "antora-yml" }
 download = { id = "de.undercouch.download", version.ref = "download" }
 native-build-tools = { id = "org.graalvm.buildtools.native", version.ref = "native-build-tools" }
-shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dep-mgmt = { id = "io.spring.dependency-management", version.ref = "spring-dep-mgmt" }
 versions = { id = "io.github.ben-manes.versions", version.ref = "versions" }

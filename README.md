@@ -14,7 +14,7 @@ This project is the successor to Spring for Apache Pulsar. It brings together co
 
 | Previous repository | Code |
 |---|---|
-| [spring-projects/spring-pulsar](https://github.com/spring-projects/spring-pulsar) | Core library, cache providers and test utilities |
+| [spring-projects/spring-pulsar](https://github.com/spring-projects/spring-pulsar) | Core library and test utilities |
 | [spring-projects/spring-boot](https://github.com/spring-projects/spring-boot) | Spring Boot auto-configuration and starters |
 | [spring-cloud/spring-cloud-stream](https://github.com/spring-cloud/spring-cloud-stream) | Spring Cloud Stream binder |
 
@@ -33,8 +33,6 @@ All artifacts use the `org.apache.pulsar` group ID.
 | `pulsar-spring-boot-starter` | Starter for Spring Boot applications |
 | `pulsar-spring-boot-starter-test` | Starter for testing Spring Boot applications |
 | `pulsar-spring-cloud-stream-binder` | Spring Cloud Stream binder |
-| `pulsar-spring-cache-provider` | Cache provider API |
-| `pulsar-spring-cache-provider-caffeine` | Caffeine cache provider |
 | `pulsar-spring-test` | Test utilities |
 | `pulsar-spring-bom` | Bill of materials |
 

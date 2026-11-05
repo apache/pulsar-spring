@@ -2,7 +2,7 @@
 = Custom Object Mapper
 include::partial$attributes-variables.adoc[]
 
-Pulsar uses an internal shaded Jackson `ObjectMapper` when de/serializing JSON messages.
+Pulsar uses its own internal Jackson `ObjectMapper` when de/serializing JSON messages.
 If you instead want to provide your own Jackson 2 object mapper instance, you can register a `SchemaResolverCustomizer` and set your mapper on the `DefaultSchemaResolver` as follows:
 
 [source,java,indent=0,subs="verbatim"]
@@ -16,7 +16,7 @@ SchemaResolverCustomizer<DefaultSchemaResolver> schemaResolverCustomizer() {
 }
 ----
 
-IMPORTANT: The object mapper in the example above should be an instance of `com.fasterxml.jackson.databind.ObjectMapper`, **not** the shaded `org.apache.pulsar.shade.com.fasterxml.jackson.databind.ObjectMapper`.
+IMPORTANT: The object mapper in the example above should be an instance of `com.fasterxml.jackson.databind.ObjectMapper`.
 
 This results in your object mapper being used to de/serialize all JSON messages that go through the schema resolution process (i.e. in cases where you do not pass a schema in directly when producing/consuming messages).
 

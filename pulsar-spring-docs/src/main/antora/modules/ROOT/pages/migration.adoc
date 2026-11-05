@@ -12,7 +12,7 @@ Further development happens under the Apache Pulsar project in the https://githu
 
 The project brings together code that was previously maintained in three repositories:
 
-* https://github.com/spring-projects/spring-pulsar[spring-projects/spring-pulsar]: the core library, cache providers and test utilities
+* https://github.com/spring-projects/spring-pulsar[spring-projects/spring-pulsar]: the core library and test utilities
 * https://github.com/spring-projects/spring-boot[spring-projects/spring-boot]: the xref:spring-boot.adoc[Spring Boot auto-configuration] and starters
 * https://github.com/spring-cloud/spring-cloud-stream[spring-cloud/spring-cloud-stream]: the xref:cloud-stream-binder.adoc[Spring Cloud Stream binder]
 
@@ -32,12 +32,6 @@ The Maven coordinates and Java packages have changed:
 
 | `org.springframework.pulsar:spring-pulsar-bom`
 | `org.apache.pulsar:pulsar-spring-bom`
-
-| `org.springframework.pulsar:spring-pulsar-cache-provider`
-| `org.apache.pulsar:pulsar-spring-cache-provider`
-
-| `org.springframework.pulsar:spring-pulsar-cache-provider-caffeine`
-| `org.apache.pulsar:pulsar-spring-cache-provider-caffeine`
 
 | `org.springframework.pulsar:spring-pulsar-test`
 | `org.apache.pulsar:pulsar-spring-test`

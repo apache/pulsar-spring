@@ -32,10 +32,7 @@ project.afterEvaluate {
 	tasks.create(name: 'aggregateJacocoTestReport', type: JacocoReport) {
 
 		dependsOn(
-			':pulsar-spring:compileJava',
-			':pulsar-spring-cache-provider:compileJava',
-			':pulsar-spring-cache-provider:test',
-			':pulsar-spring-cache-provider-caffeine:compileJava')
+			':pulsar-spring:compileJava')
 
 
 		group = 'verification'

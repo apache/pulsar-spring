@@ -35,7 +35,6 @@ import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.impl.schema.StringSchema;
-import org.apache.pulsar.spring.cache.provider.CacheProvider;
 import org.apache.pulsar.spring.core.CachingPulsarProducerFactory.ProducerCacheKey;
 import org.apache.pulsar.spring.core.CachingPulsarProducerFactory.ProducerWithCloseCallback;
 import org.apache.pulsar.spring.test.model.UserPojo;
@@ -52,6 +51,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.util.ObjectUtils;
+
+import com.github.benmanes.caffeine.cache.Cache;
 
 /**
  * Tests for {@link CachingPulsarProducerFactory}.
@@ -83,7 +84,7 @@ class CachingPulsarProducerFactoryTests extends PulsarProducerFactoryTests {
 		var producer3 = producerFactory.createProducer(new StringSchema(), "topic1");
 		assertThat(producer1).isSameAs(producer2).isSameAs(producer3);
 
-		CacheProvider<ProducerCacheKey<String>, Producer<String>> producerCache = getAssertedProducerCache(
+		Cache<ProducerCacheKey<String>, Producer<String>> producerCache = getAssertedProducerCache(
 				producerFactory, Collections.singletonList(cacheKey));
 		Producer<String> cachedProducerWrapper = producerCache.asMap().get(cacheKey);
 		assertThat(cachedProducerWrapper).isSameAs(producer1);
@@ -100,7 +101,7 @@ class CachingPulsarProducerFactoryTests extends PulsarProducerFactoryTests {
 		var producer2 = producerFactory.createProducer(new StringSchema(), inputTopic);
 		var producer3 = producerFactory.createProducer(new StringSchema(), fullyQualifiedTopic);
 		assertThat(producer1).isSameAs(producer2).isSameAs(producer3);
-		CacheProvider<ProducerCacheKey<String>, Producer<String>> producerCache = getAssertedProducerCache(
+		Cache<ProducerCacheKey<String>, Producer<String>> producerCache = getAssertedProducerCache(
 				producerFactory, Collections.singletonList(cacheKey));
 		Producer<String> cachedProducerWrapper = producerCache.asMap().get(cacheKey);
 		assertThat(cachedProducerWrapper).isSameAs(producer1);
@@ -224,9 +225,9 @@ class CachingPulsarProducerFactoryTests extends PulsarProducerFactoryTests {
 	}
 
 	@SuppressWarnings("unchecked")
-	private CacheProvider<ProducerCacheKey<String>, Producer<String>> getAssertedProducerCache(
+	private Cache<ProducerCacheKey<String>, Producer<String>> getAssertedProducerCache(
 			PulsarProducerFactory<String> producerFactory, List<ProducerCacheKey<String>> expectedCacheKeys) {
-		CacheProvider<ProducerCacheKey<String>, Producer<String>> producerCache = (CacheProvider<ProducerCacheKey<String>, Producer<String>>) ReflectionTestUtils
+		Cache<ProducerCacheKey<String>, Producer<String>> producerCache = (Cache<ProducerCacheKey<String>, Producer<String>>) ReflectionTestUtils
 			.getField(producerFactory, "producerCache");
 		assertThat(producerCache).isNotNull();
 		if (ObjectUtils.isEmpty(expectedCacheKeys)) {

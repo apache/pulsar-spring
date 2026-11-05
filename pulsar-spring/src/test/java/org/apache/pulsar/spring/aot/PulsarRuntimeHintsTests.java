@@ -47,14 +47,15 @@ class PulsarRuntimeHintsTests {
 	@Test
 	void typesOfTheUnshadedClientAreRegistered() {
 		Stream
-			.of("io.netty.buffer.AbstractByteBufAllocator", "org.asynchttpclient.config.AsyncHttpClientConfigDefaults")
+			.of("io.netty.buffer.AbstractByteBufAllocator", "org.asynchttpclient.config.AsyncHttpClientConfigDefaults",
+					"com.github.benmanes.caffeine.cache.SSMSA")
 			.forEach((type) -> assertThat(RuntimeHintsPredicates.reflection().onType(TypeReference.of(type)))
 				.accepts(this.hints));
 	}
 
 	@Test
 	void consumerConfigurationFieldIsRegistered() throws NoSuchFieldException {
-		assertThat(RuntimeHintsPredicates.reflection().onField(ConsumerBase.class.getDeclaredField("conf")))
+		assertThat(RuntimeHintsPredicates.reflection().onFieldAccess(ConsumerBase.class.getDeclaredField("conf")))
 			.accepts(this.hints);
 	}
 

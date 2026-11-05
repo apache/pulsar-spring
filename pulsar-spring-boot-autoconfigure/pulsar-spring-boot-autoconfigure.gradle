@@ -56,8 +56,6 @@ dependencies {
 	dockerTestImplementation project(':pulsar-spring-test')
 	dockerTestImplementation 'org.testcontainers:testcontainers-junit-jupiter'
 
-	testImplementation project(path: ':pulsar-spring-cache-provider-caffeine', configuration: 'shadow')
-	testImplementation libs.caffeine
 	testImplementation libs.spring.boot.test
 	testImplementation 'org.assertj:assertj-core'
 	testImplementation 'org.awaitility:awaitility'

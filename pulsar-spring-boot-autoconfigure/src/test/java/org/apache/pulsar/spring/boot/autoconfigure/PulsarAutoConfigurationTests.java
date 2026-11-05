@@ -50,7 +50,6 @@ import org.apache.pulsar.common.schema.SchemaType;
 import org.apache.pulsar.spring.annotation.PulsarBootstrapConfiguration;
 import org.apache.pulsar.spring.annotation.PulsarListenerAnnotationBeanPostProcessor;
 import org.apache.pulsar.spring.annotation.PulsarReaderAnnotationBeanPostProcessor;
-import org.apache.pulsar.spring.cache.provider.caffeine.CaffeineCacheProvider;
 import org.apache.pulsar.spring.config.ConcurrentPulsarListenerContainerFactory;
 import org.apache.pulsar.spring.config.DefaultPulsarReaderContainerFactory;
 import org.apache.pulsar.spring.config.PulsarListenerContainerFactory;
@@ -102,8 +101,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.task.VirtualThreadTaskExecutor;
 import org.springframework.test.util.ReflectionTestUtils;
-
-import com.github.benmanes.caffeine.cache.Caffeine;
 
 /**
  * Tests for {@link PulsarAutoConfiguration}.
@@ -550,31 +547,13 @@ class PulsarAutoConfigurationTests {
 		}
 
 		@Test
-		void whenCachingEnabledAndCaffeineNotOnClasspathStillUsesCaffeine() {
-			this.contextRunner.withClassLoader(new FilteredClassLoader(Caffeine.class))
-				.withPropertyValues("spring.pulsar.producer.cache.enabled=true")
-				.run((context) -> {
-					assertThat(context).getBean(CachingPulsarProducerFactory.class)
-						.extracting("producerCache")
-						.extracting(Object::getClass)
-						.isEqualTo(CaffeineCacheProvider.class);
-					assertThat(context).getBean(CachingPulsarProducerFactory.class)
-						.extracting("producerCache.cache")
-						.extracting(Object::getClass)
-						.extracting(Class::getName)
-						.asString()
-						.startsWith("org.apache.pulsar.spring.shade.com.github.benmanes.caffeine.cache.");
-				});
-		}
-
-		@Test
 		void whenCustomCachingPropertiesCreatesConfiguredBean() {
 			this.contextRunner
 				.withPropertyValues("spring.pulsar.producer.cache.expire-after-access=100s",
 						"spring.pulsar.producer.cache.maximum-size=5150",
 						"spring.pulsar.producer.cache.initial-capacity=200")
 				.run((context) -> assertThat(context).getBean(CachingPulsarProducerFactory.class)
-					.extracting("producerCache.cache.cache")
+					.extracting("producerCache.cache")
 					.hasFieldOrPropertyWithValue("maximum", 5150L)
 					.hasFieldOrPropertyWithValue("expiresAfterAccessNanos", TimeUnit.SECONDS.toNanos(100)));
 		}
