@@ -61,6 +61,10 @@ shadow {
 publishing {
 	publications {
 		mavenJava {
+			// Publish the shaded jar as the main artifact, and not the original jar
+			afterEvaluate {
+				artifacts.removeAll { it.classifier == 'original' }
+			}
 			artifact(shadowJar)
 			pom.withXml {
 				Node pomNode = asNode()
