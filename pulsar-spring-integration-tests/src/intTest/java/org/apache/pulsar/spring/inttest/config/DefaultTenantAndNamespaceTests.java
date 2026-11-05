@@ -24,7 +24,7 @@ import java.util.function.Function;
 import java.util.stream.IntStream;
 
 import org.apache.pulsar.spring.core.PulsarAdministration;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -47,8 +47,7 @@ class DefaultTenantAndNamespaceTests {
 	@SuppressWarnings("unused")
 	@Container
 	@ServiceConnection
-	static PulsarContainer PULSAR_CONTAINER = new PulsarContainer(PulsarTestContainerSupport.getPulsarImage())
-		.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost");
+	static PulsarContainer PULSAR_CONTAINER = PulsarTestImage.createContainer();
 
 	@Nested
 	@SpringBootTest(classes = ImperativeAppConfig.class,

@@ -26,7 +26,7 @@ import org.apache.pulsar.spring.core.PulsarTemplateCustomizer;
 import org.apache.pulsar.spring.inttest.logging.PulsarTemplateLambdaWarnLoggerTests.WithWarnLoggerDisabled.WithWarnLoggerDisabledConfig;
 import org.apache.pulsar.spring.inttest.logging.PulsarTemplateLambdaWarnLoggerTests.WithWarnLoggerIncreasedFrequency.WithWarnLoggerIncreasedFrequencyConfig;
 import org.apache.pulsar.spring.support.internal.logging.LambdaCustomizerWarnLogger;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -64,8 +64,7 @@ class PulsarTemplateLambdaWarnLoggerTests {
 	@SuppressWarnings("unused")
 	@Container
 	@ServiceConnection
-	static PulsarContainer PULSAR_CONTAINER = new PulsarContainer(PulsarTestContainerSupport.getPulsarImage())
-		.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost");
+	static PulsarContainer PULSAR_CONTAINER = PulsarTestImage.createContainer();
 
 	@Nested
 	@SpringBootTest(classes = TestAppConfig.class)

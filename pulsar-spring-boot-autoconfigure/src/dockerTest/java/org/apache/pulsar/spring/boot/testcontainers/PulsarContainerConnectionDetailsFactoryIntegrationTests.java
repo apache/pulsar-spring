@@ -32,7 +32,7 @@ import java.util.List;
 import org.apache.pulsar.spring.annotation.PulsarListener;
 import org.apache.pulsar.spring.boot.autoconfigure.PulsarAutoConfiguration;
 import org.apache.pulsar.spring.core.PulsarTemplate;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Container;
@@ -60,8 +60,7 @@ class PulsarContainerConnectionDetailsFactoryIntegrationTests {
 	@Container
 	@ServiceConnection
 	@SuppressWarnings("unused")
-	static final PulsarContainer pulsar = new PulsarContainer(PulsarTestContainerSupport.getPulsarImage())
-		.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost");
+	static final PulsarContainer pulsar = PulsarTestImage.createContainer();
 
 	@Autowired
 	private PulsarTemplate<String> pulsarTemplate;

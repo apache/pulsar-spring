@@ -38,7 +38,7 @@ import org.apache.pulsar.spring.core.PulsarProducerFactory;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties;
 import org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.assertj.core.api.AbstractListAssert;
 import org.assertj.core.api.ObjectAssert;
 import org.jspecify.annotations.Nullable;
@@ -63,8 +63,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 @Testcontainers(disabledWithoutDocker = true)
 public class PulsarTxnTestsBase {
 
-	static PulsarContainer PULSAR_CONTAINER = new PulsarContainer(PulsarTestContainerSupport.getPulsarImage())
-		.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost")
+	static PulsarContainer PULSAR_CONTAINER = PulsarTestImage.createContainer()
 		.withTransactions();
 
 	@BeforeAll

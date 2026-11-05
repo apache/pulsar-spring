@@ -16,7 +16,7 @@
 
 package org.apache.pulsar.spring.inttest.app;
 
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.junit.jupiter.Container;
@@ -33,8 +33,7 @@ class SamplePulsarApplicationTests {
 	@SuppressWarnings("unused")
 	@Container
 	@ServiceConnection
-	static PulsarContainer PULSAR_CONTAINER = new PulsarContainer(PulsarTestContainerSupport.getPulsarImage())
-		.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost");
+	static PulsarContainer PULSAR_CONTAINER = PulsarTestImage.createContainer();
 
 	@Nested
 	class ImperativeAppTests implements SpringBootTestImperativeApp {

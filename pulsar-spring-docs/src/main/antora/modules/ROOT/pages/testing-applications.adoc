@@ -80,3 +80,25 @@ class MyApplicationTests implements PulsarTestContainerSupport {
 	}
 }
 ----
+
+[[pulsar-test-image]]
+== PulsarTestImage
+
+The `org.apache.pulsar.spring.test.support.PulsarTestImage` class creates Pulsar Testcontainers, for tests that need their own container rather than the shared one in `PulsarTestContainerSupport`.
+The containers advertise `localhost`, and allow for a slow start with two startup attempts and a timeout of three minutes.
+
+[source,java,indent=0,subs="verbatim"]
+----
+// The image of the Pulsar version that this project is built with
+PulsarContainer pulsar = PulsarTestImage.createContainer();
+
+// Another version of the apachepulsar/pulsar image
+PulsarContainer pulsar = PulsarTestImage.createContainer("4.2.5");
+
+// Another image, which must be declared compatible when it has another name
+PulsarContainer pulsar = PulsarTestImage.createContainer(DockerImageName.parse("registry.example.com/pulsar:4.2.5")
+		.asCompatibleSubstituteFor("apachepulsar/pulsar"));
+----
+
+The containers are not started, and you can customize them further, for example with `withTransactions()`.
+Your project needs a dependency on `org.testcontainers:testcontainers-pulsar` to use this class.

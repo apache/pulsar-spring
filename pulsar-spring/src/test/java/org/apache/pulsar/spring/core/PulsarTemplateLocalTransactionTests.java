@@ -37,7 +37,7 @@ import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.spring.PulsarException;
 import org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,8 +56,7 @@ import org.testcontainers.pulsar.PulsarContainer;
 @Testcontainers(disabledWithoutDocker = true)
 class PulsarTemplateLocalTransactionTests {
 
-	private static PulsarContainer PULSAR_CONTAINER = new PulsarContainer(PulsarTestContainerSupport.getPulsarImage())
-		.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost")
+	private static PulsarContainer PULSAR_CONTAINER = PulsarTestImage.createContainer()
 		.withTransactions();
 
 	private PulsarClient client;

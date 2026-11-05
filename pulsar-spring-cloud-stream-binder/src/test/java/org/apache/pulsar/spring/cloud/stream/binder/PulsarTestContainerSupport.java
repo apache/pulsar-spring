@@ -16,10 +16,10 @@
 
 package org.apache.pulsar.spring.cloud.stream.binder;
 
+import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.junit.jupiter.api.BeforeAll;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.pulsar.PulsarContainer;
-import org.testcontainers.utility.DockerImageName;
 
 /**
  * Provides a static {@link PulsarContainer} that can be shared across test classes.
@@ -29,7 +29,7 @@ import org.testcontainers.utility.DockerImageName;
 @Testcontainers(disabledWithoutDocker = true)
 interface PulsarTestContainerSupport {
 
-	PulsarContainer PULSAR_CONTAINER = new PulsarContainer(getPulsarImage());
+	PulsarContainer PULSAR_CONTAINER = PulsarTestImage.createContainer();
 
 	@BeforeAll
 	static void startContainer() {
@@ -38,10 +38,6 @@ interface PulsarTestContainerSupport {
 
 	static String getPulsarBrokerUrl() {
 		return PULSAR_CONTAINER.getPulsarBrokerUrl();
-	}
-
-	static DockerImageName getPulsarImage() {
-		return org.apache.pulsar.spring.test.support.PulsarTestContainerSupport.getPulsarImage();
 	}
 
 	static String getHttpServiceUrl() {

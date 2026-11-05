@@ -49,6 +49,7 @@ import org.apache.pulsar.spring.core.ProducerBuilderCustomizer;
 import org.apache.pulsar.spring.core.PulsarTemplate;
 import org.apache.pulsar.spring.test.support.PulsarConsumerTestUtil;
 import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.apache.pulsar.spring.transaction.PulsarTransactionManager;
 import org.apache.pulsar.spring.transaction.PulsarTransactionUtils;
 import org.junit.jupiter.api.AfterEach;
@@ -66,8 +67,7 @@ import org.testcontainers.pulsar.PulsarContainer;
 @Testcontainers(disabledWithoutDocker = true)
 class DefaultPulsarMessageListenerContainerTxnTests {
 
-	private static PulsarContainer PULSAR_CONTAINER = new PulsarContainer(PulsarTestContainerSupport.getPulsarImage())
-		.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost")
+	private static PulsarContainer PULSAR_CONTAINER = PulsarTestImage.createContainer()
 		.withTransactions();
 
 	private PulsarClient client;

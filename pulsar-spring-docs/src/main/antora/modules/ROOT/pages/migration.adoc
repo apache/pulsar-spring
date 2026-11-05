@@ -70,3 +70,23 @@ Spring Boot does not manage the version of these artifacts, so you need to decla
 See xref:appendix/override-boot-dependencies.adoc[] for how to set the Pulsar client version.
 
 The `+spring.pulsar.*+` and `+spring.cloud.stream.pulsar.*+` configuration properties have not changed.
+
+== Updating your tests
+
+Spring Boot's Pulsar tests create their containers with `TestImage.forContainer(PulsarContainer.class)`, but `TestImage` is internal to the Spring Boot build and is not published.
+If you have tests derived from them, use `org.apache.pulsar.spring.test.support.PulsarTestImage` from `pulsar-spring-test` instead:
+
+[cols="1,1",options="header"]
+|===
+| Previous | New
+
+| `TestImage.forContainer(PulsarContainer.class)`
+| `PulsarTestImage.createContainer()`
+
+| `TestImage.PULSAR.toString()`
+| `PulsarTestImage.getDefaultImage().asCanonicalNameString()`
+|===
+
+The container uses the same startup settings as `TestImage.PULSAR` and defaults to the image of the Pulsar version that this project is built with.
+You can select another version with `PulsarTestImage.createContainer(String)` or another image with `PulsarTestImage.createContainer(DockerImageName)`.
+See xref:testing-applications.adoc#pulsar-test-image[PulsarTestImage] for more information.

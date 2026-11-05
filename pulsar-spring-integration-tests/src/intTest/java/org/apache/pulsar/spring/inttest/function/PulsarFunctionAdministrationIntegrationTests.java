@@ -43,7 +43,7 @@ import org.apache.pulsar.spring.function.PulsarFunctionAdministration;
 import org.apache.pulsar.spring.function.PulsarFunctionOperations.FunctionStopPolicy;
 import org.apache.pulsar.spring.function.PulsarSource;
 import org.apache.pulsar.spring.inttest.function.PulsarFunctionAdministrationIntegrationTests.ContainerLoggingTestWatcher;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
@@ -88,9 +88,7 @@ class PulsarFunctionAdministrationIntegrationTests {
 
 	private static final String PULSAR_TOPIC = "pft_foo-topic";
 
-	private static final PulsarContainer PULSAR_CONTAINER = new PulsarContainer(
-			PulsarTestContainerSupport.getPulsarImage())
-		.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost");
+	private static final PulsarContainer PULSAR_CONTAINER = PulsarTestImage.createContainer();
 
 	private static final RabbitMQContainer RABBITMQ_CONTAINER = new RabbitMQContainer("rabbitmq");
 

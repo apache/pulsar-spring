@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.pulsar.spring.annotation.PulsarListener;
 import org.apache.pulsar.spring.core.PulsarTemplate;
-import org.apache.pulsar.spring.test.support.PulsarTestContainerSupport;
+import org.apache.pulsar.spring.test.support.PulsarTestImage;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -56,8 +56,7 @@ import org.springframework.test.context.DynamicPropertySource;
 class PulsarAutoConfigurationIntegrationTests {
 
 	@Container
-	static final PulsarContainer pulsar = new PulsarContainer(PulsarTestContainerSupport.getPulsarImage())
-		.withEnv("PULSAR_PREFIX_advertisedAddress", "localhost");
+	static final PulsarContainer pulsar = PulsarTestImage.createContainer();
 
 	private static final CountDownLatch listenLatch = new CountDownLatch(1);
 
