@@ -25,6 +25,8 @@ group = 'org.apache.pulsar.spring.sample'
 description = 'Sample Signup Pulsar Function'
 
 dependencies {
+	// Enforced since Avro in the Pulsar client would otherwise select a newer version
+	implementation enforcedPlatform(libs.jackson.bom)
 	implementation libs.pulsar.client.original
 	implementation "org.apache.pulsar:pulsar-functions-api:${libs.versions.pulsar.asProvider().get()}"
 	implementation libs.jspecify
