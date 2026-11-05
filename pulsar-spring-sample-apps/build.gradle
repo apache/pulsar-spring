@@ -28,6 +28,10 @@ def toolchainVersion = (findProperty('testToolchain') ?: 25).toString().toIntege
 subprojects {
 	group = 'org.apache.pulsar.spring.sample'
 
+	// Spring Boot's dependency management would otherwise use the versions of its own BOM
+	ext['pulsar.version'] = rootProject.libs.versions.pulsar.asProvider().get()
+	ext['netty.version'] = rootProject.libs.versions.netty.get()
+
 	configurations.configureEach {
 		resolutionStrategy {
 			cacheChangingModulesFor 0, 'seconds'

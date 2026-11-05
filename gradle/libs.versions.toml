@@ -26,8 +26,9 @@ logback = "1.5.38"
 micrometer = "1.17.2"
 micrometer-docs-gen = "1.0.4"
 micrometer-tracing = "1.7.2"
-protobuf = "3.25.9"
-pulsar = "4.2.5"
+netty = "4.2.20.Final"
+protobuf = "4.36.2"
+pulsar = "5.0.1"
 # the version of this project that the sample apps use, the same as in gradle.properties
 pulsar-spring = "3.0.0-M1-SNAPSHOT"
 spring = "7.0.10"
@@ -43,6 +44,7 @@ spring-dep-mgmt = "1.1.7"
 spring-boot = "4.1.2"
 spring-boot-for-docs = "4.1.2"
 spring-cloud-stream = "5.0.4"
+swagger-annotations = "2.2.55"
 system-lambda = "1.2.1"
 testcontainers = "2.0.5"
 # plugins
@@ -67,9 +69,14 @@ logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "lo
 micrometer-bom = { module = "io.micrometer:micrometer-bom", version.ref = "micrometer" }
 micrometer-docs-gen = { module = "io.micrometer:micrometer-docs-generator", version.ref = "micrometer-docs-gen" }
 micrometer-tracing-bom = { module = "io.micrometer:micrometer-tracing-bom", version.ref = "micrometer-tracing" }
+netty-bom = { module = "io.netty:netty-bom", version.ref = "netty" }
 protobuf-java = { module = "com.google.protobuf:protobuf-java", version.ref = "protobuf" }
 protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protobuf" }
-pulsar-client-all = { module = "org.apache.pulsar:pulsar-client-all", version.ref = "pulsar" }
+pulsar-client-admin-api = { module = "org.apache.pulsar:pulsar-client-admin-api", version.ref = "pulsar" }
+pulsar-client-admin-original = { module = "org.apache.pulsar:pulsar-client-admin-original", version.ref = "pulsar" }
+pulsar-client-api = { module = "org.apache.pulsar:pulsar-client-api", version.ref = "pulsar" }
+pulsar-client-messagecrypto-bc = { module = "org.apache.pulsar:pulsar-client-messagecrypto-bc", version.ref = "pulsar" }
+pulsar-client-original = { module = "org.apache.pulsar:pulsar-client-original", version.ref = "pulsar" }
 pulsar-spring-bom = { module = "org.apache.pulsar:pulsar-spring-bom", version.ref = "pulsar-spring" }
 spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring" }
 # Testing libs
@@ -92,6 +99,7 @@ spring-boot-testcontainers = { module = "org.springframework.boot:spring-boot-te
 spring-boot-transaction = { module = "org.springframework.boot:spring-boot-transaction", version.ref = "spring-boot" }
 spring-cloud-stream = { module = "org.springframework.cloud:spring-cloud-stream", version.ref = "spring-cloud-stream" }
 spring-cloud-stream-test-support = { module = "org.springframework.cloud:spring-cloud-stream-test-support", version.ref = "spring-cloud-stream" }
+swagger-annotations = { module = "io.swagger.core.v3:swagger-annotations-jakarta", version.ref = "swagger-annotations" }
 system-lambda = { module = "com.github.stefanbirkner:system-lambda", version.ref = "system-lambda" }
 testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
 

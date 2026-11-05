@@ -35,6 +35,7 @@ dependencies {
 
 	testImplementation project(':pulsar-spring-test')
 	testImplementation libs.spring.boot.test
+	testImplementation libs.pulsar.client.original
 	testImplementation libs.spring.cloud.stream.test.support
 	testImplementation 'org.assertj:assertj-core'
 	testImplementation 'org.awaitility:awaitility'

@@ -13,6 +13,18 @@ The version has been bumped to `3.0.0-M1` to indicate this.
 The Maven coordinates and Java packages have changed.
 See xref:migration.adoc[] for the background and the changes to make in your application.
 
+=== Pulsar 5 and unshaded client dependencies
+This version requires the Pulsar `5.0.x` client, which is fully compatible with older Pulsar broker versions.
+The Pulsar client v5 functionality has no specific support in this release.
+
+It now uses the unshaded `pulsar-client-original` and `pulsar-client-admin-original` rather than `pulsar-client-all`, since `pulsar-client-all` relocates the implementation classes that it uses.
+Libraries such as Netty and Jackson are now regular dependencies of your application, and the classes in `org.apache.pulsar.shade` are no longer available.
+
+Applications that use Protobuf schemas add `protobuf-java` themselves, and can use Protobuf 3 or 4.
+
+Spring Boot applications must always set the `pulsar.version` property, and it's recommended that they also set `netty.version` to the most recent 4.2.x release of Netty.
+See xref:intro/system-requirements.adoc#pulsar-client-dependencies[Pulsar client] and xref:appendix/override-boot-dependencies.adoc[] for more information.
+
 === Jackson in the Spring Cloud Stream binder
 The binder now depends on `spring-boot-starter-jackson`, so that applications have an auto-configured `ObjectMapper` bean.
 Spring Cloud Function uses this bean for JSON conversion, so that it now applies `spring.jackson.*` properties and Jackson customizers, rather than falling back to its default configuration.

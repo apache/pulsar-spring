@@ -1,32 +1,45 @@
 [[override-boot-deps]]
-= Override Spring Boot Dependencies
+= Set the Pulsar and Netty Versions in Spring Boot
 
-When using Apache Pulsar support for Spring in a Spring Boot application, the Apache Pulsar dependency versions are determined by Spring Boot's dependency management.
-If you wish to use a different version of `pulsar-client-all` you need to override the version used by Spring Boot dependency management; set the `pulsar.version` property.
+Spring Boot's dependency management includes a version of the Pulsar dependencies that is older than the Pulsar `{pulsar-client-version-family}` client that Apache Pulsar support for Spring requires.
+Spring Boot applications must therefore always set the `pulsar.version` property.
+It's also recommended to set the `netty.version` property to the most recent 4.2.x release of Netty, which is `{netty-version}` at the time of this release.
 
 Spring Boot does not manage the version of Apache Pulsar support for Spring, so you always declare it on the `pulsar-spring-boot-starter` dependency.
 
-The following example sets the Pulsar client version:
+[[override-boot-deps-gradle]]
+== Gradle
 
-[tabs]
-======
-Gradle::
-+
-[source, groovy, subs="+attributes", role="secondary"]
+With the Spring Dependency Management plugin, set the properties in `gradle.properties`:
+
+[source, properties, subs="+attributes"]
+----
+pulsar.version={pulsar-client-version}
+netty.version={netty-version}
+----
+
+Alternatively, set them in the build script:
+
+[source, groovy, subs="+attributes"]
 ----
 ext['pulsar.version'] = '{pulsar-client-version}'
+ext['netty.version'] = '{netty-version}'
 
 dependencies {
     implementation 'org.apache.pulsar:pulsar-spring-boot-starter:{pulsar-spring-version}'
 }
 ----
 
-Maven::
-+
-[source, xml, subs="+attributes", role="primary"]
+[[override-boot-deps-maven]]
+== Maven
+
+With `spring-boot-starter-parent` as the parent, set the properties in the POM:
+
+[source, xml, subs="+attributes"]
 ----
 <properties>
     <pulsar.version>{pulsar-client-version}</pulsar.version>
+    <netty.version>{netty-version}</netty.version>
 </properties>
 
 <dependency>
@@ -35,4 +48,43 @@ Maven::
     <version>{pulsar-spring-version}</version>
 </dependency>
 ----
-======
+
+Alternatively, set them in the `.mvn/maven.config` file:
+
+[source, subs="+attributes"]
+----
+-Dpulsar.version={pulsar-client-version}
+-Dnetty.version={netty-version}
+----
+
+The properties have no effect when you import `spring-boot-dependencies` rather than use the parent.
+In that case, import `pulsar-bom` and `netty-bom` before it:
+
+[source, xml, subs="+attributes"]
+----
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.pulsar</groupId>
+            <artifactId>pulsar-bom</artifactId>
+            <version>{pulsar-client-version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-bom</artifactId>
+            <version>{netty-version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>{spring-boot-version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+----

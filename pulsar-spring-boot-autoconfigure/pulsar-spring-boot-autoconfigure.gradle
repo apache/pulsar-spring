@@ -46,6 +46,7 @@ dependencies {
 	api libs.jspecify
 	api libs.spring.boot.transaction
 	api project(':pulsar-spring')
+	implementation libs.pulsar.client.original
 
 	optional libs.spring.boot.autoconfigure
 	optional libs.spring.boot.docker.compose

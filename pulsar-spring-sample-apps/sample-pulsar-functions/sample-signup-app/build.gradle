@@ -26,11 +26,6 @@ plugins {
 group = 'org.apache.pulsar.spring.sample'
 description = 'Sample Signup App (Pulsar Functions)'
 
-def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
-def pulsarVersion = project.findProperty('pulsarVersion') ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
-
-ext['pulsar.version'] = "${pulsarVersion}"
-
 dependencies {
 	implementation platform(libs.pulsar.spring.bom)
 	implementation 'org.apache.pulsar:pulsar-spring-cloud-stream-binder'

@@ -27,9 +27,11 @@ javaPlatform {
 }
 
 dependencies {
-	api platform(libs.jackson.bom)
+	// Enforced since Avro in the Pulsar client would otherwise select a newer version
+	api enforcedPlatform(libs.jackson.bom)
 	api platform(libs.micrometer.bom)
 	api platform(libs.micrometer.tracing.bom)
+	api platform(libs.netty.bom)
 	api platform(libs.assertj.bom)
 	api platform(libs.awaitility)
 	api platform(libs.junit.bom)
@@ -44,7 +46,11 @@ dependencies {
 		api libs.protobuf.java
 		api libs.json.path
 		api libs.micrometer.docs.gen
-		api libs.pulsar.client.all
+		api libs.pulsar.client.admin.api
+		api libs.pulsar.client.admin.original
+		api libs.pulsar.client.api
+		api libs.pulsar.client.messagecrypto.bc
+		api libs.pulsar.client.original
 		api libs.system.lambda
 	}
 }

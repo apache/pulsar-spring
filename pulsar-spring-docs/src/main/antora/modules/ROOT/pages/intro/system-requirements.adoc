@@ -6,7 +6,29 @@ include::partial$attributes-variables.adoc[]
 Apache Pulsar support for Spring `{pulsar-spring-version}` requires the following:
 
 - https://www.java.com[Java 17] or above
-- {spring-framework-docs}[Spring Framework `{spring-framework-version}`] or above
-- {apache-pulsar-cient-docs}/[Apache Pulsar Java Client `{pulsar-client-version}`] or above
+- {spring-framework-docs}[Spring Framework `{spring-framework-version-family}`]
+- {spring-boot-docs}[Spring Boot `{spring-boot-version-family}`], for Spring Boot applications
+- {apache-pulsar-cient-docs}/[Apache Pulsar Java Client `{pulsar-client-version-family}`]
+
+IMPORTANT: Spring Boot `{spring-boot-version-family}` applications must set the `pulsar.version` property explicitly, since Spring Boot defaults to Pulsar `4.2.x`.
+See xref:appendix/override-boot-dependencies.adoc[] for how to set it.
 
 The version compatibility matrix (including Spring Boot) can be found in the xref:appendix/version-compatibility.adoc[appendix].
+
+[[pulsar-client-dependencies]]
+== Pulsar client
+
+Apache Pulsar support for Spring requires the Pulsar `{pulsar-client-version-family}` client.
+The Pulsar `{pulsar-client-version-family}` client is fully compatible with older Pulsar broker versions, so you can use it with your existing clusters.
+
+NOTE: Although the client version is `{pulsar-client-version-family}`, the Pulsar client v5 functionality has no specific support in this release.
+Apache Pulsar support for Spring uses the client API in `org.apache.pulsar.client.api`.
+
+It uses the unshaded client artifacts `pulsar-client-original` and `pulsar-client-admin-original`, along with `pulsar-client-messagecrypto-bc` for message encryption.
+This means that the libraries of the client, such as Netty and Jackson, are regular dependencies of your application.
+It can't be used with `pulsar-client-all`, since this relocates the implementation classes that it uses.
+
+Applications that use Protobuf schemas must add the `com.google.protobuf:protobuf-java` dependency themselves, as neither the Pulsar client nor this project brings it in.
+They can use Protobuf 3 or 4.
+
+Spring Boot applications should also set `netty.version` to the most recent 4.2.x release of Netty, as described in xref:appendix/override-boot-dependencies.adoc[].

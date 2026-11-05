@@ -9,6 +9,7 @@ In this section, we will go through the basic details of this binder.
 == Usage
 
 We need to include the following dependency on your application to use Apache Pulsar binder for Spring Cloud Stream.
+With Spring Boot's dependency management, you must also xref:appendix/override-boot-dependencies.adoc[set the `pulsar.version` property], and it's recommended to set `netty.version`.
 
 [tabs]
 ======

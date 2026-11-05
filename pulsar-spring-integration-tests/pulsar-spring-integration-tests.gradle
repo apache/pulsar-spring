@@ -36,6 +36,7 @@ repositories {
 }
 
 dependencies {
+	intTestImplementation libs.pulsar.client.original
 	intTestImplementation project(':pulsar-spring')
 	intTestImplementation project(':pulsar-spring-test')
 	intTestImplementation 'org.awaitility:awaitility'

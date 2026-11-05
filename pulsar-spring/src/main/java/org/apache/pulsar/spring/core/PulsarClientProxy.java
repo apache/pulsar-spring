@@ -27,6 +27,7 @@ import org.apache.pulsar.client.api.ReaderBuilder;
 import org.apache.pulsar.client.api.Schema;
 import org.apache.pulsar.client.api.TableViewBuilder;
 import org.apache.pulsar.client.api.transaction.TransactionBuilder;
+import org.apache.pulsar.client.api.transaction.TransactionCoordinatorClient;
 
 import org.springframework.context.Lifecycle;
 import org.springframework.context.SmartLifecycle;
@@ -198,6 +199,11 @@ final class PulsarClientProxy extends RestartableSingletonFactory<PulsarClient> 
 	@Override
 	public TransactionBuilder newTransaction() {
 		return this.getRequiredInstance().newTransaction();
+	}
+
+	@Override
+	public TransactionCoordinatorClient getTransactionCoordinatorClient() {
+		return this.getRequiredInstance().getTransactionCoordinatorClient();
 	}
 
 }

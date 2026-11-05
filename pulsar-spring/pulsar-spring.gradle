@@ -29,18 +29,22 @@ apply from: '../gradle/proto-conventions.gradle'
 
 dependencies {
 	api 'io.micrometer:micrometer-observation'
-	api (libs.pulsar.client.all) {
-		exclude group: 'commons-logging', module: 'commons-logging'
-		exclude group: 'javax.validation', module: 'validation-api'
-	}
+	api libs.pulsar.client.api
+	api libs.pulsar.client.admin.api
 	api 'org.springframework:spring-context'
 	api 'org.springframework:spring-messaging'
 	api 'org.springframework:spring-tx'
 	api project(':pulsar-spring-cache-provider')
 	implementation project(path: ':pulsar-spring-cache-provider-caffeine', configuration: 'shadow')
+	implementation libs.pulsar.client.original
+	implementation libs.pulsar.client.admin.original
+	// The client uses this for message encryption, but only has it as a compile-only dependency
+	runtimeOnly libs.pulsar.client.messagecrypto.bc
 	implementation 'com.fasterxml.jackson.core:jackson-core'
 	implementation 'com.fasterxml.jackson.core:jackson-databind'
 	implementation libs.jspecify
+	// Only for the annotations on classes of pulsar-common, which would fail the build with warnings
+	compileOnly libs.swagger.annotations
 	optional libs.protobuf.java
 	optional libs.json.path
 	optional 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8'

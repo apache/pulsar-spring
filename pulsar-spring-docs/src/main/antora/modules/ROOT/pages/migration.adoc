@@ -67,7 +67,12 @@ The Maven coordinates and Java packages have changed:
 Replace the previous dependencies rather than adding the new ones next to them, so that the previous auto-configuration and binder are not also on the classpath.
 
 Spring Boot does not manage the version of these artifacts, so you need to declare it, either on each dependency or by importing `pulsar-spring-bom`.
-See xref:appendix/override-boot-dependencies.adoc[] for how to set the Pulsar client version.
+Spring Boot applications must also always set the `pulsar.version` property, since Spring Boot manages an older version of Pulsar.
+It's also recommended to set `netty.version` to the most recent 4.2.x release of Netty.
+See xref:appendix/override-boot-dependencies.adoc[] for how to set them.
+
+This project requires the Pulsar `5.0.x` client, and has changed from `pulsar-client-all` to the unshaded artifacts, as described in xref:intro/system-requirements.adoc#pulsar-client-dependencies[Pulsar client].
+Exclude `pulsar-client-all` if another dependency brings it in, and don't use classes from `org.apache.pulsar.shade`.
 
 The `+spring.pulsar.*+` and `+spring.cloud.stream.pulsar.*+` configuration properties have not changed.
 

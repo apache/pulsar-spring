@@ -93,10 +93,10 @@ The containers advertise `localhost`, and allow for a slow start with two startu
 PulsarContainer pulsar = PulsarTestImage.createContainer();
 
 // Another version of the apachepulsar/pulsar image
-PulsarContainer pulsar = PulsarTestImage.createContainer("4.2.5");
+PulsarContainer pulsar = PulsarTestImage.createContainer("5.0.1");
 
 // Another image, which must be declared compatible when it has another name
-PulsarContainer pulsar = PulsarTestImage.createContainer(DockerImageName.parse("registry.example.com/pulsar:4.2.5")
+PulsarContainer pulsar = PulsarTestImage.createContainer(DockerImageName.parse("registry.example.com/pulsar:5.0.1")
 		.asCompatibleSubstituteFor("apachepulsar/pulsar"));
 ----
 

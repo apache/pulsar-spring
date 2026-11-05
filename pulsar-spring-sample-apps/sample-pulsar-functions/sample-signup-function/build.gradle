@@ -24,12 +24,9 @@ plugins {
 group = 'org.apache.pulsar.spring.sample'
 description = 'Sample Signup Pulsar Function'
 
-def versionCatalog = extensions.getByType(VersionCatalogsExtension).named("libs")
-def pulsarVersion = project.findProperty('pulsarVersion') ?: versionCatalog.findVersion("pulsar").orElseThrow().displayName
-
 dependencies {
-	implementation "org.apache.pulsar:pulsar-client-all:${pulsarVersion}"
-	implementation "org.apache.pulsar:pulsar-functions-api:${pulsarVersion}"
+	implementation libs.pulsar.client.original
+	implementation "org.apache.pulsar:pulsar-functions-api:${libs.versions.pulsar.asProvider().get()}"
 	implementation libs.jspecify
 	compileOnly 'org.projectlombok:lombok:1.18.48'
 	annotationProcessor 'org.projectlombok:lombok:1.18.48'

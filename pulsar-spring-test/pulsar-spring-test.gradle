@@ -32,6 +32,7 @@ dependencies {
     testImplementation 'org.assertj:assertj-core'
     testImplementation 'org.junit.jupiter:junit-jupiter'
 	testImplementation 'org.mockito:mockito-core'
+	testImplementation libs.pulsar.client.original
 }
 
 // Tests use the Pulsar image of the same version as the client in the version catalog.

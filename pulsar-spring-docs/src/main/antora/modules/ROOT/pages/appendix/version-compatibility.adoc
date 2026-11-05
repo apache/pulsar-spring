@@ -8,12 +8,14 @@ The following is the compatibility matrix:
 | Apache Pulsar support for Spring | Pulsar Client | Spring Boot | Java
 
 | 3.0.x
-| 4.2.x
-| 4.0.x
+| 5.0.x
+| 4.1.x
 | 17+
 
 |===
 
-You can follow xref:appendix/override-boot-dependencies.adoc[these steps] to override the Pulsar client version.
+The Pulsar `5.0.x` client is fully compatible with older Pulsar broker versions.
+
+Spring Boot applications must xref:appendix/override-boot-dependencies.adoc[set the Pulsar version].
 
 For earlier versions, see the https://docs.spring.io/spring-pulsar/reference/appendix/version-compatibility.html[Spring for Apache Pulsar compatibility matrix].

@@ -252,10 +252,10 @@ public class DefaultSchemaResolver implements SchemaResolver, BeanClassLoaderAwa
 				case JSON -> jsonSchemaForMessageType(requireNonNullMessageClass(schemaType, messageType));
 				case AVRO -> AvroSchema.of(requireNonNullMessageClass(schemaType, messageType));
 				case PROTOBUF -> {
-					// WARN! Leave GeneratedMessageV3 fully-qualified as the dependency is
-					// optional
+					// WARN! Leave Message fully-qualified as the dependency is optional. This
+					// type also allows applications to use Protobuf 3 or 4.
 					Class<?> messageClass = requireNonNullMessageClass(schemaType, messageType);
-					yield ProtobufSchema.of((Class<? extends com.google.protobuf.GeneratedMessageV3>) messageClass);
+					yield ProtobufSchema.of((Class<? extends com.google.protobuf.Message>) messageClass);
 				}
 				case KEY_VALUE -> {
 					yield getMessageKeyValueSchema(requireNonNullMessageType(schemaType, messageType));

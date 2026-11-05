@@ -55,7 +55,7 @@ public final class PulsarTestImage {
 
 	/**
 	 * Create a container with the given tag of the {@code apachepulsar/pulsar} image.
-	 * @param tag the image tag, such as {@code 4.2.5}
+	 * @param tag the image tag, such as {@code 5.0.1}
 	 * @return the container, which has not been started
 	 */
 	public static PulsarContainer createContainer(String tag) {

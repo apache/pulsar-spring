@@ -1,8 +1,11 @@
 :spring-boot-version: current
+:spring-boot-version-family: current
 :spring-framework-version: current
+:spring-framework-version-family: current
 :spring-cloud-stream-version: current
 :pulsar-spring-version: current
 :pulsar-client-version: current
+:netty-version: current
 :pulsar-client-version-family: current
 :is-snapshot-version:  false
 

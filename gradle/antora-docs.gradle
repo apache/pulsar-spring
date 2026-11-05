@@ -98,13 +98,18 @@ def generateAttributes() {
 	def springBootVersionForDocs = versionCatalog.findVersion("spring-boot-for-docs").orElseThrow().displayName
 	def springFrameworkVersion = versionCatalog.findVersion("spring").orElseThrow().displayName
 	def springCloudStreamVersion = versionCatalog.findVersion("spring-cloud-stream").orElseThrow().displayName
+	def nettyVersion = versionCatalog.findVersion("netty").orElseThrow().displayName
 	def pulsarClientVersion = versionCatalog.findVersion("pulsar").orElseThrow().displayName
 	def pulsarClientVersionFamily = pulsarClientVersion.tokenize(".")[0] + "." + pulsarClientVersion.tokenize(".")[1] + ".x"
+	def versionFamily = { String version -> version.tokenize(".")[0] + "." + version.tokenize(".")[1] + ".x" }
 	return ['is-snapshot-version': project.version.endsWith("-SNAPSHOT"),
+			'netty-version': nettyVersion ?: 'current',
 			'pulsar-client-version': pulsarClientVersion ?: 'current',
 			'pulsar-client-version-family': pulsarClientVersionFamily ?: 'current',
 			'spring-boot-version': springBootVersionForDocs ?: 'current',
+			'spring-boot-version-family': versionFamily(springBootVersionForDocs),
 			'spring-cloud-stream-version': springCloudStreamVersion ?: 'current',
 			'spring-framework-version': springFrameworkVersion ?: 'current',
+			'spring-framework-version-family': versionFamily(springFrameworkVersion),
 			'pulsar-spring-version': project.version]
 }

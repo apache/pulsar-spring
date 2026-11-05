@@ -6,7 +6,10 @@ We will take a quick tour of Apache Pulsar support for Spring by showing a sampl
 This is a complete application and does not require any additional configuration, as long as you have a Pulsar cluster running on the default location - `localhost:6650`.
 
 == Dependencies
-Spring Boot applications need only the `pulsar-spring-boot-starter` dependency. The following listings show how to define the dependency for Maven and Gradle, respectively:
+Spring Boot applications need the `pulsar-spring-boot-starter` dependency, and must set the `pulsar.version` property, since Spring Boot manages an older version of Pulsar.
+It's also recommended to set `netty.version` to the most recent 4.2.x release of Netty.
+The following listings show how to do this for Maven and Gradle, respectively.
+See xref:appendix/override-boot-dependencies.adoc[] for more information.
 
 [tabs]
 ======
@@ -14,6 +17,11 @@ Maven::
 +
 [source,xml,indent=0,subs="verbatim,attributes",role="primary"]
 ----
+<properties>
+    <pulsar.version>{pulsar-client-version}</pulsar.version>
+    <netty.version>{netty-version}</netty.version>
+</properties>
+
 <dependencies>
     <dependency>
         <groupId>org.apache.pulsar</groupId>
@@ -27,6 +35,9 @@ Gradle::
 +
 [source,groovy,indent=0,subs="verbatim,attributes",role="secondary"]
 ----
+ext['pulsar.version'] = '{pulsar-client-version}'
+ext['netty.version'] = '{netty-version}'
+
 dependencies {
     implementation 'org.apache.pulsar:pulsar-spring-boot-starter:{pulsar-spring-version}'
 }
