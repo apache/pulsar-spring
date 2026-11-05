@@ -1,5 +1,5 @@
 Apache Pulsar support for Spring
-Copyright 2024-2026 The Apache Software Foundation
+Copyright 2026-present The Apache Software Foundation
 
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).
@@ -11,5 +11,5 @@ from the Apache Pulsar binder in Spring Cloud Stream
 (https://github.com/spring-cloud/spring-cloud-stream), all licensed under the
 Apache License, Version 2.0.
 
-Portions Copyright 2022-2026 Broadcom Inc. and/or its subsidiaries, and the
-original authors of those works.
+Those works remain the copyright of their original authors and contributors, as
+stated in the headers of the source files.
