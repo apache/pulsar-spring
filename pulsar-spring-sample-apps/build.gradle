@@ -50,6 +50,20 @@ subprojects {
 				options.compilerArgs.add('-Werror')
 			}
 		}
+		// Added when the task runs since the test classpath and Java version are task inputs
+		// already, and this keeps the absolute path of the Mockito jar out of the inputs.
+		tasks.withType(Test).configureEach {
+			doFirst { Test test ->
+				// Mockito can't rely on attaching itself in future JDK releases
+				test.classpath.files.findAll { it.name ==~ /mockito-core-.*\.jar/ }.each {
+					test.jvmArgs("-javaagent:${it.absolutePath}")
+				}
+				if (test.javaVersion.isCompatibleWith(JavaVersion.VERSION_24)) {
+					// The Netty of the Pulsar client loads native libraries and uses Unsafe
+					test.jvmArgs('--enable-native-access=ALL-UNNAMED', '--sun-misc-unsafe-memory-access=allow')
+				}
+			}
+		}
 	}
 }
 

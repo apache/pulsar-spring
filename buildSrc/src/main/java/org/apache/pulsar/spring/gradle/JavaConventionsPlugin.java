@@ -19,8 +19,11 @@ package org.apache.pulsar.spring.gradle;
 import java.util.Collections;
 import java.util.Set;
 
+import org.gradle.api.Action;
+import org.gradle.api.JavaVersion;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
+import org.gradle.api.Task;
 import org.gradle.api.artifacts.Configuration;
 import org.gradle.api.artifacts.ConfigurationContainer;
 import org.gradle.api.artifacts.Dependency;
@@ -56,6 +59,8 @@ import io.spring.javaformat.gradle.tasks.Format;
  * <ul>
  * <li>to use JUnit Platform
  * <li>with a max heap of 1024M
+ * <li>with Mockito as a Java agent when it is on the test classpath
+ * <li>to allow Netty's native access and use of {@code sun.misc.Unsafe} on Java 24+
  * <li>to run after any Checkstyle and format checking tasks
  * </ul>
  * <li>A {@code testRuntimeOnly} dependency upon
@@ -137,6 +142,7 @@ public class JavaConventionsPlugin implements Plugin<Project> {
 					"--add-opens", "java.base/java.util=ALL-UNNAMED",
 					"--add-opens", "java.base/sun.net=ALL-UNNAMED"
 					);
+			test.doFirst(new AddTestJvmArguments());
 			test.getTestLogging().setShowStandardStreams(true);
 			project.getTasks().withType(Checkstyle.class, test::mustRunAfter);
 			project.getTasks().withType(CheckFormat.class, test::mustRunAfter);
@@ -159,6 +165,28 @@ public class JavaConventionsPlugin implements Plugin<Project> {
 		dependencyManagement.getDependencies().add(pulsarDependencies);
 		project.getPlugins().withType(OptionalDependenciesPlugin.class, (optionalDependencies) -> configurations
 				.getByName(OptionalDependenciesPlugin.OPTIONAL_CONFIGURATION_NAME).extendsFrom(dependencyManagement));
+	}
+
+	/**
+	 * Adds the JVM arguments that depend on the test classpath and the Java version. They
+	 * are added when the task runs since both are task inputs already, and this keeps the
+	 * absolute path of the Mockito jar out of the task's inputs.
+	 */
+	private static final class AddTestJvmArguments implements Action<Task> {
+
+		@Override
+		public void execute(Task task) {
+			Test test = (Test) task;
+			// Mockito can't rely on attaching itself in future JDK releases
+			test.getClasspath().getFiles().stream()
+					.filter((file) -> file.getName().matches("mockito-core-.*\\.jar"))
+					.forEach((file) -> test.jvmArgs("-javaagent:" + file.getAbsolutePath()));
+			if (test.getJavaVersion().isCompatibleWith(JavaVersion.VERSION_24)) {
+				// The Netty of the Pulsar client loads native libraries and uses Unsafe
+				test.jvmArgs("--enable-native-access=ALL-UNNAMED", "--sun-misc-unsafe-memory-access=allow");
+			}
+		}
+
 	}
 
 }
