@@ -16,4 +16,4 @@ Native image support in Apache Pulsar support for Spring has been tested in basi
 .Next Steps
 If you are interested in adding native image support to your own application then an excellent place to start is the https://docs.spring.io/spring-boot/reference/packaging/native-image/index.html[Spring Boot GraalVM Support] section of the Spring Boot reference docs.
 
-Although that guide does not cover Apache Pulsar support for Spring, the Spring AOT smoke tests have an https://github.com/spring-projects/spring-aot-smoke-tests/tree/main/integration/spring-pulsar[example for Spring for Apache Pulsar], the predecessor of this project.
+Although that guide does not cover Apache Pulsar support for Spring, this project has an example in the {github}/tree/main/pulsar-spring-sample-apps/sample-native-image[`sample-native-image`] sample application, which is tested as a native image.

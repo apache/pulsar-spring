@@ -27,7 +27,7 @@ See xref:intro/system-requirements.adoc#pulsar-client-dependencies[Pulsar client
 
 === Native image support
 The runtime hints have been updated for the unshaded Pulsar 5 client.
-The new `sample-native-image` sample application, which comes from the Spring AOT smoke tests, tests them with ahead-of-time processing and as a native image.
+The new `sample-native-image` sample application tests them with ahead-of-time processing and as a native image.
 
 === Jackson in the Spring Cloud Stream binder
 The binder now depends on `spring-boot-starter-jackson`, so that applications have an auto-configured `ObjectMapper` bean.
