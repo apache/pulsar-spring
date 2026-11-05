@@ -40,6 +40,7 @@ dependencies {
 	api platform(libs.testcontainers.bom)
 
 	constraints {
+		api libs.amqp.client
 		api libs.logback.classic
 		api libs.caffeine
 		api libs.jspecify

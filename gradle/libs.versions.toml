@@ -19,13 +19,17 @@
 # product
 caffeine = "3.3.1"
 commons-compress = "1.28.0"
+commons-text = "1.15.0"
 jackson = "2.21.8"
+guava = "33.8.0-jre"
 jspecify = "1.0.1"
 jsr305 = "3.0.2"
 logback = "1.5.38"
 micrometer = "1.17.2"
 micrometer-docs-gen = "1.0.4"
 micrometer-tracing = "1.7.2"
+opentelemetry = "1.67.0"
+opentelemetry-alpha = "1.67.0-alpha"
 netty = "4.2.20.Final"
 protobuf = "4.36.2"
 pulsar = "5.0.1"
@@ -37,6 +41,8 @@ assertj = "3.27.7"
 awaitility = "4.3.0"
 jacoco = "0.8.16"
 json-path = "2.10.0"
+amqp-client = "5.37.0"
+mysql-connector-j = "9.7.0"
 junit = "6.0.3"
 hamcrest = "3.0"
 mockito = "5.23.0"
@@ -62,6 +68,7 @@ protobuf-plugin = "0.10.0"
 [libraries]
 # Product libs
 caffeine = { module = "com.github.ben-manes.caffeine:caffeine", version.ref = "caffeine" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
 jackson-bom = { module = "com.fasterxml.jackson:jackson-bom", version.ref = "jackson" }
 jspecify = { module = "org.jspecify:jspecify", version.ref = "jspecify" }
 jsr305 = { module = "com.google.code.findbugs:jsr305", version.ref = "jsr305" }
@@ -70,6 +77,8 @@ micrometer-bom = { module = "io.micrometer:micrometer-bom", version.ref = "micro
 micrometer-docs-gen = { module = "io.micrometer:micrometer-docs-generator", version.ref = "micrometer-docs-gen" }
 micrometer-tracing-bom = { module = "io.micrometer:micrometer-tracing-bom", version.ref = "micrometer-tracing" }
 netty-bom = { module = "io.netty:netty-bom", version.ref = "netty" }
+opentelemetry-bom = { module = "io.opentelemetry:opentelemetry-bom", version.ref = "opentelemetry" }
+opentelemetry-bom-alpha = { module = "io.opentelemetry:opentelemetry-bom-alpha", version.ref = "opentelemetry-alpha" }
 protobuf-java = { module = "com.google.protobuf:protobuf-java", version.ref = "protobuf" }
 protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protobuf" }
 pulsar-client-admin-api = { module = "org.apache.pulsar:pulsar-client-admin-api", version.ref = "pulsar" }
@@ -80,11 +89,14 @@ pulsar-client-original = { module = "org.apache.pulsar:pulsar-client-original", 
 pulsar-spring-bom = { module = "org.apache.pulsar:pulsar-spring-bom", version.ref = "pulsar-spring" }
 spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring" }
 # Testing libs
+amqp-client = { module = "com.rabbitmq:amqp-client", version.ref = "amqp-client" }
 assertj-bom = { module = "org.assertj:assertj-bom", version.ref = "assertj" }
 awaitility = { module = "org.awaitility:awaitility", version.ref = "awaitility" }
+commons-text = { module = "org.apache.commons:commons-text", version.ref = "commons-text" }
 commons-compress = { module = "org.apache.commons:commons-compress", version.ref = "commons-compress" }
 json-path = { module = "com.jayway.jsonpath:json-path", version.ref = "json-path" }
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+mysql-connector-j = { module = "com.mysql:mysql-connector-j", version.ref = "mysql-connector-j" }
 mockito-bom = { module = "org.mockito:mockito-bom", version.ref = "mockito" }
 spring-boot-autoconfigure = { module = "org.springframework.boot:spring-boot-autoconfigure", version.ref = "spring-boot" }
 spring-boot-autoconfigure-processor = { module = "org.springframework.boot:spring-boot-autoconfigure-processor", version.ref = "spring-boot" }

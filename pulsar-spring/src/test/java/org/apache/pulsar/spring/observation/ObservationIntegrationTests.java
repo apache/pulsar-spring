@@ -65,6 +65,14 @@ import io.micrometer.tracing.test.simple.SpansAssert;
  */
 public class ObservationIntegrationTests extends SampleTestRunner implements PulsarTestContainerSupport {
 
+	@Override
+	public TracingSetup[] getTracingSetup() {
+		// Not ZIPKIN_OTEL, as the OpenTelemetry Zipkin exporter is discontinued and doesn't
+		// work with the OpenTelemetry version that this project uses
+		return new TracingSetup[] { TracingSetup.IN_MEMORY_OTEL, TracingSetup.IN_MEMORY_BRAVE,
+				TracingSetup.ZIPKIN_BRAVE, TracingSetup.WAVEFRONT_OTEL, TracingSetup.WAVEFRONT_BRAVE };
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public SampleTestRunnerConsumer yourCode() {

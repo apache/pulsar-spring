@@ -71,10 +71,18 @@ dependencies {
 	// Used by PulsarMixedTransactionTests (Pulsar + DB)
 	testImplementation 'org.springframework:spring-jdbc'
 	testImplementation "org.testcontainers:testcontainers-mysql"
-	testImplementation 'mysql:mysql-connector-java:8.0.33'
+	testImplementation libs.mysql.connector.j
 
 	// Used by UserRecordDe/serializer in test fixtures
 	testFixturesApi 'com.fasterxml.jackson.core:jackson-databind'
+
+	// Newer versions than the Pulsar client asks for. All of OpenTelemetry must be aligned, as an
+	// API version that is newer than the SDK version fails at runtime.
+	api platform(libs.opentelemetry.bom)
+	api platform(libs.opentelemetry.bom.alpha)
+	constraints {
+		api libs.guava
+	}
 }
 
 // The test fixtures are only for the tests of this project

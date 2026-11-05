@@ -31,6 +31,8 @@ subprojects {
 	// Spring Boot's dependency management would otherwise use the versions of its own BOM
 	ext['pulsar.version'] = rootProject.libs.versions.pulsar.asProvider().get()
 	ext['netty.version'] = rootProject.libs.versions.netty.get()
+	ext['opentelemetry.version'] = rootProject.libs.versions.opentelemetry.asProvider().get()
+	ext['rabbit-amqp-client.version'] = rootProject.libs.versions.amqp.client.get()
 
 	configurations.configureEach {
 		resolutionStrategy {
@@ -40,6 +42,15 @@ subprojects {
 	}
 
 	plugins.withId('java') {
+		// Newer versions than the dependencies of the sample apps ask for
+		dependencies.constraints {
+			implementation rootProject.libs.commons.text
+			implementation rootProject.libs.guava
+		}
+		dependencies {
+			implementation platform(rootProject.libs.opentelemetry.bom)
+			implementation platform(rootProject.libs.opentelemetry.bom.alpha)
+		}
 		java {
 			toolchain {
 				languageVersion = JavaLanguageVersion.of(toolchainVersion)
