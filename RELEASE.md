@@ -98,9 +98,9 @@ Copy the email to the clipboard, and send it:
 ```shell
 tee >(pbcopy) <<EOF
 To: dev@pulsar.apache.org
-Subject: [VOTE] Release Apache Pulsar support for Spring $VERSION based on candidate $CANDIDATE
+Subject: [VOTE] Release Apache Pulsar support for Spring, version $VERSION, based on candidate $CANDIDATE
 
-This is a vote to release Apache Pulsar support for Spring $VERSION.
+This is a vote to release Apache Pulsar support for Spring, version $VERSION.
 
 Apache Pulsar support for Spring is derived from Spring for Apache Pulsar, also
 known as Spring Pulsar (https://github.com/spring-projects/spring-pulsar), from
@@ -166,7 +166,7 @@ When the vote has passed, copy this reply to the clipboard, fill in the votes, a
 
 ```shell
 tee >(pbcopy) <<EOF
-The vote to release Apache Pulsar support for Spring $VERSION based on candidate $CANDIDATE is now closed.
+The vote to release Apache Pulsar support for Spring, version $VERSION, based on candidate $CANDIDATE is now closed.
 
 The vote PASSED with X binding +1 votes, Y non-binding +1 votes and 0 -1 votes.
 
@@ -277,10 +277,10 @@ Once the download page is live and the artifacts are on Maven Central, copy the 
 ```shell
 tee >(pbcopy) <<EOF
 To: dev@pulsar.apache.org, users@pulsar.apache.org, announce@apache.org
-Subject: [ANNOUNCE] Apache Pulsar support for Spring $VERSION released
+Subject: [ANNOUNCE] Apache Pulsar support for Spring, version $VERSION, released
 
 The Apache Pulsar team is pleased to announce the release of Apache Pulsar
-support for Spring $VERSION.
+support for Spring, version $VERSION.
 
 Apache Pulsar support for Spring makes it easier to build Apache Pulsar
 applications with Spring. It provides PulsarTemplate for publishing messages,
