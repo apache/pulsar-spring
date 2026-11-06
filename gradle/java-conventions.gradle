@@ -63,6 +63,9 @@ project.afterEvaluate {
 								'Automatic-Module-Name': subproject.name.replace('-', '.')  // for Jigsaw
 						)
 					}
+				}
+				// Every published jar must contain these, including the sources and Javadoc jars
+				tasks.withType(Jar).configureEach {
 					from("${rootProject.projectDir}") {
 						include 'LICENSE', 'NOTICE'
 						into 'META-INF'

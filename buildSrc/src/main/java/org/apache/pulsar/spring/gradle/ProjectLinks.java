@@ -25,8 +25,8 @@ public enum ProjectLinks {
 	ISSUES("https://github.com/apache/pulsar-spring/issues"),
 	CI("https://github.com/apache/pulsar-spring/actions"),
 	SCM_URL("https://github.com/apache/pulsar-spring"),
-	SCM_CONNECTION("https://github.com/apache/pulsar-spring.git"),
-	SCM_DEV_CONNECTION("git@github.com:apache/pulsar-spring.git");
+	SCM_CONNECTION("scm:git:https://github.com/apache/pulsar-spring.git"),
+	SCM_DEV_CONNECTION("scm:git:git@github.com:apache/pulsar-spring.git");
 
 	private final String link;
 
