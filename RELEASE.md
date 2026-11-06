@@ -33,9 +33,10 @@ alias pbcopy="xsel --clipboard --input"
 
 ## 1. Create the release candidate
 
-In a clean checkout of `main`, set `version` in `gradle.properties` to `$VERSION`. Then check the build, commit and tag:
+In a clean checkout of `main`, set the version in `gradle.properties`, check the build, commit and tag:
 
 ```shell
+sed -i.bak "s/^version=.*/version=$VERSION/" gradle.properties && rm gradle.properties.bak
 ./gradlew build
 git commit -am "build: set the version to $VERSION"
 git tag -s "v$VERSION-candidate-$CANDIDATE" -m "Apache Pulsar support for Spring $VERSION candidate $CANDIDATE"
@@ -115,9 +116,10 @@ To verify the source release:
     gpg --verify apache-pulsar-spring-$VERSION-src.tar.gz.asc
     tar xzf apache-pulsar-spring-$VERSION-src.tar.gz
     cd apache-pulsar-spring-$VERSION-src
-    ./gradlew build
+    ./gradlew assemble
 
-The build requires JDK 25 and Docker.
+This requires JDK 25, and doesn't run the tests. To also run them, use
+./gradlew build instead, which requires Docker and takes about 8-12 minutes.
 
 The vote is open for at least 72 hours, and passes with at least three
 binding +1 votes and more binding +1 votes than binding -1 votes. Votes of
@@ -176,7 +178,14 @@ git tag -s "v$VERSION" "v$VERSION-candidate-$CANDIDATE^{commit}" -m "Apache Puls
 git push origin "v$VERSION"
 ```
 
-Set `version` in `gradle.properties` to the next `-SNAPSHOT` version, and commit and push that to `main`.
+Set the next `-SNAPSHOT` version in `gradle.properties`, and commit and push it to `main`:
+
+```shell
+export NEXT_VERSION=<next version>-SNAPSHOT
+sed -i.bak "s/^version=.*/version=$NEXT_VERSION/" gradle.properties && rm gradle.properties.bak
+git commit -am "build: set the version to $NEXT_VERSION"
+git push origin main
+```
 
 If the new release supersedes an earlier one in the same line, remove the earlier one from <https://dist.apache.org/repos/dist/release/pulsar/>. It stays available at <https://archive.apache.org/dist/pulsar/>.
 
