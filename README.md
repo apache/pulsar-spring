@@ -26,7 +26,7 @@ This project is the successor to Spring for Apache Pulsar. It brings together co
 | [spring-projects/spring-boot](https://github.com/spring-projects/spring-boot) | Spring Boot auto-configuration and starters |
 | [spring-cloud/spring-cloud-stream](https://github.com/spring-cloud/spring-cloud-stream) | Spring Cloud Stream binder |
 
-The version has been bumped to `3.0.0-M1` to indicate that it's the successor to Spring for Apache Pulsar `2.0.x`. Further development happens under the Apache Pulsar project in this repository.
+Further development happens under the Apache Pulsar project in this repository.
 
 ## Modules
 

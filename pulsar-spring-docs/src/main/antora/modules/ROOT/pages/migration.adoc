@@ -2,21 +2,21 @@
 = Migration from Spring's Pulsar support
 include::partial$attributes.adoc[]
 
-Apache Pulsar support for Spring is the successor to Spring for Apache Pulsar.
+Apache Pulsar support for Spring is derived from Spring for Apache Pulsar, also known as Spring Pulsar, from the Apache Pulsar starter and auto-configuration in Spring Boot, and from the Apache Pulsar binder in Spring Cloud Stream.
 This page describes where the project came from and what you need to change when you move an application to it.
 
 [[migration-background]]
 == Background
 
+The project is derived from these works, all licensed under the Apache License, Version 2.0:
+
+* Spring for Apache Pulsar, also known as Spring Pulsar, in https://github.com/spring-projects/spring-pulsar[spring-projects/spring-pulsar]: the core library and test utilities
+* The Apache Pulsar starter and auto-configuration in Spring Boot, in https://github.com/spring-projects/spring-boot[spring-projects/spring-boot]: the xref:spring-boot.adoc[Spring Boot auto-configuration] and starters
+* The Apache Pulsar binder in Spring Cloud Stream, in https://github.com/spring-cloud/spring-cloud-stream[spring-cloud/spring-cloud-stream]: the xref:cloud-stream-binder.adoc[Spring Cloud Stream binder]
+
+Those works remain the copyright of their original authors and contributors, as stated in the headers of the source files.
+
 Further development happens under the Apache Pulsar project in the https://github.com/apache/pulsar-spring[apache/pulsar-spring] repository.
-
-The project brings together code that was previously maintained in three repositories:
-
-* https://github.com/spring-projects/spring-pulsar[spring-projects/spring-pulsar]: the core library and test utilities
-* https://github.com/spring-projects/spring-boot[spring-projects/spring-boot]: the xref:spring-boot.adoc[Spring Boot auto-configuration] and starters
-* https://github.com/spring-cloud/spring-cloud-stream[spring-cloud/spring-cloud-stream]: the xref:cloud-stream-binder.adoc[Spring Cloud Stream binder]
-
-The version has been bumped to `3.0.0-M1` to indicate that this project is the successor to Spring for Apache Pulsar `2.0.x`.
 
 [[migration-updating]]
 == Updating your application

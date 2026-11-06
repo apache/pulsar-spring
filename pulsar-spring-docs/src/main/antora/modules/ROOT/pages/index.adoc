@@ -14,7 +14,7 @@ endif::[]
 Most applications use Spring Boot with the `pulsar-spring-boot-starter` dependency.
 The xref:pulsar/quick-tour.adoc[Quick Tour] shows what to add to a Maven or Gradle build, and a complete application.
 The xref:intro.adoc[Introduction] describes the other steps to get started.
-If you are moving an application from Spring for Apache Pulsar, which this project succeeds, see xref:migration.adoc[Migration from Spring's Pulsar support].
+If you are moving an application from Spring for Apache Pulsar, which this project is derived from, see xref:migration.adoc[Migration from Spring's Pulsar support].
 
 [[overview-features]]
 == What it provides
@@ -43,3 +43,9 @@ All artifacts use the `org.apache.pulsar` group ID.
 | `pulsar-spring-test` | Test utilities
 | `pulsar-spring-bom` | Bill of materials
 |===
+
+[[overview-origin]]
+== Origin
+
+Apache Pulsar support for Spring is derived from Spring for Apache Pulsar, also known as Spring Pulsar (https://github.com/spring-projects/spring-pulsar), from the Apache Pulsar starter and auto-configuration in Spring Boot (https://github.com/spring-projects/spring-boot), and from the Apache Pulsar binder in Spring Cloud Stream (https://github.com/spring-cloud/spring-cloud-stream), all licensed under the Apache License, Version 2.0.
+Those works remain the copyright of their original authors and contributors, as stated in the headers of the source files.

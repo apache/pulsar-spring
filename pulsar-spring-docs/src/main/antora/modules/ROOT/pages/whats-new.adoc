@@ -7,8 +7,8 @@
 This section covers the changes made from version 2.0 to version 3.0.
 
 === Migration to the Apache Pulsar project
-Apache Pulsar support for Spring is the successor to Spring for Apache Pulsar, and further development happens under the Apache Pulsar project in the https://github.com/apache/pulsar-spring[apache/pulsar-spring] repository.
-The version has been bumped to `3.0.0-M1` to indicate this.
+Apache Pulsar support for Spring is derived from Spring for Apache Pulsar, also known as Spring Pulsar, from the Apache Pulsar starter and auto-configuration in Spring Boot, and from the Apache Pulsar binder in Spring Cloud Stream.
+Further development happens under the Apache Pulsar project in the https://github.com/apache/pulsar-spring[apache/pulsar-spring] repository.
 
 The Maven coordinates and Java packages have changed.
 See xref:migration.adoc[] for the background and the changes to make in your application.
