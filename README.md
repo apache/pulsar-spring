@@ -1,12 +1,20 @@
 # Apache Pulsar support for Spring
 
-Apache Pulsar support for Spring makes it easier to build [Apache Pulsar](https://pulsar.apache.org/) applications with Spring. It provides `PulsarTemplate` for publishing messages, `@PulsarListener` and `@PulsarReader` for consuming them, Spring Boot auto-configuration and a Spring Cloud Stream binder.
+Apache Pulsar support for Spring makes it easier to build [Apache Pulsar](https://pulsar.apache.org/) applications with Spring. It provides `PulsarTemplate` for publishing messages, `@PulsarListener` and `@PulsarReader` for consuming them, a Spring Boot starter with auto-configuration and a Spring Cloud Stream binder.
+
+## Getting started
+
+Most applications use Spring Boot with the `pulsar-spring-boot-starter` dependency. The [Quick Tour](https://pulsar.apache.org/pulsar-spring/reference/pulsar/quick-tour.html) shows what to add to a Maven or Gradle build, and a complete application that publishes and consumes a message.
+
+If you don't use Spring Boot, see [Getting Dependencies without Spring Boot](https://pulsar.apache.org/pulsar-spring/reference/appendix/getting-dependencies-without-boot.html).
+
+## Migrating from Spring for Apache Pulsar
+
+This project is the successor to Spring for Apache Pulsar. The Maven coordinates and Java packages have changed. See [Migration from Spring's Pulsar support](https://pulsar.apache.org/pulsar-spring/reference/migration.html) for the changes to make in your application.
 
 ## Documentation
 
-The reference documentation will be available at <https://pulsar.apache.org/pulsar-spring/reference>.
-
-Until it's published, you can build it locally with the command in [Building](#building).
+See the [reference documentation](https://pulsar.apache.org/pulsar-spring/reference). You can also build it locally with the command in [Building](#building).
 
 ## Background
 
@@ -19,8 +27,6 @@ This project is the successor to Spring for Apache Pulsar. It brings together co
 | [spring-cloud/spring-cloud-stream](https://github.com/spring-cloud/spring-cloud-stream) | Spring Cloud Stream binder |
 
 The version has been bumped to `3.0.0-M1` to indicate that it's the successor to Spring for Apache Pulsar `2.0.x`. Further development happens under the Apache Pulsar project in this repository.
-
-The Maven coordinates and Java packages have changed. See [Migration from Spring's Pulsar support](https://pulsar.apache.org/pulsar-spring/reference/migration.html) for the changes to make in your application.
 
 ## Modules
 

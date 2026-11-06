@@ -7,6 +7,7 @@ The `pulsar-spring-boot-autoconfigure` module provides Spring Boot auto-configur
 Spring Boot will auto-configure and register the Apache Pulsar support for Spring components when `org.apache.pulsar:pulsar-spring` is on the classpath.
 
 There is the `pulsar-spring-boot-starter` starter for conveniently collecting the dependencies for use.
+The xref:pulsar/quick-tour.adoc[Quick Tour] shows what to add to a Maven or Gradle build.
 
 Spring Boot manages an older version of Pulsar, so applications must always set the `pulsar.version` property, and it's recommended that they also set `netty.version` to the most recent 4.2.x release of Netty.
 See xref:appendix/override-boot-dependencies.adoc[] for how to set them.

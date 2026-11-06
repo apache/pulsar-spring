@@ -11,7 +11,9 @@ ifeval::[{is-snapshot-version} == true]
 CAUTION: You are viewing documentation for a SNAPSHOT version ({pulsar-spring-version}). While it is usually in-sync with the underlying code, it is subject to change and not guaranteed to be up-to-date with the underlying code.
 endif::[]
 
-To start using it, continue to the xref:intro.adoc[Introduction].
+Most applications use Spring Boot with the `pulsar-spring-boot-starter` dependency.
+The xref:pulsar/quick-tour.adoc[Quick Tour] shows what to add to a Maven or Gradle build, and a complete application.
+The xref:intro.adoc[Introduction] describes the other steps to get started.
 If you are moving an application from Spring for Apache Pulsar, which this project succeeds, see xref:migration.adoc[Migration from Spring's Pulsar support].
 
 [[overview-features]]
@@ -19,7 +21,7 @@ If you are moving an application from Spring for Apache Pulsar, which this proje
 
 * *Publishing messages*: xref:pulsar/message-production.adoc[`PulsarTemplate`] publishes messages to a topic.
 * *Consuming messages*: xref:pulsar/message-consumption.adoc[`@PulsarListener` and `@PulsarReader`] turn a method into a consumer or a reader of a topic.
-* *Spring Boot*: xref:spring-boot.adoc[auto-configuration and starters] set up these components from configuration properties.
+* *Spring Boot*: the xref:spring-boot.adoc[`pulsar-spring-boot-starter` starter] auto-configures these components from configuration properties.
 * *Spring Cloud Stream*: a xref:cloud-stream-binder.adoc[binder] connects event-driven applications to Pulsar.
 * *Pulsar features*: support for xref:pulsar/transactions.adoc[transactions], xref:pulsar-admin.adoc[administration] and xref:pulsar-function.adoc[Pulsar Functions].
 * *Production and testing*: xref:observability.adoc[observability] with Micrometer, and xref:testing-applications.adoc[utilities for tests].

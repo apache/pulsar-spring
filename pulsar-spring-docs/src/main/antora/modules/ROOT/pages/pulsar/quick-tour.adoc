@@ -11,6 +11,10 @@ It's also recommended to set `netty.version` to the most recent 4.2.x release of
 The following listings show how to do this for Maven and Gradle, respectively.
 See xref:appendix/override-boot-dependencies.adoc[] for more information.
 
+ifeval::[{is-snapshot-version} == true]
+NOTE: This is a SNAPSHOT version, so you also need to add the repository described in xref:appendix/snapshot-versions.adoc[].
+endif::[]
+
 [tabs]
 ======
 Maven::
