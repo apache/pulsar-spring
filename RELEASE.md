@@ -77,6 +77,14 @@ Click **Close**, paste the description, and click **Confirm**. Closing takes a f
 export STAGING_REPO=https://repository.apache.org/content/repositories/orgapachepulsar-XYZ
 ```
 
+Run the tests of the sample applications against the staged artifacts, which requires Docker and takes a few minutes. With `pulsarSpringRepository` set, the build gets these artifacts only from that repository. `--refresh-dependencies` checks any copies in the Gradle cache against it, and `--rerun-tasks` makes sure the tests run again:
+
+```shell
+(cd pulsar-spring-sample-apps && ../gradlew runAllSampleTests -PsampleTests -PpulsarSpringRepository="$STAGING_REPO" --refresh-dependencies --rerun-tasks)
+```
+
+If they fail, **Drop** the staging repository and replace the candidate, as described in [Vote](#2-vote).
+
 Push the commit and the tag:
 
 ```shell
@@ -126,6 +134,8 @@ https://downloads.apache.org/pulsar/KEYS
 
 To verify the source release:
 
+    CANDIDATE_URL=$CANDIDATE_URL
+    wget \$CANDIDATE_URL/apache-pulsar-spring-$VERSION-src.tar.gz{,.sha512,.asc}
     sha512sum -c apache-pulsar-spring-$VERSION-src.tar.gz.sha512
     gpg --verify apache-pulsar-spring-$VERSION-src.tar.gz.asc
     tar xzf apache-pulsar-spring-$VERSION-src.tar.gz
