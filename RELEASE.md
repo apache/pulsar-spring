@@ -104,6 +104,10 @@ Apache License, Version 2.0.
 Those works remain the copyright of their original authors and contributors, as
 stated in the headers of the source files.
 
+For more information, see the reference documentation and the source repository:
+https://pulsar.apache.org/pulsar-spring/reference
+https://github.com/apache/pulsar-spring
+
 Source release, with its checksum and signature:
 $CANDIDATE_URL
 
@@ -288,6 +292,9 @@ https://pulsar.apache.org/download/
 
 Documentation:
 https://pulsar.apache.org/pulsar-spring/reference
+
+Source repository:
+https://github.com/apache/pulsar-spring
 
 The artifacts are available on Maven Central with the org.apache.pulsar group ID.
 EOF
