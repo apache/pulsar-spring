@@ -24,7 +24,6 @@ buildscript {
 plugins {
 	id 'io.spring.nohttp'
 	id 'org.apache.pulsar.spring.root-project'
-	id 'org.apache.pulsar.spring.update-version'
 	alias(libs.plugins.rat)
 	alias(libs.plugins.versions)
 	alias(libs.plugins.version.catalog.update)
@@ -39,7 +38,6 @@ apply from: 'gradle/nullability-conventions.gradle'
 apply from: 'gradle/source-release.gradle'
 
 allprojects {
-	group = 'org.apache.pulsar'
 	configurations.all {
 		resolutionStrategy {
 			cacheChangingModulesFor 0, "seconds"

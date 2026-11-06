@@ -89,6 +89,8 @@ Pass your ASF credentials as environment variables so that they aren't stored in
 
 Set `-PapacheSnapshotsRepoUrl` and `-PapacheReleasesRepoUrl` to `file://` URLs to test the publication without uploading anything.
 
+A private fork can publish with its own group ID by changing `group` in `gradle.properties`.
+
 ## Source release
 
 `sourceRelease` creates the source release for an ASF release vote in `build/source-release`: an archive of the committed tree, with a SHA-512 checksum and a detached signature.

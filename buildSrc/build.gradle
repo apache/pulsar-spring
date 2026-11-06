@@ -74,9 +74,5 @@ gradlePlugin {
 			id = "org.apache.pulsar.spring.spring-unpublished-module"
 			implementationClass = "org.apache.pulsar.spring.gradle.SpringUnpublishedModulePlugin"
 		}
-		updateProjectVersion {
-			id = "org.apache.pulsar.spring.update-version"
-			implementationClass = "org.apache.pulsar.spring.gradle.versions.UpdateProjectVersionPlugin"
-		}
 	}
 }

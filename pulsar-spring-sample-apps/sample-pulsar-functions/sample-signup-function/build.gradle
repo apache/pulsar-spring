@@ -28,7 +28,7 @@ dependencies {
 	// Enforced since Avro in the Pulsar client would otherwise select a newer version
 	implementation enforcedPlatform(libs.jackson.bom)
 	implementation libs.pulsar.client.original
-	implementation "org.apache.pulsar:pulsar-functions-api:${libs.versions.pulsar.asProvider().get()}"
+	implementation "org.apache.pulsar:pulsar-functions-api:${libs.versions.pulsar.get()}"
 	implementation libs.jspecify
 	compileOnly 'org.projectlombok:lombok:1.18.48'
 	annotationProcessor 'org.projectlombok:lombok:1.18.48'

@@ -27,7 +27,7 @@ description = 'Apache Pulsar support for Spring Sample (Custom Routing w/ Failov
 
 dependencies {
 	implementation platform(libs.pulsar.spring.bom)
-	implementation 'org.apache.pulsar:pulsar-spring-boot-starter'
+	implementation libs.pulsar.spring.boot.starter
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-jackson2'
 	implementation 'org.springframework.boot:spring-boot-http-converter'
@@ -36,7 +36,7 @@ dependencies {
 	implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
 	implementation 'io.zipkin.reporter2:zipkin-sender-urlconnection'
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-	testImplementation 'org.apache.pulsar:pulsar-spring-test'
+	testImplementation libs.pulsar.spring.test
 	testRuntimeOnly 'ch.qos.logback:logback-classic'
 	testImplementation "org.springframework.boot:spring-boot-starter-test"
 	testImplementation "org.springframework.boot:spring-boot-testcontainers"

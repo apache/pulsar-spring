@@ -69,7 +69,7 @@ CI enforces the formatting, Checkstyle and license header rules. To check them w
 
 - **Formatting:** we use [Spring Java Format](https://github.com/spring-io/spring-javaformat). Apply it with your IDE or with `./gradlew format`. Format checks are disabled for the `pulsar-spring` module, so formatting can also change unrelated files there: review the diff, and keep those changes out of your commit.
 - **Packages:** all sources belong under `org.apache.pulsar.spring`.
-- **Artifacts:** the group is `org.apache.pulsar`, and published artifact IDs start with `pulsar-spring`. Spring Boot does not manage their versions.
+- **Artifacts:** the group is `org.apache.pulsar`, set in `gradle.properties`, and published artifact IDs start with `pulsar-spring`. Spring Boot does not manage their versions.
 - **Name:** the project is "Apache Pulsar support for Spring". Use "Spring for Apache Pulsar" only when referring to the upstream project it succeeds, as in `NOTICE` and the migration page.
 - **Author tags:** don't add `@author` tags. The [ASF board discourages them](https://www.apache.org/foundation/records/minutes/2004/board_minutes_2004_02_18.txt), and the Git history records the authors. Checkstyle and CI reject them.
 - **Imports:** Checkstyle requires static imports first, then `java`, `javax`, `org`, `org.springframework` and everything else, as separate groups.

@@ -28,8 +28,8 @@ description = 'Apache Pulsar support for Spring Sample Application (AOT and nati
 
 dependencies {
 	implementation platform(libs.pulsar.spring.bom)
-	implementation 'org.apache.pulsar:pulsar-spring-boot-starter'
-	testImplementation 'org.apache.pulsar:pulsar-spring-test'
+	implementation libs.pulsar.spring.boot.starter
+	testImplementation libs.pulsar.spring.test
 	testRuntimeOnly 'ch.qos.logback:logback-classic'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.testcontainers:testcontainers-junit-jupiter'

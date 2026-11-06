@@ -28,7 +28,7 @@ description = 'Sample Signup App (Pulsar Functions)'
 
 dependencies {
 	implementation platform(libs.pulsar.spring.bom)
-	implementation 'org.apache.pulsar:pulsar-spring-cloud-stream-binder'
+	implementation libs.pulsar.spring.cloud.stream.binder
 	implementation 'org.springframework.boot:spring-boot-starter-amqp'
 	implementation 'org.springframework.boot:spring-boot-starter-data-cassandra'
 	implementation 'com.devskiller:jfairy:0.6.5'

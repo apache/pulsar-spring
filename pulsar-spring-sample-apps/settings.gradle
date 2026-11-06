@@ -36,6 +36,12 @@ pluginManagement {
 // substitutes its projects for these artifacts.
 def pulsarSpringRepository = providers.gradleProperty('pulsarSpringRepository').orNull
 
+// This build uses the group and version of the main build, which aren't available to it as properties
+def mainBuildProperties = new Properties()
+mainBuildProperties.load(new StringReader(
+		providers.fileContents(layout.settingsDirectory.file('../gradle.properties')).asText.get()))
+def pulsarSpringGroup = mainBuildProperties.getProperty('group')
+
 dependencyResolutionManagement {
 	repositories {
 		if (pulsarSpringRepository != null) {
@@ -47,7 +53,7 @@ dependencyResolutionManagement {
 					}
 				}
 				filter {
-					includeModuleByRegex('org\\.apache\\.pulsar', 'pulsar-spring.*')
+					includeModuleByRegex(java.util.regex.Pattern.quote(pulsarSpringGroup), 'pulsar-spring.*')
 				}
 			}
 		}
@@ -62,6 +68,12 @@ dependencyResolutionManagement {
 	versionCatalogs {
 		libs {
 			from(files('../gradle/libs.versions.toml'))
+			library('pulsar-spring-bom', pulsarSpringGroup, 'pulsar-spring-bom')
+				.version(mainBuildProperties.getProperty('version'))
+			// The BOM manages the versions of these
+			library('pulsar-spring-boot-starter', pulsarSpringGroup, 'pulsar-spring-boot-starter').withoutVersion()
+			library('pulsar-spring-cloud-stream-binder', pulsarSpringGroup, 'pulsar-spring-cloud-stream-binder').withoutVersion()
+			library('pulsar-spring-test', pulsarSpringGroup, 'pulsar-spring-test').withoutVersion()
 		}
 	}
 }

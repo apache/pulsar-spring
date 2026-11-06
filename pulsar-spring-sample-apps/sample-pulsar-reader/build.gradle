@@ -27,9 +27,9 @@ description = 'Apache Pulsar support for Spring Sample Application (Reader)'
 
 dependencies {
 	implementation platform(libs.pulsar.spring.bom)
-	implementation 'org.apache.pulsar:pulsar-spring-boot-starter'
+	implementation libs.pulsar.spring.boot.starter
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-	testImplementation 'org.apache.pulsar:pulsar-spring-test'
+	testImplementation libs.pulsar.spring.test
 	testRuntimeOnly 'ch.qos.logback:logback-classic'
 	testImplementation "org.springframework.boot:spring-boot-starter-test"
 	testImplementation "org.springframework.boot:spring-boot-testcontainers"

@@ -33,8 +33,6 @@ opentelemetry-alpha = "1.67.0-alpha"
 netty = "4.2.20.Final"
 protobuf = "4.36.2"
 pulsar = "5.0.1"
-# the version of this project that the sample apps use, the same as in gradle.properties
-pulsar-spring = "3.0.0-M1-SNAPSHOT"
 spring = "7.0.10"
 # tests
 assertj = "3.27.7"
@@ -86,7 +84,6 @@ pulsar-client-admin-original = { module = "org.apache.pulsar:pulsar-client-admin
 pulsar-client-api = { module = "org.apache.pulsar:pulsar-client-api", version.ref = "pulsar" }
 pulsar-client-messagecrypto-bc = { module = "org.apache.pulsar:pulsar-client-messagecrypto-bc", version.ref = "pulsar" }
 pulsar-client-original = { module = "org.apache.pulsar:pulsar-client-original", version.ref = "pulsar" }
-pulsar-spring-bom = { module = "org.apache.pulsar:pulsar-spring-bom", version.ref = "pulsar-spring" }
 spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring" }
 # Testing libs
 amqp-client = { module = "com.rabbitmq:amqp-client", version.ref = "amqp-client" }

@@ -47,7 +47,7 @@ subprojects {
 	group = 'org.apache.pulsar.spring.sample'
 
 	// Spring Boot's dependency management would otherwise use the versions of its own BOM
-	ext['pulsar.version'] = rootProject.libs.versions.pulsar.asProvider().get()
+	ext['pulsar.version'] = rootProject.libs.versions.pulsar.get()
 	ext['netty.version'] = rootProject.libs.versions.netty.get()
 	ext['opentelemetry.version'] = rootProject.libs.versions.opentelemetry.asProvider().get()
 	ext['rabbit-amqp-client.version'] = rootProject.libs.versions.amqp.client.get()
