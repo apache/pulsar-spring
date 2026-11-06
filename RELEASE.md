@@ -94,6 +94,16 @@ Subject: [VOTE] Release Apache Pulsar support for Spring $VERSION based on candi
 
 This is a vote to release Apache Pulsar support for Spring $VERSION.
 
+Apache Pulsar support for Spring is derived from Spring for Apache Pulsar, also
+known as Spring Pulsar (https://github.com/spring-projects/spring-pulsar), from
+the Apache Pulsar starter and auto-configuration in Spring Boot
+(https://github.com/spring-projects/spring-boot), and from the Apache Pulsar
+binder in Spring Cloud Stream
+(https://github.com/spring-cloud/spring-cloud-stream), all licensed under the
+Apache License, Version 2.0.
+Those works remain the copyright of their original authors and contributors, as
+stated in the headers of the source files.
+
 Source release, with its checksum and signature:
 $CANDIDATE_URL
 
@@ -262,6 +272,16 @@ Apache Pulsar support for Spring makes it easier to build Apache Pulsar
 applications with Spring. It provides PulsarTemplate for publishing messages,
 @PulsarListener and @PulsarReader for consuming them, a Spring Boot starter with
 auto-configuration and a Spring Cloud Stream binder.
+
+Apache Pulsar support for Spring is derived from Spring for Apache Pulsar, also
+known as Spring Pulsar (https://github.com/spring-projects/spring-pulsar), from
+the Apache Pulsar starter and auto-configuration in Spring Boot
+(https://github.com/spring-projects/spring-boot), and from the Apache Pulsar
+binder in Spring Cloud Stream
+(https://github.com/spring-cloud/spring-cloud-stream), all licensed under the
+Apache License, Version 2.0.
+Those works remain the copyright of their original authors and contributors, as
+stated in the headers of the source files.
 
 Download:
 https://pulsar.apache.org/download/
