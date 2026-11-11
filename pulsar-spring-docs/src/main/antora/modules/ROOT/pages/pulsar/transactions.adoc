@@ -19,6 +19,20 @@ Transaction support is disabled by default.
 To enable support when using Spring Boot, simply set the `spring.pulsar.transaction.enabled` property.
 Further configuration options are outlined in each component section below.
 
+=== `PulsarTransactionManager` Configuration
+`TransactionManagerCustomizers` is applied to the auto-configured `PulsarTransactionManager` in line with how Spring Boot treats its other transaction managers, so you can customize `PulsarTransactionManager`
+by register a `TransactionManagerCustomizer<PulsarTransactionManager>` bean:
+
+[source, java]
+----
+@Bean
+TransactionManagerCustomizer<PulsarTransactionManager> transactionManagerCustomizer() {
+    return (transactionManager) -> transactionManager.setDefaultTimeout(45);
+}
+----
+
+NOTE: `spring.transaction.*` are applied to Pulsar transactions automatically, you can configure `spring.transaction.default-timeout=45s` instead of aforementioned code.
+
 == Transactional Publishing with `PulsarTemplate`
 All send operations on a transactional `PulsarTemplate` look for an active transaction and enlist each send operation in the transaction (if one is found).
 

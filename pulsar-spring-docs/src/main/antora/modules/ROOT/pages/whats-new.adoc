@@ -25,6 +25,9 @@ Applications that use Protobuf schemas add `protobuf-java` themselves, and can u
 Spring Boot applications must always set the `pulsar.version` property, and it's recommended that they also set `netty.version` to the most recent 4.2.x release of Netty.
 See xref:intro/system-requirements.adoc#pulsar-client-dependencies[Pulsar client] and xref:appendix/override-boot-dependencies.adoc[] for more information.
 
+=== Transactions
+Beans of type `TransactionManagerCustomizer<PulsarTransactionManager>` are applied to the auto-configured `PulsarTransactionManager`, `spring.transaction.*` properties will also be applied to Pulsar transactions.
+
 === Native image support
 The runtime hints have been updated for the unshaded Pulsar 5 client.
 The new `sample-native-image` sample application tests them with ahead-of-time processing and as a native image.
