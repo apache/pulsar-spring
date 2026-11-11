@@ -80,6 +80,7 @@ import org.apache.pulsar.spring.core.TopicResolver;
 import org.apache.pulsar.spring.function.PulsarFunctionAdministration;
 import org.apache.pulsar.spring.listener.PulsarContainerProperties.TransactionSettings;
 import org.apache.pulsar.spring.transaction.PulsarAwareTransactionManager;
+import org.apache.pulsar.spring.transaction.PulsarTransactionManager;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.assertj.core.api.ThrowingConsumer;
 import org.junit.jupiter.api.Nested;
@@ -96,11 +97,13 @@ import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.test.context.FilteredClassLoader;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
+import org.springframework.boot.transaction.autoconfigure.TransactionManagerCustomizationAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.task.VirtualThreadTaskExecutor;
 import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.transaction.TransactionExecutionListener;
 
 /**
  * Tests for {@link PulsarAutoConfiguration}.
@@ -183,6 +186,18 @@ class PulsarAutoConfigurationTests {
 			.withBean("customContainerFactoryCustomizers", PulsarContainerFactoryCustomizers.class, () -> customizers)
 			.run((context) -> assertThat(context).getBean(PulsarContainerFactoryCustomizers.class)
 				.isSameAs(customizers));
+	}
+
+	@Test
+	void pulsarTransactionManagerWithTransactionExecutionListenersIsConfigured() {
+		TransactionExecutionListener listener = mock(TransactionExecutionListener.class);
+		this.contextRunner.withPropertyValues("spring.pulsar.transaction.enabled=true")
+			.withConfiguration(AutoConfigurations.of(TransactionManagerCustomizationAutoConfiguration.class))
+			.withBean(TransactionExecutionListener.class, () -> listener)
+			.run((context) -> {
+				PulsarTransactionManager transactionManager = context.getBean(PulsarTransactionManager.class);
+				assertThat(transactionManager.getTransactionExecutionListeners()).containsExactly(listener);
+			});
 	}
 
 	@Nested
