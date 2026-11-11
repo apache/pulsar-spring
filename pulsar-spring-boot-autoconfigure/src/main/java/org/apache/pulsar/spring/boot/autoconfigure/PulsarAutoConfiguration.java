@@ -83,6 +83,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.thread.Threading;
+import org.springframework.boot.transaction.autoconfigure.TransactionManagerCustomizers;
 import org.springframework.boot.util.LambdaSafe;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -317,8 +318,11 @@ public final class PulsarAutoConfiguration {
 	@Bean
 	@ConditionalOnMissingBean(PulsarAwareTransactionManager.class)
 	@ConditionalOnBooleanProperty("spring.pulsar.transaction.enabled")
-	PulsarTransactionManager pulsarTransactionManager(PulsarClient pulsarClient) {
-		return new PulsarTransactionManager(pulsarClient);
+	PulsarTransactionManager pulsarTransactionManager(PulsarClient pulsarClient,
+			ObjectProvider<TransactionManagerCustomizers> transactionManagerCustomizers) {
+		PulsarTransactionManager pulsarTransactionManager = new PulsarTransactionManager(pulsarClient);
+		transactionManagerCustomizers.ifAvailable((customizers) -> customizers.customize(pulsarTransactionManager));
+		return pulsarTransactionManager;
 	}
 
 	@SuppressWarnings("unchecked")
