@@ -34,8 +34,10 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
@@ -47,6 +49,7 @@ import org.apache.pulsar.client.admin.PulsarAdmin;
 import org.apache.pulsar.client.api.Consumer;
 import org.apache.pulsar.client.api.DeadLetterPolicy;
 import org.apache.pulsar.client.api.Message;
+import org.apache.pulsar.client.api.MessageId;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.RedeliveryBackoff;
 import org.apache.pulsar.client.api.Schema;
@@ -296,6 +299,49 @@ class DefaultPulsarMessageListenerContainerTests implements PulsarTestContainerS
 		// multiplier.
 		await().atMost(Duration.ofSeconds(10))
 			.untilAsserted(() -> verify(containerConsumer, times(6)).negativeAcknowledge(any(Message.class)));
+
+		container.stop();
+		pulsarClient.close();
+	}
+
+	@Test
+	void listenerFailureInManualAckModeIsReportedWithTheMessageIdAndTheCause() throws Exception {
+		PulsarClient pulsarClient = PulsarTestClients.builder()
+			.serviceUrl(PulsarTestContainerSupport.getPulsarBrokerUrl())
+			.build();
+		DefaultPulsarConsumerFactory<String> pulsarConsumerFactory = new DefaultPulsarConsumerFactory<>(pulsarClient,
+				List.of((consumerBuilder) -> {
+					consumerBuilder.topic("dpmlct-018");
+					consumerBuilder.subscriptionName("dpmlct-sb-018");
+				}));
+		RuntimeException listenerFailure = new RuntimeException("fail");
+		AtomicReference<MessageId> receivedMessageId = new AtomicReference<>();
+		PulsarContainerProperties pulsarContainerProperties = new PulsarContainerProperties();
+		pulsarContainerProperties
+			.setMessageListener((PulsarAcknowledgingMessageListener<?>) (consumer, msg, acknowledgement) -> {
+				receivedMessageId.set(msg.getMessageId());
+				throw listenerFailure;
+			});
+		pulsarContainerProperties.setSchema(Schema.STRING);
+		pulsarContainerProperties.setAckMode(AckMode.MANUAL);
+		DefaultPulsarMessageListenerContainer<String> container = new DefaultPulsarMessageListenerContainer<>(
+				pulsarConsumerFactory, pulsarContainerProperties);
+		container.start();
+
+		DefaultPulsarProducerFactory<String> pulsarProducerFactory = new DefaultPulsarProducerFactory<>(pulsarClient,
+				"dpmlct-018");
+		PulsarTemplate<String> pulsarTemplate = new PulsarTemplate<>(pulsarProducerFactory);
+		pulsarTemplate.send("hello john doe");
+
+		CompletableFuture<?> listenerConsumerFuture = (CompletableFuture<?>) ReflectionTestUtils.getField(container,
+				"listenerConsumerFuture");
+		assertThat(listenerConsumerFuture).failsWithin(Duration.ofSeconds(10))
+			.withThrowableOfType(ExecutionException.class)
+			.havingCause()
+			.isInstanceOf(IllegalStateException.class)
+			.withMessage("Exception occurred and message %s was not auto-nacked; "
+					+ "switch to AckMode BATCH or RECORD to enable auto-nacks", receivedMessageId.get())
+			.withCause(listenerFailure);
 
 		container.stop();
 		pulsarClient.close();
