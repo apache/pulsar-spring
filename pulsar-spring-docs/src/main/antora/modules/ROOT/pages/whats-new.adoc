@@ -38,6 +38,10 @@ The `pulsar-spring-test` module has a new `PulsarTestImage` class, which creates
 The `pulsar.test.image` system property or the `PULSAR_TEST_IMAGE` environment variable sets its default image.
 See xref:testing-applications.adoc#pulsar-test-image[PulsarTestImage] for more information.
 
+=== Pulsar TableView support
+The new `PulsarTableViewFactory` creates Pulsar table views, in the same way as the `PulsarReaderFactory` creates readers.
+See xref:pulsar/message-consumption.adoc#pulsar-table-view[Pulsar TableView Support] for more information.
+
 [[what-s-new-in-2-0-since-1-2]]
 == What's New in 2.0 Since 1.2
 :page-section-summary-toc: 1
